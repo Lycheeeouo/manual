@@ -41,13 +41,24 @@
 
             /* 1. 基本外觀：變成圓圓的藥丸形狀，字體變小 */
             .skill-btn {
-                border-radius: 50px !important; /* 變成完全橢圓 */
-                font-size: 0.75rem !important;  /* 字體縮小 */
-                height: 2.25rem !important;     /* 高度變矮一點 */
-                line-height: 2.25rem !important;
-                margin-bottom: 0.5rem;          /* 按鈕之間的間距 */
-                opacity: 0.6;                   /* 預設稍微透明一點，降低存在感 */
+                border-radius: 50px !important;
+                font-size: 0.75rem !important;
+                min-height: 2.25rem !important; /* 改用 min-height */
+                height: auto !important;        /* 高度自動 */
+
+                /* ★關鍵修改：允許文字換行 */
+                white-space: normal !important;
+                line-height: 1.2 !important;
+                padding: 0.4rem 1rem;           /* 增加上下內距 */
+
+                margin-bottom: 0.5rem;
+                opacity: 0.6;
                 transition: all 0.2s ease;
+
+                /* 讓文字垂直置中 */
+                display: inline-flex;  /* 改用 flex */
+                align-items: center;
+                justify-content: center;
             }
 
             /* 2. 滑鼠滑過去時 */
@@ -97,12 +108,18 @@
 						<div class="content">
 							<div class="inner">
 								<h1>∠( ᐛ 」∠)_</h1>
-								<p>尼豪<br>
+                                <span style="font-size: 0.8rem; letter-spacing: 0.2rem; line-height: 2; display: block;">
+                                    尼豪<br>
+                                </span>
+                                <span style="font-size: 0.8rem; letter-spacing: 0.2rem; line-height: 2; display: block;">
                                     這是個有用的筆記 有需要的人可以用<br>
+                                </span>
+                                <span style="font-size: 0.8rem; letter-spacing: 0.2rem; line-height: 2; display: block;">
                                     有什麼問題可以找荔枝 <s>雖然你說了我也有可能懶的改</s><br>
-                                     <br>
+                                </span>
+                                <span style="font-size: 0.8rem; letter-spacing: 0.2rem; line-height: 2; display: block;">
                                     反正 就是這樣(ゝ∀･)<br>
-                                </p>
+                                </span>
 							</div>
 						</div>
 						<nav>

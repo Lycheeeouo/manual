@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="1.新增團副BOSS區塊，並建立基礎架構">
+    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="1.更改頁面標題">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
@@ -72,7 +72,8 @@
       <workItem from="1764247096830" duration="820000" />
       <workItem from="1764250599137" duration="124000" />
       <workItem from="1764250771761" duration="15088000" />
-      <workItem from="1764266989271" duration="717000" />
+      <workItem from="1764266989271" duration="769000" />
+      <workItem from="1764268010796" duration="607000" />
     </task>
     <task id="LOCAL-00001" summary="測試">
       <option name="closed" value="true" />
@@ -90,7 +91,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764266905098</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="1.更改頁面標題">
+      <option name="closed" value="true" />
+      <created>1764267747067</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1764267747067</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -99,7 +108,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="測試" />
     <MESSAGE value="1.新增團副BOSS區塊，並建立基礎架構" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.新增團副BOSS區塊，並建立基礎架構" />
+    <MESSAGE value="1.更改頁面標題" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.更改頁面標題" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
