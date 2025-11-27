@@ -20,18 +20,22 @@
 				<!-- Header -->
 					<header id="header">
 						<div class="logo">
-							<span class="icon fa-gem"></span>
+							<span class="icon solid fa-heart"></span>
 						</div>
 						<div class="content">
 							<div class="inner">
-								<h1>Dimension</h1>
-								<p>A fully responsive site template designed by <a href="https://html5up.net">HTML5 UP</a> and released<br />
-								for free under the <a href="https://html5up.net/license">Creative Commons</a> license.</p>
+								<h1>∠( ᐛ 」∠)_</h1>
+								<p>尼豪<br>
+                                    只是做好玩的 有需要的人可以用<br>
+                                    有什麼問題可以找荔枝 <s>雖然你說了我也有可能懶的改</s><br>
+                                     <br>
+                                    反正 就是這樣(ゝ∀･)<br>
+                                </p>
 							</div>
 						</div>
 						<nav>
 							<ul>
-								<li><a href="#intro">Intro</a></li>
+								<li><a href="#dungeon2">團副Boss</a></li>
 								<li><a href="#work">Work</a></li>
 								<li><a href="#about">About</a></li>
 								<li><a href="#contact">Contact</a></li>
@@ -43,13 +47,113 @@
 				<!-- Main -->
 					<div id="main">
 
-						<!-- Intro -->
-							<article id="intro">
-								<h2 class="major">Intro</h2>
-								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
-								<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#work">awesome work</a>.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
-							</article>
+						<!-- Dungeon2 -->
+                            <article id="dungeon2">
+                                <h2 class="major">團副Boss</h2>
+                                <p>我們打團時最怕的就是遇到某個人重複失誤，導致其他玩家被迫陪著重打，但若不找隊友進副本 <s>受苦</s> 又難以摸索 BOSS 技能的機制，最後落得無團可打 (っ﹏-)<br>
+                                    所以...這個區塊就這樣誕生了ヾ(*´∀ ˋ*)ﾉ<br>
+                                    希望打團新手可以有個地方自主了解一下 BOSS 的機制如何運作<br>
+                                    然後再去 <s>折磨</s>..找隊友，其他的還算簡單所以暫時不加。<br>
+                                    ( 如果有需要別的教學再叫荔枝，有空就考慮加上去 •_ゝ• )</p>
+                                <p>請點擊下方按鈕選擇您要查看的團體副本 BOSS 機制：</p>
+
+                                <ul class="actions stacked">
+                                    <li><a href="#boss1" class="button fit" onclick="initTab('boss1', '1diff1')">團副一【困難】：困難三王</a></li>
+                                    <li><a href="#boss2" class="button fit" onclick="initTab('boss2', '2norm1')">團副二【普通】：普通一王、普通二王、普通三王</a></li>
+                                    <li><a href="#boss3" class="button fit" onclick="initTab('boss3', '2diff1')">團副二【困難】：困難一王、困難二王、困難三王</a></li>
+                                </ul>
+                            </article>
+
+                            <article id="boss1">
+                                <h2 class="major">團副一【困難】</h2>
+
+                                <ul class="actions fit small" style="margin-bottom: 2rem;">
+                                    <li><a href="javascript:void(0)" class="button primary fit tab-btn" onclick="openTab(event, '1diff1')">困難三王</a></li>
+                                </ul>
+
+                                <div id="1diff1" class="tab-content" style="display: block;">
+                                    <h3>第一關：名稱待補</h3>
+                                    <span class="image main"><img src="images/pic01.jpg" alt="一王圖片" /></span>
+                                    <p>這裡是普通一王的攻略內容...</p>
+                                </div>
+
+                                <hr />
+                                <ul class="actions">
+                                    <li><a href="#dungeon2" class="button small">返回上一頁</a></li>
+                                </ul>
+                            </article>
+
+                            <article id="boss2">
+                                <h2 class="major">團副二【普通】</h2>
+
+                                <ul class="actions fit small" style="margin-bottom: 2rem;">
+                                    <li><a href="javascript:void(0)" class="button primary fit tab-btn" onclick="openTab(event, '2norm1')">普通一王</a></li>
+                                    <li><a href="javascript:void(0)" class="button fit tab-btn" onclick="openTab(event, '2norm2')">普通二王</a></li>
+                                    <li><a href="javascript:void(0)" class="button fit tab-btn" onclick="openTab(event, '2norm3')">普通三王</a></li>
+                                </ul>
+
+                                <div id="2norm1" class="tab-content" style="display: block;">
+                                    <h3>第一關：名稱待補</h3>
+                                    <span class="image main"><img src="images/pic01.jpg" alt="一王圖片" /></span>
+                                    <p>這裡是普通一王的攻略內容...</p>
+                                </div>
+
+                                <div id="2norm2" class="tab-content" style="display: none;">
+                                    <h3>第二關：紅龍</h3>
+                                    <div class="gif-row">
+                                        <span class="image main"><img src="images/red.gif" alt="" style="width:350px; height:auto;"/></span>
+                                        <span class="image main"><img src="images/red.gif" alt="" style="width:350px; height:auto;"/></span>
+                                    </div>
+                                    <p>這裡是普通二王紅龍的攻略機制說明。</p>
+                                </div>
+
+                                <div id="2norm3" class="tab-content" style="display: none;">
+                                    <h3>第三關：最終魔王</h3>
+                                    <span class="image main"><img src="images/pic02.jpg" alt="三王圖片" /></span>
+                                    <p>這裡是普通三王的攻略內容...</p>
+                                </div>
+
+                                <hr />
+                                <ul class="actions">
+                                    <li><a href="#dungeon2" class="button small">返回上一頁</a></li>
+                                </ul>
+                            </article>
+
+                            <article id="boss3">
+                                <h2 class="major">團副二【困難】</h2>
+
+                                <ul class="actions fit small" style="margin-bottom: 2rem;">
+                                    <li><a href="javascript:void(0)" class="button primary fit tab-btn" onclick="openTab(event, '2diff1')">困難一王</a></li>
+                                    <li><a href="javascript:void(0)" class="button fit tab-btn" onclick="openTab(event, '2diff2')">困難二王</a></li>
+                                    <li><a href="javascript:void(0)" class="button fit tab-btn" onclick="openTab(event, '2diff3')">困難三王</a></li>
+                                </ul>
+
+                                <div id="2diff1" class="tab-content" style="display: block;">
+                                    <h3>第一關：名稱待補</h3>
+                                    <span class="image main"><img src="images/pic01.jpg" alt="一王圖片" /></span>
+                                    <p>這裡是普通一王的攻略內容...</p>
+                                </div>
+
+                                <div id="2diff2" class="tab-content" style="display: none;">
+                                    <h3>第二關：紅龍</h3>
+                                    <div class="gif-row">
+                                        <span class="image main"><img src="images/red.gif" alt="" style="width:350px; height:auto;"/></span>
+                                        <span class="image main"><img src="images/red.gif" alt="" style="width:350px; height:auto;"/></span>
+                                    </div>
+                                    <p>這裡是普通二王紅龍的攻略機制說明。</p>
+                                </div>
+
+                                <div id="2diff3" class="tab-content" style="display: none;">
+                                    <h3>第三關：最終魔王</h3>
+                                    <span class="image main"><img src="images/pic02.jpg" alt="三王圖片" /></span>
+                                    <p>這裡是普通三王的攻略內容...</p>
+                                </div>
+
+                                <hr />
+                                <ul class="actions">
+                                    <li><a href="#dungeon2" class="button small">返回上一頁</a></li>
+                                </ul>
+                            </article>
 
 						<!-- Work -->
 							<article id="work">
@@ -343,7 +447,8 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 				<!-- Footer -->
 					<footer id="footer">
-						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+						<p class="copyright"> 其他問題:<a href="https://drive.google.com/drive/folders/1vqj7-WXtDDnmmwgfJZPNwi1_hAvDC5MV">獨步大補帖</a>
+                            、<a href="https://forms.gle/8cQdCaiazMjsSVGG9">問題回報表單</a></p>
 					</footer>
 
 			</div>
@@ -357,6 +462,46 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+        <!-- Tabs -->
+            <script>
+                // 1. 這是原本的切換功能 (點分頁按鈕時執行)
+                function openTab(evt, tabName) {
+                    // 找到這個按鈕所在的那個大區塊 (article)
+                    // 這樣可以確保只影響當前頁面，不會誤關到別頁的內容
+                    var $article = $(evt.currentTarget).closest('article');
+
+                    // 先隱藏這個區塊內所有的內容
+                    $article.find('.tab-content').hide();
+
+                    // 移除這個區塊內所有按鈕的亮燈樣式 (primary)
+                    $article.find('.tab-btn').removeClass('primary');
+
+                    // 顯示目標內容
+                    $('#' + tabName).show();
+
+                    // 把被點擊的按鈕亮燈
+                    $(evt.currentTarget).addClass('primary');
+                }
+
+                // 2. 這是新增的：初始化重置功能 (給目錄頁的按鈕用的)
+                // 參數 articleId = 要去的頁面 ID (例如 'boss2')
+                // 參數 tabId     = 預設要開啟的分頁 ID (例如 '2norm1')
+                function initTab(articleId, tabId) {
+                    var $article = $('#' + articleId);
+
+                    // 先把該頁面裡面全部內容藏起來、按鈕燈滅掉
+                    $article.find('.tab-content').hide();
+                    $article.find('.tab-btn').removeClass('primary');
+
+                    // 顯示預設的那個分頁
+                    $('#' + tabId).show();
+
+                    // 找到對應的按鈕並把它亮起來
+                    // 這裡使用程式碼自動去抓「哪個按鈕負責這個分頁」
+                    $article.find(".tab-btn[onclick*='" + tabId + "']").addClass('primary');
+                }
+            </script>
 
 	</body>
 </html>
