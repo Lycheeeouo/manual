@@ -92,6 +92,42 @@
                 }
             }
 
+            /* === 萬用王按鈕設定 (.tab-btn 和 .tab-btn1 通用) === */
+            .tab-btn, .tab-btn1 {
+                /* 1. 置中設定 */
+                display: block !important;       /* 改回 block 以便處理單行文字溢出 */
+                text-align: center !important;
+                line-height: 3rem !important;    /* 設定行高等於按鈕高度，讓文字垂直置中 */
+                height: 3rem !important;         /* 固定高度 */
+
+                /* 2. 關鍵：強制不換行 & 處理溢出 */
+                white-space: nowrap !important;      /* 絕對不換行 */
+                overflow: hidden !important;         /* 超出範圍的部分藏起來 */
+                text-overflow: ellipsis !important;  /* 真的塞不下的部分變成 "..." */
+
+                /* 3. 寬度限制 */
+                max-width: 100% !important;
+                padding: 0 0.5rem !important;        /* 左右留一點點縫隙就好 */
+
+                /* 電腦版預設字體 */
+                font-size: 0.9rem !important;
+            }
+
+            /* === 手機版專用 (螢幕小於 480px) === */
+            @media screen and (max-width: 480px) {
+                .tab-btn, .tab-btn1 {
+                    width: 100% !important;
+                    margin-bottom: 0.5rem;
+
+                    /* 4. 手機上強制縮小字體以塞入更多字 */
+                    /* 您可以試著調整這個數字，0.65rem 大約是 10px，是手機閱讀極限了 */
+                    font-size: 0.65rem !important;
+
+                    /* 縮小內距，把空間都留給文字 */
+                    padding: 0 0.2rem !important;
+                }
+            }
+
         </style>
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
