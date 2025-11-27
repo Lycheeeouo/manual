@@ -10,6 +10,77 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+        <style>
+
+            /* 當按鈕被打開時，把下方圓角變直角，跟內容接在一起 */
+            button.collapsible.active {
+                border-radius: 4px 4px 0 0;
+                background-color: rgba(255, 255, 255, 0.1); /* 打開時變亮一點 */
+            }
+
+
+            /* 手機版設定：螢幕太小時變回一排一個，避免字擠在一起 */
+            @media screen and (max-width: 480px) {
+                .grid-container {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            /* 修正按鈕在 Grid 裡面會跑版的問題 */
+            .grid-container .button {
+                width: 100%;
+                margin-bottom: 0;
+                display: flex;       /* 讓文字垂直置中 */
+                justify-content: center;
+                align-items: center;
+                height: 100%;        /* 讓按鈕等高 */
+            }
+
+            /* === 技能按鈕專用樣式 (Sub-tabs) === */
+
+            /* 1. 基本外觀：變成圓圓的藥丸形狀，字體變小 */
+            .skill-btn {
+                border-radius: 50px !important; /* 變成完全橢圓 */
+                font-size: 0.75rem !important;  /* 字體縮小 */
+                height: 2.25rem !important;     /* 高度變矮一點 */
+                line-height: 2.25rem !important;
+                margin-bottom: 0.5rem;          /* 按鈕之間的間距 */
+                opacity: 0.6;                   /* 預設稍微透明一點，降低存在感 */
+                transition: all 0.2s ease;
+            }
+
+            /* 2. 滑鼠滑過去時 */
+            .skill-btn:hover {
+                opacity: 1.0;
+            }
+
+            /* 3. 被「選中」時的樣子 (覆蓋原本的全白樣式) */
+            .skill-btn.primary {
+                background-color: rgba(255, 255, 255, 0.2) !important; /* 背景變成半透明白，而不是全白 */
+                box-shadow: inset 0 0 0 1px #ffffff !important;        /* 加上白色邊框 */
+                color: #ffffff !important;      /* 文字維持白色 */
+                opacity: 1.0;                   /* 完全不透明 */
+                font-weight: bold;
+            }
+
+            /* === 修正：讓上方的王按鈕長度固定，不要太短 === */
+            .tab-btn1 {
+                /* 這裡設定您要的長度，數字越大按鈕越長 */
+                min-width: 11rem !important;
+
+                /* 避免手機版按鈕太長超出螢幕，設定最大寬度為 100% */
+                max-width: 100%;
+            }
+
+            /* 如果手機版希望按鈕變回填滿整行 (比較好按)，可以加這段 */
+            @media screen and (max-width: 480px) {
+                .tab-btn1 {
+                    width: 100% !important; /* 手機上強制變全寬 */
+                    margin-bottom: 0.5rem;  /* 增加一點垂直間距 */
+                }
+            }
+
+        </style>
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -26,7 +97,7 @@
 							<div class="inner">
 								<h1>∠( ᐛ 」∠)_</h1>
 								<p>尼豪<br>
-                                    只是做好玩的 有需要的人可以用<br>
+                                    這是個有用的筆記 有需要的人可以用<br>
                                     有什麼問題可以找荔枝 <s>雖然你說了我也有可能懶的改</s><br>
                                      <br>
                                     反正 就是這樣(ゝ∀･)<br>
@@ -35,10 +106,10 @@
 						</div>
 						<nav>
 							<ul>
-								<li><a href="#dungeon2">團副Boss</a></li>
-								<li><a href="#work">Work</a></li>
-								<li><a href="#about">About</a></li>
-								<li><a href="#contact">Contact</a></li>
+								<li><a href="#dungeon">團副Boss</a></li>
+								<li><a href="#Nothing1">Nothing</a></li>
+								<li><a href="#Nothing2">Nothing</a></li>
+								<li><a href="#Nothing3">Nothing</a></li>
 								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
 						</nav>
@@ -47,39 +118,71 @@
 				<!-- Main -->
 					<div id="main">
 
-						<!-- Dungeon2 -->
-                            <article id="dungeon2">
+						<!-- Dungeon -->
+                            <article id="dungeon">
                                 <h2 class="major">團副Boss</h2>
-                                <p>我們打團時最怕的就是遇到某個人重複失誤，導致其他玩家被迫陪著重打，但若不找隊友進副本 <s>受苦</s> 又難以摸索 BOSS 技能的機制，最後落得無團可打 (っ﹏-)<br>
-                                    所以...這個區塊就這樣誕生了ヾ(*´∀ ˋ*)ﾉ<br>
-                                    希望打團新手可以有個地方自主了解一下 BOSS 的機制如何運作<br>
-                                    然後再去 <s>折磨</s>..找隊友，其他的還算簡單所以暫時不加。<br>
+                                <span style="font-size: 1rem; padding-left: 0.2rem; display: block;margin-bottom: 1rem;">
+                                    我們打團時最怕的就是遇到某個人重複失誤，導致其他玩家被迫陪著重打<br>
+                                    但若不找隊友進副本 <s>受苦</s> 又不知道該如何摸索 BOSS 技能的機制<br>
+                                    最後落得無團可打 (っ﹏-)<br>
+                                </span>
+                                <p>所以...這個區塊就這樣誕生了ヾ(*´∀ ˋ*)ﾉ<br>
+                                    希望打團新手可以有個地方自主了解一下 BOSS 的技能如何運作<br>
+                                    然後再去 <s>折磨</s>..找隊友組團，其他的還算簡單所以暫時不加。<br>
                                     ( 如果有需要別的教學再叫荔枝，有空就考慮加上去 •_ゝ• )</p>
                                 <p>請點擊下方按鈕選擇您要查看的團體副本 BOSS 機制：</p>
 
                                 <ul class="actions stacked">
-                                    <li><a href="#boss1" class="button fit" onclick="initTab('boss1', '1diff1')">團副一【困難】：困難三王</a></li>
-                                    <li><a href="#boss2" class="button fit" onclick="initTab('boss2', '2norm1')">團副二【普通】：普通一王、普通二王、普通三王</a></li>
-                                    <li><a href="#boss3" class="button fit" onclick="initTab('boss3', '2diff1')">團副二【困難】：困難一王、困難二王、困難三王</a></li>
+                                    <li><a href="#boss1" class="button fit" onclick="initTab('boss1', '1diffb3')">團副一【困難】：困難三王</a></li>
+                                    <li><a href="#boss2" class="button fit" onclick="initTab('boss2', '2normb1')">團副二【普通】：普通一王、普通二王、普通三王</a></li>
+                                    <li><a href="#boss3" class="button fit" onclick="initTab('boss3', '2diffb1')">團副二【困難】：困難一王、困難二王、困難三王</a></li>
                                 </ul>
+
+                                <hr />
                             </article>
 
                             <article id="boss1">
                                 <h2 class="major">團副一【困難】</h2>
 
-                                <ul class="actions fit small" style="margin-bottom: 2rem;">
-                                    <li><a href="javascript:void(0)" class="button primary fit tab-btn" onclick="openTab(event, '1diff1')">困難三王</a></li>
+                                <ul class="actions special small" style="margin-bottom: 2rem;">
+                                    <li><a href="javascript:void(0)" class="button primary fit tab-btn1" onclick="openTab(event, '1diffb3')">困難三王</a></li>
                                 </ul>
 
-                                <div id="1diff1" class="tab-content" style="display: block;">
-                                    <h3>第一關：名稱待補</h3>
-                                    <span class="image main"><img src="images/pic01.jpg" alt="一王圖片" /></span>
-                                    <p>這裡是普通一王的攻略內容...</p>
+                                <hr />
+
+                                <div id="1diffb3" class="tab-content" style="display: block;">
+                                    <div class="skill-container">
+
+                                        <ul class="actions fit small" style="margin-bottom: 1rem;">
+                                            <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '1diffb3skill1')">第一技能</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '1diffb3skill2')">第二技能</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '1diffb3skill3')">第三技能</a></li>
+                                        </ul>
+
+                                        <div id="1diffb3skill1" class="skill-content" style="display: block;">
+                                            <h4>第一技能：火焰噴射</h4>
+                                            <span class="image main"><img src="images/pic01.jpg" alt="第一技能" /></span>
+                                            <p>Boss 會向前方扇形區域噴火，請躲在背後輸出。<br>傷害極高，坦克需開減傷。</p>
+                                        </div>
+
+                                        <div id="1diffb3skill2" class="skill-content" style="display: none;">
+                                            <h4>第二技能：落石術</h4>
+                                            <span class="image main"><img src="images/pic02.jpg" alt="第二技能" /></span>
+                                            <p>地面出現紅圈，3秒後落下巨石。</p>
+                                        </div>
+
+                                        <div id="1diffb3skill3" class="skill-content" style="display: none;">
+                                            <h4>第三技能：全屏爆炸</h4>
+                                            <span class="image main"><img src="images/pic03.jpg" alt="第三技能" /></span>
+                                            <p>當 Boss 血量低於 20% 時施放，請集火打斷讀條。</p>
+                                        </div>
+
+                                    </div>
                                 </div>
 
-                                <hr />
+
                                 <ul class="actions">
-                                    <li><a href="#dungeon2" class="button small">返回上一頁</a></li>
+                                    <li><a href="#dungeon" class="button small">返回上一頁</a></li>
                                 </ul>
                             </article>
 
@@ -87,35 +190,155 @@
                                 <h2 class="major">團副二【普通】</h2>
 
                                 <ul class="actions fit small" style="margin-bottom: 2rem;">
-                                    <li><a href="javascript:void(0)" class="button primary fit tab-btn" onclick="openTab(event, '2norm1')">普通一王</a></li>
-                                    <li><a href="javascript:void(0)" class="button fit tab-btn" onclick="openTab(event, '2norm2')">普通二王</a></li>
-                                    <li><a href="javascript:void(0)" class="button fit tab-btn" onclick="openTab(event, '2norm3')">普通三王</a></li>
+                                    <li><a href="javascript:void(0)" class="button primary fit tab-btn" onclick="openTab(event, '2normb1')">普通一王</a></li>
+                                    <li><a href="javascript:void(0)" class="button fit tab-btn" onclick="openTab(event, '2normb2')">普通二王</a></li>
+                                    <li><a href="javascript:void(0)" class="button fit tab-btn" onclick="openTab(event, '2normb3')">普通三王</a></li>
                                 </ul>
 
-                                <div id="2norm1" class="tab-content" style="display: block;">
-                                    <h3>第一關：名稱待補</h3>
-                                    <span class="image main"><img src="images/pic01.jpg" alt="一王圖片" /></span>
-                                    <p>這裡是普通一王的攻略內容...</p>
-                                </div>
-
-                                <div id="2norm2" class="tab-content" style="display: none;">
-                                    <h3>第二關：紅龍</h3>
-                                    <div class="gif-row">
-                                        <span class="image main"><img src="images/red.gif" alt="" style="width:350px; height:auto;"/></span>
-                                        <span class="image main"><img src="images/red.gif" alt="" style="width:350px; height:auto;"/></span>
-                                    </div>
-                                    <p>這裡是普通二王紅龍的攻略機制說明。</p>
-                                </div>
-
-                                <div id="2norm3" class="tab-content" style="display: none;">
-                                    <h3>第三關：最終魔王</h3>
-                                    <span class="image main"><img src="images/pic02.jpg" alt="三王圖片" /></span>
-                                    <p>這裡是普通三王的攻略內容...</p>
-                                </div>
-
                                 <hr />
+
+                                <div id="2normb1" class="tab-content" style="display: block;">
+                                    <div class="skill-container">
+
+                                        <ul class="actions fit small" style="margin-bottom: 1rem;">
+                                            <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '2normb1skill1')">第一技能</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb1skill2')">第二技能</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb1skill3')">第三技能</a></li>
+                                        </ul>
+
+                                        <div id="2normb1skill1" class="skill-content" style="display: block;">
+                                            <h4>第一技能：火焰噴射</h4>
+                                            <span class="image main"><img src="images/pic01.jpg" alt="第一技能" /></span>
+                                            <p>Boss 會向前方扇形區域噴火，請躲在背後輸出。<br>傷害極高，坦克需開減傷。</p>
+                                        </div>
+
+                                        <div id="2normb1skill2" class="skill-content" style="display: none;">
+                                            <h4>第二技能：落石術</h4>
+                                            <span class="image main"><img src="images/pic02.jpg" alt="第二技能" /></span>
+                                            <p>地面出現紅圈，3秒後落下巨石。</p>
+                                        </div>
+
+                                        <div id="2normb1skill3" class="skill-content" style="display: none;">
+                                            <h4>第三技能：全屏爆炸</h4>
+                                            <span class="image main"><img src="images/pic03.jpg" alt="第三技能" /></span>
+                                            <p>當 Boss 血量低於 20% 時施放，請集火打斷讀條。</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div id="2normb2" class="tab-content" style="display: none;">
+                                    <div class="skill-container">
+
+                                        <ul class="actions fit small" style="margin-bottom: 1rem;">
+                                            <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '2normb2skill1')">第一技能</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb2skill2')">第二技能</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb2skill3')">第三技能</a></li>
+                                        </ul>
+
+                                        <div id="2normb2skill1" class="skill-content" style="display: block;">
+                                            <h4>第一技能：</h4>
+                                            <span class="image main"><img src="images/pic01.jpg" alt="第一技能" /></span>
+                                            <p>Boss 會向前方扇形區域噴火，請躲在背後輸出。<br>傷害極高，坦克需開減傷。</p>
+                                        </div>
+
+                                        <div id="2normb2skill2" class="skill-content" style="display: none;">
+                                            <h4>第二技能：</h4>
+                                            <span class="image main"><img src="images/pic02.jpg" alt="第二技能" /></span>
+                                            <p>地面出現紅圈，3秒後落下巨石。</p>
+                                        </div>
+
+                                        <div id="2normb2skill3" class="skill-content" style="display: none;">
+                                            <h4>第三技能：</h4>
+                                            <span class="image main"><img src="images/pic03.jpg" alt="第三技能" /></span>
+                                            <p>當 Boss 血量低於 20% 時施放，請集火打斷讀條。</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div id="2normb3" class="tab-content" style="display: none;">
+                                    <div class="skill-container">
+
+                                        <ul class="actions fit small" style="margin-bottom: 1rem;">
+                                            <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '2normb3skill1')">一技：紅波</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb3skill2')">二技：藍波</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb3skill3')">三技：斷頭台</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb3skill4')">四技：石頭人</a></li>
+                                        </ul>
+
+                                        <div id="2normb3skill1" class="skill-content" style="display: block;">
+                                            <h4>第一技能：紅波</h4>
+                                            <span class="image main"><img src="images/pic01.jpg" alt="第一技能" /></span>
+                                            <p>Boss 會向前方扇形區域噴火，請躲在背後輸出。<br>傷害極高，坦克需開減傷。</p>
+                                        </div>
+
+                                        <div id="2normb3skill2" class="skill-content" style="display: none;">
+                                            <h4>第二技能：藍波</h4>
+
+                                            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                                                <img src="images/Nor_Blue.gif" alt="普通藍波" style="width: 350px; max-width: 100%; height: auto; border-radius: 4px;" />
+                                                <img src="images/Blue_Line.png" alt="直線" style="width: 350px; max-width: 100%; height: auto; border-radius: 4px;" />
+                                            </div>
+
+                                            <div style="text-align: left;
+                                                        border: 1px solid rgba(255,255,255,0.3);
+                                                        background: rgba(255,255,255,0.05);
+                                                        padding: 1.5rem;
+                                                        border-radius: 6px;
+                                                        margin-top: 1rem;
+                                                        margin-bottom: 3rem;
+                                                        box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                                                <p style="margin-bottom: 0.8rem;">
+                                                    <h3>基礎常識</h3>
+                                                    <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
+                                                        三王開啟技能後，第一時間會有一個<u>先舉劍後以劍尖點地</u>的動作<br>
+                                                    </span>
+                                                    <span style="font-size: 0.85rem; color: #bbb; padding-left: 1.2rem; display: block;">
+                                                        ↪ 就是上圖寫「刀」的位置，相對位置是固定的
+                                                    </span>
+                                                    <span style="font-size: 1rem; padding-left: 0.2rem; display: block;margin-bottom: 1rem;">
+                                                        我們通常會藉此作為基準點，第一波安全區是劍尖點地的旁邊區域<br>
+                                                        也可以觀察玩家旁邊的線，如果<u>左線沒有鋸齒狀</u>就是站在第一波安全區<br>
+                                                    </span>
+                                                    <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
+                                                        約一秒後藍波會以固定模式交替，且會發出一個類似「刷ㄧ」的提示音<br>
+                                                        建議打開遊戲聲音，在聽見提示音時立刻移動到下一個安全區域<br>
+                                                        普通藍波只會有<u>四波攻擊</u>，三種難度的三王都會放普通藍波
+                                                    </span>
+                                                <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
+                                                <h3>需要注意的小細節</h3>
+                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                                    1. 普通和簡單模式下 <b style="color: #aaddff;">可以舉盾格擋</b><br>
+                                                    <span style="font-size: 0.75rem; color: #bbb; padding-left: 1.2rem; display: block;">
+                                                        ↪ 盡量不要，因為困難不行舉盾格擋，最後還是得練
+                                                    </span>
+                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                                    2. <b style="color: #ff9999;">不要跳躍</b>，有機率判定成死亡
+                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                                    3. <b style="color: #ff9999;">不可以站在圈外</b>，站在圈外會直接死
+                                            </div>
+
+                                        </div>
+
+                                        <div id="2normb3skill3" class="skill-content" style="display: none;">
+                                            <h4>第三技能：斷頭台</h4>
+                                            <span class="image main"><img src="images/pic03.jpg" alt="第三技能" /></span>
+                                            <p>當 Boss 血量低於 20% 時施放，請集火打斷讀條。</p>
+                                        </div>
+
+                                        <div id="2normb3skill4" class="skill-content" style="display: none;">
+                                            <h4>第四技能：石頭人</h4>
+                                            <span class="image main"><img src="images/pic03.jpg" alt="第四技能" /></span>
+                                            <p>當 Boss 血量低於 20% 時施放，請集火打斷讀條。</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
                                 <ul class="actions">
-                                    <li><a href="#dungeon2" class="button small">返回上一頁</a></li>
+                                    <li><a href="#dungeon" class="button small">返回上一頁</a></li>
                                 </ul>
                             </article>
 
@@ -123,83 +346,166 @@
                                 <h2 class="major">團副二【困難】</h2>
 
                                 <ul class="actions fit small" style="margin-bottom: 2rem;">
-                                    <li><a href="javascript:void(0)" class="button primary fit tab-btn" onclick="openTab(event, '2diff1')">困難一王</a></li>
-                                    <li><a href="javascript:void(0)" class="button fit tab-btn" onclick="openTab(event, '2diff2')">困難二王</a></li>
-                                    <li><a href="javascript:void(0)" class="button fit tab-btn" onclick="openTab(event, '2diff3')">困難三王</a></li>
+                                    <li><a href="javascript:void(0)" class="button primary fit tab-btn" onclick="openTab(event, '2diffb1')">困難一王</a></li>
+                                    <li><a href="javascript:void(0)" class="button fit tab-btn" onclick="openTab(event, '2diffb2')">困難二王</a></li>
+                                    <li><a href="javascript:void(0)" class="button fit tab-btn" onclick="openTab(event, '2diffb3')">困難三王</a></li>
                                 </ul>
 
-                                <div id="2diff1" class="tab-content" style="display: block;">
-                                    <h3>第一關：名稱待補</h3>
-                                    <span class="image main"><img src="images/pic01.jpg" alt="一王圖片" /></span>
-                                    <p>這裡是普通一王的攻略內容...</p>
-                                </div>
-
-                                <div id="2diff2" class="tab-content" style="display: none;">
-                                    <h3>第二關：紅龍</h3>
-                                    <div class="gif-row">
-                                        <span class="image main"><img src="images/red.gif" alt="" style="width:350px; height:auto;"/></span>
-                                        <span class="image main"><img src="images/red.gif" alt="" style="width:350px; height:auto;"/></span>
-                                    </div>
-                                    <p>這裡是普通二王紅龍的攻略機制說明。</p>
-                                </div>
-
-                                <div id="2diff3" class="tab-content" style="display: none;">
-                                    <h3>第三關：最終魔王</h3>
-                                    <span class="image main"><img src="images/pic02.jpg" alt="三王圖片" /></span>
-                                    <p>這裡是普通三王的攻略內容...</p>
-                                </div>
-
                                 <hr />
+
+                                <div id="2diffb1" class="tab-content" style="display: block;">
+                                    <div class="skill-container">
+
+                                        <ul class="actions fit small" style="margin-bottom: 1rem;">
+                                            <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '2diffb1skill1')">第一技能</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb1skill2')">第二技能</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb1skill3')">第三技能</a></li>
+                                        </ul>
+
+                                        <div id="2diffb1skill1" class="skill-content" style="display: block;">
+                                            <h4>第一技能：火焰噴射</h4>
+                                            <span class="image main"><img src="images/pic01.jpg" alt="第一技能" /></span>
+                                            <p>Boss 會向前方扇形區域噴火，請躲在背後輸出。<br>傷害極高，坦克需開減傷。</p>
+                                        </div>
+
+                                        <div id="2diffb1skill2" class="skill-content" style="display: none;">
+                                            <h4>第二技能：落石術</h4>
+                                            <span class="image main"><img src="images/pic02.jpg" alt="第二技能" /></span>
+                                            <p>地面出現紅圈，3秒後落下巨石。</p>
+                                        </div>
+
+                                        <div id="2diffb1skill3" class="skill-content" style="display: none;">
+                                            <h4>第三技能：全屏爆炸</h4>
+                                            <span class="image main"><img src="images/pic03.jpg" alt="第三技能" /></span>
+                                            <p>當 Boss 血量低於 20% 時施放，請集火打斷讀條。</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div id="2diffb2" class="tab-content" style="display: none;">
+                                    <div class="skill-container">
+
+                                        <ul class="actions fit small" style="margin-bottom: 1rem;">
+                                            <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '2diffb2skill1')">第一技能</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb2skill2')">第二技能</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb2skill3')">第三技能</a></li>
+                                        </ul>
+
+                                        <div id="2diffb2skill1" class="skill-content" style="display: block;">
+                                            <h4>第一技能：</h4>
+                                            <span class="image main"><img src="images/pic01.jpg" alt="第一技能" /></span>
+                                            <p>Boss 會向前方扇形區域噴火，請躲在背後輸出。<br>傷害極高，坦克需開減傷。</p>
+                                        </div>
+
+                                        <div id="2diffb2skill2" class="skill-content" style="display: none;">
+                                            <h4>第二技能：</h4>
+                                            <span class="image main"><img src="images/pic02.jpg" alt="第二技能" /></span>
+                                            <p>地面出現紅圈，3秒後落下巨石。</p>
+                                        </div>
+
+                                        <div id="2diffb2skill3" class="skill-content" style="display: none;">
+                                            <h4>第三技能：</h4>
+                                            <span class="image main"><img src="images/pic03.jpg" alt="第三技能" /></span>
+                                            <p>當 Boss 血量低於 20% 時施放，請集火打斷讀條。</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div id="2diffb3" class="tab-content" style="display: none;">
+                                    <div class="skill-container">
+
+                                        <ul class="actions fit small" style="margin-bottom: 1rem;">
+                                            <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '2diffb3skill1')">一技：紅波</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb3skill2')">二技：藍波</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb3skill3')">三技：斷頭台</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb3skill4')">四技：石頭人</a></li>
+                                        </ul>
+
+                                        <div id="2diffb3skill1" class="skill-content" style="display: block;">
+                                            <h4>第一技能：紅波</h4>
+                                            <span class="image main"><img src="images/pic01.jpg" alt="第一技能" /></span>
+                                            <p>Boss 會向前方扇形區域噴火，請躲在背後輸出。<br>傷害極高，坦克需開減傷。</p>
+                                        </div>
+
+                                        <div id="2diffb3skill2" class="skill-content" style="display: none;">
+                                            <h4>第二技能：藍波</h4>
+                                            <span class="image main"><img src="images/pic02.jpg" alt="第二技能" /></span>
+                                            <p>地面出現紅圈，3秒後落下巨石。</p>
+                                        </div>
+
+                                        <div id="2diffb3skill3" class="skill-content" style="display: none;">
+                                            <h4>第三技能：斷頭台</h4>
+                                            <span class="image main"><img src="images/pic03.jpg" alt="第三技能" /></span>
+                                            <p>當 Boss 血量低於 20% 時施放，請集火打斷讀條。</p>
+                                        </div>
+
+                                        <div id="2diffb3skill4" class="skill-content" style="display: none;">
+                                            <h4>第四技能：石頭人</h4>
+                                            <span class="image main"><img src="images/pic03.jpg" alt="第四技能" /></span>
+                                            <p>當 Boss 血量低於 20% 時施放，請集火打斷讀條。</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
                                 <ul class="actions">
-                                    <li><a href="#dungeon2" class="button small">返回上一頁</a></li>
+                                    <li><a href="#dungeon" class="button small">返回上一頁</a></li>
                                 </ul>
                             </article>
 
-						<!-- Work -->
-							<article id="work">
-								<h2 class="major">Work</h2>
+						<!-- Nothing1 -->
+							<article id="Nothing1">
+								<h2 class="major">Nothing</h2>
 								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-								<p>Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.</p>
-								<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat tempus.</p>
-							</article>
+								<p>這裡暫時沒有內容喔 (´-ωก`)</p>
+                            </article>
 
-						<!-- About -->
-							<article id="about">
-								<h2 class="major">About</h2>
-								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
-								<p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
-							</article>
+						<!-- Nothing2 -->
+							<article id="Nothing2">
+                                <h2 class="major">Nothing</h2>
+                                <span class="image main"><img src="images/pic02.jpg" alt="" /></span>
+                                <p>這裡暫時沒有內容喔 (´-ωก`)</p>
+                            </article>
 
-						<!-- Contact -->
-							<article id="contact">
-								<h2 class="major">Contact</h2>
-								<form method="post" action="#">
-									<div class="fields">
-										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
-										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="4"></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input type="reset" value="Reset" /></li>
-									</ul>
-								</form>
-								<ul class="icons">
-									<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</article>
+						<!-- Nothing3 -->
+                            <article id="Nothing3">
+                                <h2 class="major">Nothing</h2>
+                                <span class="image main"><img src="images/pic02.jpg" alt="" /></span>
+                                <p>這裡暫時沒有內容喔 (´-ωก`)</p>
+                            </article>
+<!--							<article id="Nothing3">-->
+<!--								<h2 class="major">Nothing</h2>-->
+<!--								<form method="post" action="#">-->
+<!--									<div class="fields">-->
+<!--										<div class="field half">-->
+<!--											<label for="name">Name</label>-->
+<!--											<input type="text" name="name" id="name" />-->
+<!--										</div>-->
+<!--										<div class="field half">-->
+<!--											<label for="email">Email</label>-->
+<!--											<input type="text" name="email" id="email" />-->
+<!--										</div>-->
+<!--										<div class="field">-->
+<!--											<label for="message">Message</label>-->
+<!--											<textarea name="message" id="message" rows="4"></textarea>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--									<ul class="actions">-->
+<!--										<li><input type="submit" value="Send Message" class="primary" /></li>-->
+<!--										<li><input type="reset" value="Reset" /></li>-->
+<!--									</ul>-->
+<!--								</form>-->
+<!--								<ul class="icons">-->
+<!--									<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>-->
+<!--									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>-->
+<!--									<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>-->
+<!--									<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>-->
+<!--								</ul>-->
+<!--							</article>-->
+
 
 						<!-- Elements -->
 							<article id="elements">
@@ -447,7 +753,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 				<!-- Footer -->
 					<footer id="footer">
-						<p class="copyright"> 其他問題:<a href="https://drive.google.com/drive/folders/1vqj7-WXtDDnmmwgfJZPNwi1_hAvDC5MV">獨步大補帖</a>
+						<p class="copyright"> 超有用ㄉ傳送門: <a href="https://drive.google.com/drive/folders/1vqj7-WXtDDnmmwgfJZPNwi1_hAvDC5MV">獨步大補帖</a>
                             、<a href="https://forms.gle/8cQdCaiazMjsSVGG9">問題回報表單</a></p>
 					</footer>
 
@@ -486,7 +792,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
                 // 2. 這是新增的：初始化重置功能 (給目錄頁的按鈕用的)
                 // 參數 articleId = 要去的頁面 ID (例如 'boss2')
-                // 參數 tabId     = 預設要開啟的分頁 ID (例如 '2norm1')
+                // 參數 tabId     = 預設要開啟的分頁 ID (例如 '2normb1')
                 function initTab(articleId, tabId) {
                     var $article = $('#' + articleId);
 
@@ -501,7 +807,36 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
                     // 這裡使用程式碼自動去抓「哪個按鈕負責這個分頁」
                     $article.find(".tab-btn[onclick*='" + tabId + "']").addClass('primary');
                 }
+
+                // 3. 新增：折疊選單開關功能，手風琴效果Accordion
+                function toggleCollapse(btn) {
+                    // 切換按鈕的 active 樣式 (改變外觀)
+                    $(btn).toggleClass("active");
+
+                    // 找到按鈕「正下方」的那個內容區塊，並做滑動特效
+                    // slideToggle() 會自動判斷：如果是開的就關起來，關的就滑開
+                    $(btn).next(".collapse-content").slideToggle();
+                }
+
+                // 3. 新增：技能子分頁切換功能 (Sub-Tabs)
+                // 這樣切換技能時，不會誤關掉整個 Boss 頁面
+                function openSkill(evt, skillId) {
+                    // 1. 找到這些技能按鈕的「爸爸」容器 (確保只影響這一組技能)
+                    var $container = $(evt.currentTarget).closest('.skill-container');
+
+                    // 2. 隱藏這個容器裡面的所有「技能內容」
+                    $container.find('.skill-content').hide();
+
+                    // 3. 把這個容器裡面的按鈕燈都關掉
+                    $container.find('.skill-btn').removeClass('primary');
+
+                    // 4. 顯示指定的技能內容，並把按鈕亮燈
+                    $('#' + skillId).show();
+                    $(evt.currentTarget).addClass('primary');
+                }
             </script>
+
+
 
 	</body>
 </html>
