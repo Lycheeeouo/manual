@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="1.調整團副Boss按鈕的排版邏輯，在手機上不會凸出去">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="1.再度更正 調整團副Boss按鈕的排版邏輯，在手機上不會凸出去&#10;2.名稱從基礎常識改為普通藍波" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +71,7 @@
       <workItem from="1764250771761" duration="15088000" />
       <workItem from="1764266989271" duration="769000" />
       <workItem from="1764268010796" duration="842000" />
-      <workItem from="1764270344739" duration="2072000" />
+      <workItem from="1764270344739" duration="2374000" />
     </task>
     <task id="LOCAL-00001" summary="測試">
       <option name="closed" value="true" />
@@ -115,7 +113,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764270545438</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="1.再度更正 調整團副Boss按鈕的排版邏輯，在手機上不會凸出去&#10;2.名稱從基礎常識改為普通藍波">
+      <option name="closed" value="true" />
+      <created>1764293571546</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1764293571546</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,7 +133,8 @@
     <MESSAGE value="1.更改頁面標題" />
     <MESSAGE value="1.調整手機上的封面排版&#10;2.調整技能按鈕的排版邏輯，在手機上不會凸出去" />
     <MESSAGE value="1.調整團副Boss按鈕的排版邏輯，在手機上不會凸出去" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.調整團副Boss按鈕的排版邏輯，在手機上不會凸出去" />
+    <MESSAGE value="1.再度更正 調整團副Boss按鈕的排版邏輯，在手機上不會凸出去&#10;2.名稱從基礎常識改為普通藍波" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.再度更正 調整團副Boss按鈕的排版邏輯，在手機上不會凸出去&#10;2.名稱從基礎常識改為普通藍波" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
