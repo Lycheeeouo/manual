@@ -185,12 +185,16 @@
                                 <span style="font-size: 1rem; padding-left: 0.2rem; display: block;margin-bottom: 1rem;">
                                     我們打團時最怕的就是遇到某個人重複失誤，導致其他玩家被迫陪著重打<br>
                                     但若不找隊友進副本 <s>受苦</s> 又不知道該如何摸索 BOSS 技能的機制<br>
-                                    最後落得無團可打 (っ﹏-)<br>
+                                    最後不是一起坐牢，就是落得無團可打 (っ﹏-)<br>
                                 </span>
                                 <p>所以...這個區塊就這樣誕生了ヾ(*´∀ ˋ*)ﾉ<br>
                                     希望打團新手可以有個地方自主了解一下 BOSS 的技能如何運作<br>
-                                    然後再去 <s>折磨</s>..找隊友組團，其他的還算簡單所以暫時不加。<br>
-                                    ( 如果有需要別的教學再叫荔枝，有空就考慮加上去 •_ゝ• )</p>
+                                    然後再去 <s>折磨</s>..找隊友組團，其他的還算簡單所以暫時不加<br>
+                                    <span style="font-size: 0.8rem; color: #bbb; display: block;">
+                                    ( 如果有需要別的教學再說，我考慮要不要加 •_ゝ• )
+                                    </span>
+                                </p>
+
                                 <p>請點擊下方按鈕選擇您要查看的團體副本 BOSS 機制：</p>
 
                                 <ul class="actions stacked">
@@ -215,15 +219,49 @@
                                     <div class="skill-container">
 
                                         <ul class="actions fit small" style="margin-bottom: 1rem;">
-                                            <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '1diffb3skill1')">第一技能</a></li>
+                                            <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '1diffb3skill1')">一技：天選圈</a></li>
                                             <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '1diffb3skill2')">第二技能</a></li>
                                             <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '1diffb3skill3')">第三技能</a></li>
                                         </ul>
 
                                         <div id="1diffb3skill1" class="skill-content" style="display: block;">
-                                            <h4>第一技能：火焰噴射</h4>
-                                            <span class="image main"><img src="images/pic01.jpg" alt="第一技能" /></span>
-                                            <p>Boss 會向前方扇形區域噴火，請躲在背後輸出。<br>傷害極高，坦克需開減傷。</p>
+                                            <h4>第一技能：天選圈</h4>
+
+                                            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                                                <img src="images/Blue_Line.png" alt="直線" style="width: 350px; max-width: 100%; height: auto; border-radius: 4px;" />
+                                            </div>
+
+                                            <div style="text-align: left;
+                                                        border: 1px solid rgba(255,255,255,0.3);
+                                                        background: rgba(255,255,255,0.05);
+                                                        padding: 1.5rem;
+                                                        border-radius: 6px;
+                                                        margin-top: 1rem;
+                                                        margin-bottom: 3rem;
+                                                        box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                                                <p style="margin-bottom: 0.8rem;">
+                                                <h3>天選之人圈圈</h3>
+                                                <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
+                                                        三王開啟技能後，第一個紅波會出現在<u>王的右後方</u><br>
+                                                        約一秒後紅波會往下一個區域<u>逆時針蔓延</u><br>
+                                                        玩家需要持續逆時針移動，保證自身處於安全區內<br>
+                                                        普通紅波<u>繞一圈</u>後 BOSS 技能即結束<br>
+                                                </span>
+
+                                                <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
+                                                <h3>需要注意的小細節</h3>
+                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                                    1. 普通和簡單模式下 <b style="color: #aaddff;">可以舉盾格擋</b><br>
+                                                    <span style="font-size: 0.75rem; color: #bbb; padding-left: 1.2rem; display: block;">
+                                                        ↪ 盡量不要，因為困難不行舉盾格擋，最後還是得練
+                                                    </span>
+                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                                    2. <b style="color: #ff9999;">不要跳躍</b>，有機率判定成死亡
+                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                                    3. <b style="color: #ff9999;">不可以站在圈外</b>，站在圈外會直接死
+                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                                    4. <b style="color: #ff9999;">不要離王太近</b>，有機率判定成死亡
+                                            </div>
                                         </div>
 
                                         <div id="1diffb3skill2" class="skill-content" style="display: none;">
@@ -330,8 +368,43 @@
 
                                         <div id="2normb3skill1" class="skill-content" style="display: block;">
                                             <h4>第一技能：紅波</h4>
-                                            <span class="image main"><img src="images/pic01.jpg" alt="第一技能" /></span>
-                                            <p>Boss 會向前方扇形區域噴火，請躲在背後輸出。<br>傷害極高，坦克需開減傷。</p>
+
+                                            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                                                <img src="images/Nor_Red.gif" alt="普通紅波" style="width: 330px; max-width: 100%; height: auto; border-radius: 4px;" />
+                                            </div>
+
+                                            <div style="text-align: left;
+                                                        border: 1px solid rgba(255,255,255,0.3);
+                                                        background: rgba(255,255,255,0.05);
+                                                        padding: 1.5rem;
+                                                        border-radius: 6px;
+                                                        margin-top: 1rem;
+                                                        margin-bottom: 3rem;
+                                                        box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                                                <p style="margin-bottom: 0.8rem;">
+                                                <h3>普通紅波</h3>
+                                                <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
+                                                        三王開啟技能後，第一個紅波會出現在<u>王的右後方</u><br>
+                                                        約一秒後紅波會往下一個區域<u>逆時針蔓延</u><br>
+                                                        玩家需要持續逆時針移動，保證自身處於安全區內<br>
+                                                        普通紅波<u>繞一圈</u>後 BOSS 技能即結束<br>
+                                                </span>
+
+                                                <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
+                                                <h3>需要注意的小細節</h3>
+                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                                    1. 普通和簡單模式下 <b style="color: #aaddff;">可以舉盾格擋</b><br>
+                                                    <span style="font-size: 0.75rem; color: #bbb; padding-left: 1.2rem; display: block;">
+                                                        ↪ 盡量不要，因為困難不行舉盾格擋，最後還是得練
+                                                    </span>
+                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                                    2. <b style="color: #ff9999;">不要跳躍</b>，有機率判定成死亡
+                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                                    3. <b style="color: #ff9999;">不可以站在圈外</b>，站在圈外會直接死
+                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                                    4. <b style="color: #ff9999;">不要離王太近</b>，有機率判定成死亡
+                                            </div>
+
                                         </div>
 
                                         <div id="2normb3skill2" class="skill-content" style="display: none;">
@@ -378,6 +451,8 @@
                                                     2. <b style="color: #ff9999;">不要跳躍</b>，有機率判定成死亡
                                                 <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
                                                     3. <b style="color: #ff9999;">不可以站在圈外</b>，站在圈外會直接死
+                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                                    4. <b style="color: #ff9999;">不要離王太近</b>，有機率判定成死亡
                                             </div>
 
                                         </div>
