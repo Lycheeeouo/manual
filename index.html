@@ -92,39 +92,46 @@
                 }
             }
 
-            /* === 萬用王按鈕設定 (.tab-btn 和 .tab-btn1 通用) === */
+            /* ============================================== */
+            /* ★★★ 請務必補上這段，按鈕才會自動換行跟置中 ★★★ */
+            /* ============================================== */
+
+            /* 1. 設定所有王按鈕 (.tab-btn 和 .tab-btn1) 的排版規則 */
             .tab-btn, .tab-btn1 {
-                /* 1. 置中設定 */
-                display: block !important;       /* 改回 block 以便處理單行文字溢出 */
+                /* 強制讓文字換行 */
+                white-space: normal !important;
+                word-break: break-word !important;
+
+                /* 讓文字上下左右都置中 */
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
                 text-align: center !important;
-                line-height: 3rem !important;    /* 設定行高等於按鈕高度，讓文字垂直置中 */
-                height: 3rem !important;         /* 固定高度 */
 
-                /* 2. 關鍵：強制不換行 & 處理溢出 */
-                white-space: nowrap !important;      /* 絕對不換行 */
-                overflow: hidden !important;         /* 超出範圍的部分藏起來 */
-                text-overflow: ellipsis !important;  /* 真的塞不下的部分變成 "..." */
+                /* 設定高度自動，隨文字變高 */
+                height: auto !important;
+                min-height: 3.5rem !important; /* 最小高度 */
 
-                /* 3. 寬度限制 */
-                max-width: 100% !important;
-                padding: 0 0.5rem !important;        /* 左右留一點點縫隙就好 */
+                /* 調整內距與行高 */
+                padding: 0.5rem 0.5rem !important;
+                line-height: 1.3 !important;
 
-                /* 電腦版預設字體 */
+                /* 預設字體大小 */
                 font-size: 0.9rem !important;
+
+                /* 確保手機版不會凸出螢幕 */
+                max-width: 100% !important;
             }
 
-            /* === 手機版專用 (螢幕小於 480px) === */
+            /* 2. 手機版專用設定：當螢幕小於 480px 時 */
             @media screen and (max-width: 480px) {
                 .tab-btn, .tab-btn1 {
+                    /* ★關鍵：手機上字體自動縮小，才塞得進去 */
+                    font-size: 0.75rem !important;
+
+                    /* 強制佔滿整行寬度 */
                     width: 100% !important;
-                    margin-bottom: 0.5rem;
-
-                    /* 4. 手機上強制縮小字體以塞入更多字 */
-                    /* 您可以試著調整這個數字，0.65rem 大約是 10px，是手機閱讀極限了 */
-                    font-size: 0.65rem !important;
-
-                    /* 縮小內距，把空間都留給文字 */
-                    padding: 0 0.2rem !important;
+                    margin-bottom: 0.5rem !important;
                 }
             }
 
@@ -344,7 +351,7 @@
                                                         margin-bottom: 3rem;
                                                         box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
                                                 <p style="margin-bottom: 0.8rem;">
-                                                    <h3>基礎常識</h3>
+                                                    <h3>普通藍波</h3>
                                                     <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
                                                         三王開啟技能後，第一時間會有一個<u>先舉劍後以劍尖點地</u>的動作<br>
                                                     </span>
