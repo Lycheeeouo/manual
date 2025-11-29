@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="1.把gif轉mp4">
+    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="1.新增BOSS技能說明 (團副一困三王 完成)">
+      <change afterPath="$PROJECT_DIR$/images/b3skill1.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/b3skill2.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/b3skill3.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/b3skill4.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/b3skill4pic.mp4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/skill1.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/skill13.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +82,7 @@
       <workItem from="1764266989271" duration="769000" />
       <workItem from="1764268010796" duration="842000" />
       <workItem from="1764270344739" duration="7092000" />
-      <workItem from="1764396664551" duration="6113000" />
+      <workItem from="1764396664551" duration="11735000" />
     </task>
     <task id="LOCAL-00001" summary="測試">
       <option name="closed" value="true" />
@@ -164,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764405914317</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="1.把gif轉mp4">
+      <option name="closed" value="true" />
+      <created>1764406436219</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1764406436219</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,7 +197,8 @@
     <MESSAGE value="1.更正 美化團副BOSS頁的排版&#10;2.更新各個BOSS技能內容" />
     <MESSAGE value="1.更新各個BOSS技能內容" />
     <MESSAGE value="1.把gif轉mp4" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.把gif轉mp4" />
+    <MESSAGE value="1.新增BOSS技能說明 (團副一困三王 完成)" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.新增BOSS技能說明 (團副一困三王 完成)" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
