@@ -46,8 +46,8 @@
                 min-height: 2.25rem !important; /* 改用 min-height */
                 height: auto !important;        /* 高度自動 */
 
-                /* ★關鍵修改：允許文字換行 */
-                white-space: normal !important;
+                /* ★關鍵修改：不允許文字換行 */
+                white-space: nowrap !important;
                 line-height: 1.2 !important;
                 padding: 0.4rem 1rem;           /* 增加上下內距 */
 
@@ -110,7 +110,7 @@
 
                 /* 設定高度自動，隨文字變高 */
                 height: auto !important;
-                min-height: 3.5rem !important; /* 最小高度 */
+                min-height: 2.5rem !important; /* 最小高度 */
 
                 /* 調整內距與行高 */
                 padding: 0.5rem 0.5rem !important;
@@ -220,15 +220,16 @@
 
                                         <ul class="actions fit small" style="margin-bottom: 1rem;">
                                             <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '1diffb3skill1')">一技：天選圈</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '1diffb3skill2')">第二技能</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '1diffb3skill3')">第三技能</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '1diffb3skill2')">二技：血線</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '1diffb3skill3')">三技：魔族禁軍</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '1diffb3skill4')">四技：點點名</a></li>
                                         </ul>
 
                                         <div id="1diffb3skill1" class="skill-content" style="display: block;">
                                             <h4>第一技能：天選圈</h4>
 
                                             <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                                                <img src="images/Blue_Line.png" alt="直線" style="width: 350px; max-width: 100%; height: auto; border-radius: 4px;" />
+                                                <img src="images/1diffb3skill1.gif" alt="直線" style="width: 350px; max-width: 100%; height: auto; border-radius: 4px;" />
                                             </div>
 
                                             <div style="text-align: left;
@@ -242,38 +243,40 @@
                                                 <p style="margin-bottom: 0.8rem;">
                                                 <h3>天選之人圈圈</h3>
                                                 <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
-                                                        三王開啟技能後，第一個紅波會出現在<u>王的右後方</u><br>
-                                                        約一秒後紅波會往下一個區域<u>逆時針蔓延</u><br>
-                                                        玩家需要持續逆時針移動，保證自身處於安全區內<br>
-                                                        普通紅波<u>繞一圈</u>後 BOSS 技能即結束<br>
+                                                        BOSS 開啟技能後，會在場上<u>隨機出現圈圈</u>為安全區<br>
+                                                        如果圈圈直接出現在你腳下，那你肯定是天選之人 ´-ω-)b<br>
+                                                        玩家請在時間內盡速前往並<u>確保持續待在圈內</u><br>
+                                                </span>
+                                                <span style="font-size: 0.75rem; color: #bbb; padding-left: 1.2rem; display: block;">
+                                                        ↪ 某人的經驗：王在這期間會打人，觸發閃避彈出去的話...<s>那你很幸運了</s> ( ･ิω･ิ)
                                                 </span>
 
                                                 <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
                                                 <h3>需要注意的小細節</h3>
                                                 <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    1. 普通和簡單模式下 <b style="color: #aaddff;">可以舉盾格擋</b><br>
-                                                    <span style="font-size: 0.75rem; color: #bbb; padding-left: 1.2rem; display: block;">
-                                                        ↪ 盡量不要，因為困難不行舉盾格擋，最後還是得練
-                                                    </span>
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    2. <b style="color: #ff9999;">不要跳躍</b>，有機率判定成死亡
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    3. <b style="color: #ff9999;">不可以站在圈外</b>，站在圈外會直接死
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    4. <b style="color: #ff9999;">不要離王太近</b>，有機率判定成死亡
+                                                    1. <b style="color: #ff9999;">王會打人</b>，被擊飛的話請盡速回到圈內
                                             </div>
                                         </div>
 
                                         <div id="1diffb3skill2" class="skill-content" style="display: none;">
-                                            <h4>第二技能：落石術</h4>
+                                            <h4>第二技能：血線</h4>
+
                                             <span class="image main"><img src="images/pic02.jpg" alt="第二技能" /></span>
-                                            <p>地面出現紅圈，3秒後落下巨石。</p>
+
                                         </div>
 
                                         <div id="1diffb3skill3" class="skill-content" style="display: none;">
-                                            <h4>第三技能：全屏爆炸</h4>
+                                            <h4>第三技能：魔族禁軍</h4>
+
                                             <span class="image main"><img src="images/pic03.jpg" alt="第三技能" /></span>
-                                            <p>當 Boss 血量低於 20% 時施放，請集火打斷讀條。</p>
+
+                                        </div>
+
+                                        <div id="1diffb3skill4" class="skill-content" style="display: none;">
+                                            <h4>第四技能：點點名</h4>
+
+                                            <span class="image main"><img src="images/pic03.jpg" alt="第四技能" /></span>
+
                                         </div>
 
                                     </div>
@@ -300,27 +303,30 @@
                                     <div class="skill-container">
 
                                         <ul class="actions fit small" style="margin-bottom: 1rem;">
-                                            <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '2normb1skill1')">第一技能</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb1skill2')">第二技能</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb1skill3')">第三技能</a></li>
+                                            <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '2normb1skill1')">一技：</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb1skill2')">二技：</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb1skill3')">三技：</a></li>
                                         </ul>
 
                                         <div id="2normb1skill1" class="skill-content" style="display: block;">
-                                            <h4>第一技能：火焰噴射</h4>
+                                            <h4>第一技能：</h4>
+
                                             <span class="image main"><img src="images/pic01.jpg" alt="第一技能" /></span>
-                                            <p>Boss 會向前方扇形區域噴火，請躲在背後輸出。<br>傷害極高，坦克需開減傷。</p>
+
                                         </div>
 
                                         <div id="2normb1skill2" class="skill-content" style="display: none;">
-                                            <h4>第二技能：落石術</h4>
+                                            <h4>第二技能：</h4>
+
                                             <span class="image main"><img src="images/pic02.jpg" alt="第二技能" /></span>
-                                            <p>地面出現紅圈，3秒後落下巨石。</p>
+
                                         </div>
 
                                         <div id="2normb1skill3" class="skill-content" style="display: none;">
-                                            <h4>第三技能：全屏爆炸</h4>
+                                            <h4>第三技能：</h4>
+
                                             <span class="image main"><img src="images/pic03.jpg" alt="第三技能" /></span>
-                                            <p>當 Boss 血量低於 20% 時施放，請集火打斷讀條。</p>
+
                                         </div>
 
                                     </div>
@@ -330,27 +336,30 @@
                                     <div class="skill-container">
 
                                         <ul class="actions fit small" style="margin-bottom: 1rem;">
-                                            <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '2normb2skill1')">第一技能</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb2skill2')">第二技能</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb2skill3')">第三技能</a></li>
+                                            <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '2normb2skill1')">一技：</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb2skill2')">二技：</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb2skill3')">三技：</a></li>
                                         </ul>
 
                                         <div id="2normb2skill1" class="skill-content" style="display: block;">
                                             <h4>第一技能：</h4>
+
                                             <span class="image main"><img src="images/pic01.jpg" alt="第一技能" /></span>
-                                            <p>Boss 會向前方扇形區域噴火，請躲在背後輸出。<br>傷害極高，坦克需開減傷。</p>
+
                                         </div>
 
                                         <div id="2normb2skill2" class="skill-content" style="display: none;">
                                             <h4>第二技能：</h4>
+
                                             <span class="image main"><img src="images/pic02.jpg" alt="第二技能" /></span>
-                                            <p>地面出現紅圈，3秒後落下巨石。</p>
+
                                         </div>
 
                                         <div id="2normb2skill3" class="skill-content" style="display: none;">
                                             <h4>第三技能：</h4>
+
                                             <span class="image main"><img src="images/pic03.jpg" alt="第三技能" /></span>
-                                            <p>當 Boss 血量低於 20% 時施放，請集火打斷讀條。</p>
+
                                         </div>
 
                                     </div>
@@ -393,9 +402,9 @@
                                                 <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
                                                 <h3>需要注意的小細節</h3>
                                                 <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    1. 普通和簡單模式下 <b style="color: #aaddff;">可以舉盾格擋</b><br>
+                                                    1. 簡單模式下 <b style="color: #aaddff;">可以舉盾格擋</b><br>
                                                     <span style="font-size: 0.75rem; color: #bbb; padding-left: 1.2rem; display: block;">
-                                                        ↪ 盡量不要，因為困難不行舉盾格擋，最後還是得練
+                                                        ↪ 盡量不要，因為普通和困難不能舉盾格擋，最後還是得練
                                                     </span>
                                                 <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
                                                     2. <b style="color: #ff9999;">不要跳躍</b>，有機率判定成死亡
@@ -443,9 +452,9 @@
                                                 <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
                                                 <h3>需要注意的小細節</h3>
                                                 <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    1. 普通和簡單模式下 <b style="color: #aaddff;">可以舉盾格擋</b><br>
+                                                    1. 簡單模式下 <b style="color: #aaddff;">可以舉盾格擋</b><br>
                                                     <span style="font-size: 0.75rem; color: #bbb; padding-left: 1.2rem; display: block;">
-                                                        ↪ 盡量不要，因為困難不行舉盾格擋，最後還是得練
+                                                        ↪ 盡量不要，因為普通和困難不能舉盾格擋，最後還是得練
                                                     </span>
                                                 <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
                                                     2. <b style="color: #ff9999;">不要跳躍</b>，有機率判定成死亡
@@ -459,14 +468,16 @@
 
                                         <div id="2normb3skill3" class="skill-content" style="display: none;">
                                             <h4>第三技能：斷頭台</h4>
+
                                             <span class="image main"><img src="images/pic03.jpg" alt="第三技能" /></span>
-                                            <p>當 Boss 血量低於 20% 時施放，請集火打斷讀條。</p>
+
                                         </div>
 
                                         <div id="2normb3skill4" class="skill-content" style="display: none;">
                                             <h4>第四技能：石頭人</h4>
+
                                             <span class="image main"><img src="images/pic03.jpg" alt="第四技能" /></span>
-                                            <p>當 Boss 血量低於 20% 時施放，請集火打斷讀條。</p>
+
                                         </div>
 
                                     </div>
@@ -493,27 +504,30 @@
                                     <div class="skill-container">
 
                                         <ul class="actions fit small" style="margin-bottom: 1rem;">
-                                            <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '2diffb1skill1')">第一技能</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb1skill2')">第二技能</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb1skill3')">第三技能</a></li>
+                                            <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '2diffb1skill1')">一技：</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb1skill2')">二技：</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb1skill3')">三技：</a></li>
                                         </ul>
 
                                         <div id="2diffb1skill1" class="skill-content" style="display: block;">
-                                            <h4>第一技能：火焰噴射</h4>
+                                            <h4>第一技能：</h4>
+
                                             <span class="image main"><img src="images/pic01.jpg" alt="第一技能" /></span>
-                                            <p>Boss 會向前方扇形區域噴火，請躲在背後輸出。<br>傷害極高，坦克需開減傷。</p>
+
                                         </div>
 
                                         <div id="2diffb1skill2" class="skill-content" style="display: none;">
-                                            <h4>第二技能：落石術</h4>
+                                            <h4>第二技能：</h4>
+
                                             <span class="image main"><img src="images/pic02.jpg" alt="第二技能" /></span>
-                                            <p>地面出現紅圈，3秒後落下巨石。</p>
+
                                         </div>
 
                                         <div id="2diffb1skill3" class="skill-content" style="display: none;">
-                                            <h4>第三技能：全屏爆炸</h4>
+                                            <h4>第三技能：</h4>
+
                                             <span class="image main"><img src="images/pic03.jpg" alt="第三技能" /></span>
-                                            <p>當 Boss 血量低於 20% 時施放，請集火打斷讀條。</p>
+
                                         </div>
 
                                     </div>
@@ -523,27 +537,30 @@
                                     <div class="skill-container">
 
                                         <ul class="actions fit small" style="margin-bottom: 1rem;">
-                                            <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '2diffb2skill1')">第一技能</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb2skill2')">第二技能</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb2skill3')">第三技能</a></li>
+                                            <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '2diffb2skill1')">一技：</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb2skill2')">二技：</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb2skill3')">三技：</a></li>
                                         </ul>
 
                                         <div id="2diffb2skill1" class="skill-content" style="display: block;">
                                             <h4>第一技能：</h4>
+
                                             <span class="image main"><img src="images/pic01.jpg" alt="第一技能" /></span>
-                                            <p>Boss 會向前方扇形區域噴火，請躲在背後輸出。<br>傷害極高，坦克需開減傷。</p>
+
                                         </div>
 
                                         <div id="2diffb2skill2" class="skill-content" style="display: none;">
                                             <h4>第二技能：</h4>
+
                                             <span class="image main"><img src="images/pic02.jpg" alt="第二技能" /></span>
-                                            <p>地面出現紅圈，3秒後落下巨石。</p>
+
                                         </div>
 
                                         <div id="2diffb2skill3" class="skill-content" style="display: none;">
                                             <h4>第三技能：</h4>
+
                                             <span class="image main"><img src="images/pic03.jpg" alt="第三技能" /></span>
-                                            <p>當 Boss 血量低於 20% 時施放，請集火打斷讀條。</p>
+
                                         </div>
 
                                     </div>
@@ -561,26 +578,30 @@
 
                                         <div id="2diffb3skill1" class="skill-content" style="display: block;">
                                             <h4>第一技能：紅波</h4>
+
                                             <span class="image main"><img src="images/pic01.jpg" alt="第一技能" /></span>
-                                            <p>Boss 會向前方扇形區域噴火，請躲在背後輸出。<br>傷害極高，坦克需開減傷。</p>
+
                                         </div>
 
                                         <div id="2diffb3skill2" class="skill-content" style="display: none;">
                                             <h4>第二技能：藍波</h4>
+
                                             <span class="image main"><img src="images/pic02.jpg" alt="第二技能" /></span>
-                                            <p>地面出現紅圈，3秒後落下巨石。</p>
+
                                         </div>
 
                                         <div id="2diffb3skill3" class="skill-content" style="display: none;">
                                             <h4>第三技能：斷頭台</h4>
+
                                             <span class="image main"><img src="images/pic03.jpg" alt="第三技能" /></span>
-                                            <p>當 Boss 血量低於 20% 時施放，請集火打斷讀條。</p>
+
                                         </div>
 
                                         <div id="2diffb3skill4" class="skill-content" style="display: none;">
                                             <h4>第四技能：石頭人</h4>
+
                                             <span class="image main"><img src="images/pic03.jpg" alt="第四技能" /></span>
-                                            <p>當 Boss 血量低於 20% 時施放，請集火打斷讀條。</p>
+
                                         </div>
 
                                     </div>

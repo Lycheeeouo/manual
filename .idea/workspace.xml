@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="1.再度更正 按鈕class新增上次修改的tab-btn，確實應用上">
+    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="1.更正 美化團副BOSS頁的排版&#10;2.更新各個BOSS技能內容">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/blue.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/red.gif" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +74,8 @@
       <workItem from="1764250771761" duration="15088000" />
       <workItem from="1764266989271" duration="769000" />
       <workItem from="1764268010796" duration="842000" />
-      <workItem from="1764270344739" duration="6452000" />
+      <workItem from="1764270344739" duration="7092000" />
+      <workItem from="1764396664551" duration="3726000" />
     </task>
     <task id="LOCAL-00001" summary="測試">
       <option name="closed" value="true" />
@@ -134,7 +133,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764293903717</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="1.更正 美化團副BOSS頁的排版&#10;2.更新各個BOSS技能內容">
+      <option name="closed" value="true" />
+      <created>1764335017383</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1764335017383</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,7 +155,8 @@
     <MESSAGE value="1.調整團副Boss按鈕的排版邏輯，在手機上不會凸出去" />
     <MESSAGE value="1.再度更正 調整團副Boss按鈕的排版邏輯，在手機上不會凸出去&#10;2.名稱從基礎常識改為普通藍波" />
     <MESSAGE value="1.再度更正 按鈕class新增上次修改的tab-btn，確實應用上" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.再度更正 按鈕class新增上次修改的tab-btn，確實應用上" />
+    <MESSAGE value="1.更正 美化團副BOSS頁的排版&#10;2.更新各個BOSS技能內容" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.更正 美化團副BOSS頁的排版&#10;2.更新各個BOSS技能內容" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
