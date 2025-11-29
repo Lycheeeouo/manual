@@ -372,10 +372,9 @@
                             <article id="boss2">
                                 <h2 class="major">團副二【普通】</h2>
 
-                                <ul class="actions fit small" style="margin-bottom: 2rem;">
-                                    <li><a href="javascript:void(0)" class="button primary fit tab-btn" onclick="openTab(event, '2normb1')">普通一王</a></li>
-                                    <li><a href="javascript:void(0)" class="button fit tab-btn" onclick="openTab(event, '2normb2')">普通二王</a></li>
-                                    <li><a href="javascript:void(0)" class="button fit tab-btn" onclick="openTab(event, '2normb3')">普通三王</a></li>
+                                <ul class="actions special small" style="margin-bottom: 2rem;">
+                                    <li><a href="javascript:void(0)" class="button primary fit tab-btn1" onclick="openTab(event, '2normb1')">普通一王&二王</a></li>
+                                    <li><a href="javascript:void(0)" class="button fit tab-btn1" onclick="openTab(event, '2normb3')">普通三王</a></li>
                                 </ul>
 
                                 <hr />
@@ -404,39 +403,6 @@
                                         </div>
 
                                         <div id="2normb1skill3" class="skill-content" style="display: none;">
-                                            <h4>第三技能：</h4>
-
-                                            <span class="image main"><img src="images/pic03.jpg" alt="第三技能" /></span>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div id="2normb2" class="tab-content" style="display: none;">
-                                    <div class="skill-container">
-
-                                        <ul class="actions fit small" style="margin-bottom: 1rem;">
-                                            <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '2normb2skill1')">一技：</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb2skill2')">二技：</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb2skill3')">三技：</a></li>
-                                        </ul>
-
-                                        <div id="2normb2skill1" class="skill-content" style="display: block;">
-                                            <h4>第一技能：</h4>
-
-                                            <span class="image main"><img src="images/pic01.jpg" alt="第一技能" /></span>
-
-                                        </div>
-
-                                        <div id="2normb2skill2" class="skill-content" style="display: none;">
-                                            <h4>第二技能：</h4>
-
-                                            <span class="image main"><img src="images/pic02.jpg" alt="第二技能" /></span>
-
-                                        </div>
-
-                                        <div id="2normb2skill3" class="skill-content" style="display: none;">
                                             <h4>第三技能：</h4>
 
                                             <span class="image main"><img src="images/pic03.jpg" alt="第三技能" /></span>
@@ -1019,7 +985,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
                     $article.find('.tab-content').hide();
 
                     // 移除這個區塊內所有按鈕的亮燈樣式 (primary)
-                    $article.find('.tab-btn').removeClass('primary');
+                    $article.find('.tab-btn, .tab-btn1').removeClass('primary');
 
                     // 顯示目標內容
                     $('#' + tabName).show();
@@ -1037,6 +1003,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
                     // 先把該頁面裡面全部內容藏起來、按鈕燈滅掉
                     $article.find('.tab-content').hide();
                     $article.find('.tab-btn').removeClass('primary');
+                    $article.find('.tab-btn1').removeClass('primary');
 
                     // 顯示預設的那個分頁
                     $('#' + tabId).show();
@@ -1044,6 +1011,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
                     // 找到對應的按鈕並把它亮起來
                     // 這裡使用程式碼自動去抓「哪個按鈕負責這個分頁」
                     $article.find(".tab-btn[onclick*='" + tabId + "']").addClass('primary');
+                    $article.find(".tab-btn1[onclick*='" + tabId + "']").addClass('primary');
                 }
 
                 // 3. 新增：折疊選單開關功能，手風琴效果Accordion
