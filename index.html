@@ -199,7 +199,7 @@
 
                                 <ul class="actions stacked">
                                     <li><a href="#boss1" class="button fit tab-btn" onclick="initTab('boss1', '1diffb3')">團副一【困難】：困難三王</a></li>
-                                    <li><a href="#boss2" class="button fit tab-btn" onclick="initTab('boss2', '2normb1')">團副二【普通】：普通一王、普通二王、普通三王</a></li>
+                                    <li><a href="#boss2" class="button fit tab-btn" onclick="initTab('boss2', '2normb12')">團副二【普通】：普通一王、普通二王、普通三王</a></li>
                                     <li><a href="#boss3" class="button fit tab-btn" onclick="initTab('boss3', '2diffb1')">團副二【困難】：困難一王、困難二王、困難三王</a></li>
                                 </ul>
 
@@ -373,36 +373,36 @@
                                 <h2 class="major">團副二【普通】</h2>
 
                                 <ul class="actions special small" style="margin-bottom: 2rem;">
-                                    <li><a href="javascript:void(0)" class="button primary fit tab-btn1" onclick="openTab(event, '2normb1')">普通一王&二王</a></li>
+                                    <li><a href="javascript:void(0)" class="button primary fit tab-btn1" onclick="openTab(event, '2normb12')">普通一王&二王</a></li>
                                     <li><a href="javascript:void(0)" class="button fit tab-btn1" onclick="openTab(event, '2normb3')">普通三王</a></li>
                                 </ul>
 
                                 <hr />
 
-                                <div id="2normb1" class="tab-content" style="display: block;">
+                                <div id="2normb12" class="tab-content" style="display: block;">
                                     <div class="skill-container">
 
                                         <ul class="actions fit small" style="margin-bottom: 1rem;">
-                                            <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '2normb1skill1')">一技：</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb1skill2')">二技：</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb1skill3')">三技：</a></li>
+                                            <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '2normb12skill1')">一技：</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb12skill2')">二技：</a></li>
+                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb12skill3')">三技：</a></li>
                                         </ul>
 
-                                        <div id="2normb1skill1" class="skill-content" style="display: block;">
+                                        <div id="2normb12skill1" class="skill-content" style="display: block;">
                                             <h4>第一技能：</h4>
 
                                             <span class="image main"><img src="images/pic01.jpg" alt="第一技能" /></span>
 
                                         </div>
 
-                                        <div id="2normb1skill2" class="skill-content" style="display: none;">
+                                        <div id="2normb12skill2" class="skill-content" style="display: none;">
                                             <h4>第二技能：</h4>
 
                                             <span class="image main"><img src="images/pic02.jpg" alt="第二技能" /></span>
 
                                         </div>
 
-                                        <div id="2normb1skill3" class="skill-content" style="display: none;">
+                                        <div id="2normb12skill3" class="skill-content" style="display: none;">
                                             <h4>第三技能：</h4>
 
                                             <span class="image main"><img src="images/pic03.jpg" alt="第三技能" /></span>
@@ -996,7 +996,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
                 // 2. 這是新增的：初始化重置功能 (給目錄頁的按鈕用的)
                 // 參數 articleId = 要去的頁面 ID (例如 'boss2')
-                // 參數 tabId     = 預設要開啟的分頁 ID (例如 '2normb1')
+                // 參數 tabId     = 預設要開啟的分頁 ID (例如 '2normb12')
                 function initTab(articleId, tabId) {
                     var $article = $('#' + articleId);
 
