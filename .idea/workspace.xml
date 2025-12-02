@@ -4,7 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="1.新增BOSS技能說明" />
+    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="1.新增BOSS技能說明">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/波/Nor_Blue1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/波/Nor_Blue2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/波/Nor_Blue3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/波/Nor_Blue4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/波/Nor_Red1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/波/Nor_Red2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/波/Nor_Red3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/波/Nor_Red4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/波/Nor_Red5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/波/Nor_Red6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/波/Nor_Red7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/波/Nor_Red8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/波/blue.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/波/red.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,7 +89,7 @@
       <workItem from="1764266989271" duration="769000" />
       <workItem from="1764268010796" duration="842000" />
       <workItem from="1764270344739" duration="7092000" />
-      <workItem from="1764396664551" duration="23458000" />
+      <workItem from="1764396664551" duration="33159000" />
     </task>
     <task id="LOCAL-00001" summary="測試">
       <option name="closed" value="true" />
@@ -234,7 +251,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764606747387</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="1.新增BOSS技能說明">
+      <option name="closed" value="true" />
+      <created>1764607460259</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1764607460259</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
