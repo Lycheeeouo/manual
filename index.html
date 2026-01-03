@@ -19,6 +19,7 @@
         <noscript><link rel="stylesheet" href="assets/css/fontawesome-all.min.css" /></noscript>
 
         <link rel="stylesheet" href="assets/css/main.css" />
+        <script src="https://bs-community.github.io/skinview3d/js/skinview3d.bundle.js"></script>
 
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
         <style>
@@ -177,7 +178,7 @@
 						<nav>
 							<ul>
 								<li><a href="#dungeon">團副Boss</a></li>
-								<li><a href="#Nothing1">Nothing</a></li>
+                                <li><a href="#Nothing1" onclick="loadAliceModel()">Nothing</a></li>
 								<li><a href="#Nothing2">Nothing</a></li>
 								<li><a href="#Nothing3">Nothing</a></li>
 								<!--<li><a href="#elements">Elements</a></li>-->
@@ -1053,8 +1054,8 @@
 						<!-- Nothing1 -->
 							<article id="Nothing1">
 								<h2 class="major">Nothing</h2>
-								<span class="image main"><img src="images/pic02.jpg" alt="" loading="lazy"/></span>
-								<p>這裡暫時沒有內容喔 (´-ωก`)</p>
+                                <div id="skin_container" style="width: 300px; height: 400px; margin: 0 auto;"></div>
+                                <p>這裡現在住著一位 3D 的朋友 (´-ω-)</p>
                             </article>
 
 						<!-- Nothing2 -->
@@ -1364,73 +1365,99 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/main.js"></script>
 
         <!-- Tabs -->
-            <script>
-                // 1. 這是原本的切換功能 (點分頁按鈕時執行)
-                function openTab(evt, tabName) {
-                    // 找到這個按鈕所在的那個大區塊 (article)
-                    // 這樣可以確保只影響當前頁面，不會誤關到別頁的內容
-                    var $article = $(evt.currentTarget).closest('article');
 
-                    // 先隱藏這個區塊內所有的內容
-                    $article.find('.tab-content').hide();
 
-                    // 移除這個區塊內所有按鈕的亮燈樣式 (primary)
-                    $article.find('.tab-btn, .tab-btn1').removeClass('primary');
+        <script>
+            // 1. 這是原本的切換功能 (保留不動)
+            function openTab(evt, tabName) {
+                var $article = $(evt.currentTarget).closest('article');
+                $article.find('.tab-content').hide();
+                $article.find('.tab-btn, .tab-btn1').removeClass('primary');
+                $('#' + tabName).show();
+                $(evt.currentTarget).addClass('primary');
+            }
 
-                    // 顯示目標內容
-                    $('#' + tabName).show();
+            function initTab(articleId, tabId) {
+                var $article = $('#' + articleId);
+                $article.find('.tab-content').hide();
+                $article.find('.tab-btn').removeClass('primary');
+                $article.find('.tab-btn1').removeClass('primary');
+                $('#' + tabId).show();
+                $article.find(".tab-btn[onclick*='" + tabId + "']").addClass('primary');
+                $article.find(".tab-btn1[onclick*='" + tabId + "']").addClass('primary');
+            }
 
-                    // 把被點擊的按鈕亮燈
-                    $(evt.currentTarget).addClass('primary');
-                }
+            function toggleCollapse(btn) {
+                $(btn).toggleClass("active");
+                $(btn).next(".collapse-content").slideToggle();
+            }
 
-                // 2. 這是新增的：初始化重置功能 (給目錄頁的按鈕用的)
-                // 參數 articleId = 要去的頁面 ID (例如 'boss2')
-                // 參數 tabId     = 預設要開啟的分頁 ID (例如 '2normb12')
-                function initTab(articleId, tabId) {
-                    var $article = $('#' + articleId);
+            function openSkill(evt, skillId) {
+                var $container = $(evt.currentTarget).closest('.skill-container');
+                $container.find('.skill-content').hide();
+                $container.find('.skill-btn').removeClass('primary');
+                $('#' + skillId).show();
+                $(evt.currentTarget).addClass('primary');
+            }
 
-                    // 先把該頁面裡面全部內容藏起來、按鈕燈滅掉
-                    $article.find('.tab-content').hide();
-                    $article.find('.tab-btn').removeClass('primary');
-                    $article.find('.tab-btn1').removeClass('primary');
+            // ==========================================
+            // ★ 3D 人物模型設定區 (修復版)
+            // ==========================================
 
-                    // 顯示預設的那個分頁
-                    $('#' + tabId).show();
+            var isAliceLoaded = false;
+            var skinViewer = null; // 把 viewer 變數拉出來，方便之後控制
 
-                    // 找到對應的按鈕並把它亮起來
-                    // 這裡使用程式碼自動去抓「哪個按鈕負責這個分頁」
-                    $article.find(".tab-btn[onclick*='" + tabId + "']").addClass('primary');
-                    $article.find(".tab-btn1[onclick*='" + tabId + "']").addClass('primary');
-                }
+            function loadAliceModel() {
 
-                // 3. 新增：折疊選單開關功能，手風琴效果Accordion
-                function toggleCollapse(btn) {
-                    // 切換按鈕的 active 樣式 (改變外觀)
-                    $(btn).toggleClass("active");
+                // 1. 如果已經載入過，就不要再執行了
+                if (isAliceLoaded) return;
 
-                    // 找到按鈕「正下方」的那個內容區塊，並做滑動特效
-                    // slideToggle() 會自動判斷：如果是開的就關起來，關的就滑開
-                    $(btn).next(".collapse-content").slideToggle();
-                }
+                // ★ 修改點 1：將延遲時間從 200 改成 600
+                // 因為 Dimension 模板打開視窗的動畫大約需要 0.5 秒
+                // 必須等視窗完全打開，瀏覽器才抓得到正確的長寬
+                setTimeout(function() {
 
-                // 3. 新增：技能子分頁切換功能 (Sub-Tabs)
-                // 這樣切換技能時，不會誤關掉整個 Boss 頁面
-                function openSkill(evt, skillId) {
-                    // 1. 找到這些技能按鈕的「爸爸」容器 (確保只影響這一組技能)
-                    var $container = $(evt.currentTarget).closest('.skill-container');
+                    // 2. 再次確認元素是否真的顯示了 (雙重保險)
+                    var container = document.getElementById("skin_container");
+                    if (container.offsetWidth === 0) {
+                        console.log("視窗還沒打開，稍後重試...");
+                        isAliceLoaded = false; // 重置標記讓下次還能跑
+                        // 如果還是失敗，可以考慮在這裡再遞迴呼叫一次 setTimeout
+                        return;
+                    }
 
-                    // 2. 隱藏這個容器裡面的所有「技能內容」
-                    $container.find('.skill-content').hide();
+                    // 3. 設定展示架
+                    skinViewer = new skinview3d.SkinViewer({
+                        domElement: container,
+                        width: 300,
+                        height: 400,
+                        skin: "images/Huh.png",
 
-                    // 3. 把這個容器裡面的按鈕燈都關掉
-                    $container.find('.skill-btn').removeClass('primary');
+                        // ★ 修改點 2：開啟透明背景
+                        // 把 background: 0x555555 拿掉，改用 alpha: true
+                        alpha: true
+                    });
 
-                    // 4. 顯示指定的技能內容，並把按鈕亮燈
-                    $('#' + skillId).show();
-                    $(evt.currentTarget).addClass('primary');
-                }
-            </script>
+                    // 4. 設定人物規格
+                    skinViewer.loadSkin("images/Huh.png", {
+                        model: "slim" // 或是 "default" (Steve手)
+                    });
+
+                    // 5. 設定動作 (這裡幫你加了讓滑鼠可以轉動的控制)
+                    skinViewer.animation = new skinview3d.IdleAnimation();
+                    skinViewer.autoRotate = true;
+                    skinViewer.autoRotateSpeed = 0.5;
+
+                    // 加入控制組件，讓你用滑鼠可以拖拉旋轉模型
+                    // (如果不想要這個功能，這行可以刪掉)
+                    // skinview3d.createOrbitControls(skinViewer);
+
+                    isAliceLoaded = true;
+                    console.log("Alice has arrived! (´・ω・`)");
+
+                }, 600); // ★ 這裡改成 600 毫秒 (0.6秒)
+            }
+        </script>
 
 
 
