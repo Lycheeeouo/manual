@@ -1053,8 +1053,8 @@
 						<!-- Nothing1 -->
 							<article id="Nothing1">
 								<h2 class="major">Nothing</h2>
-								<span class="image main"><img src="images/pic02.jpg" alt="" loading="lazy"/></span>
-								<p>這裡暫時沒有內容喔 (´-ωก`)</p>
+                                <div id="skin_container" style="width: 300px; height: 400px; margin: 0 auto;"></div>
+                                <p>這裡現在住著一位 3D 的朋友 (´-ω-)</p>
                             </article>
 
 						<!-- Nothing2 -->
@@ -1364,6 +1364,8 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/main.js"></script>
 
         <!-- Tabs -->
+
+            <script src="https://bs-community.github.io/skinview3d/js/skinview3d.bundle.js"></script>
             <script>
                 // 1. 這是原本的切換功能 (點分頁按鈕時執行)
                 function openTab(evt, tabName) {
@@ -1430,6 +1432,40 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
                     $('#' + skillId).show();
                     $(evt.currentTarget).addClass('primary');
                 }
+
+                // ==========================================
+                // ★ 3D 人物模型設定區
+                // ==========================================
+
+                // 1. 確保網頁載入後才執行
+                window.addEventListener("load", function() {
+
+                    // 2. 設定展示架 (對應上面的 id="skin_container")
+                    let skinViewer = new skinview3d.SkinViewer({
+                        canvas: document.getElementById("skin_container"),
+                        width: 300,        // 寬度
+                        height: 400,       // 高度
+                        skin: "images/Huh.png"  // ★ 請改成您的人物 Skin 檔名！
+                    });
+
+                    skinViewer.width = 300;
+                    skinViewer.height = 400;
+
+                    // 3. 設定人物規格 (關鍵！)
+                    // model: "default" = Steve (粗手臂)
+                    // model: "slim"    = Alice (細手臂)
+                    skinViewer.loadSkin("images/Huh.png", {
+                        model: "slim"
+                    });
+
+                    // 4. 設定動作 (選用，不喜歡可以刪掉)
+                    // skinViewer.animation = new skinview3d.WalkingAnimation(); // 走路
+                    skinViewer.animation = new skinview3d.IdleAnimation();    // 呼吸待機
+
+                    // 5. 設定旋轉速度 (選用)
+                    skinViewer.autoRotate = true;     // 自動旋轉
+                    skinViewer.autoRotateSpeed = 0.5; // 旋轉速度
+                });
             </script>
 
 
