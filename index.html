@@ -174,6 +174,9 @@
                                 </span>
 							</div>
 						</div>
+                        <canvas id="skin_container_EMTTT" style="position: absolute; top: 70%; left: 75%; z-index: 1; pointer-events: none;"></canvas>
+                        <!--<canvas id="skin_container_ME" style="position: absolute; top: 10%; left: 5%; z-index: 1; pointer-events: none;"></canvas>-->
+
 						<nav>
 							<ul>
 								<li><a href="#dungeon">團副Boss</a></li>
@@ -203,7 +206,6 @@
                                     ( 如果有需要別的教學再說，我考慮要不要加 •_ゝ• )
                                     </span>
                                 </p>
-
                                 <p>請點擊下方按鈕選擇您要查看的團體副本 BOSS 機制：</p>
 
                                 <ul class="actions stacked">
@@ -1433,6 +1435,67 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
             </script>
 
 
+        <script src="https://bs-community.github.io/skinview3d/js/skinview3d.bundle.js"></script>
+        <script>
+            // 確保網頁載入後才執行
+            document.addEventListener("DOMContentLoaded", function() {
 
+                // 1. 設定模型顯示在 id="skin_container_EMTTT" 的框框裡
+                let skinViewer = new skinview3d.SkinViewer({
+                    canvas: document.getElementById("skin_container_EMTTT"),
+                    width: 90,
+                    height: 120,
+                    skin: "images/EMTTT.png"
+                });
+
+                // 2. 設定為 Alex (Alice) 模型 (手臂較細的版本)
+                skinViewer.loadSkin("images/EMTTT.png", {
+                    model: "slim"
+                });
+
+                // ★★★ 3. 這裡原本是設定控制，請全部刪除 ★★★
+                // 只要不寫 createOrbitControls，模型就會固定在原地，完全無法被滑鼠干擾。
+
+                // 4. 設定動作 (這裡設定為站著發呆)
+                skinViewer.animation = new skinview3d.IdleAnimation();
+
+                // 5. 設定播放速度
+                skinViewer.animation.speed = 1.0;
+
+                // 6. 設定背景透明
+                skinViewer.renderer.setClearColor(0x000000, 0);
+            });
+        </script>
+        <script>
+            // 確保網頁載入後才執行
+            document.addEventListener("DOMContentLoaded", function() {
+
+                // 1. 設定模型顯示在 id="skin_container_ME" 的框框裡
+                let skinViewer = new skinview3d.SkinViewer({
+                    canvas: document.getElementById("skin_container_ME"),
+                    width: 300,
+                    height: 400,
+                    skin: "images/ME.png"
+                });
+
+                // 2. 設定為 Alex (Alice) 模型 (手臂較細的版本)
+                // 如果想要 Steve (手臂較粗)，請改成 "default"
+                skinViewer.loadSkin("images/ME.png", {
+                    model: "slim"
+                });
+
+                // ★★★ 3. 這裡原本是設定控制，請全部刪除 ★★★
+                // 只要不寫 createOrbitControls，模型就會固定在原地，完全無法被滑鼠干擾。
+
+                // 4. 設定動作 (這裡設定為站著發呆)
+                skinViewer.animation = new skinview3d.IdleAnimation();
+
+                // 5. 設定播放速度
+                skinViewer.animation.speed = 1.0;
+
+                // 6. 設定背景透明
+                skinViewer.renderer.setClearColor(0x000000, 0);
+            });
+        </script>
 	</body>
 </html>
