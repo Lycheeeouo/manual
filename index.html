@@ -1,249 +1,498 @@
 <!DOCTYPE HTML>
 <!--
-	Dimension by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+    Dimension by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>有用的筆記∠( ᐛ 」∠)_</title>
-        <link rel="icon" type="image/jpeg" href="images/HuhOAO.png" />
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<head>
+    <title>有用的筆記∠( ᐛ 」∠)_</title>
+    <link rel="icon" type="image/jpeg" href="images/HuhOAO.png" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Serif+TC:wght@400;700;900&family=Shippori+Mincho:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Cinzel:wght@400;700&family=Noto+Serif+TC:wght@400;700;900&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
 
-        <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" media="print" onload="this.media='all'" />
-        <noscript><link rel="stylesheet" href="assets/css/fontawesome-all.min.css" /></noscript>
+    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="assets/css/fontawesome-all.min.css" /></noscript>
 
-        <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
 
-        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-        <style>
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
 
-            /* 當按鈕被打開時，把下方圓角變直角，跟內容接在一起 */
-            button.collapsible.active {
-                border-radius: 4px 4px 0 0;
-                background-color: rgba(255, 255, 255, 0.1); /* 打開時變亮一點 */
+        /* 當按鈕被打開時，把下方圓角變直角，跟內容接在一起 */
+        button.collapsible.active {
+            border-radius: 4px 4px 0 0;
+            background-color: rgba(255, 255, 255, 0.1); /* 打開時變亮一點 */
+        }
+
+
+        /* 手機版設定：螢幕太小時變回一排一個，避免字擠在一起 */
+        @media screen and (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: 1fr;
             }
+        }
 
+        /* 修正按鈕在 Grid 裡面會跑版的問題 */
+        .grid-container .button {
+            width: 100%;
+            margin-bottom: 0;
+            display: flex;       /* 讓文字垂直置中 */
+            justify-content: center;
+            align-items: center;
+            height: 100%;        /* 讓按鈕等高 */
+        }
 
-            /* 手機版設定：螢幕太小時變回一排一個，避免字擠在一起 */
-            @media screen and (max-width: 480px) {
-                .grid-container {
-                    grid-template-columns: 1fr;
-                }
-            }
+        /* === 技能按鈕專用樣式 (Sub-tabs) === */
 
-            /* 修正按鈕在 Grid 裡面會跑版的問題 */
-            .grid-container .button {
-                width: 100%;
-                margin-bottom: 0;
-                display: flex;       /* 讓文字垂直置中 */
-                justify-content: center;
-                align-items: center;
-                height: 100%;        /* 讓按鈕等高 */
-            }
+        /* 1. 基本外觀：變成圓圓的藥丸形狀，字體變小 */
+        .skill-btn {
+            border-radius: 50px !important;
+            font-size: 0.75rem !important;
+            min-height: 2.25rem !important; /* 改用 min-height */
+            height: auto !important;        /* 高度自動 */
 
-            /* === 技能按鈕專用樣式 (Sub-tabs) === */
+            /* ★關鍵修改：不允許文字換行 */
+            white-space: nowrap !important;
+            line-height: 1.2 !important;
+            padding: 0.4rem 1rem;           /* 增加上下內距 */
 
-            /* 1. 基本外觀：變成圓圓的藥丸形狀，字體變小 */
-            .skill-btn {
-                border-radius: 50px !important;
-                font-size: 0.75rem !important;
-                min-height: 2.25rem !important; /* 改用 min-height */
-                height: auto !important;        /* 高度自動 */
+            margin-bottom: 0.5rem;
+            opacity: 0.6;
+            transition: all 0.2s ease;
 
-                /* ★關鍵修改：不允許文字換行 */
-                white-space: nowrap !important;
-                line-height: 1.2 !important;
-                padding: 0.4rem 1rem;           /* 增加上下內距 */
+            /* 讓文字垂直置中 */
+            display: inline-flex;  /* 改用 flex */
+            align-items: center;
+            justify-content: center;
+        }
 
-                margin-bottom: 0.5rem;
-                opacity: 0.6;
-                transition: all 0.2s ease;
+        /* 2. 滑鼠滑過去時 */
+        .skill-btn:hover {
+            opacity: 1.0;
+        }
 
-                /* 讓文字垂直置中 */
-                display: inline-flex;  /* 改用 flex */
-                align-items: center;
-                justify-content: center;
-            }
+        /* 3. 被「選中」時的樣子 (覆蓋原本的全白樣式) */
+        .skill-btn.primary {
+            background-color: rgba(255, 255, 255, 0.2) !important; /* 背景變成半透明白，而不是全白 */
+            box-shadow: inset 0 0 0 1px #ffffff !important;        /* 加上白色邊框 */
+            color: #ffffff !important;      /* 文字維持白色 */
+            opacity: 1.0;                   /* 完全不透明 */
+            font-weight: bold;
+        }
 
-            /* 2. 滑鼠滑過去時 */
-            .skill-btn:hover {
-                opacity: 1.0;
-            }
+        /* === 修正：讓上方的王按鈕長度固定，不要太短 === */
+        .tab-btn1 {
+            /* 這裡設定您要的長度，數字越大按鈕越長 */
+            min-width: 11rem !important;
 
-            /* 3. 被「選中」時的樣子 (覆蓋原本的全白樣式) */
-            .skill-btn.primary {
-                background-color: rgba(255, 255, 255, 0.2) !important; /* 背景變成半透明白，而不是全白 */
-                box-shadow: inset 0 0 0 1px #ffffff !important;        /* 加上白色邊框 */
-                color: #ffffff !important;      /* 文字維持白色 */
-                opacity: 1.0;                   /* 完全不透明 */
-                font-weight: bold;
-            }
+            /* 避免手機版按鈕太長超出螢幕，設定最大寬度為 100% */
+            max-width: 100%;
+        }
 
-            /* === 修正：讓上方的王按鈕長度固定，不要太短 === */
+        /* 如果手機版希望按鈕變回填滿整行 (比較好按)，可以加這段 */
+        @media screen and (max-width: 480px) {
             .tab-btn1 {
-                /* 這裡設定您要的長度，數字越大按鈕越長 */
-                min-width: 11rem !important;
-
-                /* 避免手機版按鈕太長超出螢幕，設定最大寬度為 100% */
-                max-width: 100%;
+                width: 100% !important; /* 手機上強制變全寬 */
+                margin-bottom: 0.5rem;  /* 增加一點垂直間距 */
             }
+        }
 
-            /* 如果手機版希望按鈕變回填滿整行 (比較好按)，可以加這段 */
-            @media screen and (max-width: 480px) {
-                .tab-btn1 {
-                    width: 100% !important; /* 手機上強制變全寬 */
-                    margin-bottom: 0.5rem;  /* 增加一點垂直間距 */
-                }
-            }
+        /* ============================================== */
+        /* ★★★ 請務必補上這段，按鈕才會自動換行跟置中 ★★★ */
+        /* ============================================== */
 
-            /* ============================================== */
-            /* ★★★ 請務必補上這段，按鈕才會自動換行跟置中 ★★★ */
-            /* ============================================== */
+        /* 1. 設定所有王按鈕 (.tab-btn 和 .tab-btn1) 的排版規則 */
+        .tab-btn, .tab-btn1 {
+            /* 強制讓文字換行 */
+            white-space: normal !important;
+            word-break: break-word !important;
 
-            /* 1. 設定所有王按鈕 (.tab-btn 和 .tab-btn1) 的排版規則 */
+            /* 讓文字上下左右都置中 */
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            text-align: center !important;
+
+            /* 設定高度自動，隨文字變高 */
+            height: auto !important;
+            min-height: 2.5rem !important; /* 最小高度 */
+
+            /* 調整內距與行高 */
+            padding: 0.5rem 0.5rem !important;
+            line-height: 1.3 !important;
+
+            /* 預設字體大小 */
+            font-size: 0.9rem !important;
+
+            /* 確保手機版不會凸出螢幕 */
+            max-width: 100% !important;
+        }
+
+        /* 2. 手機版專用設定：當螢幕小於 480px 時 */
+        @media screen and (max-width: 480px) {
             .tab-btn, .tab-btn1 {
-                /* 強制讓文字換行 */
-                white-space: normal !important;
-                word-break: break-word !important;
+                /* ★關鍵：手機上字體自動縮小，才塞得進去 */
+                font-size: 0.75rem !important;
 
-                /* 讓文字上下左右都置中 */
-                display: flex !important;
-                justify-content: center !important;
-                align-items: center !important;
-                text-align: center !important;
-
-                /* 設定高度自動，隨文字變高 */
-                height: auto !important;
-                min-height: 2.5rem !important; /* 最小高度 */
-
-                /* 調整內距與行高 */
-                padding: 0.5rem 0.5rem !important;
-                line-height: 1.3 !important;
-
-                /* 預設字體大小 */
-                font-size: 0.9rem !important;
-
-                /* 確保手機版不會凸出螢幕 */
-                max-width: 100% !important;
+                /* 強制佔滿整行寬度 */
+                width: 100% !important;
+                margin-bottom: 0.5rem !important;
             }
+        }
 
-            /* 2. 手機版專用設定：當螢幕小於 480px 時 */
-            @media screen and (max-width: 480px) {
-                .tab-btn, .tab-btn1 {
-                    /* ★關鍵：手機上字體自動縮小，才塞得進去 */
-                    font-size: 0.75rem !important;
+        /* === 計算機專用樣式 === */
 
-                    /* 強制佔滿整行寬度 */
-                    width: 100% !important;
-                    margin-bottom: 0.5rem !important;
-                }
-            }
+        /* 選中的詞條 (亮燈) */
+        .calc-btn.active {
+            background-color: rgba(255, 255, 255, 0.2) !important;
+            box-shadow: inset 0 0 0 1px #ffffff !important;
+            color: #ffffff !important;
+            font-weight: bold;
+            opacity: 1 !important;
+        }
 
-        </style>
-	</head>
-	<body class="is-preload">
+        /* 未選中的詞條 (預設微暗) + 排版修正核心 */
+        .calc-btn {
+            opacity: 0.6;
+            transition: all 0.2s ease;
+            border-radius: 4px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border: 1px solid transparent;
+            margin-bottom: 0.5rem;
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+            /* ★★★ 修正文字跑版的核心設定 ★★★ */
+            height: auto !important;        /* 1. 取消固定高度，讓按鈕隨內容變高 */
+            min-height: 3.5rem;             /* 2. 設定最小高度，確保整齊 */
+            font-size: 1.0rem !important;   /* <--- 加入這行，數字越大字越大 */
+            letter-spacing: 0.08rem;        /* <--- 稍微增加字距，看起來比較舒服 */
 
-				<!-- Header -->
-					<header id="header">
-						<div class="logo">
-							<span class="icon solid fa-heart"></span>
-						</div>
-						<div class="content">
-							<div class="inner">
-								<h1>∠( ᐛ 」∠)_</h1>
-                                <span style="font-size: 0.8rem; letter-spacing: 0.2rem; line-height: 2; display: block;">
+            line-height: 1.2 !important;    /* 3. 設定行距，避免字疊在一起 */
+            white-space: normal !important; /* 4. 允許文字換行 */
+
+            display: inline-flex !important;/* 5. 使用 Flex 排版 */
+            flex-direction: column;         /* 6. 讓兩行字垂直排列 */
+            justify-content: center;        /* 7. 垂直置中 */
+            align-items: center;            /* 8. 水平置中 */
+        }
+
+        .calc-btn:hover {
+            opacity: 0.9;
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        /* 隱藏被篩選掉的項目 */
+        .calc-btn.hidden {
+            display: none !important;
+        }
+
+        /* === 修正：上方「篩選顯示」容器與按鈕樣式 === */
+
+        /* 1. 設定容器：開啟換行功能 (Flex Wrap) */
+        #filter-container {
+            display: flex !important;       /* 使用彈性排版 */
+            flex-wrap: wrap !important;     /* ★關鍵：允許換行，不會超出邊界 */
+            justify-content: center !important; /* 內容置中 */
+            width: 100% !important;         /* 寬度不超過父容器 */
+            padding-left: 0 !important;     /* 移除原本列表的左邊留白 */
+            margin-left: 0 !important;      /* 移除位移 */
+            gap: 0.5rem;                    /* 按鈕之間的間距 (現代瀏覽器支援) */
+        }
+
+        /* 2. 重設列表項目 (li) 的間距 */
+        /* 模板原本是用 padding-left 來推擠，換行後會變醜，改用 margin */
+        #filter-container li {
+            padding: 0 !important;
+            margin: 0 !important;
+            display: contents; /* 讓 li 消失在排版中，直接排 button (選用，或直接設定 li margin) */
+        }
+
+        /* 3. 按鈕本體的樣式 (字體放大 + 自動高度) */
+        #filter-container .button {
+            font-size: 0.75rem !important;   /* 字體放大 */
+
+            /* 讓按鈕適應內容與寬度 */
+            height: auto !important;
+            min-height: 1rem;
+            padding: 0.1rem 1rem !important;
+
+            /* ★關鍵：防止單顆按鈕太長超出螢幕 */
+            max-width: 100% !important;
+            white-space: normal !important; /* 允許按鈕內的文字換行 */
+
+            /* 排版設定 */
+            display: flex !important;       /* 改用 flex 讓文字置中比較穩 */
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            /* 確保按鈕周圍有空間 (配合 wrap 使用) */
+            margin: 0.25rem !important;
+        }
+
+        /* === 統計結果：柔和慵懶・絲綢質感版 === */
+
+        /* 1. 外層容器 */
+        /* === 統計結果：分層結構排版 (修正版) === */
+
+        /* 1. 外層大容器：改成垂直排列，讓橫排一個個疊下來 */
+        #result-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;              /* 上下排之間的距離 */
+            margin-top: 3rem;
+            width: 100%;
+            max-width: 900px;       /* 限制最大寬度 */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 2. 每一橫排的樣式 */
+        .stat-row {
+            display: flex;
+            justify-content: center; /* 讓內容置中 */
+            flex-wrap: wrap;         /* 手機版如果不夠寬，允許換行 */
+            gap: 4rem;               /* ★關鍵：左右卡片之間的間距 */
+            width: 100%;
+        }
+
+        /* 3. 分隔線樣式 (放在第二排和第三排中間) */
+        .stat-separator {
+            width: 60%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+            margin: 0.5rem 0;
+        }
+
+        /* 4. 項目本體 (保持之前的質感設定，只微調寬度) */
+        .stat-card {
+            background: none;
+            border: none;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 1.2rem;
+            min-width: 120px;
+
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.6s;
+        }
+
+        /* ...其餘 .stat-card .stat-label 等樣式保持不變，不用刪除... */
+
+        /* 2. 項目本體 */
+        .stat-card {
+            background: none;
+            border: none;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+            /* 裝飾線：變得極度極度淡，像是一縷煙 */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 1.2rem;
+            min-width: 110px;
+
+            /* ★關鍵：動作要慢，才會有慵懶感 */
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.6s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px); /* 緩緩飄起 */
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* 3. 屬性名稱 (柔霧質感) */
+        .stat-card .stat-label {
+            /* 繼續使用宋體，但這次我們要讓它柔軟一點 */
+            font-family: 'Noto Serif TC', serif;
+
+            font-size: 1.4rem;
+            font-weight: 700;           /* 不用最粗，700 剛好有氣質 */
+            margin-bottom: 0.6rem;
+            letter-spacing: 0.25rem;    /* 字距拉大，呼吸感 */
+
+            /* 漸層色：由 JS 控制，這裡設定基礎 */
+            background-image: var(--stat-gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+
+            /* ★關鍵特效：柔光擴散 (Diffuse Glow) */
+            /* 不是銳利的發光，而是像晨霧一樣的暈染 */
+            filter: drop-shadow(0 0 8px var(--stat-glow));
+
+            opacity: 0.9; /* 稍微透一點點背景，更有空氣感 */
+        }
+
+        /* 4. 屬性數值 (Cinzel，保持優雅) */
+        .stat-card .stat-value {
+            font-family: 'Cinzel', serif;
+
+            font-size: 2.2rem;
+            color: rgba(255, 255, 255, 0.85); /* 奶白色，不要死白 */
+            font-weight: 400;
+            letter-spacing: 0.15rem;
+            line-height: 1;
+
+            /* 數字周圍有很淡很淡的光暈 */
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        /* 提示字 */
+        .empty-msg {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1rem;
+            letter-spacing: 0.2rem;
+            color: rgba(255, 255, 255, 0.4); /* 很淡的灰色 */
+            font-style: italic; /* 斜體增加慵懶感 */
+        }
+
+        /* === 中間詞條按鈕：改用圓潤可愛的 Zen Maru Gothic === */
+        .calc-btn .btn-title {
+            /* ★★★ 修改這裡：使用圓體 ★★★ */
+            font-family: 'Zen Maru Gothic', sans-serif;
+
+            /* 調整字體大小與粗細 */
+            font-size: 1.3rem;
+            font-weight: 900;           /* 設定最粗，看起來才像果凍軟糖 */
+            letter-spacing: 0.1rem;
+            margin-bottom: 0.3rem;
+            display: block;
+
+            /* 漸層與發光 (維持不變) */
+            background-image: var(--text-gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            filter: drop-shadow(0 0 5px var(--text-glow));
+        }
+
+        /* 優化第二行小字 (數值部分) - 使用 Cinzel 字體搭配 */
+        .calc-btn .btn-subtitle {
+            font-family: 'Cinzel', sans-serif;
+            font-size: 0.6em;
+            color: rgba(255, 255, 255, 0.6);
+            letter-spacing: 0.05rem;
+        }
+
+    </style>
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Header -->
+    <header id="header">
+        <div class="logo">
+            <span class="icon solid fa-heart"></span>
+        </div>
+        <div class="content">
+            <div class="inner">
+                <h1>∠( ᐛ 」∠)_</h1>
+                <span style="font-size: 0.8rem; letter-spacing: 0.2rem; line-height: 2; display: block;">
                                     尼豪<br>
                                 </span>
-                                <span style="font-size: 0.8rem; letter-spacing: 0.2rem; line-height: 2; display: block;">
+                <span style="font-size: 0.8rem; letter-spacing: 0.2rem; line-height: 2; display: block;">
                                     這是個有用的筆記 有需要的人可以用<br>
                                 </span>
-                                <span style="font-size: 0.8rem; letter-spacing: 0.2rem; line-height: 2; display: block;">
+                <span style="font-size: 0.8rem; letter-spacing: 0.2rem; line-height: 2; display: block;">
                                     有什麼問題可以找荔枝 <s>雖然你說了我也有可能懶的改</s><br>
                                 </span>
-                                <span style="font-size: 0.8rem; letter-spacing: 0.2rem; line-height: 2; display: block;">
+                <span style="font-size: 0.8rem; letter-spacing: 0.2rem; line-height: 2; display: block;">
                                     反正 就是這樣(ゝ∀･)<br>
                                 </span>
-							</div>
-						</div>
-                        <canvas id="skin_container_EMTTT" style="position: absolute; top: 70%; left: 75%; z-index: 1; pointer-events: none;"></canvas>
-                        <!--<canvas id="skin_container_ME" style="position: absolute; top: 10%; left: 5%; z-index: 1; pointer-events: none;"></canvas>-->
+            </div>
+        </div>
+        <canvas id="skin_container_EMTTT" style="position: absolute; top: 70%; left: 75%; z-index: 1; pointer-events: none;"></canvas>
+        <!--<canvas id="skin_container_ME" style="position: absolute; top: 10%; left: 5%; z-index: 1; pointer-events: none;"></canvas>-->
 
-						<nav>
-							<ul>
-								<li><a href="#dungeon">團副Boss</a></li>
-								<li><a href="#Nothing1">Nothing</a></li>
-								<li><a href="#Nothing2">Nothing</a></li>
-								<li><a href="#Nothing3">Nothing</a></li>
-								<!--<li><a href="#elements">Elements</a></li>-->
-							</ul>
-						</nav>
-					</header>
+        <nav>
+            <ul>
+                <li><a href="#dungeon">團副Boss</a></li>
+                <li><a href="#Title">稱號加成</a></li>
+                <li><a href="#Nothing2">Nothing</a></li>
+                <li><a href="#Nothing3">Nothing</a></li>
+                <!--<li><a href="#elements">Elements</a></li>-->
+            </ul>
+        </nav>
+    </header>
 
-				<!-- Main -->
-					<div id="main">
+    <!-- Main -->
+    <div id="main">
 
-						<!-- Dungeon -->
-                            <article id="dungeon">
-                                <h2 class="major">團副Boss</h2>
-                                <span style="font-size: 1rem; padding-left: 0.2rem; display: block;margin-bottom: 1rem;">
+        <!-- Dungeon -->
+        <article id="dungeon">
+            <h2 class="major">團副Boss</h2>
+            <span style="font-size: 1rem; padding-left: 0.2rem; display: block;margin-bottom: 1rem;">
                                     我們打團時最怕的就是遇到某個人重複失誤，導致其他玩家被迫陪著重打<br>
                                     但若不找隊友進副本 <s>受苦</s> 又不知道該如何摸索 BOSS 技能的機制<br>
                                     最後不是一起坐牢，就是落得無團可打 (っ﹏-)<br>
                                 </span>
-                                <p>所以...這個區塊就這樣誕生了ヾ(*´∀ ˋ*)ﾉ<br>
-                                    希望打團新手可以有個地方自主了解一下 BOSS 的技能如何運作<br>
-                                    然後再去 <s>折磨</s>..找隊友組團，其他的還算簡單所以暫時不加<br>
-                                    <span style="font-size: 0.8rem; color: #bbb; display: block;">
+            <p>所以...這個區塊就這樣誕生了ヾ(*´∀ ˋ*)ﾉ<br>
+                希望打團新手可以有個地方自主了解一下 BOSS 的技能如何運作<br>
+                然後再去 <s>折磨</s>..找隊友組團，其他的還算簡單所以暫時不加<br>
+                <span style="font-size: 0.8rem; color: #bbb; display: block;">
                                     ( 如果有需要別的教學再說，我考慮要不要加 •_ゝ• )
                                     </span>
-                                </p>
-                                <p>請點擊下方按鈕選擇您要查看的團體副本 BOSS 機制：</p>
+            </p>
+            <p>請點擊下方按鈕選擇您要查看的團體副本 BOSS 機制：</p>
 
-                                <ul class="actions stacked">
-                                    <li><a href="#boss1" class="button fit tab-btn" onclick="initTab('boss1', '1diffb3')">團副一【困難】：困難三王</a></li>
-                                    <li><a href="#boss2" class="button fit tab-btn" onclick="initTab('boss2', '2normb3')">團副二【普通】：普通三王</a></li>
-                                    <li><a href="#boss3" class="button fit tab-btn" onclick="initTab('boss3', '2diffb1')">團副二【困難】：困難一王、困難二王、困難三王</a></li>
-                                </ul>
+            <ul class="actions stacked">
+                <li><a href="#boss1" class="button fit tab-btn" onclick="initTab('boss1', '1diffb3')">團副一【困難】：困難三王</a></li>
+                <li><a href="#boss2" class="button fit tab-btn" onclick="initTab('boss2', '2normb3')">團副二【普通】：普通三王</a></li>
+                <li><a href="#boss3" class="button fit tab-btn" onclick="initTab('boss3', '2diffb1')">團副二【困難】：困難一王、困難二王、困難三王</a></li>
+            </ul>
 
-                                <hr />
-                            </article>
+            <hr />
+        </article>
 
-                            <article id="boss1">
-                                <h2 class="major">團副一【困難】</h2>
+        <article id="boss1">
+            <h2 class="major">團副一【困難】</h2>
 
-                                <ul class="actions special small" style="margin-bottom: 2rem;">
-                                    <li><a href="javascript:void(0)" class="button primary fit tab-btn1" onclick="openTab(event, '1diffb3')">困難三王</a></li>
-                                </ul>
+            <ul class="actions special small" style="margin-bottom: 2rem;">
+                <li><a href="javascript:void(0)" class="button primary fit tab-btn1" onclick="openTab(event, '1diffb3')">困難三王</a></li>
+            </ul>
 
-                                <hr />
+            <hr />
 
-                                <div id="1diffb3" class="tab-content" style="display: block;">
-                                    <div class="skill-container">
+            <div id="1diffb3" class="tab-content" style="display: block;">
+                <div class="skill-container">
 
-                                        <ul class="actions fit small" style="margin-bottom: 1rem;">
-                                            <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '1diffb3skill1')">天選圈</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '1diffb3skill2')">血線</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '1diffb3skill3')">魔族禁軍</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '1diffb3skill4')">點點名</a></li>
-                                        </ul>
+                    <ul class="actions fit small" style="margin-bottom: 1rem;">
+                        <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '1diffb3skill1')">天選圈</a></li>
+                        <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '1diffb3skill2')">血線</a></li>
+                        <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '1diffb3skill3')">魔族禁軍</a></li>
+                        <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '1diffb3skill4')">點點名</a></li>
+                    </ul>
 
-                                        <div id="1diffb3skill1" class="skill-content" style="display: block;">
-                                            <h4>第一技能：天選圈</h4>
+                    <div id="1diffb3skill1" class="skill-content" style="display: block;">
+                        <h4>第一技能：天選圈</h4>
 
-                                            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                                                <iframe src="https://player.vimeo.com/video/1146836298?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="b3skill1"></iframe>
-                                            </div>
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                            <iframe src="https://player.vimeo.com/video/1146836298?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="b3skill1"></iframe>
+                        </div>
 
-                                            <div style="text-align: left;
+                        <div style="text-align: left;
                                                         border: 1px solid rgba(255,255,255,0.3);
                                                         background: rgba(255,255,255,0.05);
                                                         padding: 1.5rem;
@@ -251,32 +500,32 @@
                                                         margin-top: 1rem;
                                                         margin-bottom: 3rem;
                                                         box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                                                <p style="margin-bottom: 0.8rem;">
-                                                <h3>天選之人圈圈</h3>
-                                                <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
+                            <p style="margin-bottom: 0.8rem;">
+                            <h3>天選之人圈圈</h3>
+                            <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
                                                         BOSS 開啟技能後，會在場上<u>隨機出現圈圈</u>為安全區<br>
                                                         如果圈圈直接出現在你腳下，那你肯定是天選之人 ´-ω-)b<br>
                                                         玩家請在時間內盡速前往並<u>確保持續待在圈內</u><br>
                                                 </span>
-                                                <span style="font-size: 0.75rem; color: #bbb; padding-left: 1.2rem; display: block;">
+                            <span style="font-size: 0.75rem; color: #bbb; padding-left: 1.2rem; display: block;">
                                                         ↪ 某人的經驗：王在這期間會打人，因觸發閃避而彈出去圈外的話...<s>那你很幸運了</s> ( ･ิω･ิ)
                                                 </span>
 
-                                                <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
-                                                <h3>需要注意的小細節</h3>
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    1. <b style="color: #ff9999;">王會打人</b>，被擊飛的話請盡速回到圈內
-                                            </div>
-                                        </div>
+                            <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
+                            <h3>需要注意的小細節</h3>
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                1. <b style="color: #ff9999;">王會打人</b>，被擊飛的話請盡速回到圈內
+                        </div>
+                    </div>
 
-                                        <div id="1diffb3skill2" class="skill-content" style="display: none;">
-                                            <h4>第二技能：血線</h4>
+                    <div id="1diffb3skill2" class="skill-content" style="display: none;">
+                        <h4>第二技能：血線</h4>
 
-                                            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                                                <iframe src="https://player.vimeo.com/video/1146836309?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="b3skill2"></iframe>
-                                            </div>
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                            <iframe src="https://player.vimeo.com/video/1146836309?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="b3skill2"></iframe>
+                        </div>
 
-                                            <div style="text-align: left;
+                        <div style="text-align: left;
                                                         border: 1px solid rgba(255,255,255,0.3);
                                                         background: rgba(255,255,255,0.05);
                                                         padding: 1.5rem;
@@ -284,29 +533,29 @@
                                                         margin-top: 1rem;
                                                         margin-bottom: 3rem;
                                                         box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                                                <p style="margin-bottom: 0.8rem;">
-                                                <h3>血線</h3>
-                                                <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
+                            <p style="margin-bottom: 0.8rem;">
+                            <h3>血線</h3>
+                            <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
                                                         BOSS 開啟技能後，會出現<u>以 BOSS 為中心的放射狀線條</u><br>
                                                         會先出現<u>黃綠色線</u>作為預警，再出現<u>紅線</u>作為攻擊手段<br>
                                                         困難模式的血線會<u>連續出現三次</u>，要記得連續躲避三次 (⁎⁍̴̛ᴗ⁍̴̛⁎)<br>
                                                 </span>
-                                                <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
-                                                <h3>需要注意的小細節</h3>
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    1. <b style="color: #ff9999;">不要離王太近</b>，會判定成死亡
-                                            </div>
+                            <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
+                            <h3>需要注意的小細節</h3>
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                1. <b style="color: #ff9999;">不要離王太近</b>，會判定成死亡
+                        </div>
 
-                                        </div>
+                    </div>
 
-                                        <div id="1diffb3skill3" class="skill-content" style="display: none;">
-                                            <h4>第三技能：魔族禁軍</h4>
+                    <div id="1diffb3skill3" class="skill-content" style="display: none;">
+                        <h4>第三技能：魔族禁軍</h4>
 
-                                            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                                                <iframe src="https://player.vimeo.com/video/1146836324?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="b3skill3"></iframe>
-                                            </div>
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                            <iframe src="https://player.vimeo.com/video/1146836324?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="b3skill3"></iframe>
+                        </div>
 
-                                            <div style="text-align: left;
+                        <div style="text-align: left;
                                                         border: 1px solid rgba(255,255,255,0.3);
                                                         background: rgba(255,255,255,0.05);
                                                         padding: 1.5rem;
@@ -314,30 +563,30 @@
                                                         margin-top: 1rem;
                                                         margin-bottom: 3rem;
                                                         box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                                                <p style="margin-bottom: 0.8rem;">
-                                                <h3>魔族JIN軍</h3>
-                                                <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
+                            <p style="margin-bottom: 0.8rem;">
+                            <h3>魔族JIN軍</h3>
+                            <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
                                                         BOSS 開啟技能後，會在場上出現<u>隨機數量的魔族禁軍</u><br>
                                                         時間內打死就好了，很簡單對吧 ( • ̀ω•́ )？<br>
                                                 </span>
 
-                                                <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
-                                                <h3>需要注意的小細節</h3>
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    1. 這時候不是很危險，<b style="color: #aaddff;">盾手可以抽空修裝備</b><br>
-                                            </div>
+                            <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
+                            <h3>需要注意的小細節</h3>
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                1. 這時候不是很危險，<b style="color: #aaddff;">盾手可以抽空修裝備</b><br>
+                        </div>
 
-                                        </div>
+                    </div>
 
-                                        <div id="1diffb3skill4" class="skill-content" style="display: none;">
-                                            <h4>第四技能：點點名</h4>
+                    <div id="1diffb3skill4" class="skill-content" style="display: none;">
+                        <h4>第四技能：點點名</h4>
 
-                                            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                                                <iframe src="https://player.vimeo.com/video/1146836337?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="b3skill4"></iframe>
-                                                <iframe src="https://player.vimeo.com/video/1146836350?badge=0&amp;autopause=1&amp;player_id=0&amp;app_id=58479&amp;muted=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="b3skill4pic"></iframe>
-                                            </div>
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                            <iframe src="https://player.vimeo.com/video/1146836337?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="b3skill4"></iframe>
+                            <iframe src="https://player.vimeo.com/video/1146836350?badge=0&amp;autopause=1&amp;player_id=0&amp;app_id=58479&amp;muted=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="b3skill4pic"></iframe>
+                        </div>
 
-                                            <div style="text-align: left;
+                        <div style="text-align: left;
                                                         border: 1px solid rgba(255,255,255,0.3);
                                                         background: rgba(255,255,255,0.05);
                                                         padding: 1.5rem;
@@ -345,68 +594,68 @@
                                                         margin-top: 1rem;
                                                         margin-bottom: 3rem;
                                                         box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                                                <p style="margin-bottom: 0.8rem;">
-                                                <h3><s>YOYO</s>點點名</h3>
-                                                <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
+                            <p style="margin-bottom: 0.8rem;">
+                            <h3><s>YOYO</s>點點名</h3>
+                            <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
                                                         BOSS 開啟技能後，在場的玩家<u>隨機被點名</u><br>
                                                         被點到的就離<u>王和其他玩家</u>遠一點<br>
                                                         就是這麼簡單 ◝(･'ω'･)◟<br>
                                                 </span>
 
-                                                <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
-                                                <h3>需要注意的小細節</h3>
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    1. 被點名的玩家<b style="color: #aaddff;">左下聊天欄</b>會有提示<br>
-                                            </div>
+                            <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
+                            <h3>需要注意的小細節</h3>
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                1. 被點名的玩家<b style="color: #aaddff;">左下聊天欄</b>會有提示<br>
+                        </div>
 
-                                        </div>
+                    </div>
 
-                                    </div>
-                                </div>
+                </div>
+            </div>
 
 
-                                <ul class="actions">
-                                    <li><a href="#dungeon" class="button small">返回上一頁</a></li>
-                                </ul>
-                            </article>
+            <ul class="actions">
+                <li><a href="#dungeon" class="button small">返回上一頁</a></li>
+            </ul>
+        </article>
 
-                            <article id="boss2">
-                                <h2 class="major">團副二【普通】</h2>
+        <article id="boss2">
+            <h2 class="major">團副二【普通】</h2>
 
-                                <ul class="actions special small" style="margin-bottom: 2rem;">
-                                    <li><a href="javascript:void(0)" class="button fit tab-btn1" onclick="openTab(event, '2normb3')">普通三王</a></li>
-                                </ul>
+            <ul class="actions special small" style="margin-bottom: 2rem;">
+                <li><a href="javascript:void(0)" class="button fit tab-btn1" onclick="openTab(event, '2normb3')">普通三王</a></li>
+            </ul>
 
-                                <hr />
-                                <h4>注意：普通三王的擴充包是困難三王，需要請移步</h4>
-                                <ul class="actions">
-                                    <li>
-                                        <a href="#boss3" class="button small" onclick="initTab('boss3', '2diffb3')">
-                                            點我(つ´▽`)つ
-                                        </a>
-                                    </li>
-                                </ul>
+            <hr />
+            <h4>注意：普通三王的擴充包是困難三王，需要請移步</h4>
+            <ul class="actions">
+                <li>
+                    <a href="#boss3" class="button small" onclick="initTab('boss3', '2diffb3')">
+                        點我(つ´▽`)つ
+                    </a>
+                </li>
+            </ul>
 
-                                <div id="2normb3" class="tab-content" style="display: block;">
-                                    <div class="skill-container">
+            <div id="2normb3" class="tab-content" style="display: block;">
+                <div class="skill-container">
 
-                                        <ul class="actions fit small" style="margin-bottom: 1rem;">
-                                            <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '2normb3skill1')">紅波</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb3skill2')">藍波</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb3skill3')">斷頭台</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb3skill4')">石頭人</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb3skill5')">反傷圈</a></li>
-                                        </ul>
+                    <ul class="actions fit small" style="margin-bottom: 1rem;">
+                        <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '2normb3skill1')">紅波</a></li>
+                        <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb3skill2')">藍波</a></li>
+                        <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb3skill3')">斷頭台</a></li>
+                        <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb3skill4')">石頭人</a></li>
+                        <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2normb3skill5')">反傷圈</a></li>
+                    </ul>
 
-                                        <div id="2normb3skill1" class="skill-content" style="display: block;">
-                                            <h4>第一技能：普通紅波</h4>
+                    <div id="2normb3skill1" class="skill-content" style="display: block;">
+                        <h4>第一技能：普通紅波</h4>
 
-                                            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                                                <img src="images/Nor_Red.gif" alt="普通紅波" style="width: 335px; max-width: 100%; height: auto; border-radius: 4px;" loading="lazy"/>
-                                                <iframe src="https://player.vimeo.com/video/1146836445?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="red"></iframe>
-                                            </div>
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                            <img src="images/Nor_Red.gif" alt="普通紅波" style="width: 335px; max-width: 100%; height: auto; border-radius: 4px;" loading="lazy"/>
+                            <iframe src="https://player.vimeo.com/video/1146836445?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="red"></iframe>
+                        </div>
 
-                                            <div style="text-align: left;
+                        <div style="text-align: left;
                                                         border: 1px solid rgba(255,255,255,0.3);
                                                         background: rgba(255,255,255,0.05);
                                                         padding: 1.5rem;
@@ -414,42 +663,42 @@
                                                         margin-top: 1rem;
                                                         margin-bottom: 3rem;
                                                         box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                                                <p style="margin-bottom: 0.8rem;">
-                                                <h3>普通紅波</h3>
-                                                <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
+                            <p style="margin-bottom: 0.8rem;">
+                            <h3>普通紅波</h3>
+                            <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
                                                         三王開啟技能後，第一個紅波會出現在<u>王的右後方</u><br>
                                                         約一秒後紅波會往下一個區域<u>逆時針蔓延</u><br>
                                                         玩家需要持續逆時針移動，保證自身處於安全區內<br>
                                                         <u>繞一圈</u>後 BOSS 技能即結束 (๑•̀ㅂ•́)و✧<br>
                                                 </span>
 
-                                                <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
-                                                <h3>需要注意的小細節</h3>
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    1. 簡單模式下<b style="color: #aaddff;">可以舉盾格擋</b>，原版盾不可<br>
-                                                    <span style="font-size: 0.75rem; color: #bbb; padding-left: 1.2rem; display: block;">
+                            <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
+                            <h3>需要注意的小細節</h3>
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                1. 簡單模式下<b style="color: #aaddff;">可以舉盾格擋</b>，原版盾不可<br>
+                                <span style="font-size: 0.75rem; color: #bbb; padding-left: 1.2rem; display: block;">
                                                         ↪ 盡量不要，因為普通和困難不能舉盾格擋，最後還是得練
                                                     </span>
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    2. <b style="color: #ff9999;">不要跳躍</b>，有機率判定成死亡
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    3. <b style="color: #ff9999;">不可以站在圈外</b>，站在圈外會直接死
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    4. <b style="color: #ff9999;">不要離王太近</b>，有機率判定成死亡
-                                            </div>
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                2. <b style="color: #ff9999;">不要跳躍</b>，有機率判定成死亡
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                3. <b style="color: #ff9999;">不可以站在圈外</b>，站在圈外會直接死
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                4. <b style="color: #ff9999;">不要離王太近</b>，有機率判定成死亡
+                        </div>
 
-                                        </div>
+                    </div>
 
-                                        <div id="2normb3skill2" class="skill-content" style="display: none;">
-                                            <h4>第二技能：普通藍波</h4>
+                    <div id="2normb3skill2" class="skill-content" style="display: none;">
+                        <h4>第二技能：普通藍波</h4>
 
-                                            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                                                <img src="images/Nor_Blue.gif" alt="普通藍波" style="width: 350px; max-width: 100%; height: auto; border-radius: 4px;" loading="lazy"/>
-                                                <iframe src="https://player.vimeo.com/video/1146836360?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="blueline"></iframe>
-                                            </div>
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                            <img src="images/Nor_Blue.gif" alt="普通藍波" style="width: 350px; max-width: 100%; height: auto; border-radius: 4px;" loading="lazy"/>
+                            <iframe src="https://player.vimeo.com/video/1146836360?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="blueline"></iframe>
+                        </div>
 
 
-                                            <div style="text-align: left;
+                        <div style="text-align: left;
                                                         border: 1px solid rgba(255,255,255,0.3);
                                                         background: rgba(255,255,255,0.05);
                                                         padding: 1.5rem;
@@ -457,48 +706,48 @@
                                                         margin-top: 1rem;
                                                         margin-bottom: 3rem;
                                                         box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                                                <p style="margin-bottom: 0.8rem;">
-                                                    <h3>普通藍波</h3>
-                                                    <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
+                            <p style="margin-bottom: 0.8rem;">
+                            <h3>普通藍波</h3>
+                            <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
                                                         三王開啟技能後，第一時間會有一個<u>先舉劍後以劍尖點地</u>的動作<br>
                                                     </span>
-                                                    <span style="font-size: 0.85rem; color: #bbb; padding-left: 1.2rem; display: block;">
+                            <span style="font-size: 0.85rem; color: #bbb; padding-left: 1.2rem; display: block;">
                                                         ↪ 就是上圖寫「刀」的位置，相對位置是固定的
                                                     </span>
-                                                    <span style="font-size: 1rem; padding-left: 0.2rem; display: block;margin-bottom: 1rem;">
+                            <span style="font-size: 1rem; padding-left: 0.2rem; display: block;margin-bottom: 1rem;">
                                                         我們通常會藉此作為基準點，第一波安全區是劍尖點地的旁邊區域<br>
                                                         也可以觀察玩家旁邊的線，如果<u>左線沒有鋸齒狀</u>就是站在第一波安全區<br>
                                                     </span>
-                                                    <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
+                            <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
                                                         約一秒後藍波會以固定模式交替，且會發出一個類似「刷ㄧ」的提示音<br>
                                                         建議打開遊戲聲音，在聽見提示音時立刻移動到下一個安全區域<br>
                                                         普通藍波只會有<u>四波攻擊</u>，三種難度的三王都會放普通藍波 ( º﹃º )
                                                     </span>
-                                                <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
-                                                <h3>需要注意的小細節</h3>
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    1. 簡單模式下<b style="color: #aaddff;">可以舉盾格擋</b>，原版盾不可<br>
-                                                    <span style="font-size: 0.75rem; color: #bbb; padding-left: 1.2rem; display: block;">
+                            <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
+                            <h3>需要注意的小細節</h3>
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                1. 簡單模式下<b style="color: #aaddff;">可以舉盾格擋</b>，原版盾不可<br>
+                                <span style="font-size: 0.75rem; color: #bbb; padding-left: 1.2rem; display: block;">
                                                         ↪ 盡量不要，因為普通和困難不能舉盾格擋，最後還是得練
                                                     </span>
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    2. <b style="color: #ff9999;">不要跳躍</b>，有機率判定成死亡
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    3. <b style="color: #ff9999;">不可以站在圈外</b>，站在圈外會直接死
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    4. <b style="color: #ff9999;">不要離王太近</b>，有機率判定成死亡
-                                            </div>
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                2. <b style="color: #ff9999;">不要跳躍</b>，有機率判定成死亡
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                3. <b style="color: #ff9999;">不可以站在圈外</b>，站在圈外會直接死
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                4. <b style="color: #ff9999;">不要離王太近</b>，有機率判定成死亡
+                        </div>
 
-                                        </div>
+                    </div>
 
-                                        <div id="2normb3skill3" class="skill-content" style="display: none;">
-                                            <h4>第三技能：斷頭台</h4>
+                    <div id="2normb3skill3" class="skill-content" style="display: none;">
+                        <h4>第三技能：斷頭台</h4>
 
-                                            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                                                <iframe src="https://player.vimeo.com/video/1146836428?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="nohead"></iframe>
-                                            </div>
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                            <iframe src="https://player.vimeo.com/video/1146836428?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="nohead"></iframe>
+                        </div>
 
-                                            <div style="text-align: left;
+                        <div style="text-align: left;
                                                         border: 1px solid rgba(255,255,255,0.3);
                                                         background: rgba(255,255,255,0.05);
                                                         padding: 1.5rem;
@@ -506,32 +755,32 @@
                                                         margin-top: 1rem;
                                                         margin-bottom: 3rem
                                                         box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                                                <p style="margin-bottom: 0.8rem;">
-                                                <h3>斷頭台</h3>
-                                                <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
+                            <p style="margin-bottom: 0.8rem;">
+                            <h3>斷頭台</h3>
+                            <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
                                                     三王開啟技能後，場地上會<u>隨機出現數個紅色圈圈</u><br>
                                                     紅色圈圈內會在<u>大約兩秒後揮刀</u>，記得在揮刀前躲開<br>
                                                     還有叫你倒楣的隊友離你遠一點ヽ(#`Д´)ﾉ<br>
                                                 </span>
-                                                <span style="font-size: 0.85rem; color: #bbb; padding-left: 1.2rem; display: block;">
+                            <span style="font-size: 0.85rem; color: #bbb; padding-left: 1.2rem; display: block;">
                                                         ↪ <s>例如我旁邊那個橘色的人 (`д´)</s>
                                                 </span>
-                                                <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
-                                                <h3>需要注意的小細節</h3>
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    1. <b style="color: #ff9999;">王會打人</b>，觸發閃避時可能會彈到紅圈上
-                                            </div>
+                            <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
+                            <h3>需要注意的小細節</h3>
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                1. <b style="color: #ff9999;">王會打人</b>，觸發閃避時可能會彈到紅圈上
+                        </div>
 
-                                        </div>
+                    </div>
 
-                                        <div id="2normb3skill4" class="skill-content" style="display: none;">
-                                            <h4>第四技能：石頭人</h4>
+                    <div id="2normb3skill4" class="skill-content" style="display: none;">
+                        <h4>第四技能：石頭人</h4>
 
-                                            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                                                <iframe src="https://player.vimeo.com/video/1146836471?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="stone"></iframe>
-                                            </div>
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                            <iframe src="https://player.vimeo.com/video/1146836471?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="stone"></iframe>
+                        </div>
 
-                                            <div style="text-align: left;
+                        <div style="text-align: left;
                                                         border: 1px solid rgba(255,255,255,0.3);
                                                         background: rgba(255,255,255,0.05);
                                                         padding: 1.5rem;
@@ -539,29 +788,29 @@
                                                         margin-top: 1rem;
                                                         margin-bottom: 3rem;
                                                         box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                                                <p style="margin-bottom: 0.8rem;">
-                                                <h3>石頭人</h3>
-                                                <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
+                            <p style="margin-bottom: 0.8rem;">
+                            <h3>石頭人</h3>
+                            <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
                                                     三王開啟技能後，場地上會<u>隨機出現四個帶有號碼的石頭人</u><br>
                                                     玩家們需要<u>按照1234的順序</u>，在時間內擊殺石頭人<br>
                                                     擊敗順序錯誤或是時間內沒有打完，所有玩家都會死亡 ( ×ω× )<br>
                                                 </span>
-                                                <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
-                                                <h3>需要注意的小細節</h3>
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    1. <b style="color: #aaddff;">石頭人有發光提示</b>，發光的就是現在需要擊敗的石頭人
-                                            </div>
+                            <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
+                            <h3>需要注意的小細節</h3>
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                1. <b style="color: #aaddff;">石頭人有發光提示</b>，發光的就是現在需要擊敗的石頭人
+                        </div>
 
-                                        </div>
+                    </div>
 
-                                        <div id="2normb3skill5" class="skill-content" style="display: none;">
-                                            <h4>第五技能：反傷圈</h4>
+                    <div id="2normb3skill5" class="skill-content" style="display: none;">
+                        <h4>第五技能：反傷圈</h4>
 
-                                            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                                                <iframe src="https://player.vimeo.com/video/1146836412?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="hurt"></iframe>
-                                            </div>
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                            <iframe src="https://player.vimeo.com/video/1146836412?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="hurt"></iframe>
+                        </div>
 
-                                            <div style="text-align: left;
+                        <div style="text-align: left;
                                                         border: 1px solid rgba(255,255,255,0.3);
                                                         background: rgba(255,255,255,0.05);
                                                         padding: 1.5rem;
@@ -569,62 +818,62 @@
                                                         margin-top: 1rem;
                                                         margin-bottom: 3rem;
                                                         box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                                                <p style="margin-bottom: 0.8rem;">
-                                                <h3>反傷圈</h3>
-                                                <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
+                            <p style="margin-bottom: 0.8rem;">
+                            <h3>反傷圈</h3>
+                            <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
                                                     三王開啟技能後，場地上會<u>隨機出現圈圈為安全區</u><br>
                                                     玩家們需要<u>站在圈圈內獲取效果</u>，有效果時便不會受到反傷攻擊<br>
                                                     建議玩家使用粉晶定住王，集中輸出 (∩^o^)⊃━☆ﾟ.*･｡<br>
                                                 </span>
-                                                <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
-                                                <h3>需要注意的小細節</h3>
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    1. 身上有<b style="color: #aaddff;">幸運的藥水效果時</b>，就是免疫生效期間
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    2. <b style="color: #aaddff;">盡量把王往中間的圈圈帶</b>，避免石頭人生在門外
-                                            </div>
+                            <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
+                            <h3>需要注意的小細節</h3>
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                1. 身上有<b style="color: #aaddff;">幸運的藥水效果時</b>，就是免疫生效期間
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                2. <b style="color: #aaddff;">盡量把王往中間的圈圈帶</b>，避免石頭人生在門外
+                        </div>
 
-                                        </div>
+                    </div>
 
-                                    </div>
-                                </div>
+                </div>
+            </div>
 
 
-                                <ul class="actions">
-                                    <li><a href="#dungeon" class="button small">返回上一頁</a></li>
-                                </ul>
-                            </article>
+            <ul class="actions">
+                <li><a href="#dungeon" class="button small">返回上一頁</a></li>
+            </ul>
+        </article>
 
-                            <article id="boss3">
-                                <h2 class="major">團副二【困難】</h2>
+        <article id="boss3">
+            <h2 class="major">團副二【困難】</h2>
 
-                                <ul class="actions special small" style="margin-bottom: 2rem;">
-                                    <li><a href="javascript:void(0)" class="button primary fit tab-btn1" onclick="openTab(event, '2diffb1')">困難一王</a></li>
-                                    <li><a href="javascript:void(0)" class="button fit tab-btn1" onclick="openTab(event, '2diffb2')">困難二王</a></li>
-                                    <li><a href="javascript:void(0)" class="button fit tab-btn1" onclick="openTab(event, '2diffb3')">困難三王</a></li>
-                                </ul>
+            <ul class="actions special small" style="margin-bottom: 2rem;">
+                <li><a href="javascript:void(0)" class="button primary fit tab-btn1" onclick="openTab(event, '2diffb1')">困難一王</a></li>
+                <li><a href="javascript:void(0)" class="button fit tab-btn1" onclick="openTab(event, '2diffb2')">困難二王</a></li>
+                <li><a href="javascript:void(0)" class="button fit tab-btn1" onclick="openTab(event, '2diffb3')">困難三王</a></li>
+            </ul>
 
-                                <hr />
+            <hr />
 
-                                <div id="2diffb1" class="tab-content" style="display: block;">
-                                    <div class="skill-container">
+            <div id="2diffb1" class="tab-content" style="display: block;">
+                <div class="skill-container">
 
-                                        <ul class="actions fit small" style="margin-bottom: 1rem;">
-                                            <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '2diffb1skill1')">腐敗原木</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb1skill2')">範圍攻擊</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb1skill3')">封印圈</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb1skill4')">咆嘯圈</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb1skill5')">爆破圈</a></li>
-                                        </ul>
+                    <ul class="actions fit small" style="margin-bottom: 1rem;">
+                        <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '2diffb1skill1')">腐敗原木</a></li>
+                        <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb1skill2')">範圍攻擊</a></li>
+                        <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb1skill3')">封印圈</a></li>
+                        <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb1skill4')">咆嘯圈</a></li>
+                        <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb1skill5')">爆破圈</a></li>
+                    </ul>
 
-                                        <div id="2diffb1skill1" class="skill-content" style="display: block;">
-                                            <h4>第一技能：腐敗原木</h4>
+                    <div id="2diffb1skill1" class="skill-content" style="display: block;">
+                        <h4>第一技能：腐敗原木</h4>
 
-                                            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                                                <iframe src="https://player.vimeo.com/video/1146836499?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="tree1"></iframe>
-                                            </div>
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                            <iframe src="https://player.vimeo.com/video/1146836499?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="tree1"></iframe>
+                        </div>
 
-                                            <div style="text-align: left;
+                        <div style="text-align: left;
                                                         border: 1px solid rgba(255,255,255,0.3);
                                                         background: rgba(255,255,255,0.05);
                                                         padding: 1.5rem;
@@ -632,31 +881,31 @@
                                                         margin-top: 1rem;
                                                         margin-bottom: 3rem;
                                                         box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                                                <p style="margin-bottom: 0.8rem;">
-                                                <h3>腐敗原木</h3>
-                                                <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
+                            <p style="margin-bottom: 0.8rem;">
+                            <h3>腐敗原木</h3>
+                            <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
                                                         一王開啟技能後，會在場上<u>隨機生成腐敗原木</u><br>
                                                         需要在時間內全部打掉 (╯•̀ὤ•́)╯<br>
                                                         王的周圍會有光圈，<u>不可以踏入</u><br>
                                                         打掉所有腐敗原木後一王會陷入虛弱狀態<br>
                                                 </span>
 
-                                                <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
-                                                <h3>需要注意的小細節</h3>
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    1. <b style="color: #ff9999;">傷害要夠多</b>，時間內沒有清完會全滅
-                                            </div>
+                            <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
+                            <h3>需要注意的小細節</h3>
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                1. <b style="color: #ff9999;">傷害要夠多</b>，時間內沒有清完會全滅
+                        </div>
 
-                                        </div>
+                    </div>
 
-                                        <div id="2diffb1skill2" class="skill-content" style="display: none;">
-                                            <h4>第二技能：範圍攻擊</h4>
+                    <div id="2diffb1skill2" class="skill-content" style="display: none;">
+                        <h4>第二技能：範圍攻擊</h4>
 
-                                            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                                                <iframe src="https://player.vimeo.com/video/1146836267?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="attack"></iframe>
-                                            </div>
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                            <iframe src="https://player.vimeo.com/video/1146836267?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="attack"></iframe>
+                        </div>
 
-                                            <div style="text-align: left;
+                        <div style="text-align: left;
                                                         border: 1px solid rgba(255,255,255,0.3);
                                                         background: rgba(255,255,255,0.05);
                                                         padding: 1.5rem;
@@ -664,29 +913,29 @@
                                                         margin-top: 1rem;
                                                         margin-bottom: 3rem;
                                                         box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                                                <p style="margin-bottom: 0.8rem;">
-                                                <h3>範圍攻擊</h3>
-                                                <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
+                            <p style="margin-bottom: 0.8rem;">
+                            <h3>範圍攻擊</h3>
+                            <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
                                                         一王開啟技能後，前方會出現<u>紅色三角形區塊</u><br>
                                                         不要踩到就好了，簡單吧 (｡・ω・｡)?<br>
                                                 </span>
 
-                                                <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
-                                                <h3>需要注意的小細節</h3>
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    1. 建議平時打王時除了盾手，<b style="color: #aaddff;">其他人盡量都站在王身後</b>
-                                            </div>
+                            <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
+                            <h3>需要注意的小細節</h3>
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                1. 建議平時打王時除了盾手，<b style="color: #aaddff;">其他人盡量都站在王身後</b>
+                        </div>
 
-                                        </div>
+                    </div>
 
-                                        <div id="2diffb1skill3" class="skill-content" style="display: none;">
-                                            <h4>第三技能：封印圈</h4>
+                    <div id="2diffb1skill3" class="skill-content" style="display: none;">
+                        <h4>第三技能：封印圈</h4>
 
-                                            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                                                <iframe src="https://player.vimeo.com/video/1146836384?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="circle"></iframe>
-                                            </div>
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                            <iframe src="https://player.vimeo.com/video/1146836384?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="circle"></iframe>
+                        </div>
 
-                                            <div style="text-align: left;
+                        <div style="text-align: left;
                                                         border: 1px solid rgba(255,255,255,0.3);
                                                         background: rgba(255,255,255,0.05);
                                                         padding: 1.5rem;
@@ -694,29 +943,29 @@
                                                         margin-top: 1rem;
                                                         margin-bottom: 3rem;
                                                         box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                                                <p style="margin-bottom: 0.8rem;">
-                                                <h3>封印圈</h3>
-                                                <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
+                            <p style="margin-bottom: 0.8rem;">
+                            <h3>封印圈</h3>
+                            <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
                                                         一王開啟技能後，場上會出現<u>隨機位置的五個封印圈</u><br>
                                                         玩家們各自找一個圈圈站好即可 (•ㅂ•)/<br>
                                                 </span>
 
-                                                <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
-                                                <h3>需要注意的小細節</h3>
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    1. <b style="color: #aaddff;">遇到重疊的圈時</b>可以一人站多個，沒事的人可以去打王
-                                            </div>
+                            <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
+                            <h3>需要注意的小細節</h3>
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                1. <b style="color: #aaddff;">遇到重疊的圈時</b>可以一人站多個，沒事的人可以去打王
+                        </div>
 
-                                        </div>
+                    </div>
 
-                                        <div id="2diffb1skill4" class="skill-content" style="display: none;">
-                                            <h4>第四技能：咆嘯圈</h4>
+                    <div id="2diffb1skill4" class="skill-content" style="display: none;">
+                        <h4>第四技能：咆嘯圈</h4>
 
-                                            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                                                <iframe src="https://player.vimeo.com/video/1146836396?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="growl"></iframe>
-                                            </div>
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                            <iframe src="https://player.vimeo.com/video/1146836396?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="growl"></iframe>
+                        </div>
 
-                                            <div style="text-align: left;
+                        <div style="text-align: left;
                                                         border: 1px solid rgba(255,255,255,0.3);
                                                         background: rgba(255,255,255,0.05);
                                                         padding: 1.5rem;
@@ -725,24 +974,24 @@
                                                         margin-top: 1rem;
                                                         margin-bottom: 3rem;
                                                         box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                                                <p style="margin-bottom: 0.8rem;">
-                                                <h3>咆嘯圈</h3>
-                                                <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
+                            <p style="margin-bottom: 0.8rem;">
+                            <h3>咆嘯圈</h3>
+                            <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
                                                         一王開啟技能後，周遭會<u>湧出許多同心圓波攻擊</u><br>
                                                         玩家迅速離開王的身邊就好，超簡單 ヽ(●´∀`●)ﾉ<br>
                                                 </span>
-                                            </div>
+                        </div>
 
-                                        </div>
+                    </div>
 
-                                        <div id="2diffb1skill5" class="skill-content" style="display: none;">
-                                            <h4>第五技能：爆破圈</h4>
+                    <div id="2diffb1skill5" class="skill-content" style="display: none;">
+                        <h4>第五技能：爆破圈</h4>
 
-                                            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                                                <iframe src="https://player.vimeo.com/video/1146836368?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="boom"></iframe>
-                                            </div>
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                            <iframe src="https://player.vimeo.com/video/1146836368?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="boom"></iframe>
+                        </div>
 
-                                            <div style="text-align: left;
+                        <div style="text-align: left;
                                                         border: 1px solid rgba(255,255,255,0.3);
                                                         background: rgba(255,255,255,0.05);
                                                         padding: 1.5rem;
@@ -751,37 +1000,37 @@
                                                         margin-top: 1rem;
                                                         margin-bottom: 3rem;
                                                         box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                                                <p style="margin-bottom: 0.8rem;">
-                                                <h3>爆破圈</h3>
-                                                <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
+                            <p style="margin-bottom: 0.8rem;">
+                            <h3>爆破圈</h3>
+                            <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
                                                         一王開啟技能後，王的周圍會有光圈，<u>不可以踏入</u><br>
                                                         光圈內會<u>重複四次爆炸</u>，爆炸時會<u>把圈內玩家往中心吸</u><br>
                                                         被吸住就很難出來了喔 (✘﹏✘ა)<br>
                                                 </span>
-                                            </div>
+                        </div>
 
-                                        </div>
+                    </div>
 
-                                    </div>
-                                </div>
+                </div>
+            </div>
 
-                                <div id="2diffb2" class="tab-content" style="display: none;">
-                                    <div class="skill-container">
+            <div id="2diffb2" class="tab-content" style="display: none;">
+                <div class="skill-container">
 
-                                        <ul class="actions fit small" style="margin-bottom: 1rem;">
-                                            <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '2diffb2skill1')">蹲下</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb2skill2')">範圍攻擊</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb2skill3')">吸血反盾</a></li>
-                                        </ul>
+                    <ul class="actions fit small" style="margin-bottom: 1rem;">
+                        <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '2diffb2skill1')">蹲下</a></li>
+                        <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb2skill2')">範圍攻擊</a></li>
+                        <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb2skill3')">吸血反盾</a></li>
+                    </ul>
 
-                                        <div id="2diffb2skill1" class="skill-content" style="display: block;">
-                                            <h4>第一技能：蹲下</h4>
+                    <div id="2diffb2skill1" class="skill-content" style="display: block;">
+                        <h4>第一技能：蹲下</h4>
 
-                                            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                                                <iframe src="https://player.vimeo.com/video/1146836464?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="squat"></iframe>
-                                            </div>
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                            <iframe src="https://player.vimeo.com/video/1146836464?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="squat"></iframe>
+                        </div>
 
-                                            <div style="text-align: left;
+                        <div style="text-align: left;
                                                         border: 1px solid rgba(255,255,255,0.3);
                                                         background: rgba(255,255,255,0.05);
                                                         padding: 1.5rem;
@@ -790,29 +1039,29 @@
                                                         margin-top: 1rem;
                                                         margin-bottom: 3rem;
                                                         box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                                                <p style="margin-bottom: 0.8rem;">
-                                                <h3>蹲下</h3>
-                                                <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
+                            <p style="margin-bottom: 0.8rem;">
+                            <h3>蹲下</h3>
+                            <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
                                                         二王開啟技能後，<u>所有人立刻蹲下，不可起身</u><br>
                                                         沒了，就這麼簡單 ( ^ω^)<br>
                                                 </span>
 
-                                                <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
-                                                <h3>需要注意的小細節</h3>
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    1. <b style="color: #ff9999;">有機率同時觸發多個技能</b>，注意閃躲
-                                            </div>
+                            <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
+                            <h3>需要注意的小細節</h3>
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                1. <b style="color: #ff9999;">有機率同時觸發多個技能</b>，注意閃躲
+                        </div>
 
-                                        </div>
+                    </div>
 
-                                        <div id="2diffb2skill2" class="skill-content" style="display: none;">
-                                            <h4>第二技能：範圍攻擊</h4>
+                    <div id="2diffb2skill2" class="skill-content" style="display: none;">
+                        <h4>第二技能：範圍攻擊</h4>
 
-                                            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                                                <iframe src="https://player.vimeo.com/video/1146836283?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="attack2"></iframe>
-                                            </div>
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                            <iframe src="https://player.vimeo.com/video/1146836283?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="attack2"></iframe>
+                        </div>
 
-                                            <div style="text-align: left;
+                        <div style="text-align: left;
                                                         border: 1px solid rgba(255,255,255,0.3);
                                                         background: rgba(255,255,255,0.05);
                                                         padding: 1.5rem;
@@ -820,29 +1069,29 @@
                                                         margin-top: 1rem;
                                                         margin-bottom: 3rem;
                                                         box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                                                <p style="margin-bottom: 0.8rem;">
-                                                <h3>範圍攻擊</h3>
-                                                <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
+                            <p style="margin-bottom: 0.8rem;">
+                            <h3>範圍攻擊</h3>
+                            <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
                                                          二王開啟技能後，前方會出現<u>紅色半圓形區塊</u><br>
                                                         不要踩到就好了，簡單吧 (｡・ω・｡)?<br>
                                                 </span>
 
-                                                <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
-                                                <h3>需要注意的小細節</h3>
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    1. 建議平時打王時除了盾手，<b style="color: #aaddff;">其他人盡量都站在王身後</b>
-                                            </div>
+                            <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
+                            <h3>需要注意的小細節</h3>
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                1. 建議平時打王時除了盾手，<b style="color: #aaddff;">其他人盡量都站在王身後</b>
+                        </div>
 
-                                        </div>
+                    </div>
 
-                                        <div id="2diffb2skill3" class="skill-content" style="display: none;">
-                                            <h4>第三技能：吸血反盾</h4>
+                    <div id="2diffb2skill3" class="skill-content" style="display: none;">
+                        <h4>第三技能：吸血反盾</h4>
 
-                                            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                                                <iframe src="https://player.vimeo.com/video/1146836453?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="shield"></iframe>
-                                            </div>
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                            <iframe src="https://player.vimeo.com/video/1146836453?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="shield"></iframe>
+                        </div>
 
-                                            <div style="text-align: left;
+                        <div style="text-align: left;
                                                         border: 1px solid rgba(255,255,255,0.3);
                                                         background: rgba(255,255,255,0.05);
                                                         padding: 1.5rem;
@@ -850,52 +1099,52 @@
                                                         margin-top: 1rem;
                                                         margin-bottom: 3rem;
                                                         box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                                                <p style="margin-bottom: 0.8rem;">
-                                                <h3>吸血反盾</h3>
-                                                <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
+                            <p style="margin-bottom: 0.8rem;">
+                            <h3>吸血反盾</h3>
+                            <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
                                                         二王開啟技能後，發光期間<u>不可以對其造成任何傷害</u><br>
                                                         如果二王受到傷害的話，<u>輕則回一大口血，重則玩家暴斃</u><br>
                                                         發光效果解除後就可以正常攻擊啦 ─=≡Σ((( つ•̀ω•́)つ<br>
                                                 </span>
 
-                                                <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
-                                                <h3>需要注意的小細節</h3>
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    1. <b style="color: #ff9999;">盾手不可以帶反傷盾</b>，反傷盾造成的傷害一樣會對王起作用
-                                            </div>
+                            <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
+                            <h3>需要注意的小細節</h3>
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                1. <b style="color: #ff9999;">盾手不可以帶反傷盾</b>，反傷盾造成的傷害一樣會對王起作用
+                        </div>
 
-                                        </div>
+                    </div>
 
-                                    </div>
-                                </div>
+                </div>
+            </div>
 
-                                <div id="2diffb3" class="tab-content" style="display: none;">
-                                    <div class="skill-container">
-                                        <h4>注意：普通三王的技能困難三王都會，需要請移步</h4>
-                                        <ul class="actions">
-                                            <li>
-                                                <a href="#boss2" class="button small" onclick="initTab('boss2', '2normb3')">
-                                                    點我(つ´▽`)つ
-                                                </a>
-                                            </li>
-                                        </ul>
+            <div id="2diffb3" class="tab-content" style="display: none;">
+                <div class="skill-container">
+                    <h4>注意：普通三王的技能困難三王都會，需要請移步</h4>
+                    <ul class="actions">
+                        <li>
+                            <a href="#boss2" class="button small" onclick="initTab('boss2', '2normb3')">
+                                點我(つ´▽`)つ
+                            </a>
+                        </li>
+                    </ul>
 
 
-                                        <ul class="actions fit small" style="margin-bottom: 1rem;">
-                                            <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '2diffb3skill1')">困難紅波</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb3skill2')">藍波一式</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb3skill3')">藍波二式</a></li>
-                                            <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb3skill4')">藍波三式</a></li>
-                                        </ul>
+                    <ul class="actions fit small" style="margin-bottom: 1rem;">
+                        <li><a href="javascript:void(0)" class="button primary fit small skill-btn" onclick="openSkill(event, '2diffb3skill1')">困難紅波</a></li>
+                        <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb3skill2')">藍波一式</a></li>
+                        <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb3skill3')">藍波二式</a></li>
+                        <li><a href="javascript:void(0)" class="button fit small skill-btn" onclick="openSkill(event, '2diffb3skill4')">藍波三式</a></li>
+                    </ul>
 
-                                        <div id="2diffb3skill1" class="skill-content" style="display: block;">
-                                            <h4>第一技能：困難紅波</h4>
+                    <div id="2diffb3skill1" class="skill-content" style="display: block;">
+                        <h4>第一技能：困難紅波</h4>
 
-                                            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                                                <iframe src="https://player.vimeo.com/video/1146836404?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="hardred"></iframe>
-                                            </div>
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                            <iframe src="https://player.vimeo.com/video/1146836404?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="hardred"></iframe>
+                        </div>
 
-                                            <div style="text-align: left;
+                        <div style="text-align: left;
                                                         border: 1px solid rgba(255,255,255,0.3);
                                                         background: rgba(255,255,255,0.05);
                                                         padding: 1.5rem;
@@ -903,41 +1152,41 @@
                                                         margin-top: 1rem;
                                                         margin-bottom: 3rem;
                                                         box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                                                <p style="margin-bottom: 0.8rem;">
-                                                <h3>困難紅波</h3>
-                                                <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
+                            <p style="margin-bottom: 0.8rem;">
+                            <h3>困難紅波</h3>
+                            <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
                                                         普通紅波的加強版 ✧◝(⁰▿⁰)◜✧<br>
                                                         困難紅波會<u>連續產生四次</u>並且<u>速度會越來越快</u><br>
                                                         玩家需要持續逆時針移動，保證自身處於安全區內<br>
                                                 </span>
 
-                                                <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
-                                                <h3>需要注意的小細節</h3>
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    1. <b style="color: #aaddff;">貼著內圈跑可以偷傷害</b>，但是注意不要貼太近<br>
-                                                    <span style="font-size: 0.75rem; color: #bbb; padding-left: 1.2rem; display: block;">
+                            <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
+                            <h3>需要注意的小細節</h3>
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                1. <b style="color: #aaddff;">貼著內圈跑可以偷傷害</b>，但是注意不要貼太近<br>
+                                <span style="font-size: 0.75rem; color: #bbb; padding-left: 1.2rem; display: block;">
                                                         ↪ 沒有把握就乖乖跑，不要貪傷害
                                                     </span>
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    2. <b style="color: #ff9999;">跑外圈必備覺醒鳳凰羽毛</b>，沒有的不要跑外圈
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    3. <b style="color: #ff9999;">不可以站在圈外</b>，站在圈外會直接死
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    4. <b style="color: #ff9999;">不要跳躍</b>，有機率判定成死亡
-                                            </div>
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                2. <b style="color: #ff9999;">跑外圈必備覺醒鳳凰羽毛</b>，沒有的不要跑外圈
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                3. <b style="color: #ff9999;">不可以站在圈外</b>，站在圈外會直接死
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                4. <b style="color: #ff9999;">不要跳躍</b>，有機率判定成死亡
+                        </div>
 
 
-                                        </div>
+                    </div>
 
-                                        <div id="2diffb3skill2" class="skill-content" style="display: none;">
-                                            <h4>第二技能：藍波一式</h4>
+                    <div id="2diffb3skill2" class="skill-content" style="display: none;">
+                        <h4>第二技能：藍波一式</h4>
 
-                                            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                                                <img src="images/One_Blue.gif" alt="藍波一式" style="width: 335px; max-width: 100%; height: auto; border-radius: 4px;" loading="lazy"/>
-                                                <iframe src="https://player.vimeo.com/video/1146836436?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="oneblue"></iframe>
-                                            </div>
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                            <img src="images/One_Blue.gif" alt="藍波一式" style="width: 335px; max-width: 100%; height: auto; border-radius: 4px;" loading="lazy"/>
+                            <iframe src="https://player.vimeo.com/video/1146836436?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="oneblue"></iframe>
+                        </div>
 
-                                            <div style="text-align: left;
+                        <div style="text-align: left;
                                                         border: 1px solid rgba(255,255,255,0.3);
                                                         background: rgba(255,255,255,0.05);
                                                         padding: 1.5rem;
@@ -945,9 +1194,9 @@
                                                         margin-top: 1rem;
                                                         margin-bottom: 3rem;
                                                         box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                                                <p style="margin-bottom: 0.8rem;">
-                                                <h3>藍波一式</h3>
-                                                <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
+                            <p style="margin-bottom: 0.8rem;">
+                            <h3>藍波一式</h3>
+                            <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
                                                         普通藍波的加強版 ✧◝(⁰▿⁰)◜✧<br>
                                                         我們先假設第一波是1，變化後的波是2<br>
                                                         藍波一式會以<u>12122</u>的固定模式交替<br>
@@ -955,27 +1204,27 @@
                                                         所以第四波後記得不要動喔 ٩(๑•̀ω•́๑)۶<br>
                                                 </span>
 
-                                                <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
-                                                <h3>需要注意的小細節</h3>
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    1. <b style="color: #ff9999;">不要跳躍</b>，有機率判定成死亡
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    2. <b style="color: #ff9999;">不可以站在圈外</b>，站在圈外會直接死
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    3. <b style="color: #ff9999;">不要離王太近</b>，有機率判定成死亡
-                                            </div>
+                            <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
+                            <h3>需要注意的小細節</h3>
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                1. <b style="color: #ff9999;">不要跳躍</b>，有機率判定成死亡
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                2. <b style="color: #ff9999;">不可以站在圈外</b>，站在圈外會直接死
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                3. <b style="color: #ff9999;">不要離王太近</b>，有機率判定成死亡
+                        </div>
 
-                                        </div>
+                    </div>
 
-                                        <div id="2diffb3skill3" class="skill-content" style="display: none;">
-                                            <h4>第三技能：藍波二式</h4>
+                    <div id="2diffb3skill3" class="skill-content" style="display: none;">
+                        <h4>第三技能：藍波二式</h4>
 
-                                            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                                                <img src="images/Two_Blue.gif" alt="藍波二式" style="width: 335px; max-width: 100%; height: auto; border-radius: 4px;" loading="lazy"/>
-                                                <iframe src="https://player.vimeo.com/video/1146836360?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="blueline"></iframe>
-                                            </div>
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                            <img src="images/Two_Blue.gif" alt="藍波二式" style="width: 335px; max-width: 100%; height: auto; border-radius: 4px;" loading="lazy"/>
+                            <iframe src="https://player.vimeo.com/video/1146836360?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="blueline"></iframe>
+                        </div>
 
-                                            <div style="text-align: left;
+                        <div style="text-align: left;
                                                         border: 1px solid rgba(255,255,255,0.3);
                                                         background: rgba(255,255,255,0.05);
                                                         padding: 1.5rem;
@@ -983,9 +1232,9 @@
                                                         margin-top: 1rem;
                                                         margin-bottom: 3rem;
                                                         box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                                                <p style="margin-bottom: 0.8rem;">
-                                                <h3>藍波二式</h3>
-                                                <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
+                            <p style="margin-bottom: 0.8rem;">
+                            <h3>藍波二式</h3>
+                            <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
                                                         普通藍波的加強版 ✧◝(⁰▿⁰)◜✧<br>
                                                         我們先假設第一波是1，變化後的波是2<br>
                                                         藍波二式會以<u>1122</u>的固定模式交替<br>
@@ -993,27 +1242,27 @@
                                                         所以記得不要動太快喔 _(┐「ε:)_<br>
                                                 </span>
 
-                                                <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
-                                                <h3>需要注意的小細節</h3>
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    1. <b style="color: #ff9999;">不要跳躍</b>，有機率判定成死亡
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    2. <b style="color: #ff9999;">不可以站在圈外</b>，站在圈外會直接死
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    3. <b style="color: #ff9999;">不要離王太近</b>，有機率判定成死亡
-                                            </div>
+                            <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
+                            <h3>需要注意的小細節</h3>
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                1. <b style="color: #ff9999;">不要跳躍</b>，有機率判定成死亡
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                2. <b style="color: #ff9999;">不可以站在圈外</b>，站在圈外會直接死
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                3. <b style="color: #ff9999;">不要離王太近</b>，有機率判定成死亡
+                        </div>
 
-                                        </div>
+                    </div>
 
-                                        <div id="2diffb3skill4" class="skill-content" style="display: none;">
-                                            <h4>第四技能：藍波三式</h4>
+                    <div id="2diffb3skill4" class="skill-content" style="display: none;">
+                        <h4>第四技能：藍波三式</h4>
 
-                                            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                                                <img src="images/Three_Blue.gif" alt="藍波三式" style="width: 335px; max-width: 100%; height: auto; border-radius: 4px;" loading="lazy"/>
-                                                <iframe src="https://player.vimeo.com/video/1146836479?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="threeblue"></iframe>
-                                            </div>
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                            <img src="images/Three_Blue.gif" alt="藍波三式" style="width: 335px; max-width: 100%; height: auto; border-radius: 4px;" loading="lazy"/>
+                            <iframe src="https://player.vimeo.com/video/1146836479?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&background=1" width="350" height="350" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="threeblue"></iframe>
+                        </div>
 
-                                            <div style="text-align: left;
+                        <div style="text-align: left;
                                                         border: 1px solid rgba(255,255,255,0.3);
                                                         background: rgba(255,255,255,0.05);
                                                         padding: 1.5rem;
@@ -1021,9 +1270,9 @@
                                                         margin-top: 1rem;
                                                         margin-bottom: 3rem;
                                                         box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                                                <p style="margin-bottom: 0.8rem;">
-                                                <h3>藍波三式</h3>
-                                                <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
+                            <p style="margin-bottom: 0.8rem;">
+                            <h3>藍波三式</h3>
+                            <span style="font-size: 1rem; padding-left: 0.2rem; display: block;">
                                                         普通藍波的加強版 ✧◝(⁰▿⁰)◜✧<br>
                                                         我們先假設第一波是1，變化後的波是2<br>
                                                         藍波三式會以<u>12121212</u>的固定模式交替<br>
@@ -1031,98 +1280,135 @@
                                                         所以記得持續奔跑不要停 ε≡ﾍ( ´∀`)ﾉ<br>
                                                 </span>
 
-                                                <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
-                                                <h3>需要注意的小細節</h3>
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    1. <b style="color: #ff9999;">不要跳躍</b>，有機率判定成死亡
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    2. <b style="color: #ff9999;">不可以站在圈外</b>，站在圈外會直接死
-                                                <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
-                                                    3. <b style="color: #ff9999;">不要離王太近</b>，有機率判定成死亡
-                                            </div>
+                            <hr style="margin-top: 1rem;margin-bottom: 1.5rem;" />
+                            <h3>需要注意的小細節</h3>
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                1. <b style="color: #ff9999;">不要跳躍</b>，有機率判定成死亡
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                2. <b style="color: #ff9999;">不可以站在圈外</b>，站在圈外會直接死
+                            <p style="margin-bottom: 0.5rem;font-size: 0.9rem;">
+                                3. <b style="color: #ff9999;">不要離王太近</b>，有機率判定成死亡
+                        </div>
 
-                                        </div>
+                    </div>
 
-                                    </div>
-                                </div>
-
-
-                                <ul class="actions">
-                                    <li><a href="#dungeon" class="button small">返回上一頁</a></li>
-                                </ul>
-                            </article>
-
-						<!-- Nothing1 -->
-							<article id="Nothing1">
-								<h2 class="major">Nothing</h2>
-								<span class="image main"><img src="images/pic02.jpg" alt="" loading="lazy"/></span>
-								<p>這裡暫時沒有內容喔 (´-ωก`)</p>
-                            </article>
-
-						<!-- Nothing2 -->
-							<article id="Nothing2">
-                                <h2 class="major">Nothing</h2>
-                                <span class="image main"><img src="images/pic02.jpg" alt="" loading="lazy"/></span>
-                                <p>這裡暫時沒有內容喔 (´-ωก`)</p>
-                            </article>
-
-						<!-- Nothing3 -->
-                            <article id="Nothing3">
-                                <h2 class="major">Nothing</h2>
-                                <span class="image main"><img src="images/pic02.jpg" alt="" loading="lazy"/></span>
-                                <p>這裡暫時沒有內容喔 (´-ωก`)</p>
-                            </article>
-<!--							<article id="Nothing3">-->
-<!--								<h2 class="major">Nothing</h2>-->
-<!--								<form method="post" action="#">-->
-<!--									<div class="fields">-->
-<!--										<div class="field half">-->
-<!--											<label for="name">Name</label>-->
-<!--											<input type="text" name="name" id="name" />-->
-<!--										</div>-->
-<!--										<div class="field half">-->
-<!--											<label for="email">Email</label>-->
-<!--											<input type="text" name="email" id="email" />-->
-<!--										</div>-->
-<!--										<div class="field">-->
-<!--											<label for="message">Message</label>-->
-<!--											<textarea name="message" id="message" rows="4"></textarea>-->
-<!--										</div>-->
-<!--									</div>-->
-<!--									<ul class="actions">-->
-<!--										<li><input type="submit" value="Send Message" class="primary" /></li>-->
-<!--										<li><input type="reset" value="Reset" /></li>-->
-<!--									</ul>-->
-<!--								</form>-->
-<!--								<ul class="icons">-->
-<!--									<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>-->
-<!--									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>-->
-<!--									<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>-->
-<!--									<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>-->
-<!--								</ul>-->
-<!--							</article>-->
+                </div>
+            </div>
 
 
-						<!-- Elements -->
-							<article id="elements">
-								<h2 class="major">Elements</h2>
+            <ul class="actions">
+                <li><a href="#dungeon" class="button small">返回上一頁</a></li>
+            </ul>
+        </article>
 
-								<section>
-									<h3 class="major">Text</h3>
-									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-									<hr />
-									<h2>Heading Level 2</h2>
-									<h3>Heading Level 3</h3>
-									<h4>Heading Level 4</h4>
-									<h5>Heading Level 5</h5>
-									<h6>Heading Level 6</h6>
-									<hr />
-									<h4>Blockquote</h4>
-									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-									<h4>Preformatted</h4>
-									<pre><code>i = 0;
+        <!-- Title -->
+        <article id="Title">
+            <h2 class="major">稱號加成</h2>
+
+            <ul class="actions small" id="filter-container">
+                <li><a href="javascript:void(0)" class="button small primary">載入中...</a></li>
+            </ul>
+
+            <hr />
+
+            <ul class="actions small" style="justify-content: center; margin-bottom: 2rem;">
+                <li>
+                    <a href="javascript:void(0)" class="button small" onclick="selectAllItems()"
+                       style="border-color: rgba(131, 188, 169, 0.5) !important;">
+                        <span class="btn-title-filter"
+                              style="--text-gradient: linear-gradient(to bottom, #e3ffe3, #83bca9); --text-glow: rgba(131, 188, 169, 0.6);">
+                            全部選取
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" class="button small" onclick="deselectAllItems()"
+                       style="border-color: rgba(201, 123, 132, 0.5) !important;">
+                        <span class="btn-title-filter"
+                              style="--text-gradient: linear-gradient(to bottom, #ffdfdf, #c97b84); --text-glow: rgba(201, 123, 132, 0.6);">
+                            全部取消
+                        </span>
+                    </a>
+                </li>
+            </ul>
+
+            <div id="items-container" style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+            </div>
+
+            <hr />
+
+            <div id="result-grid" class="stat-grid">
+                <div style="width:100%; text-align:center; opacity:0.6;">
+                    尚未選擇任何詞條
+                </div>
+            </div>
+
+        </article>
+
+        <!-- Nothing2 -->
+        <article id="Nothing2">
+            <h2 class="major">Nothing</h2>
+            <span class="image main"><img src="images/pic02.jpg" alt="" loading="lazy"/></span>
+            <p>這裡暫時沒有內容喔 (´-ωก`)</p>
+        </article>
+
+        <!-- Nothing3 -->
+        <article id="Nothing3">
+            <h2 class="major">Nothing</h2>
+            <span class="image main"><img src="images/pic02.jpg" alt="" loading="lazy"/></span>
+            <p>這裡暫時沒有內容喔 (´-ωก`)</p>
+        </article>
+        <!--                      <article id="Nothing3">-->
+        <!--                         <h2 class="major">Nothing</h2>-->
+        <!--                         <form method="post" action="#">-->
+        <!--                            <div class="fields">-->
+        <!--                               <div class="field half">-->
+        <!--                                  <label for="name">Name</label>-->
+        <!--                                  <input type="text" name="name" id="name" />-->
+        <!--                               </div>-->
+        <!--                               <div class="field half">-->
+        <!--                                  <label for="email">Email</label>-->
+        <!--                                  <input type="text" name="email" id="email" />-->
+        <!--                               </div>-->
+        <!--                               <div class="field">-->
+        <!--                                  <label for="message">Message</label>-->
+        <!--                                  <textarea name="message" id="message" rows="4"></textarea>-->
+        <!--                               </div>-->
+        <!--                            </div>-->
+        <!--                            <ul class="actions">-->
+        <!--                               <li><input type="submit" value="Send Message" class="primary" /></li>-->
+        <!--                               <li><input type="reset" value="Reset" /></li>-->
+        <!--                            </ul>-->
+        <!--                         </form>-->
+        <!--                         <ul class="icons">-->
+        <!--                            <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>-->
+        <!--                            <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>-->
+        <!--                            <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>-->
+        <!--                            <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>-->
+        <!--                         </ul>-->
+        <!--                      </article>-->
+
+
+        <!-- Elements -->
+        <article id="elements">
+            <h2 class="major">Elements</h2>
+
+            <section>
+                <h3 class="major">Text</h3>
+                <p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+                    This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+                    This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+                <hr />
+                <h2>Heading Level 2</h2>
+                <h3>Heading Level 3</h3>
+                <h4>Heading Level 4</h4>
+                <h5>Heading Level 5</h5>
+                <h6>Heading Level 6</h6>
+                <hr />
+                <h4>Blockquote</h4>
+                <blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
+                <h4>Preformatted</h4>
+                <pre><code>i = 0;
 
 while (!deck.isInOrder()) {
     print 'Iteration ' + i;
@@ -1131,371 +1417,755 @@ while (!deck.isInOrder()) {
 }
 
 print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-								</section>
+            </section>
 
-								<section>
-									<h3 class="major">Lists</h3>
+            <section>
+                <h3 class="major">Lists</h3>
 
-									<h4>Unordered</h4>
-									<ul>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
+                <h4>Unordered</h4>
+                <ul>
+                    <li>Dolor pulvinar etiam.</li>
+                    <li>Sagittis adipiscing.</li>
+                    <li>Felis enim feugiat.</li>
+                </ul>
 
-									<h4>Alternate</h4>
-									<ul class="alt">
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
+                <h4>Alternate</h4>
+                <ul class="alt">
+                    <li>Dolor pulvinar etiam.</li>
+                    <li>Sagittis adipiscing.</li>
+                    <li>Felis enim feugiat.</li>
+                </ul>
 
-									<h4>Ordered</h4>
-									<ol>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis viverra.</li>
-										<li>Felis enim feugiat.</li>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis lorem.</li>
-										<li>Felis enim et feugiat.</li>
-									</ol>
-									<h4>Icons</h4>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-									</ul>
+                <h4>Ordered</h4>
+                <ol>
+                    <li>Dolor pulvinar etiam.</li>
+                    <li>Etiam vel felis viverra.</li>
+                    <li>Felis enim feugiat.</li>
+                    <li>Dolor pulvinar etiam.</li>
+                    <li>Etiam vel felis lorem.</li>
+                    <li>Felis enim et feugiat.</li>
+                </ol>
+                <h4>Icons</h4>
+                <ul class="icons">
+                    <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+                </ul>
 
-									<h4>Actions</h4>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions stacked">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-								</section>
+                <h4>Actions</h4>
+                <ul class="actions">
+                    <li><a href="#" class="button primary">Default</a></li>
+                    <li><a href="#" class="button">Default</a></li>
+                </ul>
+                <ul class="actions stacked">
+                    <li><a href="#" class="button primary">Default</a></li>
+                    <li><a href="#" class="button">Default</a></li>
+                </ul>
+            </section>
 
-								<section>
-									<h3 class="major">Table</h3>
-									<h4>Default</h4>
-									<div class="table-wrapper">
-										<table>
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
+            <section>
+                <h3 class="major">Table</h3>
+                <h4>Default</h4>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Item One</td>
+                            <td>Ante turpis integer aliquet porttitor.</td>
+                            <td>29.99</td>
+                        </tr>
+                        <tr>
+                            <td>Item Two</td>
+                            <td>Vis ac commodo adipiscing arcu aliquet.</td>
+                            <td>19.99</td>
+                        </tr>
+                        <tr>
+                            <td>Item Three</td>
+                            <td> Morbi faucibus arcu accumsan lorem.</td>
+                            <td>29.99</td>
+                        </tr>
+                        <tr>
+                            <td>Item Four</td>
+                            <td>Vitae integer tempus condimentum.</td>
+                            <td>19.99</td>
+                        </tr>
+                        <tr>
+                            <td>Item Five</td>
+                            <td>Ante turpis integer aliquet porttitor.</td>
+                            <td>29.99</td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td>100.00</td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
 
-									<h4>Alternate</h4>
-									<div class="table-wrapper">
-										<table class="alt">
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
-								</section>
+                <h4>Alternate</h4>
+                <div class="table-wrapper">
+                    <table class="alt">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Item One</td>
+                            <td>Ante turpis integer aliquet porttitor.</td>
+                            <td>29.99</td>
+                        </tr>
+                        <tr>
+                            <td>Item Two</td>
+                            <td>Vis ac commodo adipiscing arcu aliquet.</td>
+                            <td>19.99</td>
+                        </tr>
+                        <tr>
+                            <td>Item Three</td>
+                            <td> Morbi faucibus arcu accumsan lorem.</td>
+                            <td>29.99</td>
+                        </tr>
+                        <tr>
+                            <td>Item Four</td>
+                            <td>Vitae integer tempus condimentum.</td>
+                            <td>19.99</td>
+                        </tr>
+                        <tr>
+                            <td>Item Five</td>
+                            <td>Ante turpis integer aliquet porttitor.</td>
+                            <td>29.99</td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td>100.00</td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </section>
 
-								<section>
-									<h3 class="major">Buttons</h3>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Primary</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button">Default</a></li>
-										<li><a href="#" class="button small">Small</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-									</ul>
-									<ul class="actions">
-										<li><span class="button primary disabled">Disabled</span></li>
-										<li><span class="button disabled">Disabled</span></li>
-									</ul>
-								</section>
+            <section>
+                <h3 class="major">Buttons</h3>
+                <ul class="actions">
+                    <li><a href="#" class="button primary">Primary</a></li>
+                    <li><a href="#" class="button">Default</a></li>
+                </ul>
+                <ul class="actions">
+                    <li><a href="#" class="button">Default</a></li>
+                    <li><a href="#" class="button small">Small</a></li>
+                </ul>
+                <ul class="actions">
+                    <li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
+                    <li><a href="#" class="button icon solid fa-download">Icon</a></li>
+                </ul>
+                <ul class="actions">
+                    <li><span class="button primary disabled">Disabled</span></li>
+                    <li><span class="button disabled">Disabled</span></li>
+                </ul>
+            </section>
 
-								<section>
-									<h3 class="major">Form</h3>
-									<form method="post" action="#">
-										<div class="fields">
-											<div class="field half">
-												<label for="demo-name">Name</label>
-												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
-											</div>
-											<div class="field half">
-												<label for="demo-email">Email</label>
-												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
-											</div>
-											<div class="field">
-												<label for="demo-category">Category</label>
-												<select name="demo-category" id="demo-category">
-													<option value="">-</option>
-													<option value="1">Manufacturing</option>
-													<option value="1">Shipping</option>
-													<option value="1">Administration</option>
-													<option value="1">Human Resources</option>
-												</select>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-												<label for="demo-priority-low">Low</label>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-high" name="demo-priority">
-												<label for="demo-priority-high">High</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-copy" name="demo-copy">
-												<label for="demo-copy">Email me a copy</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-human" name="demo-human" checked>
-												<label for="demo-human">Not a robot</label>
-											</div>
-											<div class="field">
-												<label for="demo-message">Message</label>
-												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-											</div>
-										</div>
-										<ul class="actions">
-											<li><input type="submit" value="Send Message" class="primary" /></li>
-											<li><input type="reset" value="Reset" /></li>
-										</ul>
-									</form>
-								</section>
+            <section>
+                <h3 class="major">Form</h3>
+                <form method="post" action="#">
+                    <div class="fields">
+                        <div class="field half">
+                            <label for="demo-name">Name</label>
+                            <input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
+                        </div>
+                        <div class="field half">
+                            <label for="demo-email">Email</label>
+                            <input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
+                        </div>
+                        <div class="field">
+                            <label for="demo-category">Category</label>
+                            <select name="demo-category" id="demo-category">
+                                <option value="">-</option>
+                                <option value="1">Manufacturing</option>
+                                <option value="1">Shipping</option>
+                                <option value="1">Administration</option>
+                                <option value="1">Human Resources</option>
+                            </select>
+                        </div>
+                        <div class="field half">
+                            <input type="radio" id="demo-priority-low" name="demo-priority" checked>
+                            <label for="demo-priority-low">Low</label>
+                        </div>
+                        <div class="field half">
+                            <input type="radio" id="demo-priority-high" name="demo-priority">
+                            <label for="demo-priority-high">High</label>
+                        </div>
+                        <div class="field half">
+                            <input type="checkbox" id="demo-copy" name="demo-copy">
+                            <label for="demo-copy">Email me a copy</label>
+                        </div>
+                        <div class="field half">
+                            <input type="checkbox" id="demo-human" name="demo-human" checked>
+                            <label for="demo-human">Not a robot</label>
+                        </div>
+                        <div class="field">
+                            <label for="demo-message">Message</label>
+                            <textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+                        </div>
+                    </div>
+                    <ul class="actions">
+                        <li><input type="submit" value="Send Message" class="primary" /></li>
+                        <li><input type="reset" value="Reset" /></li>
+                    </ul>
+                </form>
+            </section>
 
-							</article>
+        </article>
 
-					</div>
+    </div>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<p class="copyright"> 超有用ㄉ傳送門: <a href="https://drive.google.com/drive/folders/1vqj7-WXtDDnmmwgfJZPNwi1_hAvDC5MV">獨步大補帖</a>
-                            、<a href="https://forms.gle/8cQdCaiazMjsSVGG9">問題回報表單</a></p>
-					</footer>
+    <!-- Footer -->
+    <footer id="footer">
+        <p class="copyright"> 超有用ㄉ傳送門: <a href="https://drive.google.com/drive/folders/1vqj7-WXtDDnmmwgfJZPNwi1_hAvDC5MV">獨步大補帖</a>
+            、<a href="https://forms.gle/8cQdCaiazMjsSVGG9">問題回報表單</a></p>
+    </footer>
 
-			</div>
+</div>
 
-		<!-- BG -->
-			<div id="bg"></div>
+<!-- BG -->
+<div id="bg"></div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
 
-        <!-- Tabs -->
-            <script>
-                // 1. 這是原本的切換功能 (點分頁按鈕時執行)
-                function openTab(evt, tabName) {
-                    // 找到這個按鈕所在的那個大區塊 (article)
-                    // 這樣可以確保只影響當前頁面，不會誤關到別頁的內容
-                    var $article = $(evt.currentTarget).closest('article');
+<!-- Tabs -->
+<script>
+    // 1. 這是原本的切換功能 (點分頁按鈕時執行)
+    function openTab(evt, tabName) {
+        // 找到這個按鈕所在的那個大區塊 (article)
+        // 這樣可以確保只影響當前頁面，不會誤關到別頁的內容
+        var $article = $(evt.currentTarget).closest('article');
 
-                    // 先隱藏這個區塊內所有的內容
-                    $article.find('.tab-content').hide();
+        // 先隱藏這個區塊內所有的內容
+        $article.find('.tab-content').hide();
 
-                    // 移除這個區塊內所有按鈕的亮燈樣式 (primary)
-                    $article.find('.tab-btn, .tab-btn1').removeClass('primary');
+        // 移除這個區塊內所有按鈕的亮燈樣式 (primary)
+        $article.find('.tab-btn, .tab-btn1').removeClass('primary');
 
-                    // 顯示目標內容
-                    $('#' + tabName).show();
+        // 顯示目標內容
+        $('#' + tabName).show();
 
-                    // 把被點擊的按鈕亮燈
-                    $(evt.currentTarget).addClass('primary');
+        // 把被點擊的按鈕亮燈
+        $(evt.currentTarget).addClass('primary');
+    }
+
+    // 2. 這是新增的：初始化重置功能 (給目錄頁的按鈕用的)
+    // 參數 articleId = 要去的頁面 ID (例如 'boss2')
+    // 參數 tabId     = 預設要開啟的分頁 ID (例如 '2normb12')
+    function initTab(articleId, tabId) {
+        var $article = $('#' + articleId);
+
+        // 先把該頁面裡面全部內容藏起來、按鈕燈滅掉
+        $article.find('.tab-content').hide();
+        $article.find('.tab-btn').removeClass('primary');
+        $article.find('.tab-btn1').removeClass('primary');
+
+        // 顯示預設的那個分頁
+        $('#' + tabId).show();
+
+        // 找到對應的按鈕並把它亮起來
+        // 這裡使用程式碼自動去抓「哪個按鈕負責這個分頁」
+        $article.find(".tab-btn[onclick*='" + tabId + "']").addClass('primary');
+        $article.find(".tab-btn1[onclick*='" + tabId + "']").addClass('primary');
+    }
+
+    // 3. 新增：折疊選單開關功能，手風琴效果Accordion
+    function toggleCollapse(btn) {
+        // 切換按鈕的 active 樣式 (改變外觀)
+        $(btn).toggleClass("active");
+
+        // 找到按鈕「正下方」的那個內容區塊，並做滑動特效
+        // slideToggle() 會自動判斷：如果是開的就關起來，關的就滑開
+        $(btn).next(".collapse-content").slideToggle();
+    }
+
+    // 3. 新增：技能子分頁切換功能 (Sub-Tabs)
+    // 這樣切換技能時，不會誤關掉整個 Boss 頁面
+    function openSkill(evt, skillId) {
+        // 1. 找到這些技能按鈕的「爸爸」容器 (確保只影響這一組技能)
+        var $container = $(evt.currentTarget).closest('.skill-container');
+
+        // 2. 隱藏這個容器裡面的所有「技能內容」
+        $container.find('.skill-content').hide();
+
+        // 3. 把這個容器裡面的按鈕燈都關掉
+        $container.find('.skill-btn').removeClass('primary');
+
+        // 4. 顯示指定的技能內容，並把按鈕亮燈
+        $('#' + skillId).show();
+        $(evt.currentTarget).addClass('primary');
+    }
+</script>
+
+
+<script src="https://bs-community.github.io/skinview3d/js/skinview3d.bundle.js"></script>
+<script>
+    // 確保網頁載入後才執行
+    document.addEventListener("DOMContentLoaded", function() {
+
+        // 1. 設定模型顯示在 id="skin_container_EMTTT" 的框框裡
+        let skinViewer = new skinview3d.SkinViewer({
+            canvas: document.getElementById("skin_container_EMTTT"),
+            width: 90,
+            height: 120,
+            skin: "images/EMTTT.png"
+        });
+
+        // 2. 設定為 Alex (Alice) 模型 (手臂較細的版本)
+        skinViewer.loadSkin("images/EMTTT.png", {
+            model: "slim"
+        });
+
+        // ★★★ 3. 這裡原本是設定控制，請全部刪除 ★★★
+        // 只要不寫 createOrbitControls，模型就會固定在原地，完全無法被滑鼠干擾。
+
+        // 4. 設定動作 (這裡設定為站著發呆)
+        skinViewer.animation = new skinview3d.IdleAnimation();
+
+        // 5. 設定播放速度
+        skinViewer.animation.speed = 1.0;
+
+        // 6. 設定背景透明
+        skinViewer.renderer.setClearColor(0x000000, 0);
+    });
+</script>
+<script>
+    // 確保網頁載入後才執行
+    document.addEventListener("DOMContentLoaded", function() {
+
+        // 1. 設定模型顯示在 id="skin_container_ME" 的框框裡
+        let skinViewer = new skinview3d.SkinViewer({
+            canvas: document.getElementById("skin_container_ME"),
+            width: 300,
+            height: 400,
+            skin: "images/ME.png"
+        });
+
+        // 2. 設定為 Alex (Alice) 模型 (手臂較細的版本)
+        // 如果想要 Steve (手臂較粗)，請改成 "default"
+        skinViewer.loadSkin("images/ME.png", {
+            model: "slim"
+        });
+
+        // ★★★ 3. 這裡原本是設定控制，請全部刪除 ★★★
+        // 只要不寫 createOrbitControls，模型就會固定在原地，完全無法被滑鼠干擾。
+
+        // 4. 設定動作 (這裡設定為站著發呆)
+        skinViewer.animation = new skinview3d.IdleAnimation();
+
+        // 5. 設定播放速度
+        skinViewer.animation.speed = 1.0;
+
+        // 6. 設定背景透明
+        skinViewer.renderer.setClearColor(0x000000, 0);
+    });
+</script>
+
+<script>
+    // === 1. 設定資料庫 (依照您的需求分類) ===
+    // === 設定資料庫 (整理自 稱號加成.txt) ===
+    const statData = [
+        // -------- 傷害 攻擊傷害 加成類 --------
+        { id: 1, name: "賞金獵人", type: "攻擊傷害", value: 1.0 },
+        { id: 2, name: "終界突襲者", type: "攻擊傷害", value: 1.0 },
+        { id: 3, name: "瘦皮猴", type: "攻擊傷害", value: 1.5 },
+        { id: 4, name: "戰勝邪惡的", type: "攻擊傷害", value: 2.0 },
+        { id: 5, name: "探索桃源的", type: "攻擊傷害", value: 2.0 },
+        { id: 6, name: "地獄破壞者", type: "攻擊傷害", value: 1.0 },
+        { id: 7, name: "地獄來的使者", type: "攻擊傷害", value: 2.0 },
+        { id: 8, name: "終界破壞者", type: "攻擊傷害", value: 1.0 },
+        { id: 9, name: "快樂小礦工", type: "攻擊傷害", value: 1.0 },
+        { id: 10, name: "暴君之敵", type: "攻擊傷害", value: 0.5 },
+        { id: 11, name: "豬布林殺手", type: "攻擊傷害", value: 0.5 },
+        { id: 12, name: "寶石愛好者", type: "攻擊傷害", value: 0.5 },
+        { id: 13, name: "恐懼的凝視", type: "攻擊傷害", value: 0.5 },
+        { id: 14, name: "蠻原狂掠", type: "攻擊傷害", value: 0.5 },
+
+        // -------- 傷害 暴擊機率 加成類 --------
+        { id: 15, name: "苦力怕好夥伴", type: "暴擊機率", value: 0.2 },
+        { id: 16, name: "炸彈客", type: "暴擊機率", value: 0.2 },
+        { id: 17, name: "黑白無常", type: "暴擊機率", value: 0.2 },
+        { id: 18, name: "凋零虎嘯", type: "暴擊機率", value: 0.4 },
+        { id: 19, name: "用心良苦", type: "暴擊機率", value: 0.5 },
+
+        // -------- 傷害 暴擊傷害 加成類 --------
+        { id: 20, name: "盜墓者", type: "暴擊傷害", value: 2.0 },
+        { id: 21, name: "能工巧匠", type: "暴擊傷害", value: 2.0 },
+        { id: 22, name: "瞬移獵人", type: "暴擊傷害", value: 2.0 },
+        { id: 23, name: "海中蛟龍", type: "暴擊傷害", value: 2.0 },
+        { id: 24, name: "彼端的探險者", type: "暴擊傷害", value: 6.0 },
+        { id: 25, name: "血戰魔族", type: "暴擊傷害", value: 20.0 },
+        { id: 26, name: "腐朽之夢", type: "暴擊傷害", value: 20.0 },
+        { id: 27, name: "槍械大師", type: "暴擊傷害", value: 4.0 },
+        { id: 28, name: "爛砲兵", type: "暴擊傷害", value: 6.0 },
+        { id: 29, name: "審判之日", type: "暴擊傷害", value: 10.0 },
+
+        // -------- 奇遇任務 加成類 --------
+        { id: 30, name: "千金散盡還復來", type: "最大血量", value: 4.0 },
+        { id: 31, name: "粉晶傳承者", type: "魔法傷害", value: 1.0 },
+        { id: 32, name: "天降鴻運", type: "遠程傷害", value: 1.0 },
+        { id: 33, name: "天降鴻運", type: "魔法傷害", value: -1.0 }, // 負面效果
+
+        // -------- 防禦 總體防禦 加成類 --------
+        { id: 34, name: "髒髒比", type: "總體防禦", value: 0.5 },
+        { id: 35, name: "一杯就倒的", type: "總體防禦", value: 2.0 },
+        { id: 36, name: "捍衛信仰的", type: "總體防禦", value: 2.0 },
+        // "大摳呆" 有兩個屬性
+        { id: 37, name: "大摳呆", type: "總體防禦", value: 2.0 },
+        { id: 38, name: "大摳呆", type: "最大血量", value: 2.0 },
+        { id: 39, name: "海枯石爛", type: "總體防禦", value: 4.0 },
+        // "榮譽玩家" 有三個屬性
+        { id: 40, name: "榮譽玩家", type: "總體防禦", value: 2.0 },
+        { id: 41, name: "榮譽玩家", type: "最大血量", value: 2.0 },
+        { id: 42, name: "榮譽玩家", type: "暴擊傷害", value: 5.0 },
+
+        // -------- 防禦 最大血量 加成類 --------
+        { id: 43, name: "可愛的", type: "最大血量", value: 1.0 },
+        { id: 44, name: "釣魚達人", type: "最大血量", value: 1.0 },
+        { id: 45, name: "大富翁", type: "最大血量", value: 1.0 },
+        { id: 46, name: "小黑炭", type: "最大血量", value: 1.0 },
+        { id: 47, name: "鑽石達人", type: "最大血量", value: 1.0 },
+        { id: 48, name: "尋覓真相的", type: "最大血量", value: 2.0 },
+        { id: 49, name: "出生入死的", type: "最大血量", value: 2.0 },
+        { id: 50, name: "林場獵手", type: "最大血量", value: 2.0 },
+        { id: 51, name: "家財萬貫", type: "最大血量", value: 6.0 },
+        { id: 52, name: "超級可愛的", type: "最大血量", value: 10.0 },
+        { id: 53, name: "涅槃重生", type: "最大血量", value: 4.0 },
+        { id: 54, name: "世界之樹", type: "最大血量", value: 1.0 },
+        { id: 55, name: "小彩蛋", type: "最大血量", value: 2.0 },
+        { id: 56, name: "真要命", type: "最大血量", value: 2.0 },
+        { id: 57, name: "基岩做的肝", type: "最大血量", value: 1.0 },
+        { id: 58, name: "頭偏掉了", type: "最大血量", value: 1.0 },
+
+        // -------- 主城 黑肝 加成類 --------
+        // "鎬出了黑肝" 雙屬性
+        { id: 59, name: "鎬出了黑肝", type: "暴擊傷害", value: 5.0 },
+        { id: 60, name: "鎬出了黑肝", type: "暴擊機率", value: 0.5 },
+        // "敲出了黑肝" 雙屬性
+        { id: 61, name: "敲出了黑肝", type: "暴擊傷害", value: 5.0 },
+        { id: 62, name: "敲出了黑肝", type: "暴擊機率", value: 0.5 },
+
+        // -------- 五行 寵物蛋 加成類 (金木水火土 1-5) --------
+        // 金金 (攻擊傷害)
+        { id: 63, name: "金金_1", type: "攻擊傷害", value: 2.0 },
+        { id: 64, name: "金金_2", type: "攻擊傷害", value: 2.0 },
+        { id: 65, name: "金金_3", type: "攻擊傷害", value: 2.0 },
+        { id: 66, name: "金金_4", type: "攻擊傷害", value: 2.0 },
+        { id: 67, name: "金金_5", type: "攻擊傷害", value: 2.0 },
+        // 木木 (最大血量)
+        { id: 68, name: "木木_1", type: "最大血量", value: 4.0 },
+        { id: 69, name: "木木_2", type: "最大血量", value: 4.0 },
+        { id: 70, name: "木木_3", type: "最大血量", value: 4.0 },
+        { id: 71, name: "木木_4", type: "最大血量", value: 4.0 },
+        { id: 72, name: "木木_5", type: "最大血量", value: 4.0 },
+        // 水水 (暴擊機率)
+        { id: 73, name: "水水_1", type: "暴擊機率", value: 0.5 },
+        { id: 74, name: "水水_2", type: "暴擊機率", value: 0.5 },
+        { id: 75, name: "水水_3", type: "暴擊機率", value: 0.5 },
+        { id: 76, name: "水水_4", type: "暴擊機率", value: 0.5 },
+        { id: 77, name: "水水_5", type: "暴擊機率", value: 0.5 },
+        // 火火 (暴擊傷害)
+        { id: 78, name: "火火_1", type: "暴擊傷害", value: 4.0 },
+        { id: 79, name: "火火_2", type: "暴擊傷害", value: 4.0 },
+        { id: 80, name: "火火_3", type: "暴擊傷害", value: 4.0 },
+        { id: 81, name: "火火_4", type: "暴擊傷害", value: 4.0 },
+        { id: 82, name: "火火_5", type: "暴擊傷害", value: 4.0 },
+        // 土土 (總體防禦)
+        { id: 83, name: "土土_1", type: "總體防禦", value: 6.0 },
+        { id: 84, name: "土土_2", type: "總體防禦", value: 6.0 },
+        { id: 85, name: "土土_3", type: "總體防禦", value: 6.0 },
+        { id: 86, name: "土土_4", type: "總體防禦", value: 6.0 },
+        { id: 87, name: "土土_5", type: "總體防禦", value: 6.0 },
+
+        // -------- 料理系統 加成類 --------
+        // 獨步快樂水 (雙屬性)
+        { id: 88, name: "獨步快樂水1", type: "暴擊機率", value: 1.0 },
+        { id: 89, name: "獨步快樂水1", type: "暴擊傷害", value: 50.0 },
+        { id: 90, name: "獨步快樂水2", type: "暴擊機率", value: 1.5 },
+        { id: 91, name: "獨步快樂水2", type: "暴擊傷害", value: 60.0 },
+        { id: 92, name: "獨步快樂水3", type: "暴擊機率", value: 2.0 },
+        { id: 93, name: "獨步快樂水3", type: "暴擊傷害", value: 70.0 },
+        { id: 94, name: "獨步快樂水4", type: "暴擊機率", value: 2.5 },
+        { id: 95, name: "獨步快樂水4", type: "暴擊傷害", value: 80.0 },
+        { id: 96, name: "獨步快樂水5", type: "暴擊機率", value: 3.0 },
+        { id: 97, name: "獨步快樂水5", type: "暴擊傷害", value: 90.0 },
+        // 大俠愛吃漢堡包
+        { id: 98, name: "大俠愛吃漢堡包1", type: "攻擊傷害", value: 2.0 },
+        { id: 99, name: "大俠愛吃漢堡包2", type: "攻擊傷害", value: 4.0 },
+        { id: 100, name: "大俠愛吃漢堡包3", type: "攻擊傷害", value: 6.0 },
+        { id: 101, name: "大俠愛吃漢堡包4", type: "攻擊傷害", value: 8.0 },
+        { id: 102, name: "大俠愛吃漢堡包5", type: "攻擊傷害", value: 10.0 },
+
+        // -------- 活動料理 加成類 --------
+        { id: 103, name: "布朗尼蛋糕", type: "攻擊傷害", value: 10.0 },
+        { id: 104, name: "布朗尼蛋糕", type: "最大血量", value: -10.0 }, // 負面效果
+
+        // -------- 單人副本 加成類 --------
+        { id: 105, name: "單人挑戰副本1 1分鐘內", type: "攻擊傷害", value: 2.0 },
+        { id: 106, name: "單人挑戰副本2 1分鐘內", type: "攻擊傷害", value: 3.0 }
+    ];
+
+    let selectedItems = new Set();
+    let currentFilter = 'all';
+
+    // === 2. 初始化 ===
+    window.initCalculator = function() {
+        renderFilterButtons();
+        renderItems();
+        updateCalculation();
+    };
+
+    document.addEventListener("DOMContentLoaded", function() {
+        window.initCalculator();
+    });
+
+    // === 3. 產生篩選按鈕 ===
+    function renderFilterButtons() {
+        // 這裡會自動抓取 statData 裡的所有 type，所以按鈕會自動變成你設定的那 7 種
+        const types = ['all', ...new Set(statData.map(item => item.type))];
+        const container = document.getElementById('filter-container');
+        if(!container) return;
+
+        container.innerHTML = types.map(type => {
+            const label = type === 'all' ? '全部顯示' : type;
+            const activeClass = type === currentFilter ? 'primary' : '';
+            return `<li><a href="javascript:void(0)" class="button small ${activeClass}" onclick="setFilter('${type}')">${label}</a></li>`;
+        }).join('');
+    }
+
+    // === 4. 設定篩選 ===
+    function setFilter(type) {
+        currentFilter = type;
+        renderFilterButtons();
+        renderItems();
+    }
+
+    // === 5. 產生詞條按鈕 ===
+    function renderItems() {
+        const container = document.getElementById('items-container');
+        if(!container) return;
+        container.innerHTML = '';
+
+        statData.forEach(item => {
+            if (currentFilter !== 'all' && item.type !== currentFilter) return;
+
+            const isActive = selectedItems.has(item.id) ? 'active' : '';
+            const btn = document.createElement('button');
+
+            btn.className = `button small calc-btn ${isActive}`;
+
+            // 取得該標籤對應的顏色樣式
+            const style = getStyleForType(item.type);
+
+            // ★★★ 修復重點：判斷正負號 (針對按鈕上的小字) ★★★
+            let displayValue = item.value;
+            const sign = item.value < 0 ? "" : "+"; // 如果是負數就不加 "+"
+
+            // 如果是機率，補上 %
+            if(item.type.includes("機率")) {
+                displayValue += "%";
+            }
+
+            btn.innerHTML = `
+                        <span class="btn-title" style="--text-gradient: ${style.gradient}; --text-glow: ${style.glow}">
+                            ${item.name}
+                        </span>
+                        <span class="btn-subtitle">
+                            ${item.type} ${sign}${displayValue}
+                        </span>
+                    `;
+
+            btn.onclick = () => toggleItem(item.id);
+            container.appendChild(btn);
+        });
+    }
+
+    // === 6. 切換選取 ===
+    function toggleItem(id) {
+        if (selectedItems.has(id)) {
+            selectedItems.delete(id);
+        } else {
+            selectedItems.add(id);
+        }
+        renderItems();
+        updateCalculation();
+    }
+
+    // === 新增功能：全部選取 ===
+    function selectAllItems() {
+        statData.forEach(item => {
+            // 只選取「目前篩選類別」下的項目 (如果是全部顯示，就全選)
+            if (currentFilter === 'all' || item.type === currentFilter) {
+                selectedItems.add(item.id);
+            }
+        });
+        renderItems();       // 重新繪製按鈕亮燈狀態
+        updateCalculation(); // 重新計算數值
+    }
+
+    // === 新增功能：全部取消 ===
+    function deselectAllItems() {
+        if (currentFilter === 'all') {
+            // 如果是全部顯示模式，直接清空所有選取
+            selectedItems.clear();
+        } else {
+            // 如果是在特定分類下，只取消該分類的項目 (保留其他分類的選取)
+            statData.forEach(item => {
+                if (item.type === currentFilter) {
+                    selectedItems.delete(item.id);
                 }
-
-                // 2. 這是新增的：初始化重置功能 (給目錄頁的按鈕用的)
-                // 參數 articleId = 要去的頁面 ID (例如 'boss2')
-                // 參數 tabId     = 預設要開啟的分頁 ID (例如 '2normb12')
-                function initTab(articleId, tabId) {
-                    var $article = $('#' + articleId);
-
-                    // 先把該頁面裡面全部內容藏起來、按鈕燈滅掉
-                    $article.find('.tab-content').hide();
-                    $article.find('.tab-btn').removeClass('primary');
-                    $article.find('.tab-btn1').removeClass('primary');
-
-                    // 顯示預設的那個分頁
-                    $('#' + tabId).show();
-
-                    // 找到對應的按鈕並把它亮起來
-                    // 這裡使用程式碼自動去抓「哪個按鈕負責這個分頁」
-                    $article.find(".tab-btn[onclick*='" + tabId + "']").addClass('primary');
-                    $article.find(".tab-btn1[onclick*='" + tabId + "']").addClass('primary');
-                }
-
-                // 3. 新增：折疊選單開關功能，手風琴效果Accordion
-                function toggleCollapse(btn) {
-                    // 切換按鈕的 active 樣式 (改變外觀)
-                    $(btn).toggleClass("active");
-
-                    // 找到按鈕「正下方」的那個內容區塊，並做滑動特效
-                    // slideToggle() 會自動判斷：如果是開的就關起來，關的就滑開
-                    $(btn).next(".collapse-content").slideToggle();
-                }
-
-                // 3. 新增：技能子分頁切換功能 (Sub-Tabs)
-                // 這樣切換技能時，不會誤關掉整個 Boss 頁面
-                function openSkill(evt, skillId) {
-                    // 1. 找到這些技能按鈕的「爸爸」容器 (確保只影響這一組技能)
-                    var $container = $(evt.currentTarget).closest('.skill-container');
-
-                    // 2. 隱藏這個容器裡面的所有「技能內容」
-                    $container.find('.skill-content').hide();
-
-                    // 3. 把這個容器裡面的按鈕燈都關掉
-                    $container.find('.skill-btn').removeClass('primary');
-
-                    // 4. 顯示指定的技能內容，並把按鈕亮燈
-                    $('#' + skillId).show();
-                    $(evt.currentTarget).addClass('primary');
-                }
-            </script>
-
-
-        <script src="https://bs-community.github.io/skinview3d/js/skinview3d.bundle.js"></script>
-        <script>
-            // 確保網頁載入後才執行
-            document.addEventListener("DOMContentLoaded", function() {
-
-                // 1. 設定模型顯示在 id="skin_container_EMTTT" 的框框裡
-                let skinViewer = new skinview3d.SkinViewer({
-                    canvas: document.getElementById("skin_container_EMTTT"),
-                    width: 90,
-                    height: 120,
-                    skin: "images/EMTTT.png"
-                });
-
-                // 2. 設定為 Alex (Alice) 模型 (手臂較細的版本)
-                skinViewer.loadSkin("images/EMTTT.png", {
-                    model: "slim"
-                });
-
-                // ★★★ 3. 這裡原本是設定控制，請全部刪除 ★★★
-                // 只要不寫 createOrbitControls，模型就會固定在原地，完全無法被滑鼠干擾。
-
-                // 4. 設定動作 (這裡設定為站著發呆)
-                skinViewer.animation = new skinview3d.IdleAnimation();
-
-                // 5. 設定播放速度
-                skinViewer.animation.speed = 1.0;
-
-                // 6. 設定背景透明
-                skinViewer.renderer.setClearColor(0x000000, 0);
             });
-        </script>
-        <script>
-            // 確保網頁載入後才執行
-            document.addEventListener("DOMContentLoaded", function() {
+        }
+        renderItems();       // 重新繪製按鈕亮燈狀態
+        updateCalculation(); // 重新計算數值
+    }
 
-                // 1. 設定模型顯示在 id="skin_container_ME" 的框框裡
-                let skinViewer = new skinview3d.SkinViewer({
-                    canvas: document.getElementById("skin_container_ME"),
-                    width: 300,
-                    height: 400,
-                    skin: "images/ME.png"
-                });
+    // === 7. 配色邏輯 (已將暴擊分開，新增咖啡色) ===
+    function getStyleForType(type) {
+        // 預設顏色 (絲綢灰)
+        let gradient = 'linear-gradient(to bottom, #e3e3e3, #8a8a8a)';
+        let glow = 'rgba(255, 255, 255, 0.2)';
 
-                // 2. 設定為 Alex (Alice) 模型 (手臂較細的版本)
-                // 如果想要 Steve (手臂較粗)，請改成 "default"
-                skinViewer.loadSkin("images/ME.png", {
-                    model: "slim"
-                });
+        // --- 1. 攻擊類 (乾燥玫瑰) ---
+        if (type === "攻擊傷害") {
+            gradient = 'linear-gradient(to bottom, #ffdfdf, #c97b84)';
+            glow = 'rgba(201, 123, 132, 0.4)';
+        }
 
-                // ★★★ 3. 這裡原本是設定控制，請全部刪除 ★★★
-                // 只要不寫 createOrbitControls，模型就會固定在原地，完全無法被滑鼠干擾。
+        // --- 2. 防禦類 (霧霾藍) ---
+        else if (type === "總體防禦") {
+            gradient = 'linear-gradient(to bottom, #dbeaff, #7a9ec2)';
+            glow = 'rgba(122, 158, 194, 0.4)';
+        }
 
-                // 4. 設定動作 (這裡設定為站著發呆)
-                skinViewer.animation = new skinview3d.IdleAnimation();
+        // --- 3. 血量類 (鼠尾草綠) ---
+        else if (type === "最大血量") {
+            gradient = 'linear-gradient(to bottom, #e3ffe3, #83bca9)';
+            glow = 'rgba(131, 188, 169, 0.4)';
+        }
 
-                // 5. 設定播放速度
-                skinViewer.animation.speed = 1.0;
+        // --- 4. 魔法類 (薰衣草紫) ---
+        else if (type === "魔法傷害") {
+            gradient = 'linear-gradient(to bottom, #f3e6ff, #afa2c9)';
+            glow = 'rgba(175, 162, 201, 0.4)';
+        }
 
-                // 6. 設定背景透明
-                skinViewer.renderer.setClearColor(0x000000, 0);
-            });
-        </script>
-	</body>
+        // --- 5. 遠程類 (同魔法紫) ---
+        else if (type === "遠程傷害") {
+            gradient = 'linear-gradient(to bottom, #f3e6ff, #afa2c9)';
+            glow = 'rgba(175, 162, 201, 0.4)';
+        }
+
+        // --- 6. 暴擊機率 (維持香檳金) ---
+        else if (type === "暴擊機率") {
+            gradient = 'linear-gradient(to bottom, #fff8db, #d4b476)';
+            glow = 'rgba(212, 180, 118, 0.4)';
+        }
+
+        // --- 7. 暴擊傷害 (新增：咖啡色/拿鐵色) ---
+        else if (type === "暴擊傷害") {
+            // 上淺下深的咖啡漸層：從 奶泡色 -> 焦糖色 -> 深咖啡
+            gradient = 'linear-gradient(to bottom, #efe2cf, #c49970, #785239)';
+            glow = 'rgba(120, 82, 57, 0.5)'; // 深咖啡色的光暈
+        }
+
+        return { gradient, glow };
+    }
+
+    // === 8. 計算結果 (手動分層排版版) ===
+    function updateCalculation() {
+        const container = document.getElementById('result-grid');
+        if(!container) return;
+
+        // 1. 先計算所有數值 (初始化為 0)
+        let totals = {};
+        statData.forEach(item => totals[item.type] = 0);
+
+        // 加總選取項目
+        selectedItems.forEach(id => {
+            const item = statData.find(d => d.id === id);
+            if (item) {
+                totals[item.type] += item.value;
+            }
+        });
+
+        // 2. ★關鍵：在這裡定義每一層要顯示什麼★
+        // 第一排 (3個)
+        const group1 = ["攻擊傷害", "暴擊機率", "暴擊傷害"];
+
+        // 第二排 (2個)
+        const group2 = ["總體防禦", "最大血量"];
+
+        // 第三排 (2個) - 指定這兩個要在同一行
+        const group3 = ["魔法傷害", "遠程傷害"];
+
+        // 3. 輔助函式：用來產生一整排的 HTML
+        function generateRowHTML(types) {
+            return types.map(type => {
+                const value = totals[type] || 0;
+                const style = getStyleForType(type);
+
+                let displayValue = value;
+
+                // ★★★ 修復重點：判斷正負號 ★★★
+                // 如果數值小於 0 (負數)，符號設為空字串 (因為數值本身就帶有 - 號)
+                // 如果數值大於等於 0，符號設為 "+"
+                const sign = value < 0 ? "" : "+";
+
+                if(type.includes("機率")) displayValue += "%";
+
+                return `
+                            <div class="stat-card">
+                                <div class="stat-label" style="--stat-gradient: ${style.gradient}; --stat-glow: ${style.glow};">
+                                    ${type}
+                                </div>
+                                <div class="stat-value">${sign}${displayValue}</div>
+                            </div>
+                        `;
+            }).join('');
+        }
+
+        // 4. 組合最終 HTML 結構
+        let html = '';
+
+        // 第一層 (Row 1)
+        html += `<div class="stat-row">${generateRowHTML(group1)}</div>`;
+
+        // 第二層 (Row 2)
+        html += `<div class="stat-row">${generateRowHTML(group2)}</div>`;
+
+        // 分隔線 (加在第二排和第三排中間，增加儀式感)
+        html += `<div class="stat-separator"></div>`;
+
+        // 第三層 (Row 3 - 魔法 & 遠程)
+        html += `<div class="stat-row">${generateRowHTML(group3)}</div>`;
+
+        container.innerHTML = html;
+    }
+</script>
+
+</body>
 </html>
