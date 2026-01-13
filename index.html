@@ -1796,146 +1796,149 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 <script>
     // === 1. 設定資料庫 (依照您的需求分類) ===
-    // === 設定資料庫 (整理自 稱號加成.txt) ===
+    // === 設定資料庫 (整理自 123.txt) ===
     const statData = [
-        // -------- 傷害 攻擊傷害 加成類 --------
-        { id: 1, name: "賞金獵人", type: "攻擊傷害", value: 1.0 },
-        { id: 2, name: "終界突襲者", type: "攻擊傷害", value: 1.0 },
-        { id: 3, name: "瘦皮猴", type: "攻擊傷害", value: 1.5 },
-        { id: 4, name: "戰勝邪惡的", type: "攻擊傷害", value: 2.0 },
-        { id: 5, name: "探索桃源的", type: "攻擊傷害", value: 2.0 },
-        { id: 6, name: "地獄破壞者", type: "攻擊傷害", value: 1.0 },
-        { id: 7, name: "地獄來的使者", type: "攻擊傷害", value: 2.0 },
-        { id: 8, name: "終界破壞者", type: "攻擊傷害", value: 1.0 },
-        { id: 9, name: "快樂小礦工", type: "攻擊傷害", value: 1.0 },
-        { id: 10, name: "暴君之敵", type: "攻擊傷害", value: 0.5 },
-        { id: 11, name: "豬布林殺手", type: "攻擊傷害", value: 0.5 },
-        { id: 12, name: "寶石愛好者", type: "攻擊傷害", value: 0.5 },
-        { id: 13, name: "恐懼的凝視", type: "攻擊傷害", value: 0.5 },
-        { id: 14, name: "蠻原狂掠", type: "攻擊傷害", value: 0.5 },
-
-        // -------- 傷害 暴擊機率 加成類 --------
-        { id: 15, name: "苦力怕好夥伴", type: "暴擊機率", value: 0.2 },
-        { id: 16, name: "炸彈客", type: "暴擊機率", value: 0.2 },
-        { id: 17, name: "黑白無常", type: "暴擊機率", value: 0.2 },
-        { id: 18, name: "凋零虎嘯", type: "暴擊機率", value: 0.4 },
-        { id: 19, name: "用心良苦", type: "暴擊機率", value: 0.5 },
-
-        // -------- 傷害 暴擊傷害 加成類 --------
-        { id: 20, name: "盜墓者", type: "暴擊傷害", value: 2.0 },
-        { id: 21, name: "能工巧匠", type: "暴擊傷害", value: 2.0 },
-        { id: 22, name: "瞬移獵人", type: "暴擊傷害", value: 2.0 },
-        { id: 23, name: "海中蛟龍", type: "暴擊傷害", value: 2.0 },
-        { id: 24, name: "彼端的探險者", type: "暴擊傷害", value: 6.0 },
-        { id: 25, name: "血戰魔族", type: "暴擊傷害", value: 20.0 },
-        { id: 26, name: "腐朽之夢", type: "暴擊傷害", value: 20.0 },
-        { id: 27, name: "槍械大師", type: "暴擊傷害", value: 4.0 },
-        { id: 28, name: "爛砲兵", type: "暴擊傷害", value: 6.0 },
-        { id: 29, name: "審判之日", type: "暴擊傷害", value: 10.0 },
-
-        // -------- 奇遇任務 加成類 --------
-        { id: 30, name: "千金散盡還復來", type: "最大血量", value: 4.0 },
-        { id: 31, name: "粉晶傳承者", type: "魔法傷害", value: 1.0 },
-        { id: 32, name: "天降鴻運", type: "遠程傷害", value: 1.0 },
-        { id: 33, name: "天降鴻運", type: "魔法傷害", value: -1.0 }, // 負面效果
-
-        // -------- 防禦 總體防禦 加成類 --------
-        { id: 34, name: "髒髒比", type: "總體防禦", value: 0.5 },
-        { id: 35, name: "一杯就倒的", type: "總體防禦", value: 2.0 },
-        { id: 36, name: "捍衛信仰的", type: "總體防禦", value: 2.0 },
-        // "大摳呆" 有兩個屬性
-        { id: 37, name: "大摳呆", type: "總體防禦", value: 2.0 },
-        { id: 38, name: "大摳呆", type: "最大血量", value: 2.0 },
-        { id: 39, name: "海枯石爛", type: "總體防禦", value: 4.0 },
-        // "榮譽玩家" 有三個屬性
-        { id: 40, name: "榮譽玩家", type: "總體防禦", value: 2.0 },
-        { id: 41, name: "榮譽玩家", type: "最大血量", value: 2.0 },
-        { id: 42, name: "榮譽玩家", type: "暴擊傷害", value: 5.0 },
-
-        // -------- 防禦 最大血量 加成類 --------
-        { id: 43, name: "可愛的", type: "最大血量", value: 1.0 },
-        { id: 44, name: "釣魚達人", type: "最大血量", value: 1.0 },
-        { id: 45, name: "大富翁", type: "最大血量", value: 1.0 },
-        { id: 46, name: "小黑炭", type: "最大血量", value: 1.0 },
-        { id: 47, name: "鑽石達人", type: "最大血量", value: 1.0 },
-        { id: 48, name: "尋覓真相的", type: "最大血量", value: 2.0 },
-        { id: 49, name: "出生入死的", type: "最大血量", value: 2.0 },
-        { id: 50, name: "林場獵手", type: "最大血量", value: 2.0 },
-        { id: 51, name: "家財萬貫", type: "最大血量", value: 6.0 },
-        { id: 52, name: "超級可愛的", type: "最大血量", value: 10.0 },
-        { id: 53, name: "涅槃重生", type: "最大血量", value: 4.0 },
-        { id: 54, name: "世界之樹", type: "最大血量", value: 1.0 },
-        { id: 55, name: "小彩蛋", type: "最大血量", value: 2.0 },
-        { id: 56, name: "真要命", type: "最大血量", value: 2.0 },
-        { id: 57, name: "基岩做的肝", type: "最大血量", value: 1.0 },
-        { id: 58, name: "頭偏掉了", type: "最大血量", value: 1.0 },
-
-        // -------- 主城 黑肝 加成類 --------
-        // "鎬出了黑肝" 雙屬性
-        { id: 59, name: "鎬出了黑肝", type: "暴擊傷害", value: 5.0 },
-        { id: 60, name: "鎬出了黑肝", type: "暴擊機率", value: 0.5 },
-        // "敲出了黑肝" 雙屬性
-        { id: 61, name: "敲出了黑肝", type: "暴擊傷害", value: 5.0 },
-        { id: 62, name: "敲出了黑肝", type: "暴擊機率", value: 0.5 },
-
-        // -------- 五行 寵物蛋 加成類 (金木水火土 1-5) --------
-        // 金金 (攻擊傷害)
-        { id: 63, name: "金金_1", type: "攻擊傷害", value: 2.0 },
-        { id: 64, name: "金金_2", type: "攻擊傷害", value: 2.0 },
-        { id: 65, name: "金金_3", type: "攻擊傷害", value: 2.0 },
-        { id: 66, name: "金金_4", type: "攻擊傷害", value: 2.0 },
-        { id: 67, name: "金金_5", type: "攻擊傷害", value: 2.0 },
-        // 木木 (最大血量)
-        { id: 68, name: "木木_1", type: "最大血量", value: 4.0 },
-        { id: 69, name: "木木_2", type: "最大血量", value: 4.0 },
-        { id: 70, name: "木木_3", type: "最大血量", value: 4.0 },
-        { id: 71, name: "木木_4", type: "最大血量", value: 4.0 },
-        { id: 72, name: "木木_5", type: "最大血量", value: 4.0 },
-        // 水水 (暴擊機率)
-        { id: 73, name: "水水_1", type: "暴擊機率", value: 0.5 },
-        { id: 74, name: "水水_2", type: "暴擊機率", value: 0.5 },
-        { id: 75, name: "水水_3", type: "暴擊機率", value: 0.5 },
-        { id: 76, name: "水水_4", type: "暴擊機率", value: 0.5 },
-        { id: 77, name: "水水_5", type: "暴擊機率", value: 0.5 },
-        // 火火 (暴擊傷害)
-        { id: 78, name: "火火_1", type: "暴擊傷害", value: 4.0 },
-        { id: 79, name: "火火_2", type: "暴擊傷害", value: 4.0 },
-        { id: 80, name: "火火_3", type: "暴擊傷害", value: 4.0 },
-        { id: 81, name: "火火_4", type: "暴擊傷害", value: 4.0 },
-        { id: 82, name: "火火_5", type: "暴擊傷害", value: 4.0 },
-        // 土土 (總體防禦)
-        { id: 83, name: "土土_1", type: "總體防禦", value: 6.0 },
-        { id: 84, name: "土土_2", type: "總體防禦", value: 6.0 },
-        { id: 85, name: "土土_3", type: "總體防禦", value: 6.0 },
-        { id: 86, name: "土土_4", type: "總體防禦", value: 6.0 },
-        { id: 87, name: "土土_5", type: "總體防禦", value: 6.0 },
-
-        // -------- 料理系統 加成類 --------
-        // 獨步快樂水 (雙屬性)
-        { id: 88, name: "獨步快樂水1", type: "暴擊機率", value: 1.0 },
-        { id: 89, name: "獨步快樂水1", type: "暴擊傷害", value: 50.0 },
-        { id: 90, name: "獨步快樂水2", type: "暴擊機率", value: 1.5 },
-        { id: 91, name: "獨步快樂水2", type: "暴擊傷害", value: 60.0 },
-        { id: 92, name: "獨步快樂水3", type: "暴擊機率", value: 2.0 },
-        { id: 93, name: "獨步快樂水3", type: "暴擊傷害", value: 70.0 },
-        { id: 94, name: "獨步快樂水4", type: "暴擊機率", value: 2.5 },
-        { id: 95, name: "獨步快樂水4", type: "暴擊傷害", value: 80.0 },
-        { id: 96, name: "獨步快樂水5", type: "暴擊機率", value: 3.0 },
-        { id: 97, name: "獨步快樂水5", type: "暴擊傷害", value: 90.0 },
-        // 大俠愛吃漢堡包
-        { id: 98, name: "大俠愛吃漢堡包1", type: "攻擊傷害", value: 2.0 },
-        { id: 99, name: "大俠愛吃漢堡包2", type: "攻擊傷害", value: 4.0 },
-        { id: 100, name: "大俠愛吃漢堡包3", type: "攻擊傷害", value: 6.0 },
-        { id: 101, name: "大俠愛吃漢堡包4", type: "攻擊傷害", value: 8.0 },
-        { id: 102, name: "大俠愛吃漢堡包5", type: "攻擊傷害", value: 10.0 },
-
-        // -------- 活動料理 加成類 --------
-        { id: 103, name: "布朗尼蛋糕", type: "攻擊傷害", value: 10.0 },
-        { id: 104, name: "布朗尼蛋糕", type: "最大血量", value: -10.0 }, // 負面效果
-
-        // -------- 單人副本 加成類 --------
-        { id: 105, name: "單人挑戰副本1 1分鐘內", type: "攻擊傷害", value: 2.0 },
-        { id: 106, name: "單人挑戰副本2 1分鐘內", type: "攻擊傷害", value: 3.0 }
+        { id: 1, name: "公民", type: "暴擊傷害", value: 25.0 },
+        { id: 2, name: "可愛的", type: "最大血量", value: 1.0 },
+        { id: 3, name: "髒髒比", type: "總體防禦", value: 0.5 },
+        { id: 4, name: "苦力怕好夥伴", type: "暴擊機率", value: 0.2 },
+        { id: 5, name: "凋零虎嘯", type: "暴擊機率", value: 0.4 },
+        { id: 6, name: "釣魚達人", type: "最大血量", value: 1.0 },
+        { id: 7, name: "盜墓者", type: "暴擊傷害", value: 4.0 },
+        { id: 8, name: "炸彈客", type: "暴擊機率", value: 0.2 },
+        { id: 9, name: "賞金獵人", type: "攻擊傷害", value: 1.0 },
+        { id: 10, name: "大富翁", type: "最大血量", value: 1.0 },
+        { id: 11, name: "家財萬貫", type: "最大血量", value: 6.0 },
+        { id: 12, name: "終界突襲者", type: "攻擊傷害", value: 1.0 },
+        { id: 13, name: "小黑炭", type: "最大血量", value: 1.0 },
+        { id: 14, name: "能工巧匠", type: "暴擊傷害", value: 5.0 },
+        { id: 15, name: "鑽石達人", type: "最大血量", value: 1.0 },
+        { id: 16, name: "瞬移獵人", type: "暴擊傷害", value: 6.0 },
+        { id: 17, name: "彼端的探險者", type: "暴擊傷害", value: 12.0 },
+        { id: 18, name: "超級可愛的", type: "最大血量", value: 10.0 },
+        { id: 19, name: "尋覓真相的", type: "最大血量", value: 2.0 },
+        { id: 20, name: "出生入死的", type: "最大血量", value: 2.0 },
+        { id: 21, name: "一杯就倒的", type: "總體防禦", value: 2.0 },
+        { id: 22, name: "戰勝邪惡的", type: "攻擊傷害", value: 2.0 },
+        { id: 23, name: "捍衛信仰的", type: "總體防禦", value: 2.0 },
+        { id: 24, name: "探索桃源的", type: "攻擊傷害", value: 2.0 },
+        { id: 25, name: "黑白無常", type: "暴擊機率", value: 0.2 },
+        { id: 26, name: "海中蛟龍", type: "暴擊傷害", value: 10.0 },
+        { id: 27, name: "林場獵手", type: "最大血量", value: 2.0 },
+        { id: 28, name: "千金散盡還復來", type: "最大血量", value: 4.0 },
+        { id: 29, name: "粉晶傳承者", type: "魔法傷害", value: 1.0 },
+        { id: 30, name: "天降鴻運", type: "遠程傷害", value: 1.0 },
+        { id: 30, name: "天降鴻運", type: "魔法傷害", value: -1.0 }, // 負面效果
+        { id: 31, name: "大摳呆", type: "總體防禦", value: 2.0 },
+        { id: 31, name: "大摳呆", type: "最大血量", value: 2.0 },
+        { id: 32, name: "涅槃重生", type: "最大血量", value: 4.0 },
+        { id: 33, name: "能者過勞", type: "攻擊傷害", value: 2.0 },
+        { id: 34, name: "鎬出了黑肝", type: "暴擊傷害", value: 20.0 },
+        { id: 34, name: "鎬出了黑肝", type: "暴擊機率", value: 0.5 },
+        { id: 35, name: "敲出了黑肝", type: "暴擊傷害", value: 20.0 },
+        { id: 35, name: "敲出了黑肝", type: "暴擊機率", value: 0.5 },
+        { id: 36, 'name': '地獄破壞者', 'type': '攻擊傷害', 'value': 1.0},
+        { id: 37, 'name': '終界破壞者', 'type': '攻擊傷害', 'value': 1.0},
+        { id: 38, 'name': '地獄來的使者', 'type': '攻擊傷害', 'value': 2.0},
+        { id: 39, 'name': '世界之樹', 'type': '最大血量', 'value': 1.0},
+        { id: 40, 'name': '小彩蛋', 'type': '最大血量', 'value': 2.0},
+        { id: 41, 'name': '海枯石爛', 'type': '總體防禦', 'value': 4.0},
+        { id: 42, 'name': '榮譽玩家', 'type': '總體防禦', 'value': 2.0},
+        { id: 42, 'name': '榮譽玩家', 'type': '最大血量', 'value': 2.0},
+        { id: 42, 'name': '榮譽玩家', 'type': '暴擊傷害', 'value': 10.0},
+        { id: 43, 'name': '血戰魔族', 'type': '暴擊傷害', 'value': 30.0},
+        { id: 44, 'name': '腐朽之夢', 'type': '暴擊傷害', 'value': 30.0},
+        { id: 45, 'name': '快樂小礦工', 'type': '攻擊傷害', 'value': 1.0},
+        { id: 46, 'name': '真要命', 'type': '最大血量', 'value': 2.0},
+        { id: 47, 'name': '暴君之敵', 'type': '攻擊傷害', 'value': 0.5},
+        { id: 48, 'name': '豬布林殺手', 'type': '攻擊傷害', 'value': 0.5},
+        { id: 49, 'name': '寶石愛好者', 'type': '攻擊傷害', 'value': 0.5},
+        { id: 50, 'name': '恐懼的凝視', 'type': '攻擊傷害', 'value': 0.5},
+        { id: 51, 'name': '蠻原狂掠', 'type': '攻擊傷害', 'value': 0.5},
+        { id: 52, 'name': '身朽心不朽', 'type': '攻擊傷害', 'value': 0.5},
+        { id: 53, 'name': '用心良苦', 'type': '暴擊機率', 'value': 0.5},
+        { id: 54, 'name': '槍械大師', 'type': '暴擊傷害', 'value': 10.0},
+        { id: 55, 'name': '爛砲兵', 'type': '暴擊傷害', 'value': 12.0},
+        { id: 56, 'name': '審判之日', 'type': '暴擊傷害', 'value': 20.0},
+        { id: 57, 'name': '基岩做的肝', 'type': '最大血量', 'value': 1.0},
+        { id: 58, 'name': '頭偏掉了', 'type': '最大血量', 'value': 1.0},
+        { id: 59, 'name': '引路之光', 'type': '最大血量', 'value': 4.0},
+        { id: 59, 'name': '引路之光', 'type': '暴擊傷害', 'value': 20.0},
+        { id: 59, 'name': '引路之光', 'type': '攻擊傷害', 'value': 2.0},
+        { id: 60, 'name': '瘦皮猴', 'type': '攻擊傷害', 'value': 1.5},
+        { id: 61, 'name': '金雞母', 'type': '最大血量', 'value': 6.0},
+        { id: 62, 'name': '熊熊遇見你', 'type': '最大血量', 'value': 6.0},
+        { id: 63, 'name': '神農轉世', 'type': '攻擊傷害', 'value': 10.0},
+        { id: 63, 'name': '神農轉世', 'type': '暴擊機率', 'value': 1.0},
+        { id: 63, 'name': '神農轉世', 'type': '最大血量', 'value': 20.0},
+        { id: 64, 'name': '釣魚宗師', 'type': '最大血量', 'value': 5.0},
+        { id: 65, 'name': '單人挑戰副本1', 'type': '攻擊傷害', 'value': 2.0},
+        { id: 66, 'name': '單人挑戰副本2', 'type': '攻擊傷害', 'value': 3.0},
+        { id: 67, 'name': '單人挑戰副本3', 'type': '總體防禦', 'value': 15.0},
+        { id: 68, 'name': '單人挑戰副本4', 'type': '攻擊傷害', 'value': 5.0},
+        { id: 69, 'name': '金金', 'type': '攻擊傷害', 'value': 2.0},
+        { id: 70, 'name': '金金2', 'type': '攻擊傷害', 'value': 2.0},
+        { id: 71, 'name': '金金3', 'type': '攻擊傷害', 'value': 2.0},
+        { id: 72, 'name': '金金4', 'type': '攻擊傷害', 'value': 2.0},
+        { id: 73, 'name': '金金5', 'type': '攻擊傷害', 'value': 4.0},
+        { id: 74, 'name': '木木', 'type': '最大血量', 'value': 4.0},
+        { id: 75, 'name': '木木2', 'type': '最大血量', 'value': 4.0},
+        { id: 76, 'name': '木木3', 'type': '最大血量', 'value': 4.0},
+        { id: 77, 'name': '木木4', 'type': '最大血量', 'value': 4.0},
+        { id: 78, 'name': '木木5', 'type': '最大血量', 'value': 8.0},
+        { id: 79, 'name': '水水', 'type': '暴擊機率', 'value': 0.5},
+        { id: 80, 'name': '水水2', 'type': '暴擊機率', 'value': 0.5},
+        { id: 81, 'name': '水水3', 'type': '暴擊機率', 'value': 0.5},
+        { id: 82, 'name': '水水4', 'type': '暴擊機率', 'value': 0.5},
+        { id: 83, 'name': '水水5', 'type': '暴擊機率', 'value': 0.5},
+        { id: 84, 'name': '火火', 'type': '暴擊傷害', 'value': 10.0},
+        { id: 85, 'name': '火火2', 'type': '暴擊傷害', 'value': 10.0},
+        { id: 86, 'name': '火火3', 'type': '暴擊傷害', 'value': 10.0},
+        { id: 87, 'name': '火火4', 'type': '暴擊傷害', 'value': 10.0},
+        { id: 88, 'name': '火火5', 'type': '暴擊傷害', 'value': 20.0},
+        { id: 89, 'name': '土土', 'type': '總體防禦', 'value': 6.0},
+        { id: 90, 'name': '土土2', 'type': '總體防禦', 'value': 6.0},
+        { id: 91, 'name': '土土3', 'type': '總體防禦', 'value': 6.0},
+        { id: 92, 'name': '土土4', 'type': '總體防禦', 'value': 6.0},
+        { id: 93, 'name': '土土5', 'type': '總體防禦', 'value': 12.0},
+        { id: 94, 'name': '屬性攻擊', 'type': '攻擊傷害', 'value': 1.0},
+        { id: 95, 'name': '屬性血量', 'type': '最大血量', 'value': 1.0},
+        { id: 96, 'name': '屬性總體防禦', 'type': '總體防禦', 'value': 1.0},
+        { id: 97, 'name': '屬性爆擊傷害', 'type': '暴擊傷害', 'value': 1.0},
+        { id: 98, 'name': '獨步快樂水1', 'type': '暴擊機率', 'value': 1.0},
+        { id: 98, 'name': '獨步快樂水1', 'type': '暴擊傷害', 'value': 50.0},
+        { id: 99, 'name': '獨步快樂水2', 'type': '暴擊機率', 'value': 1.5},
+        { id: 99, 'name': '獨步快樂水2', 'type': '暴擊傷害', 'value': 60.0},
+        { id: 100, 'name': '獨步快樂水3', 'type': '暴擊機率', 'value': 2.0},
+        { id: 100, 'name': '獨步快樂水3', 'type': '暴擊傷害', 'value': 70.0},
+        { id: 101, 'name': '獨步快樂水4', 'type': '暴擊機率', 'value': 2.5},
+        { id: 101, 'name': '獨步快樂水4', 'type': '暴擊傷害', 'value': 80.0},
+        { id: 102, 'name': '獨步快樂水5', 'type': '暴擊機率', 'value': 3.0},
+        { id: 102, 'name': '獨步快樂水5', 'type': '暴擊傷害', 'value': 90.0},
+        { id: 103, 'name': '大俠愛吃漢堡包1', 'type': '攻擊傷害', 'value': 2.0},
+        { id: 104, 'name': '大俠愛吃漢堡包2', 'type': '攻擊傷害', 'value': 4.0},
+        { id: 105, 'name': '大俠愛吃漢堡包3', 'type': '攻擊傷害', 'value': 6.0},
+        { id: 106, 'name': '大俠愛吃漢堡包4', 'type': '攻擊傷害', 'value': 8.0},
+        { id: 107, 'name': '大俠愛吃漢堡包5', 'type': '攻擊傷害', 'value': 10.0},
+        { id: 108, 'name': '史萊姆冰淇淋1', 'type': '最大血量', 'value': 20.0},
+        { id: 109, 'name': '史萊姆冰淇淋2', 'type': '最大血量', 'value': 30.0},
+        { id: 110, 'name': '史萊姆冰淇淋3', 'type': '最大血量', 'value': 40.0},
+        { id: 111, 'name': '史萊姆冰淇淋4', 'type': '最大血量', 'value': 50.0},
+        { id: 112, 'name': '史萊姆冰淇淋5', 'type': '最大血量', 'value': 60.0},
+        { id: 113, 'name': '布朗尼蛋糕', 'type': '攻擊傷害', 'value': 3.0},
+        { id: 113, 'name': '布朗尼蛋糕', 'type': '最大血量', 'value': -10.0},
+        // 以下項目包含活動加成 (同一個稱號在特定期間有額外加成)
+        { id: 114, 'name': '端午肉粽', 'type': '暴擊機率', 'value': 3.0},
+        { id: 114, 'name': '端午肉粽', 'type': '最大血量', 'value': -10.0},
+        { id: 114, 'name': '端午肉粽', 'type': '暴擊機率', 'value': 7.0}, // 活動期間加成
+        { id: 115, 'name': '祥兔桂花月餅', 'type': '攻擊傷害', 'value': 3.0},
+        { id: 115, 'name': '祥兔桂花月餅', 'type': '最大血量', 'value': -10.0},
+        { id: 115, 'name': '祥兔桂花月餅', 'type': '攻擊傷害', 'value': 7.0}, // 活動期間加成
+        { id: 116, 'name': '副本特殊事件加成', 'type': '攻擊傷害', 'value': 10.0},
+        { id: 116, 'name': '副本特殊事件加成', 'type': '暴擊機率', 'value': 10.0},
+        { id: 116, 'name': '副本特殊事件加成', 'type': '暴擊傷害', 'value': 200.0},
+        { id: 116, 'name': '副本特殊事件加成', 'type': '最大血量', 'value': 30.0},
+        { id: 116, 'name': '副本特殊事件加成', 'type': '總體防禦', 'value': 50.0}
     ];
 
     let selectedItems = new Set();
@@ -1973,84 +1976,136 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
         renderItems();
     }
 
-    // === 5. 產生詞條按鈕 ===
+    // === 5. 產生詞條按鈕 (修改版：依名稱分組) ===
     function renderItems() {
         const container = document.getElementById('items-container');
         if(!container) return;
         container.innerHTML = '';
 
-        statData.forEach(item => {
-            if (currentFilter !== 'all' && item.type !== currentFilter) return;
+        // 1. 取得所有不重複的名稱 (Name)
+        // 這樣就算資料庫有兩筆 "布朗尼蛋糕"，這裡只會拿到一個 "布朗尼蛋糕"
+        const allNames = [...new Set(statData.map(d => d.name))];
 
-            const isActive = selectedItems.has(item.id) ? 'active' : '';
-            const btn = document.createElement('button');
+        allNames.forEach(name => {
+            // 2. 找出這個名稱底下的所有數據 (例如 103 和 104)
+            const groupItems = statData.filter(d => d.name === name);
 
-            btn.className = `button small calc-btn ${isActive}`;
-
-            // 取得該標籤對應的顏色樣式
-            const style = getStyleForType(item.type);
-
-            // ★★★ 修復重點：判斷正負號 (針對按鈕上的小字) ★★★
-            let displayValue = item.value;
-            const sign = item.value < 0 ? "" : "+"; // 如果是負數就不加 "+"
-
-            // 如果是機率，補上 %
-            if(item.type.includes("機率")) {
-                displayValue += "%";
+            // 3. 篩選邏輯：
+            // 如果目前篩選器不是 'all'，且這組稱號中沒有任何一個屬性符合篩選器，就跳過
+            if (currentFilter !== 'all') {
+                const hasType = groupItems.some(item => item.type === currentFilter);
+                if (!hasType) return;
             }
 
-            btn.innerHTML = `
-                        <span class="btn-title" style="--text-gradient: ${style.gradient}; --text-glow: ${style.glow}">
-                            ${item.name}
-                        </span>
-                        <span class="btn-subtitle">
-                            ${item.type} ${sign}${displayValue}
-                        </span>
-                    `;
+            // 4. 判斷是否選取：只要這組的第一個 ID 有被選取，就視為整組被選取
+            // (因為我們現在的邏輯是按一下全選)
+            const firstId = groupItems[0].id;
+            const isActive = selectedItems.has(firstId) ? 'active' : '';
 
-            btn.onclick = () => toggleItem(item.id);
+            // 5. 建立按鈕
+            const btn = document.createElement('button');
+            btn.className = `button small calc-btn ${isActive}`;
+
+            // 決定按鈕顏色：使用這組數據中「第一個」項目的屬性來決定顏色
+            // (或者你可以改寫邏輯優先顯示攻擊類的顏色)
+            const mainType = groupItems[0].type;
+            const style = getStyleForType(mainType);
+
+            // 6. 組合副標題 (Subtitle)：把所有加成數值串接在一起
+            // 例如： "攻擊傷害 +10 | 最大血量 -10"
+            let subtitleHtml = groupItems.map(item => {
+                let val = item.value;
+                let sign = val < 0 ? "" : "+";
+                if(item.type.includes("機率")) val += "%";
+                return `<div>${item.type} ${sign}${val}</div>`;
+            }).join('');
+
+            btn.innerHTML = `
+                <span class="btn-title" style="--text-gradient: ${style.gradient}; --text-glow: ${style.glow}">
+                    ${name}
+                </span>
+                <span class="btn-subtitle" style="font-size: 0.7em; line-height: 1.4;">
+                    ${subtitleHtml}
+                </span>
+            `;
+
+            // 點擊時，傳入名稱進行群組切換
+            btn.onclick = () => toggleGroup(name);
             container.appendChild(btn);
         });
     }
 
-    // === 6. 切換選取 ===
-    function toggleItem(id) {
-        if (selectedItems.has(id)) {
-            selectedItems.delete(id);
+    // === 6. 切換選取 (修改版：依名稱整組切換) ===
+    function toggleGroup(name) {
+        // 找出這個名稱所有的 ID
+        const groupItems = statData.filter(d => d.name === name);
+        const ids = groupItems.map(d => d.id);
+
+        // 檢查目前狀態：檢查第一個 ID 是否已選取
+        const isSelected = selectedItems.has(ids[0]);
+
+        if (isSelected) {
+            // 如果原本是選取的，現在就「全部移除」
+            ids.forEach(id => selectedItems.delete(id));
         } else {
-            selectedItems.add(id);
+            // 如果原本沒選取，現在就「全部加入」
+            ids.forEach(id => selectedItems.add(id));
         }
+
         renderItems();
         updateCalculation();
     }
 
-    // === 新增功能：全部選取 ===
+    // === 新增功能：全部選取 (修正版：配合篩選器) ===
     function selectAllItems() {
-        statData.forEach(item => {
-            // 只選取「目前篩選類別」下的項目 (如果是全部顯示，就全選)
-            if (currentFilter === 'all' || item.type === currentFilter) {
-                selectedItems.add(item.id);
+        // 找出目前畫面上顯示的所有名稱
+        const allNames = [...new Set(statData.map(d => d.name))];
+
+        allNames.forEach(name => {
+            const groupItems = statData.filter(d => d.name === name);
+
+            // 檢查是否符合篩選器 (符合才選取)
+            let shouldSelect = false;
+            if (currentFilter === 'all') {
+                shouldSelect = true;
+            } else {
+                // 如果這組裡面有任何一個屬性符合篩選器，就全選這組
+                if (groupItems.some(item => item.type === currentFilter)) {
+                    shouldSelect = true;
+                }
+            }
+
+            if (shouldSelect) {
+                // 把這組所有的 ID 都加進去
+                groupItems.forEach(item => selectedItems.add(item.id));
             }
         });
-        renderItems();       // 重新繪製按鈕亮燈狀態
-        updateCalculation(); // 重新計算數值
+
+        renderItems();
+        updateCalculation();
     }
 
-    // === 新增功能：全部取消 ===
+    // === 新增功能：全部取消 (修正版) ===
     function deselectAllItems() {
         if (currentFilter === 'all') {
-            // 如果是全部顯示模式，直接清空所有選取
             selectedItems.clear();
         } else {
-            // 如果是在特定分類下，只取消該分類的項目 (保留其他分類的選取)
-            statData.forEach(item => {
-                if (item.type === currentFilter) {
-                    selectedItems.delete(item.id);
+            // 只取消符合目前篩選條件的項目
+            // 但因為現在是「依名稱分組」，如果這組稱號中包含目前篩選的屬性，我們就把整組取消
+            const allNames = [...new Set(statData.map(d => d.name))];
+
+            allNames.forEach(name => {
+                const groupItems = statData.filter(d => d.name === name);
+
+                // 判斷這組是否在當前篩選範圍內
+                if (groupItems.some(item => item.type === currentFilter)) {
+                    // 移除這組的所有 ID
+                    groupItems.forEach(item => selectedItems.delete(item.id));
                 }
             });
         }
-        renderItems();       // 重新繪製按鈕亮燈狀態
-        updateCalculation(); // 重新計算數值
+        renderItems();
+        updateCalculation();
     }
 
     // === 7. 配色邏輯 (已將暴擊分開，新增咖啡色) ===
@@ -2105,45 +2160,50 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
         return { gradient, glow };
     }
 
-    // === 8. 計算結果 (手動分層排版版) ===
+    // === 8. 計算結果 (修正版：解決同 ID 多屬性只算到第一筆的問題) ===
     function updateCalculation() {
         const container = document.getElementById('result-grid');
         if(!container) return;
 
         // 1. 先計算所有數值 (初始化為 0)
         let totals = {};
+
+        // 確保所有出現過的類型都有初始化 (避免 undefined 錯誤)
         statData.forEach(item => totals[item.type] = 0);
 
-        // 加總選取項目
-        selectedItems.forEach(id => {
-            const item = statData.find(d => d.id === id);
-            if (item) {
+        // 2. 加總選取項目 (修正邏輯)
+        // 舊寫法：selectedItems.forEach... -> 只會找到 ID 的第一筆
+        // 新寫法：遍歷整個資料庫，只要該項目的 ID 在選取清單中，就加總
+        statData.forEach(item => {
+            if (selectedItems.has(item.id)) {
                 totals[item.type] += item.value;
             }
         });
 
-        // 2. ★關鍵：在這裡定義每一層要顯示什麼★
+        // 3. 定義每一層要顯示什麼
         // 第一排 (3個)
         const group1 = ["攻擊傷害", "暴擊機率", "暴擊傷害"];
-
         // 第二排 (2個)
         const group2 = ["總體防禦", "最大血量"];
-
-        // 第三排 (2個) - 指定這兩個要在同一行
+        // 第三排 (2個)
         const group3 = ["魔法傷害", "遠程傷害"];
 
-        // 3. 輔助函式：用來產生一整排的 HTML
+        // 4. 輔助函式：用來產生一整排的 HTML
         function generateRowHTML(types) {
             return types.map(type => {
+                // 這裡加上 || 0 確保沒有該屬性時顯示 0
                 const value = totals[type] || 0;
+
+                // 為了美觀，如果數值真的是 0 且沒有被選取任何相關屬性，或許可以考慮不顯示？
+                // 但依照您的原設計是顯示 +0，這裡維持原樣。
+
                 const style = getStyleForType(type);
 
                 let displayValue = value;
+                const sign = value < 0 ? "" : "+"; // 負數不加 + 號
 
-                // ★★★ 修復重點：判斷正負號 ★★★
-                // 如果數值小於 0 (負數)，符號設為空字串 (因為數值本身就帶有 - 號)
-                // 如果數值大於等於 0，符號設為 "+"
-                const sign = value < 0 ? "" : "+";
+                // 處理小數點 (選用)：如果怕出現 0.10000002 這種狀況，可以加 .toFixed(1)
+                // displayValue = Math.round(displayValue * 10) / 10;
 
                 if(type.includes("機率")) displayValue += "%";
 
@@ -2158,19 +2218,11 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
             }).join('');
         }
 
-        // 4. 組合最終 HTML 結構
+        // 5. 組合最終 HTML 結構
         let html = '';
-
-        // 第一層 (Row 1)
         html += `<div class="stat-row">${generateRowHTML(group1)}</div>`;
-
-        // 第二層 (Row 2)
         html += `<div class="stat-row">${generateRowHTML(group2)}</div>`;
-
-        // 分隔線 (加在第二排和第三排中間，增加儀式感)
         html += `<div class="stat-separator"></div>`;
-
-        // 第三層 (Row 3 - 魔法 & 遠程)
         html += `<div class="stat-row">${generateRowHTML(group3)}</div>`;
 
         container.innerHTML = html;
