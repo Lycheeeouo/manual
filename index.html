@@ -2773,35 +2773,92 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
         updateCalculation(); // 這裡原本就會呼叫 updateCalculation，所以會自動觸發存檔，不用額外改！
     }
 
-    // === 7. 配色邏輯 (維持不變) ===
-    function getStyleForType(type) {
-        let gradient = 'linear-gradient(to bottom, #e3e3e3, #8a8a8a)';
-        let glow = 'rgba(255, 255, 255, 0.2)';
-
-        if (type === "攻擊傷害") {
-            gradient = 'linear-gradient(to bottom, #ffdfdf, #c97b84)';
-            glow = 'rgba(201, 123, 132, 0.4)';
-        } else if (type === "總體防禦") {
-            gradient = 'linear-gradient(to bottom, #dbeaff, #7a9ec2)';
-            glow = 'rgba(122, 158, 194, 0.4)';
-        } else if (type === "最大血量") {
-            gradient = 'linear-gradient(to bottom, #e3ffe3, #83bca9)';
-            glow = 'rgba(131, 188, 169, 0.4)';
-        } else if (type === "魔法傷害" || type === "遠程傷害") {
-            gradient = 'linear-gradient(to bottom, #f3e6ff, #afa2c9)';
-            glow = 'rgba(175, 162, 201, 0.4)';
-        } else if (type === "暴擊機率") {
-            gradient = 'linear-gradient(to bottom, #fff8db, #d4b476)';
-            glow = 'rgba(212, 180, 118, 0.4)';
-        } else if (type === "暴擊傷害") {
-            gradient = 'linear-gradient(to bottom, #efe2cf, #c49970, #785239)';
-            glow = 'rgba(120, 82, 57, 0.5)';
+    // === 7. 統一顏色設定檔 (Color Palette) ===
+    // 這裡定義了所有屬性的顏色，修改這裡會同時改變「按鈕」和「結果卡片」
+    const colorPalette = {
+        "攻擊傷害": {
+            gradient: 'linear-gradient(to bottom, #fff8db, #d4b476)', // 香檳金D4B47699
+            glow: 'rgba(212,180,118,0.6)'
+        },
+        "總體防禦": {
+            gradient: 'linear-gradient(to bottom, #efe2cf, #c49970, #785239)', // 拿鐵咖啡78523999
+            glow: 'rgba(120,82,57,0.6)'
+        },
+        "最大血量": {
+            gradient: 'linear-gradient(to bottom, #e3ffe3, #83bca9)', // 鼠尾草綠83BCA999
+            glow: 'rgba(131, 188, 169, 0.6)'
+        },
+        "魔法傷害": {
+            gradient: 'linear-gradient(to bottom, #f3e6ff, #afa2c9)', // 薰衣草紫AFA2C999
+            glow: 'rgba(175, 162, 201, 0.6)'
+        },
+        "遠程傷害": {
+            gradient: 'linear-gradient(to bottom, #f3e6ff, #afa2c9)', // 同魔法紫AFA2C999
+            glow: 'rgba(175, 162, 201, 0.6)'
+        },
+        "暴擊機率": {
+            gradient: 'linear-gradient(to bottom, #dbeaff, #7a9ec2)', // 霧霾藍7A9EC299
+            glow: 'rgba(122,158,194,0.6)'
+        },
+        "暴擊傷害": {
+            gradient: 'linear-gradient(to bottom, #ffdfdf, #c97b84)', // 乾燥玫瑰粉C97B8499
+            glow: 'rgba(201,123,132,0.6)'
+        },
+        // 預設顏色 (找不到屬性時用)
+        "default": {
+            gradient: 'linear-gradient(to bottom, #e3e3e3, #8a8a8a)', // 絲綢灰FFFFFF66
+            glow: 'rgba(255, 255, 255, 0.4)'
         }
-        return { gradient, glow };
+    };
+
+    // 取得顏色的輔助函式
+    function getStyleForType(type) {
+        return colorPalette[type] || colorPalette["default"];
     }
 
-    // === 8. 計算結果 (修改版：加入自動保存) ===
-    // 增加一個參數 isAutoSave，預設為 true
+    // === 輔助函式：建立按鈕 (修改版：讓按鈕顏色跟屬性綁定) ===
+    function createButton(name, container) {
+        const groupItems = statData.filter(d => d.name === name);
+        const firstId = groupItems[0].id;
+        const isActive = selectedItems.has(firstId) ? 'active' : '';
+        const mainType = groupItems[0].type;
+
+        // ★★★ 核心修改：直接從設定檔讀取顏色 ★★★
+        const style = getStyleForType(mainType);
+
+        let subtitleHtml = groupItems.map(item => {
+            let val = item.value;
+            let sign = val < 0 ? "" : "+";
+            if(item.type.includes("機率")) val += "%";
+
+            // 副標題 (數值) 使用白色，比較易讀
+            return `<div style="color: rgba(255,255,255,0.7); font-size: 0.9em;">${item.type} ${sign}${val}</div>`;
+        }).join('');
+
+        const btn = document.createElement('button');
+        btn.className = `button small calc-btn ${isActive}`;
+
+        // ★★★ 設定樣式：標題使用屬性漸層色 ★★★
+        btn.innerHTML = `
+            <span class="btn-title" style="--text-gradient: ${style.gradient}; --text-glow: ${style.glow}">
+                ${name}
+            </span>
+            <span class="btn-subtitle" style="font-size: 0.7em; line-height: 1.4;">
+                ${subtitleHtml}
+            </span>
+        `;
+
+        // 如果按鈕被選中，讓邊框也發出對應顏色的光
+        if (isActive) {
+            btn.style.boxShadow = `inset 0 0 0 1px ${style.glow}`;
+            btn.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+        }
+
+        btn.onclick = () => toggleGroup(name);
+        container.appendChild(btn);
+    }
+
+    // === 8. 計算結果 (修改版：確保顏色與按鈕一致) ===
     function updateCalculation(isAutoSave = true) {
         const container = document.getElementById('result-grid');
         if(!container) return;
@@ -2815,14 +2872,10 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
             }
         });
 
-        // --- ★★★ 新增：自動保存功能 ★★★ ---
         if (isAutoSave) {
-            // 將 Set 轉換成陣列 (因為 localStorage 只能存字串)
             const arrayToSave = Array.from(selectedItems);
-            // 存入瀏覽器，鑰匙名稱為 'rpg_calc_save'
             localStorage.setItem('rpg_calc_save', JSON.stringify(arrayToSave));
         }
-        // ----------------------------------
 
         let convertedAttack = 0;
         let excessCrit = 0;
@@ -2842,7 +2895,10 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
         function generateRowHTML(types) {
             return types.map(type => {
                 const value = totals[type] || 0;
+
+                // ★★★ 這裡也會讀取同一個顏色設定檔 ★★★
                 const style = getStyleForType(type);
+
                 let displayValue = Math.round(value * 100) / 100;
                 const sign = displayValue < 0 ? "" : "+";
                 let suffix = type.includes("機率") ? "%" : "";

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="新增 屬性加成本地存儲">
+    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="新增 傷害計算說明">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
@@ -88,15 +88,7 @@
       <workItem from="1768368988931" duration="12433000" />
       <workItem from="1768381906669" duration="722000" />
       <workItem from="1768385500361" duration="5356000" />
-      <workItem from="1768393176020" duration="631000" />
-    </task>
-    <task id="LOCAL-00004" summary="1.調整手機上的封面排版&#10;2.調整技能按鈕的排版邏輯，在手機上不會凸出去">
-      <option name="closed" value="true" />
-      <created>1764268840386</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1764268840386</updated>
+      <workItem from="1768393176020" duration="1935000" />
     </task>
     <task id="LOCAL-00005" summary="1.調整團副Boss按鈕的排版邏輯，在手機上不會凸出去">
       <option name="closed" value="true" />
@@ -482,14 +474,21 @@
       <option name="project" value="LOCAL" />
       <updated>1768389920407</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="新增 傷害計算說明">
+      <option name="closed" value="true" />
+      <created>1768393846402</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1768393846402</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1.更新各個BOSS技能內容" />
     <MESSAGE value="1.把gif轉mp4" />
     <MESSAGE value="1.新增BOSS技能說明 (團副一困三王 完成)" />
     <MESSAGE value="1.新增BOSS技能說明" />
@@ -514,7 +513,8 @@
     <MESSAGE value="改名字" />
     <MESSAGE value="新增 傷害計算" />
     <MESSAGE value="新增 屬性加成本地存儲" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增 屬性加成本地存儲" />
+    <MESSAGE value="新增 傷害計算說明" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增 傷害計算說明" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
