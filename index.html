@@ -1862,9 +1862,9 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 </script>
 
 <script>
-    // === 1. 設定資料庫 (依照您的需求分類) ===
-    // === 設定資料庫 (整理自 123.txt) ===
+    // === 1. 設定資料庫 ===
     const statData = [
+        // --- 原有的一般稱號 ---
         { id: 1, name: "公民", type: "暴擊傷害", value: 25.0 },
         { id: 2, name: "可愛的", type: "最大血量", value: 1.0 },
         { id: 3, name: "髒髒比", type: "總體防禦", value: 0.5 },
@@ -1895,7 +1895,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
         { id: 28, name: "千金散盡還復來", type: "最大血量", value: 4.0 },
         { id: 29, name: "粉晶傳承者", type: "魔法傷害", value: 1.0 },
         { id: 30, name: "天降鴻運", type: "遠程傷害", value: 1.0 },
-        { id: 30, name: "天降鴻運", type: "魔法傷害", value: -1.0 }, // 負面效果
+        { id: 30, name: "天降鴻運", type: "魔法傷害", value: -1.0 },
         { id: 31, name: "大摳呆", type: "總體防禦", value: 2.0 },
         { id: 31, name: "大摳呆", type: "最大血量", value: 2.0 },
         { id: 32, name: "涅槃重生", type: "最大血量", value: 4.0 },
@@ -1968,35 +1968,45 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
         { id: 91, 'name': '土土3', 'type': '總體防禦', 'value': 6.0},
         { id: 92, 'name': '土土4', 'type': '總體防禦', 'value': 6.0},
         { id: 93, 'name': '土土5', 'type': '總體防禦', 'value': 12.0},
-        { id: 98, 'name': '獨步快樂水1', 'type': '暴擊機率', 'value': 1.0},
-        { id: 98, 'name': '獨步快樂水1', 'type': '暴擊傷害', 'value': 50.0},
-        { id: 99, 'name': '獨步快樂水2', 'type': '暴擊機率', 'value': 1.5},
-        { id: 99, 'name': '獨步快樂水2', 'type': '暴擊傷害', 'value': 60.0},
-        { id: 100, 'name': '獨步快樂水3', 'type': '暴擊機率', 'value': 2.0},
-        { id: 100, 'name': '獨步快樂水3', 'type': '暴擊傷害', 'value': 70.0},
-        { id: 101, 'name': '獨步快樂水4', 'type': '暴擊機率', 'value': 2.5},
-        { id: 101, 'name': '獨步快樂水4', 'type': '暴擊傷害', 'value': 80.0},
-        { id: 102, 'name': '獨步快樂水5', 'type': '暴擊機率', 'value': 3.0},
-        { id: 102, 'name': '獨步快樂水5', 'type': '暴擊傷害', 'value': 90.0},
-        { id: 103, 'name': '大俠愛吃漢堡包1', 'type': '攻擊傷害', 'value': 2.0},
-        { id: 104, 'name': '大俠愛吃漢堡包2', 'type': '攻擊傷害', 'value': 4.0},
-        { id: 105, 'name': '大俠愛吃漢堡包3', 'type': '攻擊傷害', 'value': 6.0},
-        { id: 106, 'name': '大俠愛吃漢堡包4', 'type': '攻擊傷害', 'value': 8.0},
-        { id: 107, 'name': '大俠愛吃漢堡包5', 'type': '攻擊傷害', 'value': 10.0},
-        { id: 108, 'name': '史萊姆冰淇淋1', 'type': '最大血量', 'value': 20.0},
-        { id: 109, 'name': '史萊姆冰淇淋2', 'type': '最大血量', 'value': 30.0},
-        { id: 110, 'name': '史萊姆冰淇淋3', 'type': '最大血量', 'value': 40.0},
-        { id: 111, 'name': '史萊姆冰淇淋4', 'type': '最大血量', 'value': 50.0},
-        { id: 112, 'name': '史萊姆冰淇淋5', 'type': '最大血量', 'value': 60.0},
-        { id: 113, 'name': '布朗尼蛋糕', 'type': '攻擊傷害', 'value': 3.0},
-        { id: 113, 'name': '布朗尼蛋糕', 'type': '最大血量', 'value': -10.0},
-        // 以下項目包含活動加成 (同一個稱號在特定期間有額外加成)
-        { id: 114, 'name': '端午肉粽', 'type': '暴擊機率', 'value': 3.0},
-        { id: 114, 'name': '端午肉粽', 'type': '最大血量', 'value': -10.0},
-        { id: 114, 'name': '端午肉粽', 'type': '暴擊機率', 'value': 7.0}, // 活動期間加成
-        { id: 115, 'name': '祥兔桂花月餅', 'type': '攻擊傷害', 'value': 3.0},
-        { id: 115, 'name': '祥兔桂花月餅', 'type': '最大血量', 'value': -10.0},
-        { id: 115, 'name': '祥兔桂花月餅', 'type': '攻擊傷害', 'value': 7.0}, // 活動期間加成
+
+        // --- 料理與活動類 (新增 extra 屬性來做分類) ---
+        // 子分類：飲料類
+        { id: 98, 'name': '獨步快樂水1', 'type': '暴擊機率', 'value': 1.0, extra: { cat: 'cooking', sub: 'drinks' } },
+        { id: 98, 'name': '獨步快樂水1', 'type': '暴擊傷害', 'value': 50.0, extra: { cat: 'cooking', sub: 'drinks' } },
+        { id: 99, 'name': '獨步快樂水2', 'type': '暴擊機率', 'value': 1.5, extra: { cat: 'cooking', sub: 'drinks' } },
+        { id: 99, 'name': '獨步快樂水2', 'type': '暴擊傷害', 'value': 60.0, extra: { cat: 'cooking', sub: 'drinks' } },
+        { id: 100, 'name': '獨步快樂水3', 'type': '暴擊機率', 'value': 2.0, extra: { cat: 'cooking', sub: 'drinks' } },
+        { id: 100, 'name': '獨步快樂水3', 'type': '暴擊傷害', 'value': 70.0, extra: { cat: 'cooking', sub: 'drinks' } },
+        { id: 101, 'name': '獨步快樂水4', 'type': '暴擊機率', 'value': 2.5, extra: { cat: 'cooking', sub: 'drinks' } },
+        { id: 101, 'name': '獨步快樂水4', 'type': '暴擊傷害', 'value': 80.0, extra: { cat: 'cooking', sub: 'drinks' } },
+        { id: 102, 'name': '獨步快樂水5', 'type': '暴擊機率', 'value': 3.0, extra: { cat: 'cooking', sub: 'drinks' } },
+        { id: 102, 'name': '獨步快樂水5', 'type': '暴擊傷害', 'value': 90.0, extra: { cat: 'cooking', sub: 'drinks' } },
+
+        // 子分類：熟食類
+        { id: 103, 'name': '大俠愛吃漢堡包1', 'type': '攻擊傷害', 'value': 2.0, extra: { cat: 'cooking', sub: 'food' } },
+        { id: 104, 'name': '大俠愛吃漢堡包2', 'type': '攻擊傷害', 'value': 4.0, extra: { cat: 'cooking', sub: 'food' } },
+        { id: 105, 'name': '大俠愛吃漢堡包3', 'type': '攻擊傷害', 'value': 6.0, extra: { cat: 'cooking', sub: 'food' } },
+        { id: 106, 'name': '大俠愛吃漢堡包4', 'type': '攻擊傷害', 'value': 8.0, extra: { cat: 'cooking', sub: 'food' } },
+        { id: 107, 'name': '大俠愛吃漢堡包5', 'type': '攻擊傷害', 'value': 10.0, extra: { cat: 'cooking', sub: 'food' } },
+
+        // 子分類：甜點類
+        { id: 108, 'name': '史萊姆冰淇淋1', 'type': '最大血量', 'value': 20.0, extra: { cat: 'cooking', sub: 'dessert' } },
+        { id: 109, 'name': '史萊姆冰淇淋2', 'type': '最大血量', 'value': 30.0, extra: { cat: 'cooking', sub: 'dessert' } },
+        { id: 110, 'name': '史萊姆冰淇淋3', 'type': '最大血量', 'value': 40.0, extra: { cat: 'cooking', sub: 'dessert' } },
+        { id: 111, 'name': '史萊姆冰淇淋4', 'type': '最大血量', 'value': 50.0, extra: { cat: 'cooking', sub: 'dessert' } },
+        { id: 112, 'name': '史萊姆冰淇淋5', 'type': '最大血量', 'value': 60.0, extra: { cat: 'cooking', sub: 'dessert' } },
+
+        // 子分類：活動類
+        { id: 113, 'name': '布朗尼蛋糕', 'type': '攻擊傷害', 'value': 3.0, extra: { cat: 'cooking', sub: 'event' } },
+        { id: 113, 'name': '布朗尼蛋糕', 'type': '最大血量', 'value': -10.0, extra: { cat: 'cooking', sub: 'event' } },
+        { id: 114, 'name': '端午肉粽', 'type': '暴擊機率', 'value': 3.0, extra: { cat: 'cooking', sub: 'event' } },
+        { id: 114, 'name': '端午肉粽', 'type': '最大血量', 'value': -10.0, extra: { cat: 'cooking', sub: 'event' } },
+        { id: 114, 'name': '端午肉粽', 'type': '暴擊機率', 'value': 7.0, extra: { cat: 'cooking', sub: 'event' } },
+        { id: 115, 'name': '祥兔桂花月餅', 'type': '攻擊傷害', 'value': 3.0, extra: { cat: 'cooking', sub: 'event' } },
+        { id: 115, 'name': '祥兔桂花月餅', 'type': '最大血量', 'value': -10.0, extra: { cat: 'cooking', sub: 'event' } },
+        { id: 115, 'name': '祥兔桂花月餅', 'type': '攻擊傷害', 'value': 7.0, extra: { cat: 'cooking', sub: 'event' } },
+
+        // --- 一般加成 ---
         { id: 116, 'name': '副本特殊事件加成', 'type': '攻擊傷害', 'value': 10.0},
         { id: 116, 'name': '副本特殊事件加成', 'type': '暴擊機率', 'value': 10.0},
         { id: 116, 'name': '副本特殊事件加成', 'type': '暴擊傷害', 'value': 200.0},
@@ -2046,16 +2056,25 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
     // === 3. 產生篩選按鈕 ===
     function renderFilterButtons() {
-        // 這裡會自動抓取 statData 裡的所有 type，所以按鈕會自動變成你設定的那 7 種
-        const types = ['all', ...new Set(statData.map(item => item.type))];
+        // 抓出所有不重複的 type
+        const types = [...new Set(statData.map(item => item.type))];
+
         const container = document.getElementById('filter-container');
         if(!container) return;
 
-        container.innerHTML = types.map(type => {
-            const label = type === 'all' ? '全部顯示' : type;
+        // 建立基本按鈕：全部顯示
+        let html = `<li><a href="javascript:void(0)" class="button small ${currentFilter === 'all' ? 'primary' : ''}" onclick="setFilter('all')">全部顯示</a></li>`;
+
+        // 建立「料理」按鈕 (獨立顯示)
+        html += `<li><a href="javascript:void(0)" class="button small ${currentFilter === 'cooking' ? 'primary' : ''}" onclick="setFilter('cooking')">料理</a></li>`;
+
+        // 建立其他屬性按鈕
+        html += types.map(type => {
             const activeClass = type === currentFilter ? 'primary' : '';
-            return `<li><a href="javascript:void(0)" class="button small ${activeClass}" onclick="setFilter('${type}')">${label}</a></li>`;
+            return `<li><a href="javascript:void(0)" class="button small ${activeClass}" onclick="setFilter('${type}')">${type}</a></li>`;
         }).join('');
+
+        container.innerHTML = html;
     }
 
     // === 4. 設定篩選 ===
@@ -2065,130 +2084,223 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
         renderItems();
     }
 
-    // === 5. 產生詞條按鈕 (修改版：依名稱分組) ===
+    // === 5. 產生詞條按鈕 (修改版：嚴格分類 + 單一/複合屬性排序) ===
     function renderItems() {
         const container = document.getElementById('items-container');
         if(!container) return;
         container.innerHTML = '';
 
-        // 1. 取得所有不重複的名稱 (Name)
-        // 這樣就算資料庫有兩筆 "布朗尼蛋糕"，這裡只會拿到一個 "布朗尼蛋糕"
+        // --- 情況 A: 料理分類 (依照子分類顯示) ---
+        if (currentFilter === 'cooking') {
+            const cookingSubCats = {
+                'drinks': '飲料類',
+                'food': '熟食類',
+                'dessert': '甜點類',
+                'event': '活動類'
+            };
+
+            for (let [subKey, subName] of Object.entries(cookingSubCats)) {
+                // 找出該子分類項目
+                const subItems = statData.filter(d => d.extra && d.extra.cat === 'cooking' && d.extra.sub === subKey);
+                const subItemNames = [...new Set(subItems.map(d => d.name))];
+
+                if (subItemNames.length > 0) {
+                    createSectionHeader(subName, container);
+                    subItemNames.forEach(name => createButton(name, container));
+                }
+            }
+            return; // 料理模式結束
+        }
+
+        // --- 情況 B: 其他分類 (全部顯示 or 單一屬性) ---
+
+        // 1. 取得所有不重複名稱
         const allNames = [...new Set(statData.map(d => d.name))];
 
+        // 2. 準備兩個陣列存放分類後的名稱
+        let singleValNames = [];
+        let multiValNames = [];
+
         allNames.forEach(name => {
-            // 2. 找出這個名稱底下的所有數據 (例如 103 和 104)
             const groupItems = statData.filter(d => d.name === name);
 
-            // 3. 篩選邏輯：
-            // 如果目前篩選器不是 'all'，且這組稱號中沒有任何一個屬性符合篩選器，就跳過
-            if (currentFilter !== 'all') {
-                const hasType = groupItems.some(item => item.type === currentFilter);
-                if (!hasType) return;
+            // ★★★ 修改重點 1: 嚴格排除料理 ★★★
+            // 只要這個稱號被標記為 cooking，除了在料理分頁外，其他地方一律不顯示
+            if (groupItems[0].extra && groupItems[0].extra.cat === 'cooking') return;
+
+            // 判斷是否符合當前篩選 (全部顯示 or 特定屬性)
+            let shouldShow = false;
+            if (currentFilter === 'all') {
+                shouldShow = true;
+            } else {
+                // 屬性篩選 (例如選「攻擊傷害」)
+                if (groupItems.some(item => item.type === currentFilter)) {
+                    shouldShow = true;
+                }
             }
 
-            // 4. 判斷是否選取：只要這組的第一個 ID 有被選取，就視為整組被選取
-            // (因為我們現在的邏輯是按一下全選)
-            const firstId = groupItems[0].id;
-            const isActive = selectedItems.has(firstId) ? 'active' : '';
-
-            // 5. 建立按鈕
-            const btn = document.createElement('button');
-            btn.className = `button small calc-btn ${isActive}`;
-
-            // 決定按鈕顏色：使用這組數據中「第一個」項目的屬性來決定顏色
-            // (或者你可以改寫邏輯優先顯示攻擊類的顏色)
-            const mainType = groupItems[0].type;
-            const style = getStyleForType(mainType);
-
-            // 6. 組合副標題 (Subtitle)：把所有加成數值串接在一起
-            // 例如： "攻擊傷害 +10 | 最大血量 -10"
-            let subtitleHtml = groupItems.map(item => {
-                let val = item.value;
-                let sign = val < 0 ? "" : "+";
-                if(item.type.includes("機率")) val += "%";
-                return `<div>${item.type} ${sign}${val}</div>`;
-            }).join('');
-
-            btn.innerHTML = `
-                <span class="btn-title" style="--text-gradient: ${style.gradient}; --text-glow: ${style.glow}">
-                    ${name}
-                </span>
-                <span class="btn-subtitle" style="font-size: 0.7em; line-height: 1.4;">
-                    ${subtitleHtml}
-                </span>
-            `;
-
-            // 點擊時，傳入名稱進行群組切換
-            btn.onclick = () => toggleGroup(name);
-            container.appendChild(btn);
+            if (shouldShow) {
+                // ★★★ 修改重點 2: 區分單一數值與多重數值 ★★★
+                if (groupItems.length === 1) {
+                    singleValNames.push(name);
+                } else {
+                    multiValNames.push(name);
+                }
+            }
         });
+
+        // 3. 渲染畫面 (單一數值放前面)
+        if (singleValNames.length > 0) {
+            // 如果是在「全部顯示」模式，我們可以顯示「單一屬性」標題
+            // 如果是在「攻擊傷害」模式，顯示「單一屬性」依然合理
+            createSectionHeader("單一屬性加成", container);
+            singleValNames.forEach(name => createButton(name, container));
+        }
+
+        if (multiValNames.length > 0) {
+            createSectionHeader("複合屬性加成", container);
+            multiValNames.forEach(name => createButton(name, container));
+        }
+
+        // 如果兩邊都沒東西 (例如選了一個屬性，但該屬性只有料理才有)
+        if (singleValNames.length === 0 && multiValNames.length === 0) {
+            container.innerHTML = '<div style="width:100%; text-align:center; opacity:0.5; margin-top:2rem;">此分類下沒有非料理項目</div>';
+        }
     }
 
-    // === 6. 切換選取 (修改版：依名稱整組切換) ===
-    function toggleGroup(name) {
-        // 找出這個名稱所有的 ID
-        const groupItems = statData.filter(d => d.name === name);
-        const ids = groupItems.map(d => d.id);
+    // 輔助函式：建立標題 (統一外觀)
+    function createSectionHeader(text, container) {
+        const header = document.createElement('h4');
+        header.textContent = text;
+        header.style.width = '100%';
+        header.style.textAlign = 'center';
+        header.style.marginTop = '1rem';
+        header.style.marginBottom = '0.5rem';
 
-        // 檢查目前狀態：檢查第一個 ID 是否已選取
-        const isSelected = selectedItems.has(ids[0]);
+        // ★★★ 在這裡修改顏色 ★★★
+        // 淡綠: #e3ffe3
+        // 白色: #ffffff
+        // 粉紅: #ffc0cb
+        // 淡粉: #f1e0f1
+        // 金色: #ffd700
+        // 淺藍: #aaddff
+        header.style.color = '#f1e0f1';
+
+        // 如果顏色改得很深，記得把光暈 (textShadow) 改成淺色或拿掉
+        header.style.textShadow = '0 0 5px rgba(255,255,255,0.3)';
+
+        container.appendChild(header);
+    }
+
+    // 輔助函式：建立按鈕 (減少重複程式碼)
+    function createButton(name, container) {
+        const groupItems = statData.filter(d => d.name === name);
+        const firstId = groupItems[0].id;
+        const isActive = selectedItems.has(firstId) ? 'active' : '';
+        const mainType = groupItems[0].type;
+        const style = getStyleForType(mainType);
+
+        let subtitleHtml = groupItems.map(item => {
+            let val = item.value;
+            let sign = val < 0 ? "" : "+";
+            if(item.type.includes("機率")) val += "%";
+            return `<div>${item.type} ${sign}${val}</div>`;
+        }).join('');
+
+        const btn = document.createElement('button');
+        btn.className = `button small calc-btn ${isActive}`;
+        btn.innerHTML = `
+            <span class="btn-title" style="--text-gradient: ${style.gradient}; --text-glow: ${style.glow}">
+                ${name}
+            </span>
+            <span class="btn-subtitle" style="font-size: 0.7em; line-height: 1.4;">
+                ${subtitleHtml}
+            </span>
+        `;
+        btn.onclick = () => toggleGroup(name);
+        container.appendChild(btn);
+    }
+
+    // === 6. 切換選取 (維持互斥邏輯) ===
+    function toggleGroup(name) {
+        const targetGroup = statData.filter(d => d.name === name);
+        const targetIds = targetGroup.map(d => d.id);
+        const firstItem = targetGroup[0];
+        const isSelected = selectedItems.has(targetIds[0]);
 
         if (isSelected) {
-            // 如果原本是選取的，現在就「全部移除」
-            ids.forEach(id => selectedItems.delete(id));
+            targetIds.forEach(id => selectedItems.delete(id));
         } else {
-            // 如果原本沒選取，現在就「全部加入」
-            ids.forEach(id => selectedItems.add(id));
+            // 互斥邏輯檢查 (料理類)
+            if (firstItem.extra && firstItem.extra.cat === 'cooking') {
+                const subCat = firstItem.extra.sub;
+                selectedItems.forEach(id => {
+                    const itemData = statData.find(d => d.id === id);
+                    if (itemData && itemData.extra &&
+                        itemData.extra.cat === 'cooking' &&
+                        itemData.extra.sub === subCat) {
+                        selectedItems.delete(id);
+                    }
+                });
+            }
+            targetIds.forEach(id => selectedItems.add(id));
         }
 
         renderItems();
         updateCalculation();
     }
 
-    // === 新增功能：全部選取 (修正版：配合篩選器) ===
+    // === 新增功能：全部選取 ===
     function selectAllItems() {
-        // 找出目前畫面上顯示的所有名稱
         const allNames = [...new Set(statData.map(d => d.name))];
-
         allNames.forEach(name => {
             const groupItems = statData.filter(d => d.name === name);
-
-            // 檢查是否符合篩選器 (符合才選取)
             let shouldSelect = false;
+
+            // 只有在非料理模式下才允許全選
+            if (currentFilter === 'cooking') return;
+
+            // 嚴格排除料理 (就算在 All 模式下按全選，也不選料理)
+            if (groupItems[0].extra && groupItems[0].extra.cat === 'cooking') return;
+
             if (currentFilter === 'all') {
                 shouldSelect = true;
             } else {
-                // 如果這組裡面有任何一個屬性符合篩選器，就全選這組
                 if (groupItems.some(item => item.type === currentFilter)) {
                     shouldSelect = true;
                 }
             }
 
             if (shouldSelect) {
-                // 把這組所有的 ID 都加進去
                 groupItems.forEach(item => selectedItems.add(item.id));
             }
         });
-
         renderItems();
         updateCalculation();
     }
 
-    // === 新增功能：全部取消 (修正版) ===
+    // === 新增功能：全部取消 ===
     function deselectAllItems() {
         if (currentFilter === 'all') {
             selectedItems.clear();
+        } else if (currentFilter === 'cooking') {
+            // 料理頁面只取消料理
+            selectedItems.forEach(id => {
+                const item = statData.find(d => d.id === id);
+                if (item && item.extra && item.extra.cat === 'cooking') {
+                    selectedItems.delete(id);
+                }
+            });
         } else {
-            // 只取消符合目前篩選條件的項目
-            // 但因為現在是「依名稱分組」，如果這組稱號中包含目前篩選的屬性，我們就把整組取消
+            // 特定屬性頁面，只取消該屬性相關 (且非料理)
             const allNames = [...new Set(statData.map(d => d.name))];
-
             allNames.forEach(name => {
                 const groupItems = statData.filter(d => d.name === name);
 
-                // 判斷這組是否在當前篩選範圍內
+                // 排除料理
+                if (groupItems[0].extra && groupItems[0].extra.cat === 'cooking') return;
+
                 if (groupItems.some(item => item.type === currentFilter)) {
-                    // 移除這組的所有 ID
                     groupItems.forEach(item => selectedItems.delete(item.id));
                 }
             });
@@ -2197,128 +2309,79 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
         updateCalculation();
     }
 
-    // === 7. 配色邏輯 (已將暴擊分開，新增咖啡色) ===
+    // === 7. 配色邏輯 (維持不變) ===
     function getStyleForType(type) {
-        // 預設顏色 (絲綢灰)
         let gradient = 'linear-gradient(to bottom, #e3e3e3, #8a8a8a)';
         let glow = 'rgba(255, 255, 255, 0.2)';
 
-        // --- 1. 攻擊類 (乾燥玫瑰) ---
         if (type === "攻擊傷害") {
             gradient = 'linear-gradient(to bottom, #ffdfdf, #c97b84)';
             glow = 'rgba(201, 123, 132, 0.4)';
-        }
-
-        // --- 2. 防禦類 (霧霾藍) ---
-        else if (type === "總體防禦") {
+        } else if (type === "總體防禦") {
             gradient = 'linear-gradient(to bottom, #dbeaff, #7a9ec2)';
             glow = 'rgba(122, 158, 194, 0.4)';
-        }
-
-        // --- 3. 血量類 (鼠尾草綠) ---
-        else if (type === "最大血量") {
+        } else if (type === "最大血量") {
             gradient = 'linear-gradient(to bottom, #e3ffe3, #83bca9)';
             glow = 'rgba(131, 188, 169, 0.4)';
-        }
-
-        // --- 4. 魔法類 (薰衣草紫) ---
-        else if (type === "魔法傷害") {
+        } else if (type === "魔法傷害" || type === "遠程傷害") {
             gradient = 'linear-gradient(to bottom, #f3e6ff, #afa2c9)';
             glow = 'rgba(175, 162, 201, 0.4)';
-        }
-
-        // --- 5. 遠程類 (同魔法紫) ---
-        else if (type === "遠程傷害") {
-            gradient = 'linear-gradient(to bottom, #f3e6ff, #afa2c9)';
-            glow = 'rgba(175, 162, 201, 0.4)';
-        }
-
-        // --- 6. 暴擊機率 (維持香檳金) ---
-        else if (type === "暴擊機率") {
+        } else if (type === "暴擊機率") {
             gradient = 'linear-gradient(to bottom, #fff8db, #d4b476)';
             glow = 'rgba(212, 180, 118, 0.4)';
-        }
-
-        // --- 7. 暴擊傷害 (新增：咖啡色/拿鐵色) ---
-        else if (type === "暴擊傷害") {
-            // 上淺下深的咖啡漸層：從 奶泡色 -> 焦糖色 -> 深咖啡
+        } else if (type === "暴擊傷害") {
             gradient = 'linear-gradient(to bottom, #efe2cf, #c49970, #785239)';
-            glow = 'rgba(120, 82, 57, 0.5)'; // 深咖啡色的光暈
+            glow = 'rgba(120, 82, 57, 0.5)';
         }
-
         return { gradient, glow };
     }
 
-    // === 8. 計算結果 (修正版：雙邊提示) ===
+    // === 8. 計算結果 (維持不變) ===
     function updateCalculation() {
         const container = document.getElementById('result-grid');
         if(!container) return;
 
-        // 1. 先計算所有數值 (初始化為 0)
         let totals = {};
         statData.forEach(item => totals[item.type] = 0);
 
-        // 2. 加總選取項目
         statData.forEach(item => {
             if (selectedItems.has(item.id)) {
                 totals[item.type] += item.value;
             }
         });
 
-        // ★★★ 轉換邏輯：暴擊傷害 > 50 轉換攻擊傷害 ★★★
-        let convertedAttack = 0; // 記錄轉換了多少攻擊
-        let excessCrit = 0;      // 記錄超出了多少暴傷
+        let convertedAttack = 0;
+        let excessCrit = 0;
         const critDmg = totals["暴擊傷害"] || 0;
 
         if (critDmg > 50) {
-            excessCrit = critDmg - 50;     // 算出超出的部分
-            convertedAttack = excessCrit / 10; // 除以 10
-
-            // 將轉換後的數值加到攻擊傷害中
+            excessCrit = critDmg - 50;
+            convertedAttack = excessCrit / 10;
             if (!totals["攻擊傷害"]) totals["攻擊傷害"] = 0;
             totals["攻擊傷害"] += convertedAttack;
         }
 
-        // 3. 定義每一層要顯示什麼
         const group1 = ["攻擊傷害", "暴擊機率", "暴擊傷害"];
         const group2 = ["總體防禦", "最大血量"];
         const group3 = ["魔法傷害", "遠程傷害"];
 
-        // 4. 輔助函式：產生 HTML
         function generateRowHTML(types) {
             return types.map(type => {
                 const value = totals[type] || 0;
                 const style = getStyleForType(type);
-
-                // 處理數值顯示 (四捨五入到小數點後2位)
                 let displayValue = Math.round(value * 100) / 100;
-
                 const sign = displayValue < 0 ? "" : "+";
                 let suffix = type.includes("機率") ? "%" : "";
-
-                // ★★★ 提示文字邏輯 ★★★
                 let noteHtml = "";
 
-                // 情境 A：攻擊傷害 (顯示加成來源)
                 if (type === "攻擊傷害" && convertedAttack > 0) {
                     let niceConverted = Math.round(convertedAttack * 100) / 100;
-                    noteHtml = `
-                        <div style="font-size: 0.4em; opacity: 0.7; margin-top: 5px; font-family: 'Noto Serif TC', serif;">
-                            (含 +${niceConverted} 來自暴傷)
-                        </div>
-                    `;
+                    noteHtml = `<div style="font-size: 0.4em; opacity: 0.7; margin-top: 5px; font-family: 'Noto Serif TC', serif;">(含 +${niceConverted} 來自暴傷)</div>`;
                 }
-
-                // 情境 B：暴擊傷害 (顯示超出部分)
                 if (type === "暴擊傷害" && excessCrit > 0) {
                     let niceExcess = Math.round(excessCrit * 100) / 100;
-                    noteHtml = `
-                        <div style="font-size: 0.4em; opacity: 0.7; margin-top: 5px; font-family: 'Noto Serif TC', serif;">
-                            (超出 ${niceExcess} 已轉攻)
-                        </div>
-                    `;
+                    noteHtml = `<div style="font-size: 0.4em; opacity: 0.7; margin-top: 5px; font-family: 'Noto Serif TC', serif;">(超出 ${niceExcess} 已轉攻)</div>`;
                 }
-                // ★★★ 邏輯結束 ★★★
 
                 return `
                     <div class="stat-card">
@@ -2334,7 +2397,6 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
             }).join('');
         }
 
-        // 5. 組合最終 HTML
         let html = '';
         html += `<div class="stat-row">${generateRowHTML(group1)}</div>`;
         html += `<div class="stat-row">${generateRowHTML(group2)}</div>`;
