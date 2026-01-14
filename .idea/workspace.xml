@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="新增 傷害計算說明">
+    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="修正 屬性加成顏色對應五行">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
@@ -88,15 +88,8 @@
       <workItem from="1768368988931" duration="12433000" />
       <workItem from="1768381906669" duration="722000" />
       <workItem from="1768385500361" duration="5356000" />
-      <workItem from="1768393176020" duration="1935000" />
-    </task>
-    <task id="LOCAL-00005" summary="1.調整團副Boss按鈕的排版邏輯，在手機上不會凸出去">
-      <option name="closed" value="true" />
-      <created>1764270545438</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1764270545438</updated>
+      <workItem from="1768393176020" duration="2546000" />
+      <workItem from="1768412216976" duration="898000" />
     </task>
     <task id="LOCAL-00006" summary="1.再度更正 調整團副Boss按鈕的排版邏輯，在手機上不會凸出去&#10;2.名稱從基礎常識改為普通藍波">
       <option name="closed" value="true" />
@@ -482,14 +475,21 @@
       <option name="project" value="LOCAL" />
       <updated>1768393846402</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="修正 屬性加成顏色對應五行">
+      <option name="closed" value="true" />
+      <created>1768395149277</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1768395149277</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1.把gif轉mp4" />
     <MESSAGE value="1.新增BOSS技能說明 (團副一困三王 完成)" />
     <MESSAGE value="1.新增BOSS技能說明" />
     <MESSAGE value="1.效能優化" />
@@ -514,7 +514,8 @@
     <MESSAGE value="新增 傷害計算" />
     <MESSAGE value="新增 屬性加成本地存儲" />
     <MESSAGE value="新增 傷害計算說明" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增 傷害計算說明" />
+    <MESSAGE value="修正 屬性加成顏色對應五行" />
+    <option name="LAST_COMMIT_MESSAGE" value="修正 屬性加成顏色對應五行" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
