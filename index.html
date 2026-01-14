@@ -1724,6 +1724,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 </div>
 
+<canvas id="skin_container_tygh89071388" class="skin-fade" style="position: fixed; top: 8%; right: 53%; z-index: 5; pointer-events: none;"></canvas>
 <canvas id="skin_container_EMTTT" class="skin-fade" style="position: fixed; top: 79%; left: 75%; z-index: 5; pointer-events: none;"></canvas>
 <canvas id="skin_container_commandslayer52" class="skin-fade" style="position: fixed; top: 19%; right: 51%; z-index: 5; pointer-events: none;"></canvas>
 <canvas id="skin_container_Pikachu_0322" class="skin-fade" style="position: fixed; top: 19%; right: 56%; z-index: 5; pointer-events: none;"></canvas>
@@ -1828,6 +1829,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
         // ★★★ 模型設定區 (已新增 text 欄位) ★★★
         // =========================================================
         const models = [
+            { id: "skin_container_tygh89071388",    skin: "images/tygh89071388.png",    width: 90, height: 120, action: "idle",text: "龍大<br>都更龍王", modelType: "default", offsetY: 30},
             { id: "skin_container_EMTTT",           skin: "images/EMTTT.png",           width: 90, height: 120, action: "sit", text: "EMT<br>喜歡坐這裡" },
             { id: "skin_container_Pikachu_0322",    skin: "images/Pikachu_0322.png",    width: 90, height: 120, action: "sit", text: "超笨皮卡<br>讓旁邊變笨" },
             { id: "skin_container_commandslayer52", skin: "images/commandslayer52.png", width: 90, height: 120, action: "sit", text: "龍王<br>不是帥哥" },
@@ -1852,7 +1854,9 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
                     // --- 計算位置 (讓文字飄在 canvas 正上方) ---
                     // 1. 設定高度：讀取 canvas 的 top，並往上扣除 10px
-                    label.style.top = `calc(${canvas.style.top} - 10px)`;
+                    // 優先讀取自訂的 offsetY，沒有的話預設為 10
+                    let dist = item.offsetY !== undefined ? item.offsetY : 10;
+                    label.style.top = `calc(${canvas.style.top} - ${dist}px)`;
 
                     // 2. 設定水平位置：判斷原本是用 left 還是 right 定位
                     if (canvas.style.left) {
@@ -1880,7 +1884,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
                 skinViewer.renderer.setClearColor(0x000000, 0);
 
-                skinViewer.loadSkin(item.skin, { model: "slim" })
+                skinViewer.loadSkin(item.skin, { model: item.modelType || "slim" })
                     .then(() => {
                         if (item.action === "sit") {
                             const skin = skinViewer.playerObject.skin;
