@@ -394,6 +394,25 @@
             letter-spacing: 0.05rem;
         }
 
+        /* === 通用模型防跳動設定 === */
+
+        /* 1. 所有加上 class="skin-fade" 的元素，預設都先隱藏 */
+        .skin-fade {
+            opacity: 0;
+            transition: opacity 0.5s ease; /* 0.5秒優雅浮現 */
+        }
+
+        /* 2. 等網頁讀取完 (is-preload 消失) 後，所有 skin-fade 都會自動浮現 */
+        body:not(.is-preload) .skin-fade {
+            opacity: 1;
+        }
+
+        /* ★★★ 3. 新增：當進入文章頁面 (非首頁) 時，自動隱藏模型 ★★★ */
+        body.is-article-visible .skin-fade {
+            opacity: 0 !important;
+            pointer-events: none; /* 隱藏時讓滑鼠點不到，才不會擋到按鈕 */
+        }
+
     </style>
 </head>
 <body class="is-preload">
@@ -423,8 +442,6 @@
                                 </span>
             </div>
         </div>
-        <canvas id="skin_container_EMTTT" style="position: absolute; top: 70%; left: 75%; z-index: 1; pointer-events: none;"></canvas>
-        <!--<canvas id="skin_container_ME" style="position: absolute; top: 10%; left: 5%; z-index: 1; pointer-events: none;"></canvas>-->
 
         <nav>
             <ul>
@@ -1651,6 +1668,14 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 </div>
 
+<canvas id="skin_container_EMTTT" class="skin-fade" style="position: fixed; top: 79%; left: 75%; z-index: 5; pointer-events: none;"></canvas>
+<canvas id="skin_container_Pikachu_0322" class="skin-fade" style="position: fixed; top: 19%; right: 55%; z-index: 5; pointer-events: none;"></canvas>
+<canvas id="skin_container_Megumin__" class="skin-fade" style="position: fixed; top: 19%; right: 60%; z-index: 5; pointer-events: none;"></canvas>
+<canvas id="skin_container_Khakiowo030" class="skin-fade" style="position: fixed; top: 19%; right: 40%; z-index: 5; pointer-events: none;"></canvas>
+<canvas id="skin_container_CYZ0307" class="skin-fade" style="position: fixed; top: 19%; right: 35%; z-index: 5; pointer-events: none;"></canvas>
+<canvas id="skin_container_Duo_owo" class="skin-fade" style="position: fixed; top: 81%; right: 90%; z-index: 5; pointer-events: none;"></canvas>
+<!--<canvas id="skin_container_ME" style="position: fixed; top: 10%; left: 5%; z-index: 5; pointer-events: none;"></canvas>-->
+
 <!-- BG -->
 <div id="bg"></div>
 
@@ -1733,64 +1758,93 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 <script src="https://bs-community.github.io/skinview3d/js/skinview3d.bundle.js"></script>
 <script>
-    // 確保網頁載入後才執行
     document.addEventListener("DOMContentLoaded", function() {
 
-        // 1. 設定模型顯示在 id="skin_container_EMTTT" 的框框裡
-        let skinViewer = new skinview3d.SkinViewer({
-            canvas: document.getElementById("skin_container_EMTTT"),
-            width: 90,
-            height: 120,
-            skin: "images/EMTTT.png"
+        // =========================================================
+        // ★★★ 模型設定區 ★★★
+        // =========================================================
+        const models = [
+            { id: "skin_container_EMTTT",       skin: "images/EMTTT.png",        width: 90, height: 120, action: "sit" },
+
+            // ★ 皮卡丘：設定為坐姿 (sit)
+            { id: "skin_container_Pikachu_0322",skin: "images/Pikachu_0322.png", width: 90, height: 120, action: "sit" },
+
+            { id: "skin_container_Megumin__",   skin: "images/Megumin__.png",    width: 90, height: 120, action: "sit" },
+            { id: "skin_container_Khakiowo030", skin: "images/Khakiowo030.png",  width: 90, height: 120, action: "sit" },
+            { id: "skin_container_Duo_owo",     skin: "images/Duo_owo.png",      width: 90, height: 120, action: "sit" },
+            { id: "skin_container_CYZ0307",     skin: "images/CYZ0307.png",      width: 90, height: 120, action: "sit" }
+        ];
+        // =========================================================
+
+        models.forEach(item => {
+            let canvas = document.getElementById(item.id);
+            if (canvas) {
+                let skinViewer = new skinview3d.SkinViewer({
+                    canvas: canvas,
+                    width: item.width,
+                    height: item.height,
+                    skin: item.skin
+                });
+
+                skinViewer.renderer.setClearColor(0x000000, 0);
+
+                // ★★★ 載入皮膚並設定動作 ★★★
+                skinViewer.loadSkin(item.skin, { model: "slim" })
+                    .then(() => {
+
+                        if (item.action === "sit") {
+                            // === 最終修正：正確的 V 字開腿坐姿 ===
+                            const skin = skinViewer.playerObject.skin;
+                            skinViewer.animation = null; // 停止預設動畫
+
+                            // 1. 左腿 (Left Leg)
+                            skin.leftLeg.rotation.x = -1.57; // 先水平伸直 (90度)
+                            skin.leftLeg.rotation.y = 0;     // 不扭轉
+                            skin.leftLeg.rotation.z = 0.25;   // ★ 正數：往左邊(外側)張開
+
+                            // 2. 右腿 (Right Leg)
+                            skin.rightLeg.rotation.x = -1.57; // 先水平伸直
+                            skin.rightLeg.rotation.y = 0;     // 不扭轉
+                            skin.rightLeg.rotation.z = -0.25;  // ★ 負數：往右邊(外側)張開
+
+                            // 3. 手臂：放在兩腿中間
+                            skin.leftArm.rotation.x = -0.9;   // 手臂往前伸
+                            skin.leftArm.rotation.z = -0.2;   // 稍微張開
+
+                            skin.rightArm.rotation.x = -0.9;
+                            skin.rightArm.rotation.z = 0.2;
+
+                            // 4. 高度修正 (讓屁股貼地)
+                            skinViewer.playerObject.position.y = -8;
+
+
+
+                        } else {
+                            // === 其他動作 ===
+                            switch (item.action) {
+                                case "walk":
+                                    skinViewer.animation = new skinview3d.WalkingAnimation();
+                                    break;
+                                case "run":
+                                    skinViewer.animation = new skinview3d.RunningAnimation();
+                                    break;
+                                case "fly":
+                                    skinViewer.animation = new skinview3d.FlyingAnimation();
+                                    break;
+                                case "none":
+                                    skinViewer.animation = null;
+                                    break;
+                                default: // idle
+                                    skinViewer.animation = new skinview3d.IdleAnimation();
+                                    break;
+                            }
+                            if (skinViewer.animation) {
+                                skinViewer.animation.speed = 1.0;
+                            }
+                        }
+                    });
+            }
         });
-
-        // 2. 設定為 Alex (Alice) 模型 (手臂較細的版本)
-        skinViewer.loadSkin("images/EMTTT.png", {
-            model: "slim"
-        });
-
-        // ★★★ 3. 這裡原本是設定控制，請全部刪除 ★★★
-        // 只要不寫 createOrbitControls，模型就會固定在原地，完全無法被滑鼠干擾。
-
-        // 4. 設定動作 (這裡設定為站著發呆)
-        skinViewer.animation = new skinview3d.IdleAnimation();
-
-        // 5. 設定播放速度
-        skinViewer.animation.speed = 1.0;
-
-        // 6. 設定背景透明
-        skinViewer.renderer.setClearColor(0x000000, 0);
-    });
-</script>
-<script>
-    // 確保網頁載入後才執行
-    document.addEventListener("DOMContentLoaded", function() {
-
-        // 1. 設定模型顯示在 id="skin_container_ME" 的框框裡
-        let skinViewer = new skinview3d.SkinViewer({
-            canvas: document.getElementById("skin_container_ME"),
-            width: 300,
-            height: 400,
-            skin: "images/ME.png"
-        });
-
-        // 2. 設定為 Alex (Alice) 模型 (手臂較細的版本)
-        // 如果想要 Steve (手臂較粗)，請改成 "default"
-        skinViewer.loadSkin("images/ME.png", {
-            model: "slim"
-        });
-
-        // ★★★ 3. 這裡原本是設定控制，請全部刪除 ★★★
-        // 只要不寫 createOrbitControls，模型就會固定在原地，完全無法被滑鼠干擾。
-
-        // 4. 設定動作 (這裡設定為站著發呆)
-        skinViewer.animation = new skinview3d.IdleAnimation();
-
-        // 5. 設定播放速度
-        skinViewer.animation.speed = 1.0;
-
-        // 6. 設定背景透明
-        skinViewer.renderer.setClearColor(0x000000, 0);
     });
 </script>
 
