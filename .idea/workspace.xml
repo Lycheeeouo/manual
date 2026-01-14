@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="1.模型2.0">
+    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="屬性加成1.0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
@@ -85,7 +85,7 @@
       <workItem from="1768321996784" duration="938000" />
       <workItem from="1768365911142" duration="1280000" />
       <workItem from="1768367600377" duration="1158000" />
-      <workItem from="1768368988931" duration="7559000" />
+      <workItem from="1768368988931" duration="8340000" />
     </task>
     <task id="LOCAL-00001" summary="測試">
       <option name="closed" value="true" />
@@ -423,7 +423,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768374939609</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="屬性加成1.0">
+      <option name="closed" value="true" />
+      <created>1768376834934</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1768376834934</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -453,7 +461,8 @@
     <MESSAGE value="1.稱號加成5.0" />
     <MESSAGE value="1.模型1.0" />
     <MESSAGE value="1.模型2.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.模型2.0" />
+    <MESSAGE value="屬性加成1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="屬性加成1.0" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
