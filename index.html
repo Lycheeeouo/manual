@@ -2182,65 +2182,92 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
         return { gradient, glow };
     }
 
-    // === 8. 計算結果 (修正版：解決同 ID 多屬性只算到第一筆的問題) ===
+    // === 8. 計算結果 (修正版：雙邊提示) ===
     function updateCalculation() {
         const container = document.getElementById('result-grid');
         if(!container) return;
 
         // 1. 先計算所有數值 (初始化為 0)
         let totals = {};
-
-        // 確保所有出現過的類型都有初始化 (避免 undefined 錯誤)
         statData.forEach(item => totals[item.type] = 0);
 
-        // 2. 加總選取項目 (修正邏輯)
-        // 舊寫法：selectedItems.forEach... -> 只會找到 ID 的第一筆
-        // 新寫法：遍歷整個資料庫，只要該項目的 ID 在選取清單中，就加總
+        // 2. 加總選取項目
         statData.forEach(item => {
             if (selectedItems.has(item.id)) {
                 totals[item.type] += item.value;
             }
         });
 
+        // ★★★ 轉換邏輯：暴擊傷害 > 50 轉換攻擊傷害 ★★★
+        let convertedAttack = 0; // 記錄轉換了多少攻擊
+        let excessCrit = 0;      // 記錄超出了多少暴傷
+        const critDmg = totals["暴擊傷害"] || 0;
+
+        if (critDmg > 50) {
+            excessCrit = critDmg - 50;     // 算出超出的部分
+            convertedAttack = excessCrit / 10; // 除以 10
+
+            // 將轉換後的數值加到攻擊傷害中
+            if (!totals["攻擊傷害"]) totals["攻擊傷害"] = 0;
+            totals["攻擊傷害"] += convertedAttack;
+        }
+
         // 3. 定義每一層要顯示什麼
-        // 第一排 (3個)
         const group1 = ["攻擊傷害", "暴擊機率", "暴擊傷害"];
-        // 第二排 (2個)
         const group2 = ["總體防禦", "最大血量"];
-        // 第三排 (2個)
         const group3 = ["魔法傷害", "遠程傷害"];
 
-        // 4. 輔助函式：用來產生一整排的 HTML
+        // 4. 輔助函式：產生 HTML
         function generateRowHTML(types) {
             return types.map(type => {
-                // 這裡加上 || 0 確保沒有該屬性時顯示 0
                 const value = totals[type] || 0;
-
-                // 為了美觀，如果數值真的是 0 且沒有被選取任何相關屬性，或許可以考慮不顯示？
-                // 但依照您的原設計是顯示 +0，這裡維持原樣。
-
                 const style = getStyleForType(type);
 
-                let displayValue = value;
-                const sign = value < 0 ? "" : "+"; // 負數不加 + 號
+                // 處理數值顯示 (四捨五入到小數點後2位)
+                let displayValue = Math.round(value * 100) / 100;
 
-                // 處理小數點 (選用)：如果怕出現 0.10000002 這種狀況，可以加 .toFixed(1)
-                // displayValue = Math.round(displayValue * 10) / 10;
+                const sign = displayValue < 0 ? "" : "+";
+                let suffix = type.includes("機率") ? "%" : "";
 
-                if(type.includes("機率")) displayValue += "%";
+                // ★★★ 提示文字邏輯 ★★★
+                let noteHtml = "";
+
+                // 情境 A：攻擊傷害 (顯示加成來源)
+                if (type === "攻擊傷害" && convertedAttack > 0) {
+                    let niceConverted = Math.round(convertedAttack * 100) / 100;
+                    noteHtml = `
+                        <div style="font-size: 0.4em; opacity: 0.7; margin-top: 5px; font-family: 'Noto Serif TC', serif;">
+                            (含 +${niceConverted} 來自暴傷)
+                        </div>
+                    `;
+                }
+
+                // 情境 B：暴擊傷害 (顯示超出部分)
+                if (type === "暴擊傷害" && excessCrit > 0) {
+                    let niceExcess = Math.round(excessCrit * 100) / 100;
+                    noteHtml = `
+                        <div style="font-size: 0.4em; opacity: 0.7; margin-top: 5px; font-family: 'Noto Serif TC', serif;">
+                            (超出 ${niceExcess} 已轉攻)
+                        </div>
+                    `;
+                }
+                // ★★★ 邏輯結束 ★★★
 
                 return `
-                            <div class="stat-card">
-                                <div class="stat-label" style="--stat-gradient: ${style.gradient}; --stat-glow: ${style.glow};">
-                                    ${type}
-                                </div>
-                                <div class="stat-value">${sign}${displayValue}</div>
-                            </div>
-                        `;
+                    <div class="stat-card">
+                        <div class="stat-label" style="--stat-gradient: ${style.gradient}; --stat-glow: ${style.glow};">
+                            ${type}
+                        </div>
+                        <div class="stat-value">
+                            ${sign}${displayValue}${suffix}
+                            ${noteHtml}
+                        </div>
+                    </div>
+                `;
             }).join('');
         }
 
-        // 5. 組合最終 HTML 結構
+        // 5. 組合最終 HTML
         let html = '';
         html += `<div class="stat-row">${generateRowHTML(group1)}</div>`;
         html += `<div class="stat-row">${generateRowHTML(group2)}</div>`;
