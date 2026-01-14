@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="模型相關更新">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="模型相關更新2.0" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,7 +82,7 @@
       <workItem from="1768321996784" duration="938000" />
       <workItem from="1768365911142" duration="1280000" />
       <workItem from="1768367600377" duration="1158000" />
-      <workItem from="1768368988931" duration="12213000" />
+      <workItem from="1768368988931" duration="12433000" />
     </task>
     <task id="LOCAL-00001" summary="測試">
       <option name="closed" value="true" />
@@ -463,14 +460,21 @@
       <option name="project" value="LOCAL" />
       <updated>1768380543419</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="模型相關更新2.0">
+      <option name="closed" value="true" />
+      <created>1768381510374</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1768381510374</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1.調整手機上的封面排版&#10;2.調整技能按鈕的排版邏輯，在手機上不會凸出去" />
     <MESSAGE value="1.調整團副Boss按鈕的排版邏輯，在手機上不會凸出去" />
     <MESSAGE value="1.再度更正 調整團副Boss按鈕的排版邏輯，在手機上不會凸出去&#10;2.名稱從基礎常識改為普通藍波" />
     <MESSAGE value="1.再度更正 按鈕class新增上次修改的tab-btn，確實應用上" />
@@ -495,7 +499,8 @@
     <MESSAGE value="屬性加成 debug" />
     <MESSAGE value="屬性加成 debug2.0" />
     <MESSAGE value="模型相關更新" />
-    <option name="LAST_COMMIT_MESSAGE" value="模型相關更新" />
+    <MESSAGE value="模型相關更新2.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="模型相關更新2.0" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
