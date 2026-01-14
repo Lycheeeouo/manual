@@ -2482,11 +2482,28 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
     let selectedItems = new Set();
     let currentFilter = 'all';
 
-    // === 2. 初始化 ===
+    // === 2. 初始化 (修改版：加入讀取存檔) ===
     window.initCalculator = function() {
+        // 1. 嘗試讀取存檔
+        const savedData = localStorage.getItem('rpg_calc_save');
+
+        if (savedData) {
+            try {
+                // 如果有存檔，把 JSON 字串轉回陣列，再轉回 Set
+                const parsedArray = JSON.parse(savedData);
+                selectedItems = new Set(parsedArray);
+            } catch (e) {
+                console.error("讀取存檔失敗，將重置為空", e);
+                selectedItems = new Set();
+            }
+        }
+
+        // 2. 渲染畫面
         renderFilterButtons();
         renderItems();
-        updateCalculation();
+
+        // 3. 計算數值 (但不觸發保存，避免重複寫入)
+        updateCalculation(false);
     };
 
     document.addEventListener("DOMContentLoaded", function() {
@@ -2718,7 +2735,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
         updateCalculation();
     }
 
-    // === 新增功能：全部取消 ===
+    // === 新增功能：全部取消 (修改版) ===
     function deselectAllItems() {
         if (currentFilter === 'all') {
             selectedItems.clear();
@@ -2735,7 +2752,6 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
             const allNames = [...new Set(statData.map(d => d.name))];
             allNames.forEach(name => {
                 const groupItems = statData.filter(d => d.name === name);
-
                 // 排除料理
                 if (groupItems[0].extra && groupItems[0].extra.cat === 'cooking') return;
 
@@ -2745,7 +2761,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
             });
         }
         renderItems();
-        updateCalculation();
+        updateCalculation(); // 這裡原本就會呼叫 updateCalculation，所以會自動觸發存檔，不用額外改！
     }
 
     // === 7. 配色邏輯 (維持不變) ===
@@ -2775,8 +2791,9 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
         return { gradient, glow };
     }
 
-    // === 8. 計算結果 (維持不變) ===
-    function updateCalculation() {
+    // === 8. 計算結果 (修改版：加入自動保存) ===
+    // 增加一個參數 isAutoSave，預設為 true
+    function updateCalculation(isAutoSave = true) {
         const container = document.getElementById('result-grid');
         if(!container) return;
 
@@ -2788,6 +2805,15 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
                 totals[item.type] += item.value;
             }
         });
+
+        // --- ★★★ 新增：自動保存功能 ★★★ ---
+        if (isAutoSave) {
+            // 將 Set 轉換成陣列 (因為 localStorage 只能存字串)
+            const arrayToSave = Array.from(selectedItems);
+            // 存入瀏覽器，鑰匙名稱為 'rpg_calc_save'
+            localStorage.setItem('rpg_calc_save', JSON.stringify(arrayToSave));
+        }
+        // ----------------------------------
 
         let convertedAttack = 0;
         let excessCrit = 0;
