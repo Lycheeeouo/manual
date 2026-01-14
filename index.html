@@ -413,6 +413,14 @@
             pointer-events: none; /* 隱藏時讓滑鼠點不到，才不會擋到按鈕 */
         }
 
+        /* === 手機/平板隱藏模型設定 === */
+        @media screen and (max-width: 1024px) {
+            /* 隱藏所有帶有 skin-fade class 的 canvas */
+            canvas.skin-fade {
+                display: none !important;
+            }
+        }
+
     </style>
 </head>
 <body class="is-preload">
@@ -1759,6 +1767,11 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 <script src="https://bs-community.github.io/skinview3d/js/skinview3d.bundle.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
+
+        // ★★★ 新增判斷：如果是手機或螢幕太窄，直接不執行這段程式碼，節省效能 ★★★
+        if (window.innerWidth <= 1024) {
+            return; // 直接結束，不載入模型
+        }
 
         // =========================================================
         // ★★★ 模型設定區 ★★★
