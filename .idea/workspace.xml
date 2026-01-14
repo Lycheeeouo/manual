@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="模型相關更新2.0" />
+    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="改名字">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,14 +86,8 @@
       <workItem from="1768365911142" duration="1280000" />
       <workItem from="1768367600377" duration="1158000" />
       <workItem from="1768368988931" duration="12433000" />
-    </task>
-    <task id="LOCAL-00001" summary="測試">
-      <option name="closed" value="true" />
-      <created>1764256188638</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1764256188638</updated>
+      <workItem from="1768381906669" duration="722000" />
+      <workItem from="1768385500361" duration="3135000" />
     </task>
     <task id="LOCAL-00002" summary="1.新增團副BOSS區塊，並建立基礎架構">
       <option name="closed" value="true" />
@@ -468,15 +465,29 @@
       <option name="project" value="LOCAL" />
       <updated>1768381510374</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="改星星icon">
+      <option name="closed" value="true" />
+      <created>1768382002875</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1768382002875</updated>
+    </task>
+    <task id="LOCAL-00050" summary="改名字">
+      <option name="closed" value="true" />
+      <created>1768382130831</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1768382130832</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1.調整團副Boss按鈕的排版邏輯，在手機上不會凸出去" />
-    <MESSAGE value="1.再度更正 調整團副Boss按鈕的排版邏輯，在手機上不會凸出去&#10;2.名稱從基礎常識改為普通藍波" />
     <MESSAGE value="1.再度更正 按鈕class新增上次修改的tab-btn，確實應用上" />
     <MESSAGE value="1.更正 美化團副BOSS頁的排版&#10;2.更新各個BOSS技能內容" />
     <MESSAGE value="1.更新各個BOSS技能內容" />
@@ -500,7 +511,9 @@
     <MESSAGE value="屬性加成 debug2.0" />
     <MESSAGE value="模型相關更新" />
     <MESSAGE value="模型相關更新2.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="模型相關更新2.0" />
+    <MESSAGE value="改星星icon" />
+    <MESSAGE value="改名字" />
+    <option name="LAST_COMMIT_MESSAGE" value="改名字" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

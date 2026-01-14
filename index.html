@@ -469,6 +469,307 @@
             }
         }
 
+        /* === 傷害計算機 Modal 樣式 (Cute & Glass Ver.) === */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* 背景稍微變暗 */
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(8px); /* 模糊背景，讓質感提升 */
+            opacity: 0; /* 預設隱藏，由 JS 控制 fade-in */
+            transition: opacity 0.3s ease;
+            pointer-events: none; /* 隱藏時不擋滑鼠 */
+        }
+
+        /* 當加上 .open class 時顯示 */
+        .modal-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            /* 比照網站風格：深色半透明背景 + 細微亮邊框 */
+            background: rgba(27, 31, 34, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 3rem; /* 保持舒適的內距 */
+
+            /* ★★★ 寬度調整重點 ★★★ */
+            width: 90%;       /* 在手機或小螢幕保留左右邊距 */
+            max-width: 850px; /* <--- 這裡改成 850px (原本是 600px)，介面就會變寬很多 */
+
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+            position: relative;
+            max-height: 85vh; /* 避免視窗太高超出螢幕 */
+            overflow-y: auto; /* 內容過長時可捲動 */
+
+            /* ★★★ 隱藏醜醜的白色捲動條 (Scrollbar) ★★★ */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* IE 10+ */
+
+            /* 初始狀態動畫設定 */
+            transform: scale(0.95) translateY(10px);
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        /* 針對 Chrome/Safari/Edge 隱藏捲動條 */
+        .modal-content::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* 打開時的動畫狀態 */
+        .modal-overlay.open .modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+        /* 標題與關閉按鈕 */
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        .modal-header h3 {
+            margin: 0;
+            /* ★★★ 指定可愛字體 ★★★ */
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-weight: 900;
+            letter-spacing: 0.1rem;
+            color: #ffffff;
+            font-size: 1.5rem;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+        }
+
+        .close-btn {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: rgba(255,255,255,0.5);
+            transition: all 0.2s;
+        }
+        .close-btn:hover {
+            color: #ff9999;
+            transform: rotate(90deg);
+        }
+
+        /* 輸入框區域樣式優化 */
+        .modal-body label {
+            font-family: 'Zen Maru Gothic', sans-serif; /* 標籤也用可愛字體 */
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0.5rem;
+            display: block;
+            font-weight: 700;
+        }
+
+        .modal-body input[type="number"] {
+            background-color: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            border-radius: 4px;
+            color: #ffffff !important;
+            font-family: 'Zen Maru Gothic', sans-serif; /* <--- 改成可愛圓體 */
+            letter-spacing: 0.1rem;
+            font-weight: bold;
+            transition: border-color 0.3s, box-shadow 0.3s;
+
+            /* ★★★ 加入這行：左邊留白 1rem (大約 16px) ★★★ */
+            padding-left: 0.5rem !important;
+        }
+
+        .modal-body input[type="number"]:focus {
+            border-color: #aaddff !important;
+            box-shadow: 0 0 8px rgba(170, 221, 255, 0.3);
+        }
+
+        /* === 1. 隱藏 Input Number 右邊的上下箭頭 === */
+        /* Chrome, Safari, Edge, Opera */
+        .modal-body input[type="number"]::-webkit-outer-spin-button,
+        .modal-body input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        /* Firefox */
+        .modal-body input[type="number"] {
+            -moz-appearance: textfield;
+        }
+
+        /* === 設定提示文字 (Placeholder) 樣式 === */
+        .modal-body input[type="number"]::placeholder {
+            /* 1. 設定大小跟上面的 Label 一樣 (原本 Label 是 0.9rem) */
+            font-size: 0.9rem !important;
+
+            /* 2. 確保字體也是可愛圓體 */
+            font-family: 'Zen Maru Gothic', sans-serif;
+
+            /* 3. 顏色設定 (建議稍微淡一點，才不會跟輸入的數字混淆) */
+            color: rgba(255, 255, 255, 0.4);
+
+            /* 4. 垂直置中微調 (如果有跑掉再加這行，通常不用) */
+            /* line-height: normal; */
+
+            /* 5. 修正 Firefox 預設會半透明的問題 */
+            opacity: 1;
+        }
+
+        /* === 3. 結果顯示區 (仿圖三：無框、漸層字、分隔線) === */
+
+        /* 外層網格：改為 4 欄 */
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* <--- 關鍵修改：強制分成 4 欄 */
+            gap: 1rem;
+            margin-top: 1rem;
+            padding-bottom: 1rem;
+            align-items: start; /* 確保頂部對齊 */
+        }
+
+        /* ★★★ 手機版優化 (重要) ★★★ */
+        /* 如果在手機上 4 欄會太擠，自動變回 2 欄 */
+        @media screen and (max-width: 600px) {
+            .result-grid {
+                grid-template-columns: 1fr 1fr; /* 手機變回田字型 (2x2) */
+            }
+        }
+
+        /* 每一個數值項目：移除背景與邊框 */
+        .res-item {
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
+            padding: 0.5rem 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .res-item:hover {
+            transform: translateY(-3px);
+        }
+
+        /* 標題樣式：可愛字體 + 漸層色 */
+        .res-label {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-size: 1rem;
+            font-weight: 900;
+            letter-spacing: 0.1rem;
+            margin-bottom: 0.2rem;
+
+            /* 預設漸層 (淡金) */
+            background: linear-gradient(to bottom, #fff8db, #d4b476);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            filter: drop-shadow(0 0 5px rgba(212, 180, 118, 0.3));
+        }
+
+        /* 數值樣式：Cinzel 字體 + 白色微光 */
+        .res-val {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: #ffffff;
+            font-weight: 400;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+            line-height: 1.2;
+        }
+
+        /* === 個別顏色設定 (仿 RPG 屬性色) === */
+
+        /* 平A傷害 - 粉色系 */
+        .res-item.type-normal .res-label {
+            background: linear-gradient(to bottom, #ffdfdf, #c97b84);
+            background-clip: text;
+            -webkit-background-clip: text;
+            filter: drop-shadow(0 0 5px rgba(201, 123, 132, 0.3));
+        }
+
+        /* 暴擊傷害 - 金橘色系 */
+        .res-item.type-crit .res-label {
+            background: linear-gradient(to bottom, #fff8db, #d4b476);
+            background-clip: text;
+            -webkit-background-clip: text;
+            filter: drop-shadow(0 0 5px rgba(212, 180, 118, 0.3));
+        }
+
+        /* 1000次總傷 - 藍色系 */
+        .res-item.type-total .res-label {
+            background: linear-gradient(to bottom, #dbeaff, #7a9ec2);
+            background-clip: text;
+            -webkit-background-clip: text;
+            filter: drop-shadow(0 0 5px rgba(122, 158, 194, 0.3));
+        }
+
+        /* 平均傷害 - 紫色系 (原本的 Highlight) */
+        .res-item.type-avg .res-label {
+            background: linear-gradient(to bottom, #f3e6ff, #afa2c9);
+            background-clip: text;
+            -webkit-background-clip: text;
+            filter: drop-shadow(0 0 5px rgba(175, 162, 201, 0.3));
+        }
+
+        /* 移除 Highlight 的特殊排版，改回跟其他人一樣 */
+        .res-item.highlight {
+            grid-column: auto;
+            margin-top: 0;
+            background: none;
+            border: none;
+            padding: 0.5rem 0;
+        }
+
+        /* === 分隔線樣式 === */
+        .modal-separator {
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+            margin: 1.5rem auto; /* 上下留白 */
+        }
+
+        .res-label {
+            font-family: 'Zen Maru Gothic', sans-serif; /* 結果標題用可愛字體 */
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05rem;
+        }
+
+        .res-val {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-size: 1.8rem;
+            color: #fff;
+            font-weight: 400;
+            text-shadow: 0 0 15px rgba(255,255,255,0.2);
+            line-height: 1;
+        }
+
+        /* === 優化 Modal 內部的輸入框間距 === */
+        .modal-body .fields {
+            display: flex;
+            flex-wrap: wrap;
+            margin: -1rem 0 2rem -1rem; /* 修正 margin 讓它對齊 */
+            box-sizing: border-box;
+        }
+
+        .modal-body .field {
+            padding: 1rem 0 0 1rem;
+            box-sizing: border-box;
+        }
+
+        /* 確保半寬欄位 (Half) 在手機上會自動變全寬，但在電腦上維持並排 */
+        @media screen and (max-width: 480px) {
+            .modal-body .field.half {
+                width: 100%;
+            }
+        }
+
+
+
     </style>
 </head>
 <body class="is-preload">
@@ -1376,7 +1677,13 @@
 
         <!-- Title -->
         <article id="Title">
-            <h2 class="major">屬性加成</h2>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                <h2 class="major" style="margin-bottom: 0;">屬性加成</h2>
+                <button class="button small primary" onclick="openDamageModal()"
+                        style="height: 2.5rem; line-height: 2.5rem; border-radius: 20px; font-size: 0.8rem;">
+                    <i class="fas fa-calculator"></i> 傷害計算
+                </button>
+            </div>
 
             <span style="font-size: 1rem; padding-left: 0.2rem; display: block;margin-bottom: 1rem;">
                                     這裡可以快速計算各種東東帶來的數值加成 d(`･∀･)b<br>
@@ -1735,6 +2042,79 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 <canvas id="skin_container_Duo_owo" class="skin-fade" style="position: fixed; top: 81%; right: 90%; z-index: 5; pointer-events: none;"></canvas>
 <!--<canvas id="skin_container_ME" style="position: fixed; top: 10%; left: 5%; z-index: 5; pointer-events: none;"></canvas>-->
 
+
+<div id="damage-modal" class="modal-overlay">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>傷害計算ᕦ(ò_óˇ)ᕤ</h3>
+            <span class="close-btn" onclick="closeDamageModal()">&times;</span>
+        </div>
+
+        <div class="modal-body">
+            <form onsubmit="event.preventDefault(); calcDamage();">
+                <div class="fields">
+                    <div class="field half">
+                        <label>攻擊傷害 (面板)</label>
+                        <input type="number" id="dmg_atk" placeholder="請輸入...">
+                    </div>
+                    <div class="field half">
+                        <label>暴擊機率 (%)</label>
+                        <input type="number" id="dmg_rate" placeholder="請輸入...">
+                    </div>
+                    <div class="field half">
+                        <label>暴擊傷害 (%)</label>
+                        <input type="number" id="dmg_crit_dmg" placeholder="請輸入...">
+                    </div>
+                    <div class="field half">
+                        <label>武器傷害加成 (%)</label>
+                        <input type="number" id="dmg_weapon" placeholder="請輸入...">
+                    </div>
+                    <div class="field">
+                        <label>物理傷害加成 (%)</label>
+                        <input type="number" id="dmg_phys" placeholder="請輸入...">
+                    </div>
+                </div>
+                <ul class="actions special" style="margin-top: 2rem;">
+                    <li>
+                        <button type="button" class="button primary fit" onclick="calcDamage()"
+                                style="font-family: 'Zen Maru Gothic'; font-weight: 900; letter-spacing: 0.2rem;">
+                            開始計算
+                        </button>
+                    </li>
+                </ul>
+            </form>
+
+            <div id="dmg-result-area" style="display:none; margin-top: 2rem;">
+
+                <div class="modal-separator" style="margin-bottom: 2rem;"></div>
+
+                <div class="result-grid">
+
+                    <div class="res-item type-normal">
+                        <span class="res-label">平A傷害</span>
+                        <span class="res-val" id="res_normal">0</span>
+                    </div>
+
+                    <div class="res-item type-crit">
+                        <span class="res-label">觸發暴擊傷害</span>
+                        <span class="res-val" id="res_crit">0</span>
+                    </div>
+
+                    <div class="res-item type-total">
+                        <span class="res-label">1000次總傷害</span>
+                        <span class="res-val" id="res_total_1000">0</span>
+                    </div>
+
+                    <div class="res-item type-avg">
+                        <span class="res-label">平均單次傷害</span>
+                        <span class="res-val" id="res_avg">0</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- BG -->
 <div id="bg"></div>
@@ -2464,7 +2844,98 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
         container.innerHTML = html;
     }
+
+    // === 傷害計算機功能 (Updated) ===
+
+    // 開啟視窗 (改用 CSS Class 控制動畫)
+    function openDamageModal() {
+        // 禁止背景捲動
+        document.body.style.overflow = 'hidden';
+
+        // 1. 先把 display 設為 flex (因為 CSS 預設可能是 hidden 或是 opacity 0 但佔位)
+        // 這裡我們直接操作 class，但為了確保 jQuery 相容性，我們這樣寫：
+        const modal = document.getElementById('damage-modal');
+
+        // 讓它出現在 DOM 上但還是透明的
+        // (CSS 中 .modal-overlay 預設 opacity: 0, pointer-events: none)
+
+        // 延遲一點點再加上 open class，讓 transition 動畫生效
+        setTimeout(() => {
+            modal.classList.add('open');
+        }, 10);
+    }
+
+    // 關閉視窗
+    function closeDamageModal() {
+        const modal = document.getElementById('damage-modal');
+        modal.classList.remove('open'); // 移除 class 觸發消失動畫
+
+        // 等動畫跑完 (0.3s) 再恢復捲動
+        setTimeout(() => {
+            document.body.style.overflow = '';
+        }, 300);
+    }
+
+    // 點擊背景也能關閉 (修正版)
+    document.getElementById('damage-modal').addEventListener('click', function(e) {
+        // ★★★ 關鍵修改：阻止點擊事件傳遞給底層的網頁模板 ★★★
+        // 這樣點擊計算機時，模板就不會以為你點了外面而把屬性頁面關掉
+        e.stopPropagation();
+
+        if (e.target === this) {
+            closeDamageModal();
+        }
+    });
+
+    // 計算核心邏輯
+    function calcDamage() {
+        // 1. 獲取數值 (預設為 0)
+        let atk = parseFloat(document.getElementById('dmg_atk').value) || 0;
+        let rate = parseFloat(document.getElementById('dmg_rate').value) || 0;
+        let critDmgPct = parseFloat(document.getElementById('dmg_crit_dmg').value) || 0;
+        let weaponBonus = parseFloat(document.getElementById('dmg_weapon').value) || 0;
+        let physBonus = parseFloat(document.getElementById('dmg_phys').value) || 0;
+
+        // 2. 公式計算
+        // 平A傷害 = 攻擊傷害 * (1 + (武器加成 + 物理加成)/100)
+        let normalDmg = atk * (1 + (weaponBonus + physBonus) / 100);
+
+        // 暴擊傷害倍率：輸入 150 代表 150% (1.5倍)
+        let critDmgMultiplier = critDmgPct / 100;
+
+        // 觸發暴擊時的傷害 = 平A * 暴擊傷害倍率 (你的公式是這樣寫的)
+        let critHitDmg = normalDmg * critDmgMultiplier;
+
+        // 計算 1000 次打擊
+        // 暴擊次數 = 機率 * 10
+        // (例如 50% -> 50 * 10 = 500次，這邏輯假設輸入的是整數百分比，如果是 0.5 需要調整，但一般遊戲輸入 50 代表 50%)
+        let critCount = rate * 10;
+
+        // 確保不會超過 1000 次 (機率超過 100% 的情況)
+        if (critCount > 1000) critCount = 1000;
+
+        // 未暴擊次數
+        let normalCount = 1000 - critCount;
+
+        // 1000次總傷害
+        let totalDmg1000 = (normalDmg * normalCount) + (critHitDmg * critCount);
+
+        // 平均單次傷害
+        let avgDmg = totalDmg1000 / 1000;
+
+        // 3. 顯示結果 (加上千分位與整數化)
+        $('#res_normal').text(Math.floor(normalDmg).toLocaleString());
+        $('#res_crit').text(Math.floor(critHitDmg).toLocaleString());
+        $('#res_total_1000').text(Math.floor(totalDmg1000).toLocaleString());
+        $('#res_avg').text(Math.floor(avgDmg).toLocaleString());
+
+        // 顯示結果區 (使用 jQuery 的滑動效果)
+        $('#dmg-result-area').slideDown(400);
+    }
+
 </script>
+
+
 
 </body>
 </html>
