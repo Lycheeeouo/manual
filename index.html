@@ -421,6 +421,54 @@
             }
         }
 
+        /* === 通用模型防跳動設定 (這裡不用動，維持原樣) === */
+        .skin-fade {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        body:not(.is-preload) .skin-fade {
+            opacity: 1;
+        }
+
+        /* 當進入文章頁面時，隱藏模型與文字 */
+        body.is-article-visible .skin-fade {
+            opacity: 0 !important;
+            pointer-events: none;
+        }
+
+        /* === 新增：模型頭頂文字樣式 === */
+        .model-label {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-weight: 900;
+            font-size: 0.8rem;
+            color: #ffffff;
+
+            /* 白色微光效果 */
+            text-shadow:
+                    0 0 4px rgba(255, 255, 255, 0.4),
+                    0 0 8px rgba(255, 255, 255, 0.2);
+
+            position: fixed;
+            z-index: 6;
+            pointer-events: none;
+            text-align: center;
+
+            /* ★★★ 修改重點：自動換行設定 ★★★ */
+            white-space: normal;      /* 1. 改成 normal 允許換行 */
+            max-width: 100px;         /* 2. 設定最大寬度 (超過這個寬度就會換行，建議設在 100~120px 左右) */
+            word-break: break-word;   /* 3. 確保太長的英文單字也會斷行 */
+            line-height: 1.2;         /* 4. 調整行距，多行時比較好看 */
+        }
+
+        /* === 修改：手機/平板隱藏設定 === */
+        @media screen and (max-width: 1024px) {
+            /* 同時隱藏 canvas 和 文字標籤 */
+            canvas.skin-fade, .model-label {
+                display: none !important;
+            }
+        }
+
     </style>
 </head>
 <body class="is-preload">
@@ -1771,29 +1819,58 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
 
-        // ★★★ 新增判斷：如果是手機或螢幕太窄，直接不執行這段程式碼，節省效能 ★★★
+        // 手機版檢查
         if (window.innerWidth <= 1024) {
-            return; // 直接結束，不載入模型
+            return;
         }
 
         // =========================================================
-        // ★★★ 模型設定區 ★★★
+        // ★★★ 模型設定區 (已新增 text 欄位) ★★★
         // =========================================================
         const models = [
-            { id: "skin_container_EMTTT",           skin: "images/EMTTT.png",        width: 90, height: 120, action: "sit" },
-            { id: "skin_container_Pikachu_0322",    skin: "images/Pikachu_0322.png", width: 90, height: 120, action: "sit" },
-            { id: "skin_container_commandslayer52", skin: "images/commandslayer52.png", width: 90, height: 120, action: "sit" },
-            { id: "skin_container_Megumin__",       skin: "images/Megumin__.png",    width: 90, height: 120, action: "sit" },
-            { id: "skin_container_Khakiowo030",     skin: "images/Khakiowo030.png",  width: 90, height: 120, action: "sit" },
-            { id: "skin_container_Duo_owo",         skin: "images/Duo_owo.png",      width: 90, height: 120, action: "sit" },
-            { id: "skin_container_linghui_1019",    skin: "images/linghui_1019.png", width: 90, height: 120, action: "sit" },
-            { id: "skin_container_CYZ0307",         skin: "images/CYZ0307.png",      width: 90, height: 120, action: "sit" }
+            { id: "skin_container_EMTTT",           skin: "images/EMTTT.png",           width: 90, height: 120, action: "sit", text: "EMT<br>喜歡坐這裡" },
+            { id: "skin_container_Pikachu_0322",    skin: "images/Pikachu_0322.png",    width: 90, height: 120, action: "sit", text: "超笨皮卡<br>讓旁邊變笨" },
+            { id: "skin_container_commandslayer52", skin: "images/commandslayer52.png", width: 90, height: 120, action: "sit", text: "龍王<br>不是帥哥" },
+            { id: "skin_container_Megumin__",       skin: "images/Megumin__.png",       width: 90, height: 120, action: "sit", text: "月半百香<br>也很笨" },
+            { id: "skin_container_linghui_1019",    skin: "images/linghui_1019.png",    width: 90, height: 120, action: "sit", text: "慧伊<br>大姐頭" },
+            { id: "skin_container_Khakiowo030",     skin: "images/Khakiowo030.png",     width: 90, height: 120, action: "sit", text: "小貓<br>左擁右抱" },
+            { id: "skin_container_CYZ0307",         skin: "images/CYZ0307.png",         width: 90, height: 120, action: "sit", text: "小琋<br>超聰明" },
+            { id: "skin_container_Duo_owo",         skin: "images/Duo_owo.png",         width: 90, height: 120, action: "sit", text: "多多多<3<br>愛多多" }
         ];
         // =========================================================
 
         models.forEach(item => {
             let canvas = document.getElementById(item.id);
             if (canvas) {
+
+                // ★★★ 新增：動態生成頭頂文字 ★★★
+                if (item.text) {
+                    let label = document.createElement("div");
+                    label.innerHTML = item.text;
+                    // 加入 skin-fade 類別，這樣它就會跟著模型一起漸入漸出、一起被文章隱藏
+                    label.className = "model-label skin-fade";
+
+                    // --- 計算位置 (讓文字飄在 canvas 正上方) ---
+                    // 1. 設定高度：讀取 canvas 的 top，並往上扣除 10px
+                    label.style.top = `calc(${canvas.style.top} - 10px)`;
+
+                    // 2. 設定水平位置：判斷原本是用 left 還是 right 定位
+                    if (canvas.style.left) {
+                        // 如果 canvas 用 left，文字就要偏移 canvas 寬度的一半
+                        label.style.left = `calc(${canvas.style.left} + ${item.width / 2}px)`;
+                        label.style.transform = "translateX(-50%)"; // 修正中心點
+                    } else if (canvas.style.right) {
+                        // 如果 canvas 用 right
+                        label.style.right = `calc(${canvas.style.right} + ${item.width / 2}px)`;
+                        label.style.transform = "translateX(50%)"; // 修正中心點
+                    }
+
+                    // 將文字加入網頁
+                    document.body.appendChild(label);
+                }
+                // ★★★ 文字生成結束 ★★★
+
+
                 let skinViewer = new skinview3d.SkinViewer({
                     canvas: canvas,
                     width: item.width,
@@ -1803,58 +1880,36 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
                 skinViewer.renderer.setClearColor(0x000000, 0);
 
-                // ★★★ 載入皮膚並設定動作 ★★★
                 skinViewer.loadSkin(item.skin, { model: "slim" })
                     .then(() => {
-
                         if (item.action === "sit") {
-                            // === 最終修正：正確的 V 字開腿坐姿 ===
                             const skin = skinViewer.playerObject.skin;
-                            skinViewer.animation = null; // 停止預設動畫
+                            skinViewer.animation = null;
 
-                            // 1. 左腿 (Left Leg)
-                            skin.leftLeg.rotation.x = -1.57; // 先水平伸直 (90度)
-                            skin.leftLeg.rotation.y = 0;     // 不扭轉
-                            skin.leftLeg.rotation.z = 0.25;   // ★ 正數：往左邊(外側)張開
+                            // 坐姿設定
+                            skin.leftLeg.rotation.x = -1.57;
+                            skin.leftLeg.rotation.y = 0;
+                            skin.leftLeg.rotation.z = 0.25;
 
-                            // 2. 右腿 (Right Leg)
-                            skin.rightLeg.rotation.x = -1.57; // 先水平伸直
-                            skin.rightLeg.rotation.y = 0;     // 不扭轉
-                            skin.rightLeg.rotation.z = -0.25;  // ★ 負數：往右邊(外側)張開
+                            skin.rightLeg.rotation.x = -1.57;
+                            skin.rightLeg.rotation.y = 0;
+                            skin.rightLeg.rotation.z = -0.25;
 
-                            // 3. 手臂：放在兩腿中間
-                            skin.leftArm.rotation.x = -0.9;   // 手臂往前伸
-                            skin.leftArm.rotation.z = -0.2;   // 稍微張開
+                            skin.leftArm.rotation.x = -0.9;
+                            skin.leftArm.rotation.z = -0.2;
 
                             skin.rightArm.rotation.x = -0.9;
                             skin.rightArm.rotation.z = 0.2;
 
-                            // 4. 高度修正 (讓屁股貼地)
                             skinViewer.playerObject.position.y = -8;
 
-
-
                         } else {
-                            // === 其他動作 ===
                             switch (item.action) {
-                                case "walk":
-                                    skinViewer.animation = new skinview3d.WalkingAnimation();
-                                    break;
-                                case "run":
-                                    skinViewer.animation = new skinview3d.RunningAnimation();
-                                    break;
-                                case "fly":
-                                    skinViewer.animation = new skinview3d.FlyingAnimation();
-                                    break;
-                                case "none":
-                                    skinViewer.animation = null;
-                                    break;
-                                default: // idle
-                                    skinViewer.animation = new skinview3d.IdleAnimation();
-                                    break;
-                            }
-                            if (skinViewer.animation) {
-                                skinViewer.animation.speed = 1.0;
+                                case "walk": skinViewer.animation = new skinview3d.WalkingAnimation(); break;
+                                case "run": skinViewer.animation = new skinview3d.RunningAnimation(); break;
+                                case "fly": skinViewer.animation = new skinview3d.FlyingAnimation(); break;
+                                case "none": skinViewer.animation = null; break;
+                                default: skinViewer.animation = new skinview3d.IdleAnimation(); break;
                             }
                         }
                     });
