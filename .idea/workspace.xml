@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="新增模型">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="調整傷害計算的排版" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,15 +88,7 @@
       <workItem from="1768393176020" duration="2546000" />
       <workItem from="1768412216976" duration="1278000" />
       <workItem from="1768413744256" duration="310000" />
-      <workItem from="1768479480834" duration="305000" />
-    </task>
-    <task id="LOCAL-00008" summary="1.更正 美化團副BOSS頁的排版&#10;2.更新各個BOSS技能內容">
-      <option name="closed" value="true" />
-      <created>1764335017383</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1764335017383</updated>
+      <workItem from="1768479480834" duration="708000" />
     </task>
     <task id="LOCAL-00009" summary="1.更新各個BOSS技能內容">
       <option name="closed" value="true" />
@@ -484,14 +474,21 @@
       <option name="project" value="LOCAL" />
       <updated>1768413934536</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="調整傷害計算的排版">
+      <option name="closed" value="true" />
+      <created>1768479809590</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1768479809590</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1.新增BOSS技能說明" />
     <MESSAGE value="1.效能優化" />
     <MESSAGE value="1.效能優化&#10;&amp;background=1" />
     <MESSAGE value="1.測試" />
@@ -516,7 +513,8 @@
     <MESSAGE value="新增 傷害計算說明" />
     <MESSAGE value="修正 屬性加成顏色對應五行" />
     <MESSAGE value="新增模型" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增模型" />
+    <MESSAGE value="調整傷害計算的排版" />
+    <option name="LAST_COMMIT_MESSAGE" value="調整傷害計算的排版" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

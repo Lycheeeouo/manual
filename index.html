@@ -33,10 +33,62 @@
         }
 
 
-        /* 手機版設定：螢幕太小時變回一排一個，避免字擠在一起 */
+        /* === 手機版極致優化 (緊湊版) === */
         @media screen and (max-width: 480px) {
-            .grid-container {
-                grid-template-columns: 1fr;
+
+            /* 1. 外層容器：改用 Grid 網格排版，強制兩欄 */
+            .modal-body .fields {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important; /* 分成左右兩格 */
+                gap: 0.5rem !important;       /* 欄位之間的間距縮小 */
+                margin: 0 !important;         /* 移除原本的邊距 */
+            }
+
+            /* 2. 欄位設定 */
+            .modal-body .field {
+                padding: 0 !important;        /* 移除內距 */
+                width: auto !important;       /* 寬度由網格決定 */
+                grid-column: span 2;          /* 預設佔滿整行 (給最後一個"物理傷害"用) */
+            }
+
+            /* 3. 指定 .half 的欄位只佔一格 */
+            .modal-body .field.half {
+                grid-column: span 1 !important; /* 強制只佔一格 */
+            }
+
+            /* 4. 輸入框本體：變矮、變精緻 */
+            .modal-body input[type="number"] {
+                height: 2.2rem !important;    /* ★關鍵：高度變矮 */
+                font-size: 0.85rem !important;/* 字體縮小 */
+                padding: 0 0.5rem !important; /* 內部文字靠左一點 */
+                margin-bottom: 0 !important;  /* 移除下方多餘留白 */
+            }
+
+            /* 5. 標籤文字：縮小並貼近輸入框 */
+            .modal-body label {
+                font-size: 0.75rem !important;
+                margin-bottom: 0.1rem !important;
+                margin-top: 0 !important;
+            }
+
+            /* 6. 視窗本身調整 */
+            .modal-content {
+                padding: 1.2rem !important;   /* 視窗邊框留白縮小 */
+                width: 92% !important;
+                max-height: 80vh;             /* 避免太高 */
+            }
+
+            /* 7. 標題與按鈕調整 */
+            .modal-header {
+                margin-bottom: 1rem !important;
+                padding-bottom: 0.5rem !important;
+            }
+            .modal-header h3 {
+                font-size: 1.1rem !important;
+            }
+            .actions.special {
+                margin-top: 1rem !important;  /* 按鈕離上方近一點 */
+                margin-bottom: 0 !important;
             }
         }
 
