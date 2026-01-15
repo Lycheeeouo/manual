@@ -761,21 +761,31 @@
             box-sizing: border-box;
         }
 
-        /* === 修改：手機版強制並排 (一行兩個) === */
+        /* 手機版 (螢幕小於 480px) 專用設定 */
         @media screen and (max-width: 480px) {
-            /* 強制設定寬度為 50%，讓它們並排顯示 */
+
+            /* 1. 讓原本設定為 half 的欄位，在手機上維持 50% 寬度 (原本是 100%) */
             .modal-body .field.half {
-                width: 25% !important;
+                width: 50% !important;
+                float: left;  /* 確保它們會靠左排列 */
+                clear: none;  /* 解除換行限制 */
             }
 
-            /* 微調一下手機版的內距，讓並排時不會太擠 */
+            /* 2. 為了避免並排後太擠，稍微調整一下內距 */
             .modal-body .field {
                 padding: 0.8rem 0 0 0.5rem !important;
             }
 
-            /* 確保最後一個「物理傷害加成」(它沒有 half class) 還是維持全寬 */
+            /* 3. 輸入框本體寬度設為 100% (填滿那 50% 的格子) */
+            .modal-body input[type="number"] {
+                width: 100% !important;
+            }
+
+            /* 4. 最後那一個「物理傷害加成」因為沒有 half，要確保它還是長長的一條 */
             .modal-body .field:not(.half) {
                 width: 100% !important;
+                float: none;
+                clear: both;
             }
         }
 
