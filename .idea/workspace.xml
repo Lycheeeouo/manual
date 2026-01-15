@@ -88,15 +88,7 @@
       <workItem from="1768393176020" duration="2546000" />
       <workItem from="1768412216976" duration="1278000" />
       <workItem from="1768413744256" duration="310000" />
-      <workItem from="1768479480834" duration="2846000" />
-    </task>
-    <task id="LOCAL-00018" summary="1.新增BOSS技能說明">
-      <option name="closed" value="true" />
-      <created>1764605222971</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1764605222971</updated>
+      <workItem from="1768479480834" duration="3206000" />
     </task>
     <task id="LOCAL-00019" summary="1.新增BOSS技能說明">
       <option name="closed" value="true" />
@@ -482,7 +474,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768482353628</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="調整傷害計算的排版8.0">
+      <option name="closed" value="true" />
+      <created>1768482720070</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1768482720070</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
