@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="調整傷害計算的排版12.0" />
+    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="調整傷害計算的排版13.0">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,15 +91,7 @@
       <workItem from="1768393176020" duration="2546000" />
       <workItem from="1768412216976" duration="1278000" />
       <workItem from="1768413744256" duration="310000" />
-      <workItem from="1768479480834" duration="3904000" />
-    </task>
-    <task id="LOCAL-00022" summary="1.新增BOSS技能說明">
-      <option name="closed" value="true" />
-      <created>1764690065553</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1764690065553</updated>
+      <workItem from="1768479480834" duration="4548000" />
     </task>
     <task id="LOCAL-00023" summary="1.效能優化">
       <option name="closed" value="true" />
@@ -482,14 +477,21 @@
       <option name="project" value="LOCAL" />
       <updated>1768483423867</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="調整傷害計算的排版13.0">
+      <option name="closed" value="true" />
+      <created>1768483604638</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1768483604638</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1.稱號加成4.0" />
     <MESSAGE value="1.稱號加成5.0" />
     <MESSAGE value="1.模型1.0" />
     <MESSAGE value="1.模型2.0" />
@@ -514,7 +516,8 @@
     <MESSAGE value="調整傷害計算的排版10.0" />
     <MESSAGE value="調整傷害計算的排版11.0" />
     <MESSAGE value="調整傷害計算的排版12.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="調整傷害計算的排版12.0" />
+    <MESSAGE value="調整傷害計算的排版13.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="調整傷害計算的排版13.0" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
