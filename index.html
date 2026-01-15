@@ -33,61 +33,55 @@
         }
 
 
-        /* === 手機版極致優化 (緊湊版) === */
+        /* === 手機版極致優化 (修正版 - 寬度減半) === */
         @media screen and (max-width: 480px) {
 
-            /* 1. 外層容器：改用 Grid 網格排版，強制兩欄 */
+            /* 1. 外層容器：維持 Grid 網格排版，強制兩欄 */
             .modal-body .fields {
                 display: grid !important;
-                grid-template-columns: 1fr 1fr !important; /* 分成左右兩格 */
-                gap: 0.5rem !important;       /* 欄位之間的間距縮小 */
+                grid-template-columns: 1fr 1fr !important; /* 左右兩格 (50% / 50%) */
+                gap: 0.5rem !important;       /* 欄位之間的間距 */
                 margin: 0 !important;         /* 移除原本的邊距 */
             }
 
-            /* 2. 欄位設定 */
+            /* 2. 欄位設定：強制所有欄位都只佔 1 格 (原本最後一個是佔2格，現在改為1格) */
+            /* 這樣最後一個「物理傷害」也會變成跟上面一樣短 */
             .modal-body .field {
-                padding: 0 !important;        /* 移除內距 */
-                width: auto !important;       /* 寬度由網格決定 */
-                grid-column: span 2;          /* 預設佔滿整行 (給最後一個"物理傷害"用) */
+                padding: 0 !important;
+                width: auto !important;
+                grid-column: span 1 !important; /* <--- 關鍵修改：全部改為 1 格 */
             }
 
-            /* 3. 指定 .half 的欄位只佔一格 */
+            /* .half 的設定可以保留，確保邏輯一致 */
             .modal-body .field.half {
-                grid-column: span 1 !important; /* 強制只佔一格 */
+                grid-column: span 1 !important;
             }
 
-            /* 4. 輸入框本體：變矮、變精緻 */
+            /* 3. 輸入框本體：高度再變矮一點，字體縮小 */
             .modal-body input[type="number"] {
-                height: 2.2rem !important;    /* ★關鍵：高度變矮 */
-                font-size: 0.85rem !important;/* 字體縮小 */
-                padding: 0 0.5rem !important; /* 內部文字靠左一點 */
-                margin-bottom: 0 !important;  /* 移除下方多餘留白 */
+                height: 2rem !important;      /* ★高度變矮 */
+                font-size: 0.8rem !important; /* 字體縮小 */
+                padding: 0 0.5rem !important; /* 內部文字靠左 */
+                margin-bottom: 0 !important;
             }
 
-            /* 5. 標籤文字：縮小並貼近輸入框 */
+            /* 4. 標籤文字：縮小並貼近輸入框 */
             .modal-body label {
                 font-size: 0.75rem !important;
                 margin-bottom: 0.1rem !important;
                 margin-top: 0 !important;
             }
 
-            /* 6. 視窗本身調整 */
+            /* 5. 視窗本身調整 */
             .modal-content {
-                padding: 1.2rem !important;   /* 視窗邊框留白縮小 */
+                padding: 1.2rem !important;
                 width: 92% !important;
-                max-height: 80vh;             /* 避免太高 */
+                max-height: 80vh;
             }
 
-            /* 7. 標題與按鈕調整 */
-            .modal-header {
-                margin-bottom: 1rem !important;
-                padding-bottom: 0.5rem !important;
-            }
-            .modal-header h3 {
-                font-size: 1.1rem !important;
-            }
+            /* 6. 按鈕調整 */
             .actions.special {
-                margin-top: 1rem !important;  /* 按鈕離上方近一點 */
+                margin-top: 1rem !important;
                 margin-bottom: 0 !important;
             }
         }
