@@ -33,55 +33,47 @@
         }
 
 
-        /* === 手機版極致優化 (最終修正版 - 單欄垂直排列) === */
+        /* === 手機版極致優化 (手繪圖版 - 田字排列) === */
         @media screen and (max-width: 480px) {
 
-            /* 1. 外層容器：改為單欄 (1fr) 垂直排列 */
+            /* 1. 外層容器：改回雙欄 (1fr 1fr) 讓它變成田字型 */
             .modal-body .fields {
                 display: grid !important;
-                grid-template-columns: 1fr !important; /* ★★★ 關鍵：改成一欄，空間才夠 ★★★ */
-                gap: 0.8rem !important;       /* 增加一點垂直間距讓畫面不擁擠 */
-                margin: 0 !important;
+                grid-template-columns: 1fr 1fr !important; /* 左右各一半 */
+                gap: 0.8rem !important;       /* 欄位之間的間距 */
+                margin: 0 !important;         /* 移除多餘外距 */
             }
 
-            /* 2. 欄位設定：確保佔滿整行 */
+            /* 2. 欄位設定：強制所有欄位都只佔 1 格 */
+            /* ★關鍵：不管是第幾個，通通只佔一格，這樣第五個就會自然落在左下角 */
             .modal-body .field {
                 padding: 0 !important;
-                width: 100% !important;       /* 佔滿整行 */
-                grid-column: auto !important; /* 回復預設設定 */
-            }
-
-            /* .half 的設定在單欄模式下不需要特殊處理，讓它自然佔滿即可 */
-            .modal-body .field.half {
                 width: 100% !important;
-                grid-column: auto !important;
+                grid-column: span 1 !important;
             }
 
-            /* 3. 輸入框本體：填滿寬度並防止撐爆 */
+            /* 3. 輸入框本體：填滿格子 */
             .modal-body input[type="number"] {
-                height: 2.2rem !important;         /* 高度適中 */
-                font-size: 0.9rem !important;      /* 字體大小恢復清晰 */
+                width: 100% !important;            /* 填滿所在的半寬格子 */
+                box-sizing: border-box !important; /* 防止內距撐爆 */
+                height: 2.2rem !important;
+                font-size: 0.9rem !important;
                 padding: 0 0.5rem !important;
                 margin-bottom: 0 !important;
-
-                /* ★★★ 核心設定：填滿且不撐爆 ★★★ */
-                width: 100% !important;
-                max-width: 100% !important;
-                box-sizing: border-box !important; /* 將內距算在寬度內 */
             }
 
-            /* 4. 標籤文字調整 */
+            /* 4. 視窗空間調整：釋放更多空間給輸入框 */
+            .modal-content {
+                padding: 1.2rem 1rem !important; /* 上下1.2rem，左右1rem (縮小邊距) */
+                width: 95% !important;           /* 視窗寬度拉寬 */
+                max-height: 85vh;
+            }
+
+            /* 5. 標籤文字調整 */
             .modal-body label {
-                font-size: 0.85rem !important; /* 字體稍微大一點點比較好讀 */
+                font-size: 0.85rem !important;
                 margin-bottom: 0.2rem !important;
                 margin-top: 0 !important;
-            }
-
-            /* 5. 視窗本身調整 */
-            .modal-content {
-                padding: 1.5rem !important; /* 內距稍微寬鬆一點 */
-                width: 90% !important;      /* 視窗寬度佔螢幕 90% */
-                max-height: 85vh;
             }
 
             /* 6. 按鈕調整 */
