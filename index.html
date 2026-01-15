@@ -57,15 +57,18 @@
                 grid-column: span 1 !important;
             }
 
-            /* 3. 輸入框本體：高度再變矮一點，字體縮小 */
+            /* 3. 輸入框本體：防止撐爆畫面 + 高度調整 */
             .modal-body input[type="number"] {
-                height: 2rem !important;      /* ★高度變矮 */
-                font-size: 0.8rem !important; /* 字體縮小 */
-                padding: 0 0.5rem !important; /* 內部文字靠左 */
+                height: 2rem !important;           /* 高度變矮 */
+                font-size: 0.8rem !important;      /* 字體縮小 */
+                padding: 0 0.5rem !important;      /* 內部文字靠左 */
                 margin-bottom: 0 !important;
 
-                /* ★關鍵修改：設定寬度為 90% (您可以依喜好改成 80% 或 70% 會更短) */
-                width: 120% !important;
+                /* ★★★ 關鍵修改開始 ★★★ */
+                width: 100% !important;            /* 填滿所在的格子 (Grid Cell) */
+                max-width: 100% !important;        /* 強制不准超出父容器 */
+                box-sizing: border-box !important; /* ★救星：將 padding 算在寬度內，防止變胖撐爆 */
+                /* ★★★ 關鍵修改結束 ★★★ */
             }
 
             /* 4. 標籤文字：縮小並貼近輸入框 */
