@@ -761,10 +761,21 @@
             box-sizing: border-box;
         }
 
-        /* 確保半寬欄位 (Half) 在手機上會自動變全寬，但在電腦上維持並排 */
+        /* === 修改：手機版強制並排 (一行兩個) === */
         @media screen and (max-width: 480px) {
+            /* 強制設定寬度為 50%，讓它們並排顯示 */
             .modal-body .field.half {
-                width: 50%;
+                width: 50% !important;
+            }
+
+            /* 微調一下手機版的內距，讓並排時不會太擠 */
+            .modal-body .field {
+                padding: 0.8rem 0 0 0.5rem !important;
+            }
+
+            /* 確保最後一個「物理傷害加成」(它沒有 half class) 還是維持全寬 */
+            .modal-body .field:not(.half) {
+                width: 100% !important;
             }
         }
 
