@@ -761,31 +761,36 @@
             box-sizing: border-box;
         }
 
-        /* 手機版 (螢幕小於 480px) 專用設定 */
+        /* === 手機版 (螢幕小於 480px) 修正版 === */
         @media screen and (max-width: 480px) {
 
-            /* 1. 讓原本設定為 half 的欄位，在手機上維持 50% 寬度 (原本是 100%) */
+            /* 1. 修正容器：消除原本向外擴張的負邊距，讓它跟按鈕容器寬度一致 */
+            .modal-body .fields {
+                margin-left: 0 !important;  /* 修正左邊突出的問題 */
+                width: 100% !important;     /* 限制寬度跟父容器一樣 */
+                display: flex;              /* 確保排版 */
+                flex-wrap: wrap;            /* 允許換行 */
+            }
+
+            /* 2. 修正欄位內距：縮小間隙，讓兩個輸入框中間不要空太開 */
+            .modal-body .field {
+                padding: 0 0.25rem 0.8rem 0.25rem !important; /* 上 右 下 左 */
+                box-sizing: border-box; /* 確保內距不會撐大寬度 */
+            }
+
+            /* 3. 設定半寬欄位 (攻擊、暴擊、武器等) 為 50% 並排 */
             .modal-body .field.half {
                 width: 50% !important;
-                float: left;  /* 確保它們會靠左排列 */
-                clear: none;  /* 解除換行限制 */
             }
 
-            /* 2. 為了避免並排後太擠，稍微調整一下內距 */
-            .modal-body .field {
-                padding: 0.8rem 0 0 0.5rem !important;
-            }
-
-            /* 3. 輸入框本體寬度設為 100% (填滿那 50% 的格子) */
-            .modal-body input[type="number"] {
-                width: 100% !important;
-            }
-
-            /* 4. 最後那一個「物理傷害加成」因為沒有 half，要確保它還是長長的一條 */
+            /* 4. 設定全寬欄位 (物理傷害) 為 100% */
             .modal-body .field:not(.half) {
                 width: 100% !important;
-                float: none;
-                clear: both;
+            }
+
+            /* 5. 確保輸入框本體填滿欄位 */
+            .modal-body input[type="number"] {
+                width: 100% !important;
             }
         }
 
