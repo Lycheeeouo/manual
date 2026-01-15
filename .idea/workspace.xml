@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="調整傷害計算的排版8.0" />
+    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="調整傷害計算的排版10.0" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,15 +88,7 @@
       <workItem from="1768393176020" duration="2546000" />
       <workItem from="1768412216976" duration="1278000" />
       <workItem from="1768413744256" duration="310000" />
-      <workItem from="1768479480834" duration="3206000" />
-    </task>
-    <task id="LOCAL-00019" summary="1.新增BOSS技能說明">
-      <option name="closed" value="true" />
-      <created>1764606165367</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1764606165367</updated>
+      <workItem from="1768479480834" duration="3595000" />
     </task>
     <task id="LOCAL-00020" summary="1.新增BOSS技能說明">
       <option name="closed" value="true" />
@@ -482,14 +474,21 @@
       <option name="project" value="LOCAL" />
       <updated>1768482720070</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="調整傷害計算的排版10.0">
+      <option name="closed" value="true" />
+      <created>1768483111565</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1768483111565</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1.稱號加成" />
     <MESSAGE value="1.稱號加成2.0" />
     <MESSAGE value="1.稱號加成3.0" />
     <MESSAGE value="1.稱號加成4.0" />
@@ -514,7 +513,8 @@
     <MESSAGE value="調整傷害計算的排版3.0" />
     <MESSAGE value="調整傷害計算的排版6.0" />
     <MESSAGE value="調整傷害計算的排版8.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="調整傷害計算的排版8.0" />
+    <MESSAGE value="調整傷害計算的排版10.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="調整傷害計算的排版10.0" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
