@@ -761,10 +761,33 @@
             box-sizing: border-box;
         }
 
-        /* 確保半寬欄位 (Half) 在手機上會自動變全寬，但在電腦上維持並排 */
+        /* === 手機版優化設定 (修正版) === */
         @media screen and (max-width: 480px) {
+            /* 1. 讓半寬欄位在手機上維持並排 (50%)，節省垂直空間 */
             .modal-body .field.half {
-                width: 100%;
+                width: 50% !important;
+            }
+
+            /* 2. 縮小手機版視窗的內距 (原本是 3rem 太大) */
+            .modal-content {
+                padding: 1.5rem !important;
+                width: 95% !important; /* 讓視窗更寬一點 */
+            }
+
+            /* 3. 微調標題大小 */
+            .modal-header h3 {
+                font-size: 1.2rem !important;
+            }
+
+            /* 4. 微調輸入框文字大小，避免太擠 */
+            .modal-body input[type="number"] {
+                font-size: 0.8rem !important;
+                padding-left: 0.3rem !important;
+            }
+
+            /* 5. 調整輸入框標籤 (Label) 的字體大小 */
+            .modal-body label {
+                font-size: 0.8rem !important;
             }
         }
 
