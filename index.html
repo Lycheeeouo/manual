@@ -2246,17 +2246,17 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
         // ★★★ 模型設定區 (已新增 text 欄位) ★★★
         // =========================================================
         const models = [
-            { id: "skin_container_tygh89071388",    skin: "images/tygh89071388.png",    width: 90, height: 120, action: "idle",text: "龍耀<br>都更龍王", modelType: "default", offsetY: 30},
-            { id: "skin_container_Megumin__",       skin: "images/Megumin__.png",       width: 90, height: 120, action: "sit", text: "月半百香<br>也很笨" },
-            { id: "skin_container_commandslayer52", skin: "images/commandslayer52.png", width: 90, height: 120, action: "sit", text: "龍王<br>不是帥哥" },
-            { id: "skin_container_simon910107",     skin: "images/simon910107.png",     width: 90, height: 120, action: "sit", text: "賽門<br>數值怪" },
-            { id: "skin_container_Xiaoxuntw",     skin: "images/Xiaoxuntw.png",     width: 90, height: 120, action: "sit", text: "維尼<br>大課長", modelType: "default"},
-            { id: "skin_container_Pikachu_0322",    skin: "images/Pikachu_0322.png",    width: 90, height: 120, action: "sit", text: "皮卡<br>最笨的那種" },
-            { id: "skin_container_linghui_1019",    skin: "images/linghui_1019.png",    width: 90, height: 120, action: "sit", text: "彗伊<br>大姐頭" },
-            { id: "skin_container_Khakiowo030",     skin: "images/Khakiowo030.png",     width: 90, height: 120, action: "sit", text: "小貓<br>左擁右抱" },
-            { id: "skin_container_CYZ0307",         skin: "images/CYZ0307.png",         width: 90, height: 120, action: "sit", text: "小琋<br>超聰明" },
-            { id: "skin_container_EMTTT",           skin: "images/EMTTT.png",           width: 90, height: 120, action: "sit", text: "EMT<br>喜歡坐這裡" },
-            { id: "skin_container_Duo_owo",         skin: "images/Duo_owo.png",         width: 90, height: 120, action: "sit", text: "多多多<3<br>愛多多" }
+            { id: "skin_container_tygh89071388",    skin: "images/tygh89071388.png",    width: 90, height: 120, action: "idle",text: "龍耀", modelType: "default", offsetY: 20},
+            { id: "skin_container_Megumin__",       skin: "images/Megumin__.png",       width: 90, height: 120, action: "sit", text: "百香" },
+            { id: "skin_container_commandslayer52", skin: "images/commandslayer52.png", width: 90, height: 120, action: "sit", text: "龍王" },
+            { id: "skin_container_simon910107",     skin: "images/simon910107.png",     width: 90, height: 120, action: "sit", text: "賽門" },
+            { id: "skin_container_Xiaoxuntw",     skin: "images/Xiaoxuntw.png",     width: 90, height: 120, action: "sit", text: "維尼", modelType: "default"},
+            { id: "skin_container_Pikachu_0322",    skin: "images/Pikachu_0322.png",    width: 90, height: 120, action: "sit", text: "皮卡" },
+            { id: "skin_container_linghui_1019",    skin: "images/linghui_1019.png",    width: 90, height: 120, action: "sit", text: "彗伊" },
+            { id: "skin_container_Khakiowo030",     skin: "images/Khakiowo030.png",     width: 90, height: 120, action: "sit", text: "小貓" },
+            { id: "skin_container_CYZ0307",         skin: "images/CYZ0307.png",         width: 90, height: 120, action: "sit", text: "小琋" },
+            { id: "skin_container_EMTTT",           skin: "images/EMTTT.png",           width: 90, height: 120, action: "sit", text: "EMT" },
+            { id: "skin_container_Duo_owo",         skin: "images/Duo_owo.png",         width: 90, height: 120, action: "sit", text: "多多多<3" }
         ];
         // =========================================================
 
@@ -2274,7 +2274,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
                     // --- 計算位置 (讓文字飄在 canvas 正上方) ---
                     // 1. 設定高度：讀取 canvas 的 top，並往上扣除 10px
                     // 優先讀取自訂的 offsetY，沒有的話預設為 10
-                    let dist = item.offsetY !== undefined ? item.offsetY : 10;
+                    let dist = item.offsetY !== undefined ? item.offsetY : -5;
                     label.style.top = `calc(${canvas.style.top} - ${dist}px)`;
 
                     // 2. 設定水平位置：判斷原本是用 left 還是 right 定位
