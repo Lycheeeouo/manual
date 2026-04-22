@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="優化界面">
-      <change afterPath="$PROJECT_DIR$/_includes/boss-hard-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_includes/boss-hard-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_includes/boss-normal-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_includes/damage-modal.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_includes/title-attributes.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/custom.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/3d-models.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/calculator.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/tabs.js" afterDir="false" />
+    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="網站程式碼整理與模組化&#10;1.把CSS(樣式)抽離&#10;assets/css/custom.css&#10;2.把JavaScript(功能)抽離&#10;tabs.js(放分頁切換的openTab,initTab等程式碼)&#10;3d-models.js(放3D皮膚模組的程式碼)&#10;calculator.js&#10;(放傷害計算機的statData、initCalculator等程式碼)&#10;3.把HTML(內容)模組化&#10;boss-hard-1.html包含&lt;article id=&quot;boss1&quot;&gt;&#10;boss-normal-2.html包含&lt;article id=&quot;boss2&quot;&gt;&#10;boss-hard-2.html包含&lt;article id=&quot;boss3&quot;&gt;&#10;title-attributes.html包含&lt;article id=&quot;Title&quot;&gt;&#10;（那一長串稱號資料庫也跟著走）&#10;damage-modal.html包含&#10;最底部的&lt;div id=&quot;damage-modal&quot;&gt;視窗程式碼">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,12 +22,12 @@
     &quot;assignee&quot;: &quot;Lycheeeouo&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Lycheeeouo/manual.git",
-    "accountId": "66da5e66-ea51-4166-a6bb-8a4d15cb3212"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Lycheeeouo/manual.git&quot;,
+    &quot;accountId&quot;: &quot;66da5e66-ea51-4166-a6bb-8a4d15cb3212&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 0
@@ -46,26 +37,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JavaScript Debug.index.html.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "javascript.preferred.runtime.type.id": "node",
-    "last_opened_file_path": "E:/minecraft server",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/minecraft server&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -105,15 +96,8 @@
       <workItem from="1768412216976" duration="1278000" />
       <workItem from="1768413744256" duration="310000" />
       <workItem from="1768479480834" duration="6174000" />
-      <workItem from="1776888537803" duration="2675000" />
-    </task>
-    <task id="LOCAL-00028" summary="1.效能優化">
-      <option name="closed" value="true" />
-      <created>1765866405117</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1765866405117</updated>
+      <workItem from="1776888537803" duration="3035000" />
+      <workItem from="1776892099468" duration="682000" />
     </task>
     <task id="LOCAL-00029" summary="1.效能優化&#10;&amp;background=1">
       <option name="closed" value="true" />
@@ -499,14 +483,21 @@
       <option name="project" value="LOCAL" />
       <updated>1776888957929</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="網站程式碼整理與模組化&#10;1.把CSS(樣式)抽離&#10;assets/css/custom.css&#10;2.把JavaScript(功能)抽離&#10;tabs.js(放分頁切換的openTab,initTab等程式碼)&#10;3d-models.js(放3D皮膚模組的程式碼)&#10;calculator.js&#10;(放傷害計算機的statData、initCalculator等程式碼)&#10;3.把HTML(內容)模組化&#10;boss-hard-1.html包含&lt;article id=&quot;boss1&quot;&gt;&#10;boss-normal-2.html包含&lt;article id=&quot;boss2&quot;&gt;&#10;boss-hard-2.html包含&lt;article id=&quot;boss3&quot;&gt;&#10;title-attributes.html包含&lt;article id=&quot;Title&quot;&gt;&#10;（那一長串稱號資料庫也跟著走）&#10;damage-modal.html包含&#10;最底部的&lt;div id=&quot;damage-modal&quot;&gt;視窗程式碼">
+      <option name="closed" value="true" />
+      <created>1776891850743</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1776891850743</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1.模型2.0" />
     <MESSAGE value="屬性加成1.0" />
     <MESSAGE value="模型2.0" />
     <MESSAGE value="屬性加成 debug" />
@@ -531,7 +522,8 @@
     <MESSAGE value="調整傷害計算的排版13.0" />
     <MESSAGE value="調整傷害計算的排版14.0" />
     <MESSAGE value="優化界面" />
-    <option name="LAST_COMMIT_MESSAGE" value="優化界面" />
+    <MESSAGE value="網站程式碼整理與模組化&#10;1.把CSS(樣式)抽離&#10;assets/css/custom.css&#10;2.把JavaScript(功能)抽離&#10;tabs.js(放分頁切換的openTab,initTab等程式碼)&#10;3d-models.js(放3D皮膚模組的程式碼)&#10;calculator.js&#10;(放傷害計算機的statData、initCalculator等程式碼)&#10;3.把HTML(內容)模組化&#10;boss-hard-1.html包含&lt;article id=&quot;boss1&quot;&gt;&#10;boss-normal-2.html包含&lt;article id=&quot;boss2&quot;&gt;&#10;boss-hard-2.html包含&lt;article id=&quot;boss3&quot;&gt;&#10;title-attributes.html包含&lt;article id=&quot;Title&quot;&gt;&#10;（那一長串稱號資料庫也跟著走）&#10;damage-modal.html包含&#10;最底部的&lt;div id=&quot;damage-modal&quot;&gt;視窗程式碼" />
+    <option name="LAST_COMMIT_MESSAGE" value="網站程式碼整理與模組化&#10;1.把CSS(樣式)抽離&#10;assets/css/custom.css&#10;2.把JavaScript(功能)抽離&#10;tabs.js(放分頁切換的openTab,initTab等程式碼)&#10;3d-models.js(放3D皮膚模組的程式碼)&#10;calculator.js&#10;(放傷害計算機的statData、initCalculator等程式碼)&#10;3.把HTML(內容)模組化&#10;boss-hard-1.html包含&lt;article id=&quot;boss1&quot;&gt;&#10;boss-normal-2.html包含&lt;article id=&quot;boss2&quot;&gt;&#10;boss-hard-2.html包含&lt;article id=&quot;boss3&quot;&gt;&#10;title-attributes.html包含&lt;article id=&quot;Title&quot;&gt;&#10;（那一長串稱號資料庫也跟著走）&#10;damage-modal.html包含&#10;最底部的&lt;div id=&quot;damage-modal&quot;&gt;視窗程式碼" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
