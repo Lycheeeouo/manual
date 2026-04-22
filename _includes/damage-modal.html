@@ -1,0 +1,81 @@
+<div id="damage-modal" class="modal-overlay">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>傷害計算ᕦ(ò_óˇ)ᕤ</h3>
+            <span class="close-btn" onclick="closeDamageModal()">&times;</span>
+        </div>
+        <span style="font-size: 1rem; padding-left: 0.2rem; display: block;margin-bottom: 1rem;">
+            這裡可以用直觀的數據統計你現在的強度 _(°ω°｣ ∠)<br>
+            將選單裡對應的當前RPG屬性(藍色燈籠)輸入進來就能用了<br>
+            <span style="font-size: 0.8rem; color: #bbb; display: block;">
+                (如果副手拿桃木劍打副本殭屍假人會有不死剋星的10%加成)<br>
+                (最後傷害你要自己乘1.1倍喔！)
+            </span>
+
+        </span>
+
+        <div class="modal-body">
+            <form onsubmit="event.preventDefault(); calcDamage();">
+                <div class="fields">
+                    <div class="field half">
+                        <label>攻擊傷害 (面板)</label>
+                        <input type="number" id="dmg_atk" placeholder="請輸入...">
+                    </div>
+                    <div class="field half">
+                        <label>暴擊機率 (%)</label>
+                        <input type="number" id="dmg_rate" placeholder="請輸入...">
+                    </div>
+                    <div class="field half">
+                        <label>暴擊傷害 (%)</label>
+                        <input type="number" id="dmg_crit_dmg" placeholder="請輸入...">
+                    </div>
+                    <div class="field half">
+                        <label>武器傷害加成 (%)</label>
+                        <input type="number" id="dmg_weapon" placeholder="請輸入...">
+                    </div>
+                    <div class="field">
+                        <label>物理傷害加成 (%)</label>
+                        <input type="number" id="dmg_phys" placeholder="請輸入...">
+                    </div>
+                </div>
+                <ul class="actions special" style="margin-top: 2rem;">
+                    <li>
+                        <button type="button" class="button primary fit" onclick="calcDamage()"
+                                style="font-family: 'Zen Maru Gothic'; font-weight: 900; letter-spacing: 0.2rem;">
+                            開始計算
+                        </button>
+                    </li>
+                </ul>
+            </form>
+
+            <div id="dmg-result-area" style="display:none; margin-top: 2rem;">
+
+                <div class="modal-separator" style="margin-bottom: 2rem;"></div>
+
+                <div class="result-grid">
+
+                    <div class="res-item type-normal">
+                        <span class="res-label">平A傷害</span>
+                        <span class="res-val" id="res_normal">0</span>
+                    </div>
+
+                    <div class="res-item type-crit">
+                        <span class="res-label">觸發暴擊傷害</span>
+                        <span class="res-val" id="res_crit">0</span>
+                    </div>
+
+                    <div class="res-item type-total">
+                        <span class="res-label">1000次總傷害</span>
+                        <span class="res-val" id="res_total_1000">0</span>
+                    </div>
+
+                    <div class="res-item type-avg">
+                        <span class="res-label">平均單次傷害</span>
+                        <span class="res-val" id="res_avg">0</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

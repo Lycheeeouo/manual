@@ -1,0 +1,59 @@
+<!-- Title -->
+<article id="Title">
+    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+        <h2 class="major" style="margin-bottom: 0;">屬性加成</h2>
+        <button class="button small primary" onclick="openDamageModal()"
+                style="height: 2.5rem; line-height: 2.5rem; border-radius: 20px; font-size: 0.8rem;">
+            <i class="fas fa-calculator"></i> 傷害計算
+        </button>
+    </div>
+
+    <span style="font-size: 1rem; padding-left: 0.2rem; display: block;margin-bottom: 1rem;">
+                                    這裡可以快速計算各種東東帶來的數值加成 d(`･∀･)b<br>
+                                    下面這排是篩選器，可以依據加成類型來快速尋找目標<br>
+                                    選擇完後會統整並告訴你現在有多少的加成，超棒ㄉ啦 ✧◝(⁰▿⁰)◜✧<br>
+                <span style="font-size: 0.8rem; color: #bbb; display: block;">
+                                    ( 活動稱號不會有數值加成歐q_q )
+                                    </span>
+
+                                </span>
+
+    <ul class="actions small" id="filter-container">
+        <li><a href="javascript:void(0)" class="button small primary">載入中...</a></li>
+    </ul>
+
+    <hr />
+
+    <ul class="actions small" style="justify-content: center; margin-bottom: 2rem;">
+        <li>
+            <a href="javascript:void(0)" class="button small" onclick="selectAllItems()"
+               style="border-color: rgba(131, 188, 169, 0.5) !important;">
+                        <span class="btn-title-filter"
+                              style="--text-gradient: linear-gradient(to bottom, #e3ffe3, #83bca9); --text-glow: rgba(131, 188, 169, 0.6);">
+                            全部選取
+                        </span>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0)" class="button small" onclick="deselectAllItems()"
+               style="border-color: rgba(201, 123, 132, 0.5) !important;">
+                        <span class="btn-title-filter"
+                              style="--text-gradient: linear-gradient(to bottom, #ffdfdf, #c97b84); --text-glow: rgba(201, 123, 132, 0.6);">
+                            全部取消
+                        </span>
+            </a>
+        </li>
+    </ul>
+
+    <div id="items-container" style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+    </div>
+
+    <hr />
+
+    <div id="result-grid" class="stat-grid">
+        <div style="width:100%; text-align:center; opacity:0.6;">
+            尚未選擇任何詞條
+        </div>
+    </div>
+
+</article>
