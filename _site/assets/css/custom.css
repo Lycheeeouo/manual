@@ -1,0 +1,770 @@
+
+/* 當按鈕被打開時，把下方圓角變直角，跟內容接在一起 */
+button.collapsible.active {
+    border-radius: 4px 4px 0 0;
+    background-color: rgba(255, 255, 255, 0.1); /* 打開時變亮一點 */
+}
+
+
+/* 手機版設定：螢幕太小時變回一排一個，避免字擠在一起 */
+@media screen and (max-width: 480px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 修正按鈕在 Grid 裡面會跑版的問題 */
+.grid-container .button {
+    width: 100%;
+    margin-bottom: 0;
+    display: flex;       /* 讓文字垂直置中 */
+    justify-content: center;
+    align-items: center;
+    height: 100%;        /* 讓按鈕等高 */
+}
+
+/* === 技能按鈕專用樣式 (Sub-tabs) === */
+
+/* 1. 基本外觀：變成圓圓的藥丸形狀，字體變小 */
+.skill-btn {
+    border-radius: 50px !important;
+    font-size: 0.75rem !important;
+    min-height: 2.25rem !important; /* 改用 min-height */
+    height: auto !important;        /* 高度自動 */
+
+    /* ★關鍵修改：不允許文字換行 */
+    white-space: nowrap !important;
+    line-height: 1.2 !important;
+    padding: 0.4rem 1rem;           /* 增加上下內距 */
+
+    margin-bottom: 0.5rem;
+    opacity: 0.6;
+    transition: all 0.2s ease;
+
+    /* 讓文字垂直置中 */
+    display: inline-flex;  /* 改用 flex */
+    align-items: center;
+    justify-content: center;
+}
+
+/* 2. 滑鼠滑過去時 */
+.skill-btn:hover {
+    opacity: 1.0;
+}
+
+/* 3. 被「選中」時的樣子 (覆蓋原本的全白樣式) */
+.skill-btn.primary {
+    background-color: rgba(255, 255, 255, 0.2) !important; /* 背景變成半透明白，而不是全白 */
+    box-shadow: inset 0 0 0 1px #ffffff !important;        /* 加上白色邊框 */
+    color: #ffffff !important;      /* 文字維持白色 */
+    opacity: 1.0;                   /* 完全不透明 */
+    font-weight: bold;
+}
+
+/* === 修正：讓上方的王按鈕長度固定，不要太短 === */
+.tab-btn1 {
+    /* 這裡設定您要的長度，數字越大按鈕越長 */
+    min-width: 11rem !important;
+
+    /* 避免手機版按鈕太長超出螢幕，設定最大寬度為 100% */
+    max-width: 100%;
+}
+
+/* 如果手機版希望按鈕變回填滿整行 (比較好按)，可以加這段 */
+@media screen and (max-width: 480px) {
+    .tab-btn1 {
+        width: 100% !important; /* 手機上強制變全寬 */
+        margin-bottom: 0.5rem;  /* 增加一點垂直間距 */
+    }
+}
+
+/* ============================================== */
+/* ★★★ 請務必補上這段，按鈕才會自動換行跟置中 ★★★ */
+/* ============================================== */
+
+/* 1. 設定所有王按鈕 (.tab-btn 和 .tab-btn1) 的排版規則 */
+.tab-btn, .tab-btn1 {
+    /* 強制讓文字換行 */
+    white-space: normal !important;
+    word-break: break-word !important;
+
+    /* 讓文字上下左右都置中 */
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+
+    /* 設定高度自動，隨文字變高 */
+    height: auto !important;
+    min-height: 2.5rem !important; /* 最小高度 */
+
+    /* 調整內距與行高 */
+    padding: 0.5rem 0.5rem !important;
+    line-height: 1.3 !important;
+
+    /* 預設字體大小 */
+    font-size: 0.9rem !important;
+
+    /* 確保手機版不會凸出螢幕 */
+    max-width: 100% !important;
+}
+
+/* 2. 手機版專用設定：當螢幕小於 480px 時 */
+@media screen and (max-width: 480px) {
+    .tab-btn, .tab-btn1 {
+        /* ★關鍵：手機上字體自動縮小，才塞得進去 */
+        font-size: 0.75rem !important;
+
+        /* 強制佔滿整行寬度 */
+        width: 100% !important;
+        margin-bottom: 0.5rem !important;
+    }
+}
+
+/* === 計算機專用樣式 === */
+
+/* 選中的詞條 (亮燈) */
+.calc-btn.active {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    box-shadow: inset 0 0 0 1px #ffffff !important;
+    color: #ffffff !important;
+    font-weight: bold;
+    opacity: 1 !important;
+}
+
+/* 未選中的詞條 (預設微暗) + 排版修正核心 */
+.calc-btn {
+    opacity: 0.6;
+    transition: all 0.2s ease;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border: 1px solid transparent;
+    margin-bottom: 0.5rem;
+
+    /* ★★★ 修正文字跑版的核心設定 ★★★ */
+    height: auto !important;        /* 1. 取消固定高度，讓按鈕隨內容變高 */
+    min-height: 3.5rem;             /* 2. 設定最小高度，確保整齊 */
+    font-size: 1.0rem !important;   /* <--- 加入這行，數字越大字越大 */
+    letter-spacing: 0.08rem;        /* <--- 稍微增加字距，看起來比較舒服 */
+
+    line-height: 1.2 !important;    /* 3. 設定行距，避免字疊在一起 */
+    white-space: normal !important; /* 4. 允許文字換行 */
+
+    display: inline-flex !important;/* 5. 使用 Flex 排版 */
+    flex-direction: column;         /* 6. 讓兩行字垂直排列 */
+    justify-content: center;        /* 7. 垂直置中 */
+    align-items: center;            /* 8. 水平置中 */
+}
+
+.calc-btn:hover {
+    opacity: 0.9;
+    border-color: rgba(255,255,255,0.3);
+}
+
+/* 隱藏被篩選掉的項目 */
+.calc-btn.hidden {
+    display: none !important;
+}
+
+/* === 修正：上方「篩選顯示」容器與按鈕樣式 === */
+
+/* 1. 設定容器：開啟換行功能 (Flex Wrap) */
+#filter-container {
+    display: flex !important;       /* 使用彈性排版 */
+    flex-wrap: wrap !important;     /* ★關鍵：允許換行，不會超出邊界 */
+    justify-content: center !important; /* 內容置中 */
+    width: 100% !important;         /* 寬度不超過父容器 */
+    padding-left: 0 !important;     /* 移除原本列表的左邊留白 */
+    margin-left: 0 !important;      /* 移除位移 */
+    gap: 0.5rem;                    /* 按鈕之間的間距 (現代瀏覽器支援) */
+}
+
+/* 2. 重設列表項目 (li) 的間距 */
+/* 模板原本是用 padding-left 來推擠，換行後會變醜，改用 margin */
+#filter-container li {
+    padding: 0 !important;
+    margin: 0 !important;
+    display: contents; /* 讓 li 消失在排版中，直接排 button (選用，或直接設定 li margin) */
+}
+
+/* 3. 按鈕本體的樣式 (字體放大 + 自動高度) */
+#filter-container .button {
+    font-size: 0.75rem !important;   /* 字體放大 */
+
+    /* 讓按鈕適應內容與寬度 */
+    height: auto !important;
+    min-height: 1rem;
+    padding: 0.1rem 1rem !important;
+
+    /* ★關鍵：防止單顆按鈕太長超出螢幕 */
+    max-width: 100% !important;
+    white-space: normal !important; /* 允許按鈕內的文字換行 */
+
+    /* 排版設定 */
+    display: flex !important;       /* 改用 flex 讓文字置中比較穩 */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    /* 確保按鈕周圍有空間 (配合 wrap 使用) */
+    margin: 0.25rem !important;
+}
+
+/* === 統計結果：柔和慵懶・絲綢質感版 === */
+
+/* 1. 外層容器 */
+/* === 統計結果：分層結構排版 (修正版) === */
+
+/* 1. 外層大容器：改成垂直排列，讓橫排一個個疊下來 */
+#result-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;              /* 上下排之間的距離 */
+    margin-top: 3rem;
+    width: 100%;
+    max-width: 900px;       /* 限制最大寬度 */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 2. 每一橫排的樣式 */
+.stat-row {
+    display: flex;
+    justify-content: center; /* 讓內容置中 */
+    flex-wrap: wrap;         /* 手機版如果不夠寬，允許換行 */
+    gap: 4rem;               /* ★關鍵：左右卡片之間的間距 */
+    width: 100%;
+}
+
+/* 3. 分隔線樣式 (放在第二排和第三排中間) */
+.stat-separator {
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+    margin: 0.5rem 0;
+}
+
+/* 4. 項目本體 (保持之前的質感設定，只微調寬度) */
+.stat-card {
+    background: none;
+    border: none;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 1.2rem;
+    min-width: 120px;
+
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.6s;
+}
+
+/* ...其餘 .stat-card .stat-label 等樣式保持不變，不用刪除... */
+
+/* 2. 項目本體 */
+.stat-card {
+    background: none;
+    border: none;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    /* 裝飾線：變得極度極度淡，像是一縷煙 */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 1.2rem;
+    min-width: 110px;
+
+    /* ★關鍵：動作要慢，才會有慵懶感 */
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.6s;
+}
+
+.stat-card:hover {
+    transform: translateY(-8px); /* 緩緩飄起 */
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 3. 屬性名稱 (柔霧質感) */
+.stat-card .stat-label {
+    /* 繼續使用宋體，但這次我們要讓它柔軟一點 */
+    font-family: 'Noto Serif TC', serif;
+
+    font-size: 1.4rem;
+    font-weight: 700;           /* 不用最粗，700 剛好有氣質 */
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.25rem;    /* 字距拉大，呼吸感 */
+
+    /* 漸層色：由 JS 控制，這裡設定基礎 */
+    background-image: var(--stat-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+
+    /* ★關鍵特效：柔光擴散 (Diffuse Glow) */
+    /* 不是銳利的發光，而是像晨霧一樣的暈染 */
+    filter: drop-shadow(0 0 8px var(--stat-glow));
+
+    opacity: 0.9; /* 稍微透一點點背景，更有空氣感 */
+}
+
+/* 4. 屬性數值 (Cinzel，保持優雅) */
+.stat-card .stat-value {
+    font-family: 'Cinzel', serif;
+
+    font-size: 2.2rem;
+    color: rgba(255, 255, 255, 0.85); /* 奶白色，不要死白 */
+    font-weight: 400;
+    letter-spacing: 0.15rem;
+    line-height: 1;
+
+    /* 數字周圍有很淡很淡的光暈 */
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* 提示字 */
+.empty-msg {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+    color: rgba(255, 255, 255, 0.4); /* 很淡的灰色 */
+    font-style: italic; /* 斜體增加慵懶感 */
+}
+
+/* === 中間詞條按鈕：改用圓潤可愛的 Zen Maru Gothic === */
+.calc-btn .btn-title {
+    /* ★★★ 修改這裡：使用圓體 ★★★ */
+    font-family: 'Zen Maru Gothic', sans-serif;
+
+    /* 調整字體大小與粗細 */
+    font-size: 1.3rem;
+    font-weight: 900;           /* 設定最粗，看起來才像果凍軟糖 */
+    letter-spacing: 0.1rem;
+    margin-bottom: 0.3rem;
+    display: block;
+
+    /* 漸層與發光 (維持不變) */
+    background-image: var(--text-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 5px var(--text-glow));
+}
+
+/* 優化第二行小字 (數值部分) - 使用 Cinzel 字體搭配 */
+.calc-btn .btn-subtitle {
+    font-family: 'Cinzel', sans-serif;
+    font-size: 0.6em;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 0.05rem;
+}
+
+/* === 通用模型防跳動設定 === */
+
+/* 1. 所有加上 class="skin-fade" 的元素，預設都先隱藏 */
+.skin-fade {
+    opacity: 0;
+    transition: opacity 0.5s ease; /* 0.5秒優雅浮現 */
+}
+
+/* 2. 等網頁讀取完 (is-preload 消失) 後，所有 skin-fade 都會自動浮現 */
+body:not(.is-preload) .skin-fade {
+    opacity: 1;
+}
+
+/* ★★★ 3. 新增：當進入文章頁面 (非首頁) 時，自動隱藏模型 ★★★ */
+body.is-article-visible .skin-fade {
+    opacity: 0 !important;
+    pointer-events: none; /* 隱藏時讓滑鼠點不到，才不會擋到按鈕 */
+}
+
+/* === 手機/平板隱藏模型設定 === */
+@media screen and (max-width: 1024px) {
+    /* 隱藏所有帶有 skin-fade class 的 canvas */
+    canvas.skin-fade {
+        display: none !important;
+    }
+}
+
+/* === 通用模型防跳動設定 (這裡不用動，維持原樣) === */
+.skin-fade {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+body:not(.is-preload) .skin-fade {
+    opacity: 1;
+}
+
+/* 當進入文章頁面時，隱藏模型與文字 */
+body.is-article-visible .skin-fade {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+/* === 新增：模型頭頂文字樣式 === */
+.model-label {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    font-weight: 900;
+    font-size: 0.8rem;
+    color: #ffffff;
+
+    /* 白色微光效果 */
+    text-shadow:
+            0 0 4px rgba(255, 255, 255, 0.4),
+            0 0 8px rgba(255, 255, 255, 0.2);
+
+    position: fixed;
+    z-index: 6;
+    pointer-events: none;
+    text-align: center;
+
+    /* ★★★ 修改重點：自動換行設定 ★★★ */
+    white-space: normal;      /* 1. 改成 normal 允許換行 */
+    max-width: 100px;         /* 2. 設定最大寬度 (超過這個寬度就會換行，建議設在 100~120px 左右) */
+    word-break: break-word;   /* 3. 確保太長的英文單字也會斷行 */
+    line-height: 1.2;         /* 4. 調整行距，多行時比較好看 */
+}
+
+/* === 修改：手機/平板隱藏設定 === */
+@media screen and (max-width: 1024px) {
+    /* 同時隱藏 canvas 和 文字標籤 */
+    canvas.skin-fade, .model-label {
+        display: none !important;
+    }
+}
+
+/* === 傷害計算機 Modal 樣式 (Cute & Glass Ver.) === */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* 背景稍微變暗 */
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px); /* 模糊背景，讓質感提升 */
+    opacity: 0; /* 預設隱藏，由 JS 控制 fade-in */
+    transition: opacity 0.3s ease;
+    pointer-events: none; /* 隱藏時不擋滑鼠 */
+}
+
+/* 當加上 .open class 時顯示 */
+.modal-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    /* 比照網站風格：深色半透明背景 + 細微亮邊框 */
+    background: rgba(27, 31, 34, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 3rem; /* 保持舒適的內距 */
+
+    /* ★★★ 寬度調整重點 ★★★ */
+    width: 90%;       /* 在手機或小螢幕保留左右邊距 */
+    max-width: 850px; /* <--- 這裡改成 850px (原本是 600px)，介面就會變寬很多 */
+
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    position: relative;
+    max-height: 85vh; /* 避免視窗太高超出螢幕 */
+    overflow-y: auto; /* 內容過長時可捲動 */
+
+    /* ★★★ 隱藏醜醜的白色捲動條 (Scrollbar) ★★★ */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE 10+ */
+
+    /* 初始狀態動畫設定 */
+    transform: scale(0.95) translateY(10px);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 針對 Chrome/Safari/Edge 隱藏捲動條 */
+.modal-content::-webkit-scrollbar {
+    display: none;
+}
+
+/* 打開時的動畫狀態 */
+.modal-overlay.open .modal-content {
+    transform: scale(1) translateY(0);
+}
+
+/* 標題與關閉按鈕 */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+.modal-header h3 {
+    margin: 0;
+    /* ★★★ 指定可愛字體 ★★★ */
+    font-family: 'Zen Maru Gothic', sans-serif;
+    font-weight: 900;
+    letter-spacing: 0.1rem;
+    color: #ffffff;
+    font-size: 1.5rem;
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+.close-btn {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: rgba(255,255,255,0.5);
+    transition: all 0.2s;
+}
+.close-btn:hover {
+    color: #ff9999;
+    transform: rotate(90deg);
+}
+
+/* 輸入框區域樣式優化 */
+.modal-body label {
+    font-family: 'Zen Maru Gothic', sans-serif; /* 標籤也用可愛字體 */
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.5rem;
+    display: block;
+    font-weight: 700;
+}
+
+.modal-body input[type="number"] {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 4px;
+    color: #ffffff !important;
+    font-family: 'Zen Maru Gothic', sans-serif; /* <--- 改成可愛圓體 */
+    letter-spacing: 0.1rem;
+    font-weight: bold;
+    transition: border-color 0.3s, box-shadow 0.3s;
+
+    /* ★★★ 加入這行：左邊留白 1rem (大約 16px) ★★★ */
+    padding-left: 0.5rem !important;
+}
+
+.modal-body input[type="number"]:focus {
+    border-color: #aaddff !important;
+    box-shadow: 0 0 8px rgba(170, 221, 255, 0.3);
+}
+
+/* === 1. 隱藏 Input Number 右邊的上下箭頭 === */
+/* Chrome, Safari, Edge, Opera */
+.modal-body input[type="number"]::-webkit-outer-spin-button,
+.modal-body input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* Firefox */
+.modal-body input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* === 設定提示文字 (Placeholder) 樣式 === */
+.modal-body input[type="number"]::placeholder {
+    /* 1. 設定大小跟上面的 Label 一樣 (原本 Label 是 0.9rem) */
+    font-size: 0.9rem !important;
+
+    /* 2. 確保字體也是可愛圓體 */
+    font-family: 'Zen Maru Gothic', sans-serif;
+
+    /* 3. 顏色設定 (建議稍微淡一點，才不會跟輸入的數字混淆) */
+    color: rgba(255, 255, 255, 0.4);
+
+    /* 4. 垂直置中微調 (如果有跑掉再加這行，通常不用) */
+    /* line-height: normal; */
+
+    /* 5. 修正 Firefox 預設會半透明的問題 */
+    opacity: 1;
+}
+
+/* === 3. 結果顯示區 (仿圖三：無框、漸層字、分隔線) === */
+
+/* 外層網格：改為 4 欄 */
+.result-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* <--- 關鍵修改：強制分成 4 欄 */
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+    align-items: start; /* 確保頂部對齊 */
+}
+
+/* ★★★ 手機版優化 (重要) ★★★ */
+/* 如果在手機上 4 欄會太擠，自動變回 2 欄 */
+@media screen and (max-width: 600px) {
+    .result-grid {
+        grid-template-columns: 1fr 1fr; /* 手機變回田字型 (2x2) */
+    }
+}
+
+/* 每一個數值項目：移除背景與邊框 */
+.res-item {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0.5rem 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.res-item:hover {
+    transform: translateY(-3px);
+}
+
+/* 標題樣式：可愛字體 + 漸層色 */
+.res-label {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 0.1rem;
+    margin-bottom: 0.2rem;
+
+    /* 預設漸層 (淡金) */
+    background: linear-gradient(to bottom, #fff8db, #d4b476);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 5px rgba(212, 180, 118, 0.3));
+}
+
+/* 數值樣式：Cinzel 字體 + 白色微光 */
+.res-val {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    color: #ffffff;
+    font-weight: 400;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    line-height: 1.2;
+}
+
+/* === 個別顏色設定 (仿 RPG 屬性色) === */
+
+/* 平A傷害 - 粉色系 */
+.res-item.type-normal .res-label {
+    background: linear-gradient(to bottom, #ffdfdf, #c97b84);
+    background-clip: text;
+    -webkit-background-clip: text;
+    filter: drop-shadow(0 0 5px rgba(201, 123, 132, 0.3));
+}
+
+/* 暴擊傷害 - 金橘色系 */
+.res-item.type-crit .res-label {
+    background: linear-gradient(to bottom, #fff8db, #d4b476);
+    background-clip: text;
+    -webkit-background-clip: text;
+    filter: drop-shadow(0 0 5px rgba(212, 180, 118, 0.3));
+}
+
+/* 1000次總傷 - 藍色系 */
+.res-item.type-total .res-label {
+    background: linear-gradient(to bottom, #dbeaff, #7a9ec2);
+    background-clip: text;
+    -webkit-background-clip: text;
+    filter: drop-shadow(0 0 5px rgba(122, 158, 194, 0.3));
+}
+
+/* 平均傷害 - 紫色系 (原本的 Highlight) */
+.res-item.type-avg .res-label {
+    background: linear-gradient(to bottom, #f3e6ff, #afa2c9);
+    background-clip: text;
+    -webkit-background-clip: text;
+    filter: drop-shadow(0 0 5px rgba(175, 162, 201, 0.3));
+}
+
+/* 移除 Highlight 的特殊排版，改回跟其他人一樣 */
+.res-item.highlight {
+    grid-column: auto;
+    margin-top: 0;
+    background: none;
+    border: none;
+    padding: 0.5rem 0;
+}
+
+/* === 分隔線樣式 === */
+.modal-separator {
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+    margin: 1.5rem auto; /* 上下留白 */
+}
+
+.res-label {
+    font-family: 'Zen Maru Gothic', sans-serif; /* 結果標題用可愛字體 */
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05rem;
+}
+
+.res-val {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    font-size: 1.8rem;
+    color: #fff;
+    font-weight: 400;
+    text-shadow: 0 0 15px rgba(255,255,255,0.2);
+    line-height: 1;
+}
+
+/* === 優化 Modal 內部的輸入框間距 === */
+.modal-body .fields {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1rem 0 2rem -1rem; /* 修正 margin 讓它對齊 */
+    box-sizing: border-box;
+}
+
+.modal-body .field {
+    padding: 1rem 0 0 1rem;
+    box-sizing: border-box;
+}
+
+/* === 手機版 (螢幕小於 480px) 修正版 === */
+@media screen and (max-width: 480px) {
+
+    /* 1. 修正容器：消除原本向外擴張的負邊距，讓它跟按鈕容器寬度一致 */
+    .modal-body .fields {
+        margin-left: 0 !important;  /* 修正左邊突出的問題 */
+        width: 100% !important;     /* 限制寬度跟父容器一樣 */
+        display: flex;              /* 確保排版 */
+        flex-wrap: wrap;            /* 允許換行 */
+    }
+
+    /* 2. 修正欄位內距：縮小間隙，讓兩個輸入框中間不要空太開 */
+    .modal-body .field {
+        padding: 0 0.25rem 0.8rem 0.25rem !important; /* 上 右 下 左 */
+        box-sizing: border-box; /* 確保內距不會撐大寬度 */
+    }
+
+    /* 3. 設定半寬欄位 (攻擊、暴擊、武器等) 為 50% 並排 */
+    .modal-body .field.half {
+        width: 50% !important;
+    }
+
+    /* 4. 設定全寬欄位 (物理傷害) 為 100% */
+    .modal-body .field:not(.half) {
+        width: 100% !important;
+    }
+
+    /* 5. 確保輸入框本體填滿欄位 */
+    .modal-body input[type="number"] {
+        width: 100% !important;
+    }
+}
+
+

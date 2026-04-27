@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="網站程式碼整理與模組化&#10;1.把CSS(樣式)抽離&#10;assets/css/custom.css&#10;2.把JavaScript(功能)抽離&#10;tabs.js(放分頁切換的openTab,initTab等程式碼)&#10;3d-models.js(放3D皮膚模組的程式碼)&#10;calculator.js&#10;(放傷害計算機的statData、initCalculator等程式碼)&#10;3.把HTML(內容)模組化&#10;boss-hard-1.html包含&lt;article id=&quot;boss1&quot;&gt;&#10;boss-normal-2.html包含&lt;article id=&quot;boss2&quot;&gt;&#10;boss-hard-2.html包含&lt;article id=&quot;boss3&quot;&gt;&#10;title-attributes.html包含&lt;article id=&quot;Title&quot;&gt;&#10;（那一長串稱號資料庫也跟著走）&#10;damage-modal.html包含&#10;最底部的&lt;div id=&quot;damage-modal&quot;&gt;視窗程式碼">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="Add a README">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,15 +98,8 @@
       <workItem from="1768413744256" duration="310000" />
       <workItem from="1768479480834" duration="6174000" />
       <workItem from="1776888537803" duration="3035000" />
-      <workItem from="1776892099468" duration="682000" />
-    </task>
-    <task id="LOCAL-00029" summary="1.效能優化&#10;&amp;background=1">
-      <option name="closed" value="true" />
-      <created>1765888650197</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1765888650197</updated>
+      <workItem from="1776892099468" duration="912000" />
+      <workItem from="1777299379347" duration="1553000" />
     </task>
     <task id="LOCAL-00030" summary="1.效能優化&#10;&amp;background=1">
       <option name="closed" value="true" />
@@ -491,14 +485,21 @@
       <option name="project" value="LOCAL" />
       <updated>1776891850743</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="Add a README">
+      <option name="closed" value="true" />
+      <created>1776892980385</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1776892980386</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="屬性加成1.0" />
     <MESSAGE value="模型2.0" />
     <MESSAGE value="屬性加成 debug" />
     <MESSAGE value="屬性加成 debug2.0" />
@@ -523,7 +524,8 @@
     <MESSAGE value="調整傷害計算的排版14.0" />
     <MESSAGE value="優化界面" />
     <MESSAGE value="網站程式碼整理與模組化&#10;1.把CSS(樣式)抽離&#10;assets/css/custom.css&#10;2.把JavaScript(功能)抽離&#10;tabs.js(放分頁切換的openTab,initTab等程式碼)&#10;3d-models.js(放3D皮膚模組的程式碼)&#10;calculator.js&#10;(放傷害計算機的statData、initCalculator等程式碼)&#10;3.把HTML(內容)模組化&#10;boss-hard-1.html包含&lt;article id=&quot;boss1&quot;&gt;&#10;boss-normal-2.html包含&lt;article id=&quot;boss2&quot;&gt;&#10;boss-hard-2.html包含&lt;article id=&quot;boss3&quot;&gt;&#10;title-attributes.html包含&lt;article id=&quot;Title&quot;&gt;&#10;（那一長串稱號資料庫也跟著走）&#10;damage-modal.html包含&#10;最底部的&lt;div id=&quot;damage-modal&quot;&gt;視窗程式碼" />
-    <option name="LAST_COMMIT_MESSAGE" value="網站程式碼整理與模組化&#10;1.把CSS(樣式)抽離&#10;assets/css/custom.css&#10;2.把JavaScript(功能)抽離&#10;tabs.js(放分頁切換的openTab,initTab等程式碼)&#10;3d-models.js(放3D皮膚模組的程式碼)&#10;calculator.js&#10;(放傷害計算機的statData、initCalculator等程式碼)&#10;3.把HTML(內容)模組化&#10;boss-hard-1.html包含&lt;article id=&quot;boss1&quot;&gt;&#10;boss-normal-2.html包含&lt;article id=&quot;boss2&quot;&gt;&#10;boss-hard-2.html包含&lt;article id=&quot;boss3&quot;&gt;&#10;title-attributes.html包含&lt;article id=&quot;Title&quot;&gt;&#10;（那一長串稱號資料庫也跟著走）&#10;damage-modal.html包含&#10;最底部的&lt;div id=&quot;damage-modal&quot;&gt;視窗程式碼" />
+    <MESSAGE value="Add a README" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add a README" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
