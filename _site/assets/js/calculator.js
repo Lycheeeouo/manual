@@ -75,35 +75,11 @@ const statData = [
     { id: 63, 'name': '神農轉世', 'type': '暴擊機率', 'value': 1.0},
     { id: 63, 'name': '神農轉世', 'type': '最大血量', 'value': 20.0},
     { id: 64, 'name': '釣魚宗師', 'type': '最大血量', 'value': 5.0},
-    { id: 65, 'name': '單人挑戰副本1', 'type': '攻擊傷害', 'value': 2.0},
-    { id: 66, 'name': '單人挑戰副本2', 'type': '攻擊傷害', 'value': 3.0},
-    { id: 67, 'name': '單人挑戰副本3', 'type': '總體防禦', 'value': 15.0},
-    { id: 68, 'name': '單人挑戰副本4', 'type': '攻擊傷害', 'value': 5.0},
-    { id: 69, 'name': '金金1', 'type': '攻擊傷害', 'value': 2.0},
-    { id: 70, 'name': '金金2', 'type': '攻擊傷害', 'value': 2.0},
-    { id: 71, 'name': '金金3', 'type': '攻擊傷害', 'value': 2.0},
-    { id: 72, 'name': '金金4', 'type': '攻擊傷害', 'value': 2.0},
-    { id: 73, 'name': '金金5', 'type': '攻擊傷害', 'value': 4.0},
-    { id: 74, 'name': '木木1', 'type': '最大血量', 'value': 4.0},
-    { id: 75, 'name': '木木2', 'type': '最大血量', 'value': 4.0},
-    { id: 76, 'name': '木木3', 'type': '最大血量', 'value': 4.0},
-    { id: 77, 'name': '木木4', 'type': '最大血量', 'value': 4.0},
-    { id: 78, 'name': '木木5', 'type': '最大血量', 'value': 8.0},
-    { id: 79, 'name': '水水1', 'type': '暴擊機率', 'value': 0.5},
-    { id: 80, 'name': '水水2', 'type': '暴擊機率', 'value': 0.5},
-    { id: 81, 'name': '水水3', 'type': '暴擊機率', 'value': 0.5},
-    { id: 82, 'name': '水水4', 'type': '暴擊機率', 'value': 0.5},
-    { id: 83, 'name': '水水5', 'type': '暴擊機率', 'value': 0.5},
-    { id: 84, 'name': '火火1', 'type': '暴擊傷害', 'value': 10.0},
-    { id: 85, 'name': '火火2', 'type': '暴擊傷害', 'value': 10.0},
-    { id: 86, 'name': '火火3', 'type': '暴擊傷害', 'value': 10.0},
-    { id: 87, 'name': '火火4', 'type': '暴擊傷害', 'value': 10.0},
-    { id: 88, 'name': '火火5', 'type': '暴擊傷害', 'value': 20.0},
-    { id: 89, 'name': '土土1', 'type': '總體防禦', 'value': 6.0},
-    { id: 90, 'name': '土土2', 'type': '總體防禦', 'value': 6.0},
-    { id: 91, 'name': '土土3', 'type': '總體防禦', 'value': 6.0},
-    { id: 92, 'name': '土土4', 'type': '總體防禦', 'value': 6.0},
-    { id: 93, 'name': '土土5', 'type': '總體防禦', 'value': 12.0},
+    { id: 65, 'name': '追獵者', 'type': '攻擊傷害', 'value': 0.5 },
+    { id: 66, 'name': '單人挑戰副本1', 'type': '攻擊傷害', 'value': 2.0},
+    { id: 67, 'name': '單人挑戰副本2', 'type': '攻擊傷害', 'value': 3.0},
+    { id: 68, 'name': '單人挑戰副本3', 'type': '總體防禦', 'value': 15.0},
+    { id: 69, 'name': '單人挑戰副本4', 'type': '攻擊傷害', 'value': 5.0},
 
     // --- 料理與活動類 (新增 extra 屬性來做分類) ---
     // 子分類：飲料類
@@ -146,36 +122,21 @@ const statData = [
     { id: 116, 'name': '副本特殊事件加成', 'type': '暴擊傷害', 'value': 200.0},
     { id: 116, 'name': '副本特殊事件加成', 'type': '最大血量', 'value': 30.0},
     { id: 116, 'name': '副本特殊事件加成', 'type': '總體防禦', 'value': 50.0},
+
+    // --- 替換原本的五行，改成這一個設定按鈕 ---
+    { id: 998, name: '【設定】五行屬性加點 ', type: '特殊', value: 0, extra: { isElementalTrigger: true } },
     // 週活躍加成
-    { id: 117, 'name': '週活躍屬性點-攻擊1', 'type': '攻擊傷害', 'value': 3.0},
-    { id: 118, 'name': '週活躍屬性點-攻擊2', 'type': '攻擊傷害', 'value': 3.0},
-    { id: 119, 'name': '週活躍屬性點-攻擊3', 'type': '攻擊傷害', 'value': 3.0},
-    { id: 120, 'name': '週活躍屬性點-攻擊4', 'type': '攻擊傷害', 'value': 3.0},
-    { id: 121, 'name': '週活躍屬性點-攻擊5', 'type': '攻擊傷害', 'value': 3.0},
-    { id: 122, 'name': '週活躍屬性點-攻擊6', 'type': '攻擊傷害', 'value': 3.0},
-    { id: 123, 'name': '週活躍屬性點-血量1', 'type': '最大血量', 'value': 6.0},
-    { id: 124, 'name': '週活躍屬性點-血量2', 'type': '最大血量', 'value': 6.0},
-    { id: 125, 'name': '週活躍屬性點-血量3', 'type': '最大血量', 'value': 6.0},
-    { id: 126, 'name': '週活躍屬性點-血量4', 'type': '最大血量', 'value': 6.0},
-    { id: 127, 'name': '週活躍屬性點-血量5', 'type': '最大血量', 'value': 6.0},
-    { id: 128, 'name': '週活躍屬性點-血量6', 'type': '最大血量', 'value': 6.0},
-    { id: 129, 'name': '週活躍屬性點-總防1', 'type': '總體防禦', 'value': 6.0},
-    { id: 130, 'name': '週活躍屬性點-總防2', 'type': '總體防禦', 'value': 6.0},
-    { id: 131, 'name': '週活躍屬性點-總防3', 'type': '總體防禦', 'value': 6.0},
-    { id: 132, 'name': '週活躍屬性點-總防4', 'type': '總體防禦', 'value': 6.0},
-    { id: 133, 'name': '週活躍屬性點-總防5', 'type': '總體防禦', 'value': 6.0},
-    { id: 134, 'name': '週活躍屬性點-總防6', 'type': '總體防禦', 'value': 6.0},
-    { id: 135, 'name': '週活躍屬性點-爆傷1', 'type': '暴擊傷害', 'value': 30.0},
-    { id: 136, 'name': '週活躍屬性點-爆傷2', 'type': '暴擊傷害', 'value': 30.0},
-    { id: 137, 'name': '週活躍屬性點-爆傷3', 'type': '暴擊傷害', 'value': 30.0},
-    { id: 138, 'name': '週活躍屬性點-爆傷4', 'type': '暴擊傷害', 'value': 30.0},
-    { id: 139, 'name': '週活躍屬性點-爆傷5', 'type': '暴擊傷害', 'value': 30.0},
-    { id: 140, 'name': '週活躍屬性點-爆傷6', 'type': '暴擊傷害', 'value': 30.0}
+    { id: 999, name: '【設定】週活躍加點 ', type: '特殊', value: 0, extra: { isWeeklyTrigger: true } }
 
 ];
 
 let selectedItems = new Set();
 let currentFilter = 'all';
+
+// 新增：記錄週活躍點數 (0~9)
+let weeklyPts = { atk: 0, hp: 0, def: 0, critDmg: 0 };
+// 新增：記錄五行點數 (0~5)
+let elementalPts = { metal: 0, wood: 0, water: 0, fire: 0, earth: 0 };
 
 // === 2. 初始化 (修改版：加入讀取存檔) ===
 window.initCalculator = function() {
@@ -191,6 +152,22 @@ window.initCalculator = function() {
             console.error("讀取存檔失敗，將重置為空", e);
             selectedItems = new Set();
         }
+    }
+
+    // 新增：嘗試讀取週活躍存檔
+    const savedWeekly = localStorage.getItem('rpg_calc_weekly');
+    if (savedWeekly) {
+        try {
+            weeklyPts = JSON.parse(savedWeekly);
+        } catch (e) {}
+    }
+
+    // 新增：嘗試讀取五行存檔
+    const savedElemental = localStorage.getItem('rpg_calc_elemental');
+    if (savedElemental) {
+        try {
+            elementalPts = JSON.parse(savedElemental);
+        } catch (e) {}
     }
 
     // 2. 渲染畫面
@@ -343,34 +320,7 @@ function createSectionHeader(text, container) {
     container.appendChild(header);
 }
 
-// 輔助函式：建立按鈕 (減少重複程式碼)
-function createButton(name, container) {
-    const groupItems = statData.filter(d => d.name === name);
-    const firstId = groupItems[0].id;
-    const isActive = selectedItems.has(firstId) ? 'active' : '';
-    const mainType = groupItems[0].type;
-    const style = getStyleForType(mainType);
 
-    let subtitleHtml = groupItems.map(item => {
-        let val = item.value;
-        let sign = val < 0 ? "" : "+";
-        if(item.type.includes("機率")) val += "%";
-        return `<div>${item.type} ${sign}${val}</div>`;
-    }).join('');
-
-    const btn = document.createElement('button');
-    btn.className = `button small calc-btn ${isActive}`;
-    btn.innerHTML = `
-            <span class="btn-title" style="--text-gradient: ${style.gradient}; --text-glow: ${style.glow}">
-                ${name}
-            </span>
-            <span class="btn-subtitle" style="font-size: 0.7em; line-height: 1.4;">
-                ${subtitleHtml}
-            </span>
-        `;
-    btn.onclick = () => toggleGroup(name);
-    container.appendChild(btn);
-}
 
 // === 6. 切換選取 (維持互斥邏輯) ===
 function toggleGroup(name) {
@@ -502,40 +452,107 @@ function getStyleForType(type) {
     return colorPalette[type] || colorPalette["default"];
 }
 
-// === 輔助函式：建立按鈕 (修改版：讓按鈕顏色跟屬性綁定) ===
+// === 輔助函式：建立按鈕 (合併修正版 + 0點不發光) ===
 function createButton(name, container) {
     const groupItems = statData.filter(d => d.name === name);
-    const firstId = groupItems[0].id;
-    const isActive = selectedItems.has(firstId) ? 'active' : '';
-    const mainType = groupItems[0].type;
+    const firstItem = groupItems[0];
+    const firstId = firstItem.id;
+    const isNormalActive = selectedItems.has(firstId) ? 'active' : '';
+    const mainType = firstItem.type;
 
-    // ★★★ 核心修改：直接從設定檔讀取顏色 ★★★
+    // ★★★ 攔截：周活躍設定按鈕 (換上新漸層配色) ★★★
+    if (firstItem.extra && firstItem.extra.isWeeklyTrigger) {
+        const btn = document.createElement('button');
+
+        let wTotal = weeklyPts.atk + weeklyPts.hp + weeklyPts.def + weeklyPts.critDmg;
+        let isActiveClass = wTotal > 0 ? 'active' : '';
+        btn.className = `button small calc-btn ${isActiveClass}`;
+
+        let minPts = Math.min(weeklyPts.atk, weeklyPts.hp, weeklyPts.def, weeklyPts.critDmg);
+        let stageTxt = minPts >= 9 ? "後期 (滿)" : minPts >= 6 ? "中期" : minPts >= 3 ? "初期" : "未達標";
+
+        // 這裡更換了 --text-gradient (漸層色) 和 --text-glow (光暈色)
+        // 使用「夢幻紫到蜜桃粉」的設計
+        btn.innerHTML = `
+            <span class="btn-title" style="--text-gradient: linear-gradient(to bottom, #f3e77b, #fa5a27); --text-glow: rgba(255, 243, 128, 0.6);">
+                ${name}
+            </span>
+            <span class="btn-subtitle" style="font-size: 0.8em; line-height: 1.4; color: rgba(255,255,255,0.8);">
+                點擊開啟面板<br>目前階段：${stageTxt}
+            </span>
+        `;
+
+        if (wTotal > 0) {
+            // 邊框發光顏色同步改為紫色調
+            btn.style.boxShadow = `inset 0 0 0 1px rgba(179, 136, 255, 0.6)`;
+            btn.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+        }
+
+        btn.onclick = () => openWeeklyModal();
+        container.appendChild(btn);
+        return;
+    }
+
+    // ★★★ 攔截：五行屬性設定按鈕 ★★★
+    if (firstItem.extra && firstItem.extra.isElementalTrigger) {
+        const btn = document.createElement('button');
+
+        let totalLv = elementalPts.metal + elementalPts.wood + elementalPts.water + elementalPts.fire + elementalPts.earth;
+        let isActiveClass = totalLv > 0 ? 'active' : '';
+        btn.className = `button small calc-btn ${isActiveClass}`;
+
+        // 同步修改首頁按鈕的進度顯示 (高級漸層與微光效果)
+        let displayStr =
+            `<span style="background: linear-gradient(to bottom, #fff8db, #d4b476); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 2px rgba(212,180,118,0.4)); font-weight: bold;">金${elementalPts.metal}</span> ` +
+            `<span style="background: linear-gradient(to bottom, #e3ffe3, #83bca9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 2px rgba(131,188,169,0.4)); font-weight: bold;">木${elementalPts.wood}</span> ` +
+            `<span style="background: linear-gradient(to bottom, #dbeaff, #7a9ec2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 2px rgba(122,158,194,0.4)); font-weight: bold;">水${elementalPts.water}</span> ` +
+            `<span style="background: linear-gradient(to bottom, #ffdfdf, #c97b84); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 2px rgba(201,123,132,0.4)); font-weight: bold;">火${elementalPts.fire}</span> ` +
+            `<span style="background: linear-gradient(to bottom, #efe2cf, #c49970); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 2px rgba(196,153,112,0.4)); font-weight: bold;">土${elementalPts.earth}</span>`;
+
+        btn.innerHTML = `
+            <span class="btn-title" style="--text-gradient: linear-gradient(to bottom, #aaddff, #ffc0cb); --text-glow: rgba(170, 221, 255, 0.6);">
+                ${name}
+            </span>
+            <span class="btn-subtitle" style="font-size: 0.8em; line-height: 1.4; color: rgba(255,255,255,0.8);">
+                點擊開啟面板<br>${displayStr}
+            </span>
+        `;
+
+        if (totalLv > 0) {
+            btn.style.boxShadow = `inset 0 0 0 1px rgba(170, 221, 255, 0.6)`;
+            btn.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+        }
+
+        btn.onclick = () => openElementalModal();
+        container.appendChild(btn);
+        return;
+    }
+
+    // ==========================================
+    // 以下為「一般稱號按鈕」的生成邏輯
+    // ==========================================
     const style = getStyleForType(mainType);
 
     let subtitleHtml = groupItems.map(item => {
         let val = item.value;
         let sign = val < 0 ? "" : "+";
         if(item.type.includes("機率")) val += "%";
-
-        // 副標題 (數值) 使用白色，比較易讀
         return `<div style="color: rgba(255,255,255,0.7); font-size: 0.9em;">${item.type} ${sign}${val}</div>`;
     }).join('');
 
     const btn = document.createElement('button');
-    btn.className = `button small calc-btn ${isActive}`;
+    btn.className = `button small calc-btn ${isNormalActive}`;
 
-    // ★★★ 設定樣式：標題使用屬性漸層色 ★★★
     btn.innerHTML = `
-            <span class="btn-title" style="--text-gradient: ${style.gradient}; --text-glow: ${style.glow}">
-                ${name}
-            </span>
-            <span class="btn-subtitle" style="font-size: 0.7em; line-height: 1.4;">
-                ${subtitleHtml}
-            </span>
-        `;
+        <span class="btn-title" style="--text-gradient: ${style.gradient}; --text-glow: ${style.glow}">
+            ${name}
+        </span>
+        <span class="btn-subtitle" style="font-size: 0.7em; line-height: 1.4;">
+            ${subtitleHtml}
+        </span>
+    `;
 
-    // 如果按鈕被選中，讓邊框也發出對應顏色的光
-    if (isActive) {
+    if (isNormalActive) {
         btn.style.boxShadow = `inset 0 0 0 1px ${style.glow}`;
         btn.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
     }
@@ -558,10 +575,62 @@ function updateCalculation(isAutoSave = true) {
         }
     });
 
+    // === 新增：整合週活躍點數與階段加成 ===
+    totals["攻擊傷害"] = (totals["攻擊傷害"] || 0) + (weeklyPts.atk * 3);
+    totals["最大血量"] = (totals["最大血量"] || 0) + (weeklyPts.hp * 6);
+    totals["總體防禦"] = (totals["總體防禦"] || 0) + (weeklyPts.def * 6);
+    totals["暴擊傷害"] = (totals["暴擊傷害"] || 0) + (weeklyPts.critDmg * 30);
+
+    // === 新增：整合五行屬性點數 ===
+    // 對應 0~5 級的總加成陣列
+    const metalAtk = [0, 2, 4, 6, 8, 12];        // 金 (攻擊)
+    const woodHp = [0, 4, 8, 12, 16, 24];        // 木 (血量)
+    const waterCrit = [0, 0.5, 1.0, 1.5, 2.0, 2.5]; // 水 (暴擊機率)
+    const fireCritDmg = [0, 10, 20, 30, 40, 60];    // 火 (暴傷)
+    const earthDef = [0, 6, 12, 18, 24, 36];      // 土 (防禦)
+
+    totals["攻擊傷害"] = (totals["攻擊傷害"] || 0) + metalAtk[elementalPts.metal];
+    totals["最大血量"] = (totals["最大血量"] || 0) + woodHp[elementalPts.wood];
+    totals["暴擊機率"] = (totals["暴擊機率"] || 0) + waterCrit[elementalPts.water];
+    totals["暴擊傷害"] = (totals["暴擊傷害"] || 0) + fireCritDmg[elementalPts.fire];
+    totals["總體防禦"] = (totals["總體防禦"] || 0) + earthDef[elementalPts.earth];
+
+    // (在原本儲存進度的 if (isAutoSave) 裡面補上這行：)
     if (isAutoSave) {
-        const arrayToSave = Array.from(selectedItems);
-        localStorage.setItem('rpg_calc_save', JSON.stringify(arrayToSave));
+        localStorage.setItem('rpg_calc_save', JSON.stringify(Array.from(selectedItems)));
+        localStorage.setItem('rpg_calc_weekly', JSON.stringify(weeklyPts));
+        localStorage.setItem('rpg_calc_elemental', JSON.stringify(elementalPts)); // 新增五行存檔
     }
+
+    // 判斷達標最低層數
+    let minPts = Math.min(weeklyPts.atk, weeklyPts.hp, weeklyPts.def, weeklyPts.critDmg);
+
+    // 初期 (3層)
+    if (minPts >= 3) {
+        totals["總體防禦"] = (totals["總體防禦"] || 0) + 10;
+        totals["最大血量"] = (totals["最大血量"] || 0) + 20;
+        totals["暴擊機率"] = (totals["暴擊機率"] || 0) + 0.5;
+    }
+    // 中期 (6層) - 注意：加成是疊加的
+    if (minPts >= 6) {
+        totals["攻擊傷害"] = (totals["攻擊傷害"] || 0) + 3;
+        totals["暴擊傷害"] = (totals["暴擊傷害"] || 0) + 20;
+        totals["暴擊機率"] = (totals["暴擊機率"] || 0) + 1.0;
+    }
+    // 後期 (9層)
+    if (minPts >= 9) {
+        totals["總體防禦"] = (totals["總體防禦"] || 0) + 20;
+        totals["最大血量"] = (totals["最大血量"] || 0) + 20;
+        totals["暴擊機率"] = (totals["暴擊機率"] || 0) + 1.5;
+    }
+
+    // 儲存進度
+    if (isAutoSave) {
+        localStorage.setItem('rpg_calc_save', JSON.stringify(Array.from(selectedItems)));
+        localStorage.setItem('rpg_calc_weekly', JSON.stringify(weeklyPts)); // 新增儲存週活躍
+    }
+    // ======================================
+
 
     let convertedAttack = 0;
     let excessCrit = 0;
@@ -709,3 +778,106 @@ function calcDamage() {
     // 顯示結果區 (使用 jQuery 的滑動效果)
     $('#dmg-result-area').slideDown(400);
 }
+
+// === 週活躍懸浮窗控制 ===
+function openWeeklyModal() {
+    updateWeeklyUI();
+    document.body.style.overflow = 'hidden';
+    const modal = document.getElementById('weekly-modal');
+    setTimeout(() => modal.classList.add('open'), 10);
+}
+
+function closeWeeklyModal() {
+    const modal = document.getElementById('weekly-modal');
+    modal.classList.remove('open');
+    setTimeout(() => document.body.style.overflow = '', 300);
+}
+
+function changeWeekly(stat, delta) {
+    let newVal = weeklyPts[stat] + delta;
+    if (newVal >= 0 && newVal <= 9) {
+        weeklyPts[stat] = newVal;
+        updateWeeklyUI();
+        updateCalculation(); // 立即更新背景的總屬性與存檔
+        renderItems();       // 更新首頁按鈕上的「階段文字」
+    }
+}
+
+function updateWeeklyUI() {
+    document.getElementById('w-atk').innerText = weeklyPts.atk;
+    document.getElementById('w-hp').innerText = weeklyPts.hp;
+    document.getElementById('w-def').innerText = weeklyPts.def;
+    document.getElementById('w-crit').innerText = weeklyPts.critDmg;
+
+    let minPts = Math.min(weeklyPts.atk, weeklyPts.hp, weeklyPts.def, weeklyPts.critDmg);
+    let stageHtml = "目前進度：<strong style='color:#bbb;'>未達標</strong>";
+    if (minPts >= 9) stageHtml = "目前進度：<strong style='color:#ffc107;'>後期階段 (全滿)</strong>";
+    else if (minPts >= 6) stageHtml = "目前進度：<strong style='color:#03a9f4;'>中期階段</strong>";
+    else if (minPts >= 3) stageHtml = "目前進度：<strong style='color:#8bc34a;'>初期階段</strong>";
+
+    document.getElementById('w-stage').innerHTML = stageHtml;
+}
+
+// 點擊背景關閉
+document.addEventListener("DOMContentLoaded", function() {
+    const wModal = document.getElementById('weekly-modal');
+    if(wModal) {
+        wModal.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (e.target === this) closeWeeklyModal();
+        });
+    }
+});
+
+// === 五行屬性懸浮窗控制 ===
+function openElementalModal() {
+    updateElementalUI();
+    document.body.style.overflow = 'hidden';
+    const modal = document.getElementById('elemental-modal');
+    setTimeout(() => modal.classList.add('open'), 10);
+}
+
+function closeElementalModal() {
+    const modal = document.getElementById('elemental-modal');
+    modal.classList.remove('open');
+    setTimeout(() => document.body.style.overflow = '', 300);
+}
+
+function changeElemental(stat, delta) {
+    let newVal = elementalPts[stat] + delta;
+    if (newVal >= 0 && newVal <= 5) { // 最大 5 級
+        elementalPts[stat] = newVal;
+        updateElementalUI();
+        updateCalculation();
+        renderItems();
+    }
+}
+
+function updateElementalUI() {
+    document.getElementById('e-metal').innerText = elementalPts.metal;
+    document.getElementById('e-wood').innerText = elementalPts.wood;
+    document.getElementById('e-water').innerText = elementalPts.water;
+    document.getElementById('e-fire').innerText = elementalPts.fire;
+    document.getElementById('e-earth').innerText = elementalPts.earth;
+
+    // 組合新的進度字串：套用高級漸層與微光效果
+    let displayStr =
+        `<span style="background: linear-gradient(to bottom, #fff8db, #d4b476); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 2px rgba(212,180,118,0.4)); font-weight: bold;">金${elementalPts.metal}</span> ` +
+        `<span style="background: linear-gradient(to bottom, #e3ffe3, #83bca9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 2px rgba(131,188,169,0.4)); font-weight: bold;">木${elementalPts.wood}</span> ` +
+        `<span style="background: linear-gradient(to bottom, #dbeaff, #7a9ec2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 2px rgba(122,158,194,0.4)); font-weight: bold;">水${elementalPts.water}</span> ` +
+        `<span style="background: linear-gradient(to bottom, #ffdfdf, #c97b84); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 2px rgba(201,123,132,0.4)); font-weight: bold;">火${elementalPts.fire}</span> ` +
+        `<span style="background: linear-gradient(to bottom, #efe2cf, #c49970); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 2px rgba(196,153,112,0.4)); font-weight: bold;">土${elementalPts.earth}</span>`;
+
+    document.getElementById('e-stage').innerHTML = `目前進度：${displayStr}`;
+}
+
+// 點擊背景關閉
+document.addEventListener("DOMContentLoaded", function() {
+    const eModal = document.getElementById('elemental-modal');
+    if(eModal) {
+        eModal.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (e.target === this) closeElementalModal();
+        });
+    }
+});

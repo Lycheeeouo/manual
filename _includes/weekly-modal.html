@@ -1,0 +1,61 @@
+<div id="weekly-modal" class="modal-overlay">
+    <div class="modal-content" style="max-width: 700px; text-align: center;">
+        <h3 style="margin-bottom: 0.2rem;">週活躍屬性配點</h3>
+        <p id="w-stage" style="margin-bottom: 0.8rem; font-size: 0.9em; letter-spacing: 2px;">目前進度：未達標</p>
+
+        <div style="margin-bottom: 1rem; text-align: center;">
+            <div style="display: inline-block; text-align: left; font-size: 0.85em; color: rgba(255,255,255,0.65); line-height: 1.6; padding: 8px 0; border-top: 1px dashed rgba(255,255,255,0.15); border-bottom: 1px dashed rgba(255,255,255,0.15); width: 90%;">
+
+                <div style="margin-bottom: 4px;">
+                    <strong style="color: rgba(255,255,255,0.9);">達標額外加成(⁎⁍̴̛ᴗ⁍̴̛⁎)‼</strong>
+                </div>
+
+                <div style="text-align: center;">
+                    <div style="display: inline-block; text-align: left;">
+                        <span style="color: #8bc34a; font-weight: bold; text-shadow: 0 0 3px rgba(139, 195, 74, 0.4);">【初期】各點滿 3 次</span>：總防+10 / 血量+20 / 暴擊機率+0.5%<br>
+                        <span style="color: #03a9f4; font-weight: bold; text-shadow: 0 0 3px rgba(3, 169, 244, 0.4);">【中期】各點滿 6 次</span>：攻擊+3 / 暴傷+20 / 暴擊機率+1.0%<br>
+                        <span style="color: #ffc107; font-weight: bold; text-shadow: 0 0 3px rgba(255, 193, 7, 0.4);">【後期】各點滿 9 次</span>：總防+20 / 血量+20 / 暴擊機率+1.5%
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.5rem; width: 380px; margin-left: auto; margin-right: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.3rem;">
+                <span style="width: 160px; text-align: left; white-space: nowrap;">攻擊 (每點+3)</span>
+                <div>
+                    <button class="button small" style="padding: 0 1rem;" onclick="changeWeekly('atk', -1)">-</button>
+                    <span id="w-atk" style="display: inline-block; width: 30px; font-weight: bold;">0</span>
+                    <button class="button small" style="padding: 0 1rem;" onclick="changeWeekly('atk', 1)">+</button>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.3rem;">
+                <span style="width: 160px; text-align: left; white-space: nowrap;">血量 (每點+6)</span>
+                <div>
+                    <button class="button small" style="padding: 0 1rem;" onclick="changeWeekly('hp', -1)">-</button>
+                    <span id="w-hp" style="display: inline-block; width: 30px; font-weight: bold;">0</span>
+                    <button class="button small" style="padding: 0 1rem;" onclick="changeWeekly('hp', 1)">+</button>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.3rem;">
+                <span style="width: 160px; text-align: left; white-space: nowrap;">防禦 (每點+6)</span>
+                <div>
+                    <button class="button small" style="padding: 0 1rem;" onclick="changeWeekly('def', -1)">-</button>
+                    <span id="w-def" style="display: inline-block; width: 30px; font-weight: bold;">0</span>
+                    <button class="button small" style="padding: 0 1rem;" onclick="changeWeekly('def', 1)">+</button>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.3rem;">
+                <span style="width: 160px; text-align: left; white-space: nowrap;">暴傷 (每點+30)</span>
+                <div>
+                    <button class="button small" style="padding: 0 1rem;" onclick="changeWeekly('critDmg', -1)">-</button>
+                    <span id="w-crit" style="display: inline-block; width: 30px; font-weight: bold;">0</span>
+                    <button class="button small" style="padding: 0 1rem;" onclick="changeWeekly('critDmg', 1)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <button class="button primary fit" onclick="closeWeeklyModal()">完成</button>
+    </div>
+</div>

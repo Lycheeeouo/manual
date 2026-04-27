@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="Add a README">
+      <change afterPath="$PROJECT_DIR$/_includes/elemental-modal.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_includes/weekly-modal.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/_site/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/js/calculator.js" beforeDir="false" afterPath="$PROJECT_DIR$/_site/assets/js/calculator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/calculator.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/calculator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,14 +105,7 @@
       <workItem from="1776888537803" duration="3035000" />
       <workItem from="1776892099468" duration="912000" />
       <workItem from="1777299379347" duration="1553000" />
-    </task>
-    <task id="LOCAL-00030" summary="1.效能優化&#10;&amp;background=1">
-      <option name="closed" value="true" />
-      <created>1765888916645</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1765888916645</updated>
+      <workItem from="1777306217997" duration="5736000" />
     </task>
     <task id="LOCAL-00031" summary="1.效能優化&#10;&amp;background=1">
       <option name="closed" value="true" />
@@ -493,7 +491,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776892980386</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="Add a README">
+      <option name="closed" value="true" />
+      <created>1777306512744</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1777306512744</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
