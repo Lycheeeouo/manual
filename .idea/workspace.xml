@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="Add a README">
-      <change afterPath="$PROJECT_DIR$/_includes/elemental-modal.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_includes/weekly-modal.html" afterDir="false" />
+    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="【設定】五行屬性加點 &#10;【設定】週活躍加點 &#10;新增 追獵者攻擊傷害0.5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/_site/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/assets/js/calculator.js" beforeDir="false" afterPath="$PROJECT_DIR$/_site/assets/js/calculator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/calculator.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/calculator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,23 +98,7 @@
       <workItem from="1776888537803" duration="3035000" />
       <workItem from="1776892099468" duration="912000" />
       <workItem from="1777299379347" duration="1553000" />
-      <workItem from="1777306217997" duration="5736000" />
-    </task>
-    <task id="LOCAL-00031" summary="1.效能優化&#10;&amp;background=1">
-      <option name="closed" value="true" />
-      <created>1765889039260</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1765889039260</updated>
-    </task>
-    <task id="LOCAL-00032" summary="1.效能優化&#10;&amp;background=1">
-      <option name="closed" value="true" />
-      <created>1765901197345</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1765901197345</updated>
+      <workItem from="1777306217997" duration="6472000" />
     </task>
     <task id="LOCAL-00033" summary="1.測試">
       <option name="closed" value="true" />
@@ -499,14 +476,29 @@
       <option name="project" value="LOCAL" />
       <updated>1777306512744</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="【設定】五行屬性加點 &#10;【設定】週活躍加點 &#10;新增 追獵者攻擊傷害0.5">
+      <option name="closed" value="true" />
+      <created>1777314624424</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1777314624424</updated>
+    </task>
+    <task id="LOCAL-00081" summary="【設定】五行屬性加點 &#10;【設定】週活躍加點 &#10;新增 追獵者攻擊傷害0.5">
+      <option name="closed" value="true" />
+      <created>1777314638229</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1777314638229</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="模型2.0" />
     <MESSAGE value="屬性加成 debug" />
     <MESSAGE value="屬性加成 debug2.0" />
     <MESSAGE value="模型相關更新" />
@@ -531,7 +523,8 @@
     <MESSAGE value="優化界面" />
     <MESSAGE value="網站程式碼整理與模組化&#10;1.把CSS(樣式)抽離&#10;assets/css/custom.css&#10;2.把JavaScript(功能)抽離&#10;tabs.js(放分頁切換的openTab,initTab等程式碼)&#10;3d-models.js(放3D皮膚模組的程式碼)&#10;calculator.js&#10;(放傷害計算機的statData、initCalculator等程式碼)&#10;3.把HTML(內容)模組化&#10;boss-hard-1.html包含&lt;article id=&quot;boss1&quot;&gt;&#10;boss-normal-2.html包含&lt;article id=&quot;boss2&quot;&gt;&#10;boss-hard-2.html包含&lt;article id=&quot;boss3&quot;&gt;&#10;title-attributes.html包含&lt;article id=&quot;Title&quot;&gt;&#10;（那一長串稱號資料庫也跟著走）&#10;damage-modal.html包含&#10;最底部的&lt;div id=&quot;damage-modal&quot;&gt;視窗程式碼" />
     <MESSAGE value="Add a README" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add a README" />
+    <MESSAGE value="【設定】五行屬性加點 &#10;【設定】週活躍加點 &#10;新增 追獵者攻擊傷害0.5" />
+    <option name="LAST_COMMIT_MESSAGE" value="【設定】五行屬性加點 &#10;【設定】週活躍加點 &#10;新增 追獵者攻擊傷害0.5" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

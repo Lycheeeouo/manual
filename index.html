@@ -23,11 +23,11 @@
     <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" media="print" onload="this.media='all'" />
     <noscript><link rel="stylesheet" href="assets/css/fontawesome-all.min.css" /></noscript>
 
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/main.css?v={{ site.time | date: '%s' }}" />
 
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css?v={{ site.time | date: '%s' }}" /></noscript>
 
-    <link rel="stylesheet" href="assets/css/custom.css" />
+    <link rel="stylesheet" href="assets/css/custom.css?v={{ site.time | date: '%s' }}" />
 
 </head>
 <body class="is-preload">
@@ -431,16 +431,14 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 <script src="assets/js/browser.min.js"></script>
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="assets/js/main.js?v={{ site.time | date: '%s' }}"></script>
 
-<!-- Tabs -->
-<script src="assets/js/tabs.js"></script>
-
+<script src="assets/js/tabs.js?v={{ site.time | date: '%s' }}"></script>
 
 <script src="https://bs-community.github.io/skinview3d/js/skinview3d.bundle.js"></script>
-<script src="assets/js/3d-models.js"></script>
+<script src="assets/js/3d-models.js?v={{ site.time | date: '%s' }}"></script>
 
-<script src="assets/js/calculator.js"></script>
+<script src="assets/js/calculator.js?v={{ site.time | date: '%s' }}"></script>
 
 
 
