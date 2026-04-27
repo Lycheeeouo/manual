@@ -218,6 +218,15 @@ function renderItems() {
     if(!container) return;
     container.innerHTML = '';
 
+    const liSelectAll = document.getElementById('li-select-all');
+
+    // 判斷目前的篩選器是否為料理或特殊
+    if (currentFilter === '料理' || currentFilter === 'cooking' || currentFilter === '特殊') {
+        liSelectAll.style.display = 'none'; // 直接不佔空間地隱藏
+    } else {
+        liSelectAll.style.display = 'inline-block'; // 恢復顯示
+    }
+
     // --- 情況 A: 料理分類 (依照子分類顯示) ---
     if (currentFilter === 'cooking') {
         const cookingSubCats = {
@@ -351,62 +360,102 @@ function toggleGroup(name) {
     updateCalculation();
 }
 
-// === 新增功能：全部選取 ===
 function selectAllItems() {
+    // 只有在非料理篩選模式下才執行
+    if (currentFilter === 'cooking') return;
+
+    // 取得當前畫面上所有不重複的稱號名稱
     const allNames = [...new Set(statData.map(d => d.name))];
+
     allNames.forEach(name => {
         const groupItems = statData.filter(d => d.name === name);
+        const firstItem = groupItems[0];
+
+        // 1. 排除料理分類
+        if (firstItem.extra && firstItem.extra.cat === 'cooking') return;
+
+        // 2. 排除特殊設定按鈕（週活躍、五行等）
+        if (firstItem.extra && (firstItem.extra.isWeeklyTrigger || firstItem.extra.isElementalTrigger)) return;
+
+        // 3. 根據目前篩選器判斷是否選取
         let shouldSelect = false;
-
-        // 只有在非料理模式下才允許全選
-        if (currentFilter === 'cooking') return;
-
-        // 嚴格排除料理 (就算在 All 模式下按全選，也不選料理)
-        if (groupItems[0].extra && groupItems[0].extra.cat === 'cooking') return;
-
         if (currentFilter === 'all') {
             shouldSelect = true;
-        } else {
-            if (groupItems.some(item => item.type === currentFilter)) {
-                shouldSelect = true;
-            }
+        } else if (groupItems.some(item => item.type === currentFilter)) {
+            shouldSelect = true;
         }
 
         if (shouldSelect) {
             groupItems.forEach(item => selectedItems.add(item.id));
         }
     });
+
     renderItems();
     updateCalculation();
 }
 
-// === 新增功能：全部取消 (修改版) ===
 function deselectAllItems() {
+    // 1. 如果是在「全部顯示」模式
     if (currentFilter === 'all') {
         selectedItems.clear();
-    } else if (currentFilter === 'cooking') {
-        // 料理頁面只取消料理
+    }
+    // 2. 如果是在「料理」分頁
+    else if (currentFilter === 'cooking' || currentFilter === '料理') {
         selectedItems.forEach(id => {
             const item = statData.find(d => d.id === id);
-            if (item && item.extra && item.extra.cat === 'cooking') {
+            if (item && item.extra && (item.extra.cat === 'cooking' || item.extra.cat === '料理')) {
                 selectedItems.delete(id);
             }
         });
-    } else {
-        // 特定屬性頁面，只取消該屬性相關 (且非料理)
-        const allNames = [...new Set(statData.map(d => d.name))];
-        allNames.forEach(name => {
-            const groupItems = statData.filter(d => d.name === name);
-            // 排除料理
-            if (groupItems[0].extra && groupItems[0].extra.cat === 'cooking') return;
+    }
+    // 3. 如果是在「特殊」分頁：除了清除選取，還要重置五行與週活躍
+    else if (currentFilter === '特殊') {
+        // A. 清除該分頁下一般稱號的選取
+        const specialItems = statData.filter(d => d.type === '特殊');
+        specialItems.forEach(item => {
+            selectedItems.delete(item.id);
+        });
 
-            if (groupItems.some(item => item.type === currentFilter)) {
-                groupItems.forEach(item => selectedItems.delete(item.id));
-            }
+        // B. 執行數值重置魔法
+        resetSpecialSettings();
+    }
+    // 4. 其他屬性分頁
+    else {
+        const visibleItems = statData.filter(d => d.type === currentFilter);
+        visibleItems.forEach(item => {
+            selectedItems.delete(item.id);
         });
     }
+
     renderItems();
-    updateCalculation(); // 這裡原本就會呼叫 updateCalculation，所以會自動觸發存檔，不用額外改！
+    updateCalculation();
+}
+
+// --- 輔助函式：將週活躍與五行數值與介面全部歸零 ---
+function resetSpecialSettings() {
+    // 1. 週活躍數據歸零
+    weeklyPts = { atk: 0, hp: 0, def: 0, critDmg: 0 };
+
+    // 手動更新週活躍面板的數字與狀態
+    const wAtk = document.getElementById('w-atk');
+    const wHp = document.getElementById('w-hp');
+    const wDef = document.getElementById('w-def');
+    const wCrit = document.getElementById('w-crit');
+    if(wAtk) wAtk.innerText = 0;
+    if(wHp) wHp.innerText = 0;
+    if(wDef) wDef.innerText = 0;
+    if(wCrit) wCrit.innerText = 0;
+
+    const wStage = document.getElementById('w-stage');
+    if(wStage) wStage.innerText = "目前進度：未達標";
+
+    // 2. 五行屬性數據歸零
+    elementalPts = { metal: 0, wood: 0, water: 0, fire: 0, earth: 0 };
+
+    // 呼叫我們之前寫好的更新函式，它會處理彩色文字與面板顯示
+    if (typeof updateElementalUI === 'function') {
+        updateElementalUI();
+    }
 }
 
 // === 7. 統一顏色設定檔 (Color Palette) ===
