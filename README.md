@@ -22,21 +22,28 @@
 
 ```text
 📁 專案根目錄
-├── 📄 index.html           # 網站主入口 (已將複雜區塊抽離)
-├── 📄 README.md            # 專案說明書 (就是這份檔案)
-├── 📁 _includes/           # HTML 模組區 (GitHub Pages 會自動拼裝)
-│   ├── boss-hard-1.html    # 困難一王區塊
-│   ├── boss-normal-2.html  # 普通二王區塊
-│   ├── title-attributes.html # 屬性加成面板
-│   └── damage-modal.html   # 傷害計算機視窗
+├── 📄 index.html             # 網站主入口 (已將複雜區塊抽離)
+├── 📄 README.md              # 專案說明書 (就是這份檔案)
+├── 📁 _includes/             # HTML 模組區 (GitHub Pages 會自動拼裝)
+│   ├── boss-hard-1.html      # 困難一王區塊
+│   ├── boss-hard-2.html      # 困難二王區塊
+│   ├── boss-normal-2.html    # 普通二王區塊
+│   ├── title-attributes.html # 屬性加成主面板
+│   ├── damage-modal.html     # 傷害計算機視窗
+│   ├── elemental-modal.html  # 五行屬性配點懸浮視窗
+│   └── weekly-modal.html     # 週活躍配點懸浮視窗
 ├── 📁 assets/
 │   ├── 📁 css/
-│   │   └── custom.css      # 網站所有的自訂樣式、顏色與排版
-│   └── 📁 js/
-│       ├── tabs.js         # 分頁與折疊選單切換邏輯
-│       ├── 3d-models.js    # 3D 人物模型與動作設定
-│       └── calculator.js   # 稱號資料庫與傷害計算核心邏輯
-└── 📁 images/              # 存放所有的圖片與 GIF
+│   │   ├── custom.css        # 網站所有的自訂樣式、顏色與排版
+│   │   └── ...               # 其他模板預設樣式 (main, fontawesome 等)
+│   ├── 📁 js/
+│   │   ├── tabs.js           # 分頁與折疊選單切換邏輯
+│   │   ├── 3d-models.js      # 3D 人物模型與動作設定
+│   │   ├── calculator.js     # 稱號資料庫與加成計算核心邏輯
+│   │   └── ...               # 其他模板預設腳本 (jquery, browser 等)
+│   ├── 📁 sass/              # SASS 樣式原始檔
+│   └── 📁 webfonts/          # 字體圖示檔 (FontAwesome)
+└── 📁 images/
 ```
 
 

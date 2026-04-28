@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="優化「全部選取」和「全部取消」">
+    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="「不蒜子」人數統計器">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,15 +99,7 @@
       <workItem from="1776892099468" duration="912000" />
       <workItem from="1777299379347" duration="1553000" />
       <workItem from="1777306217997" duration="7898000" />
-      <workItem from="1777344092609" duration="358000" />
-    </task>
-    <task id="LOCAL-00035" summary="1.稱號加成">
-      <option name="closed" value="true" />
-      <created>1768318890234</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1768318890234</updated>
+      <workItem from="1777344092609" duration="834000" />
     </task>
     <task id="LOCAL-00036" summary="1.稱號加成">
       <option name="closed" value="true" />
@@ -495,14 +485,21 @@
       <option name="project" value="LOCAL" />
       <updated>1777316488653</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="「不蒜子」人數統計器">
+      <option name="closed" value="true" />
+      <created>1777344706197</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1777344706197</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="模型相關更新" />
     <MESSAGE value="模型相關更新2.0" />
     <MESSAGE value="改星星icon" />
     <MESSAGE value="改名字" />
@@ -527,7 +524,8 @@
     <MESSAGE value="【設定】五行屬性加點 &#10;【設定】週活躍加點 &#10;新增 追獵者攻擊傷害0.5" />
     <MESSAGE value="新增 快取破解 (Cache Busting)" />
     <MESSAGE value="優化「全部選取」和「全部取消」" />
-    <option name="LAST_COMMIT_MESSAGE" value="優化「全部選取」和「全部取消」" />
+    <MESSAGE value="「不蒜子」人數統計器" />
+    <option name="LAST_COMMIT_MESSAGE" value="「不蒜子」人數統計器" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
