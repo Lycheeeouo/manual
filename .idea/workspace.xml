@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="新增 快取破解 (Cache Busting)">
+    <list default="true" id="cca16ed1-d90c-4f92-9d8f-dae8c4b23f88" name="Changes" comment="優化「全部選取」和「全部取消」">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/title-attributes.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/title-attributes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/assets/js/calculator.js" beforeDir="false" afterPath="$PROJECT_DIR$/_site/assets/js/calculator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/calculator.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/calculator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,15 +100,8 @@
       <workItem from="1776888537803" duration="3035000" />
       <workItem from="1776892099468" duration="912000" />
       <workItem from="1777299379347" duration="1553000" />
-      <workItem from="1777306217997" duration="7730000" />
-    </task>
-    <task id="LOCAL-00034" summary="1.把超笨EMT放到濱豆旁邊">
-      <option name="closed" value="true" />
-      <created>1767640310290</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1767640310291</updated>
+      <workItem from="1777306217997" duration="7898000" />
+      <workItem from="1777344092609" duration="358000" />
     </task>
     <task id="LOCAL-00035" summary="1.稱號加成">
       <option name="closed" value="true" />
@@ -496,14 +487,21 @@
       <option name="project" value="LOCAL" />
       <updated>1777315194378</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="優化「全部選取」和「全部取消」">
+      <option name="closed" value="true" />
+      <created>1777316488653</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1777316488653</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="屬性加成 debug2.0" />
     <MESSAGE value="模型相關更新" />
     <MESSAGE value="模型相關更新2.0" />
     <MESSAGE value="改星星icon" />
@@ -528,7 +526,8 @@
     <MESSAGE value="Add a README" />
     <MESSAGE value="【設定】五行屬性加點 &#10;【設定】週活躍加點 &#10;新增 追獵者攻擊傷害0.5" />
     <MESSAGE value="新增 快取破解 (Cache Busting)" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增 快取破解 (Cache Busting)" />
+    <MESSAGE value="優化「全部選取」和「全部取消」" />
+    <option name="LAST_COMMIT_MESSAGE" value="優化「全部選取」和「全部取消」" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
