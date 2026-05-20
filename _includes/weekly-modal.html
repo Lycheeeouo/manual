@@ -21,37 +21,38 @@
             </div>
         </div>
 
-        <div style="display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.5rem; width: 380px; margin-left: auto; margin-right: auto;">
+        <div style="display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.5rem; width: 100%; max-width: 380px; margin-left: auto; margin-right: auto; padding: 0 10px; box-sizing: border-box;">
+
             <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.3rem;">
-                <span style="width: 160px; text-align: left; white-space: nowrap;">攻擊 (每點+3)</span>
-                <div>
-                    <button class="button small" style="padding: 0 1rem;" onclick="changeWeekly('atk', -1)">-</button>
-                    <span id="w-atk" style="display: inline-block; width: 30px; font-weight: bold;">0</span>
-                    <button class="button small" style="padding: 0 1rem;" onclick="changeWeekly('atk', 1)">+</button>
+                <span style="flex: 1; text-align: left; white-space: nowrap;">攻擊 (每點+3)</span>
+                <div style="display: flex; align-items: center;">
+                    <button class="button small" style="padding: 0 12px; border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important; font-weight: bold; font-size: 1.2em; cursor: pointer; color: white;" onclick="changeWeekly('atk', -1)">-</button>
+                    <span id="w-atk" style="display: inline-block; width: 32px; text-align: center; font-weight: bold; font-size: 1.1em;">0</span>
+                    <button class="button small" style="padding: 0 12px; border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important; font-weight: bold; font-size: 1.2em; cursor: pointer; color: white;" onclick="changeWeekly('atk', 1)">+</button>
                 </div>
             </div>
             <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.3rem;">
-                <span style="width: 160px; text-align: left; white-space: nowrap;">血量 (每點+6)</span>
-                <div>
-                    <button class="button small" style="padding: 0 1rem;" onclick="changeWeekly('hp', -1)">-</button>
-                    <span id="w-hp" style="display: inline-block; width: 30px; font-weight: bold;">0</span>
-                    <button class="button small" style="padding: 0 1rem;" onclick="changeWeekly('hp', 1)">+</button>
+                <span style="flex: 1; text-align: left; white-space: nowrap;">血量 (每點+6)</span>
+                <div style="display: flex; align-items: center;">
+                    <button class="button small" style="padding: 0 12px; border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important; font-weight: bold; font-size: 1.2em; cursor: pointer; color: white;" onclick="changeWeekly('hp', -1)">-</button>
+                    <span id="w-hp" style="display: inline-block; width: 32px; text-align: center; font-weight: bold; font-size: 1.1em;">0</span>
+                    <button class="button small" style="padding: 0 12px; border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important; font-weight: bold; font-size: 1.2em; cursor: pointer; color: white;" onclick="changeWeekly('hp', 1)">+</button>
                 </div>
             </div>
             <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.3rem;">
-                <span style="width: 160px; text-align: left; white-space: nowrap;">防禦 (每點+6)</span>
-                <div>
-                    <button class="button small" style="padding: 0 1rem;" onclick="changeWeekly('def', -1)">-</button>
-                    <span id="w-def" style="display: inline-block; width: 30px; font-weight: bold;">0</span>
-                    <button class="button small" style="padding: 0 1rem;" onclick="changeWeekly('def', 1)">+</button>
+                <span style="flex: 1; text-align: left; white-space: nowrap;">防禦 (每點+6)</span>
+                <div style="display: flex; align-items: center;">
+                    <button class="button small" style="padding: 0 12px; border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important; font-weight: bold; font-size: 1.2em; cursor: pointer; color: white;" onclick="changeWeekly('def', -1)">-</button>
+                    <span id="w-def" style="display: inline-block; width: 32px; text-align: center; font-weight: bold; font-size: 1.1em;">0</span>
+                    <button class="button small" style="padding: 0 12px; border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important; font-weight: bold; font-size: 1.2em; cursor: pointer; color: white;" onclick="changeWeekly('def', 1)">+</button>
                 </div>
             </div>
             <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.3rem;">
-                <span style="width: 160px; text-align: left; white-space: nowrap;">暴傷 (每點+30)</span>
-                <div>
-                    <button class="button small" style="padding: 0 1rem;" onclick="changeWeekly('critDmg', -1)">-</button>
-                    <span id="w-crit" style="display: inline-block; width: 30px; font-weight: bold;">0</span>
-                    <button class="button small" style="padding: 0 1rem;" onclick="changeWeekly('critDmg', 1)">+</button>
+                <span style="flex: 1; text-align: left; white-space: nowrap;">暴傷 (每點+30)</span>
+                <div style="display: flex; align-items: center;">
+                    <button class="button small" style="padding: 0 12px; border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important; font-weight: bold; font-size: 1.2em; cursor: pointer; color: white;" onclick="changeWeekly('critDmg', -1)">-</button>
+                    <span id="w-crit" style="display: inline-block; width: 32px; text-align: center; font-weight: bold; font-size: 1.1em;">0</span>
+                    <button class="button small" style="padding: 0 12px; border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important; font-weight: bold; font-size: 1.2em; cursor: pointer; color: white;" onclick="changeWeekly('critDmg', 1)">+</button>
                 </div>
             </div>
         </div>

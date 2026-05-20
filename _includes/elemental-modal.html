@@ -23,45 +23,46 @@
             </div>
         </div>
 
-        <div style="display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.5rem; width: 380px; margin-left: auto; margin-right: auto;">
+        <div style="display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.5rem; width: 100%; max-width: 380px; margin-left: auto; margin-right: auto; padding: 0 10px; box-sizing: border-box;">
+
             <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.3rem;">
-                <span style="width: 140px; text-align: left; white-space: nowrap;"><span style="background: linear-gradient(to bottom, #fff8db, #d4b476); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 2px rgba(212,180,118,0.4)); font-weight: bold; font-size: 1.1em;">金金</span> (攻擊)</span>
-                <div>
-                    <button class="button small" style="padding: 0 1rem;" onclick="changeElemental('metal', -1)">-</button>
-                    <span id="e-metal" style="display: inline-block; width: 30px; font-weight: bold;">0</span>
-                    <button class="button small" style="padding: 0 1rem;" onclick="changeElemental('metal', 1)">+</button>
+                <span style="flex: 1; text-align: left; white-space: nowrap;"><span style="background: linear-gradient(to bottom, #fff8db, #d4b476); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 2px rgba(212,180,118,0.4)); font-weight: bold; font-size: 1.1em;">金金</span> (攻擊)</span>
+                <div style="display: flex; align-items: center;">
+                    <button class="button small" style="padding: 0 12px; border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important; font-weight: bold; font-size: 1.2em; cursor: pointer; color: white;" onclick="changeElemental('metal', -1)">-</button>
+                    <span id="e-metal" style="display: inline-block; width: 32px; text-align: center; font-weight: bold; font-size: 1.1em;">0</span>
+                    <button class="button small" style="padding: 0 12px; border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important; font-weight: bold; font-size: 1.2em; cursor: pointer; color: white;" onclick="changeElemental('metal', 1)">+</button>
                 </div>
             </div>
             <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.3rem;">
-                <span style="width: 140px; text-align: left; white-space: nowrap;"><span style="background: linear-gradient(to bottom, #e3ffe3, #83bca9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 2px rgba(131,188,169,0.4)); font-weight: bold; font-size: 1.1em;">木木</span> (血量)</span>
-                <div>
-                    <button class="button small" style="padding: 0 1rem;" onclick="changeElemental('wood', -1)">-</button>
-                    <span id="e-wood" style="display: inline-block; width: 30px; font-weight: bold;">0</span>
-                    <button class="button small" style="padding: 0 1rem;" onclick="changeElemental('wood', 1)">+</button>
+                <span style="flex: 1; text-align: left; white-space: nowrap;"><span style="background: linear-gradient(to bottom, #e3ffe3, #83bca9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 2px rgba(131,188,169,0.4)); font-weight: bold; font-size: 1.1em;">木木</span> (血量)</span>
+                <div style="display: flex; align-items: center;">
+                    <button class="button small" style="padding: 0 12px; border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important; font-weight: bold; font-size: 1.2em; cursor: pointer; color: white;" onclick="changeElemental('wood', -1)">-</button>
+                    <span id="e-wood" style="display: inline-block; width: 32px; text-align: center; font-weight: bold; font-size: 1.1em;">0</span>
+                    <button class="button small" style="padding: 0 12px; border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important; font-weight: bold; font-size: 1.2em; cursor: pointer; color: white;" onclick="changeElemental('wood', 1)">+</button>
                 </div>
             </div>
             <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.3rem;">
-                <span style="width: 140px; text-align: left; white-space: nowrap;"><span style="background: linear-gradient(to bottom, #dbeaff, #7a9ec2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 2px rgba(122,158,194,0.4)); font-weight: bold; font-size: 1.1em;">水水</span> (暴擊機率)</span>
-                <div>
-                    <button class="button small" style="padding: 0 1rem;" onclick="changeElemental('water', -1)">-</button>
-                    <span id="e-water" style="display: inline-block; width: 30px; font-weight: bold;">0</span>
-                    <button class="button small" style="padding: 0 1rem;" onclick="changeElemental('water', 1)">+</button>
+                <span style="flex: 1; text-align: left; white-space: nowrap;"><span style="background: linear-gradient(to bottom, #dbeaff, #7a9ec2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 2px rgba(122,158,194,0.4)); font-weight: bold; font-size: 1.1em;">水水</span> (暴擊機率)</span>
+                <div style="display: flex; align-items: center;">
+                    <button class="button small" style="padding: 0 12px; border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important; font-weight: bold; font-size: 1.2em; cursor: pointer; color: white;" onclick="changeElemental('water', -1)">-</button>
+                    <span id="e-water" style="display: inline-block; width: 32px; text-align: center; font-weight: bold; font-size: 1.1em;">0</span>
+                    <button class="button small" style="padding: 0 12px; border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important; font-weight: bold; font-size: 1.2em; cursor: pointer; color: white;" onclick="changeElemental('water', 1)">+</button>
                 </div>
             </div>
             <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.3rem;">
-                <span style="width: 140px; text-align: left; white-space: nowrap;"><span style="background: linear-gradient(to bottom, #ffdfdf, #c97b84); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 2px rgba(201,123,132,0.4)); font-weight: bold; font-size: 1.1em;">火火</span> (暴傷)</span>
-                <div>
-                    <button class="button small" style="padding: 0 1rem;" onclick="changeElemental('fire', -1)">-</button>
-                    <span id="e-fire" style="display: inline-block; width: 30px; font-weight: bold;">0</span>
-                    <button class="button small" style="padding: 0 1rem;" onclick="changeElemental('fire', 1)">+</button>
+                <span style="flex: 1; text-align: left; white-space: nowrap;"><span style="background: linear-gradient(to bottom, #ffdfdf, #c97b84); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 2px rgba(201,123,132,0.4)); font-weight: bold; font-size: 1.1em;">火火</span> (暴傷)</span>
+                <div style="display: flex; align-items: center;">
+                    <button class="button small" style="padding: 0 12px; border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important; font-weight: bold; font-size: 1.2em; cursor: pointer; color: white;" onclick="changeElemental('fire', -1)">-</button>
+                    <span id="e-fire" style="display: inline-block; width: 32px; text-align: center; font-weight: bold; font-size: 1.1em;">0</span>
+                    <button class="button small" style="padding: 0 12px; border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important; font-weight: bold; font-size: 1.2em; cursor: pointer; color: white;" onclick="changeElemental('fire', 1)">+</button>
                 </div>
             </div>
             <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.3rem;">
-                <span style="width: 140px; text-align: left; white-space: nowrap;"><span style="background: linear-gradient(to bottom, #efe2cf, #c49970); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 2px rgba(196,153,112,0.4)); font-weight: bold; font-size: 1.1em;">土土</span> (總防)</span>
-                <div>
-                    <button class="button small" style="padding: 0 1rem;" onclick="changeElemental('earth', -1)">-</button>
-                    <span id="e-earth" style="display: inline-block; width: 30px; font-weight: bold;">0</span>
-                    <button class="button small" style="padding: 0 1rem;" onclick="changeElemental('earth', 1)">+</button>
+                <span style="flex: 1; text-align: left; white-space: nowrap;"><span style="background: linear-gradient(to bottom, #efe2cf, #c49970); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 2px rgba(196,153,112,0.4)); font-weight: bold; font-size: 1.1em;">土土</span> (總防)</span>
+                <div style="display: flex; align-items: center;">
+                    <button class="button small" style="padding: 0 12px; border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important; font-weight: bold; font-size: 1.2em; cursor: pointer; color: white;" onclick="changeElemental('earth', -1)">-</button>
+                    <span id="e-earth" style="display: inline-block; width: 32px; text-align: center; font-weight: bold; font-size: 1.1em;">0</span>
+                    <button class="button small" style="padding: 0 12px; border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important; font-weight: bold; font-size: 1.2em; cursor: pointer; color: white;" onclick="changeElemental('earth', 1)">+</button>
                 </div>
             </div>
         </div>
